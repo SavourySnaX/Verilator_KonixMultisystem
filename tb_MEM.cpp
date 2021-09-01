@@ -40,6 +40,14 @@ int doNTicks(VMEM *tb, VerilatedVcdC* trace, int ticks, int n)
     return ticks+n;
 }
 
+void SetWD(VMEM *tb, uint8_t value)
+{
+    tb->WD_0=value&1;
+    tb->WD_1=(value>>1)&1;
+    tb->WD_2=(value>>2)&1;
+    tb->WD_3=(value>>3)&1;
+}
+
 int main(int argc, char** argv)
 {
 	Verilated::commandArgs(argc,argv);
@@ -63,12 +71,12 @@ int main(int argc, char** argv)
     tb->A_0=0;
     tb->A_18=0;
     tb->A_19=0;
-    tb->VBUSYL=3;
+    tb->VBUSYL_0=tb->VBUSYL_1=1;
     tb->VCS=0;
     tb->VOE=0;
     tb->VCAS=0;
     tb->VRAS=0;
-    tb->WD=0;
+    SetWD(tb,0);
     tb->MEMLD=0;
     tb->PSUEDO=0;
     tb->BWORD=0;
