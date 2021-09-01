@@ -9,7 +9,7 @@
 This module is the io decode in the SLIPSTREAM chip on the ACW
 */
 
-module IODEC                                                                    //[00014] MODULE IODEC;
+module m_IODEC                                                                  //[00014] MODULE IODEC;
 (                                                                               //[00014] MODULE IODEC;
 
     input    RESETL_0,                                                          //[00016] INPUTS	RESETL_0,CLK,IOML,VRD,VWR,A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7;

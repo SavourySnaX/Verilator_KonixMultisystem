@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "VCLOCK.h"
+#include "Vm_CLOCK.h"
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 
@@ -9,7 +9,7 @@ int main(int argc, char** argv)
 
 	Verilated::traceEverOn(true);
 
-	VCLOCK *tb = new VCLOCK;
+	Vm_CLOCK *tb = new Vm_CLOCK;
 
 	VerilatedVcdC *trace = new VerilatedVcdC;
 

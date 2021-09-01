@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "VMEM.h"
+#include "Vm_MEM.h"
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 
@@ -15,7 +15,7 @@
 //
 // TODO check rest of design, only tested address decode so far
 //
-void tick(VMEM *tb, VerilatedVcdC* trace, int ticks)
+void tick(Vm_MEM *tb, VerilatedVcdC* trace, int ticks)
 {
     tb->CLK=1;
     tb->DQCLK=1;
@@ -31,7 +31,7 @@ void tick(VMEM *tb, VerilatedVcdC* trace, int ticks)
     trace->flush();
 }
 
-int doNTicks(VMEM *tb, VerilatedVcdC* trace, int ticks, int n)
+int doNTicks(Vm_MEM *tb, VerilatedVcdC* trace, int ticks, int n)
 {
     for (int a=0;a<n;a++)
     {
@@ -40,7 +40,7 @@ int doNTicks(VMEM *tb, VerilatedVcdC* trace, int ticks, int n)
     return ticks+n;
 }
 
-void SetWD(VMEM *tb, uint8_t value)
+void SetWD(Vm_MEM *tb, uint8_t value)
 {
     tb->WD_0=value&1;
     tb->WD_1=(value>>1)&1;
@@ -54,7 +54,7 @@ int main(int argc, char** argv)
 
 	Verilated::traceEverOn(true);
 
-	VMEM *tb = new VMEM;
+	Vm_MEM *tb = new Vm_MEM;
 
 	VerilatedVcdC *trace = new VerilatedVcdC;
 

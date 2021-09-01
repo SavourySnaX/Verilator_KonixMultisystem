@@ -9,7 +9,7 @@
 This module is the provides memory timing in the SLIPSTREAM chip on the ACW
 */
 
-module MEM                                                                      //[00016] MODULE MEM;
+module m_MEM                                                                    //[00016] MODULE MEM;
 (                                                                               //[00016] MODULE MEM;
 
     input    RESETL_0,                                                          //[00018] INPUTS	RESETL_0,CLK,DQCLK,BMREQ,DMREQ,HLDAL,RDL,WRL,IOML,A_0,A_18,A_19,VBUSYL_0,

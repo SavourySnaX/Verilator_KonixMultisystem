@@ -1,9 +1,9 @@
 #include <stdlib.h>
-#include "VSTAT.h"
+#include "Vm_STAT.h"
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 
-void tick(VSTAT *tb, VerilatedVcdC* trace, int ticks)
+void tick(Vm_STAT *tb, VerilatedVcdC* trace, int ticks)
 {
     tb->XTALL=1;
     trace->dump(ticks*10-2);
@@ -15,7 +15,7 @@ void tick(VSTAT *tb, VerilatedVcdC* trace, int ticks)
     trace->flush();
 }
 
-int doNTicks(VSTAT *tb, VerilatedVcdC* trace, int ticks, int n)
+int doNTicks(Vm_STAT *tb, VerilatedVcdC* trace, int ticks, int n)
 {
     for (int a=0;a<n;a++)
     {
@@ -24,7 +24,7 @@ int doNTicks(VSTAT *tb, VerilatedVcdC* trace, int ticks, int n)
     return ticks+n;
 }
 
-void SetD(VSTAT *tb, uint8_t value)
+void SetD(Vm_STAT *tb, uint8_t value)
 {
     tb->D_0=value&1;
     tb->D_1=(value>>1)&1;
@@ -35,7 +35,7 @@ void SetD(VSTAT *tb, uint8_t value)
     tb->D_6=(value>>6)&1;
     tb->D_7=(value>>7)&1;
 }
-void SetWD(VSTAT *tb, uint8_t value)
+void SetWD(Vm_STAT *tb, uint8_t value)
 {
     tb->WD_0=value&1;
     tb->WD_1=(value>>1)&1;
@@ -50,7 +50,7 @@ int main(int argc, char** argv)
 
 	Verilated::traceEverOn(true);
 
-	VSTAT *tb = new VSTAT;
+	Vm_STAT *tb = new Vm_STAT;
 
 	VerilatedVcdC *trace = new VerilatedVcdC;
 

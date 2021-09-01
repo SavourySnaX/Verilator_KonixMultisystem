@@ -1,9 +1,9 @@
 #include <stdlib.h>
-#include "VVCNT.h"
+#include "Vm_VCNT.h"
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 
-void tick(VVCNT *tb, VerilatedVcdC* trace, int ticks)
+void tick(Vm_VCNT *tb, VerilatedVcdC* trace, int ticks)
 {
     tb->CLK=1;
     trace->dump(ticks*10-2);
@@ -15,7 +15,7 @@ void tick(VVCNT *tb, VerilatedVcdC* trace, int ticks)
     trace->flush();
 }
 
-int doNTicks(VVCNT *tb, VerilatedVcdC* trace, int ticks, int n)
+int doNTicks(Vm_VCNT *tb, VerilatedVcdC* trace, int ticks, int n)
 {
     for (int a=0;a<n;a++)
     {
@@ -30,7 +30,7 @@ int main(int argc, char** argv)
 
 	Verilated::traceEverOn(true);
 
-	VVCNT *tb = new VVCNT;
+	Vm_VCNT *tb = new Vm_VCNT;
 
 	VerilatedVcdC *trace = new VerilatedVcdC;
 
@@ -40,7 +40,7 @@ int main(int argc, char** argv)
     tb->RESETL_0=0;
     tb->D=0;
     tb->WD=0;
-    tb->VVCNTv=0;
+    tb->Vm_VCNTv=0;
     tb->AIL=7;
     tb->INTAL=1;
     tb->ACK=0;
@@ -53,7 +53,7 @@ int main(int argc, char** argv)
     tb->RESETL_0=1;
     ticks = doNTicks(tb,trace,ticks,10);
 
-    tb->VVCNTv=1;
+    tb->Vm_VCNTv=1;
     ticks = doNTicks(tb,trace,ticks,10);
 
     tb->INTAL=0;

@@ -9,7 +9,7 @@
 This module is the clock generator in the SLIPSTREAM chip on the ACW
 */
 
-module CLOCK                                                                    //[00015] MODULE CLOCK;
+module m_CLOCK                                                                  //[00015] MODULE CLOCK;
 (                                                                               //[00015] MODULE CLOCK;
 
     input    MCK,                                                               //[00017] INPUTS	MCK,VRD,VWR,NTSC,FAST,TSTCLK,LP;

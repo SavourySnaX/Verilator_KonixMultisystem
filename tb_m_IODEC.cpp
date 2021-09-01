@@ -1,9 +1,9 @@
 #include <stdlib.h>
-#include "VIODEC.h"
+#include "Vm_IODEC.h"
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 
-void tick(VIODEC *tb, VerilatedVcdC* trace, int ticks)
+void tick(Vm_IODEC *tb, VerilatedVcdC* trace, int ticks)
 {
     tb->CLK=1;
     trace->dump(ticks*10-2);
@@ -15,7 +15,7 @@ void tick(VIODEC *tb, VerilatedVcdC* trace, int ticks)
     trace->flush();
 }
 
-int doNTicks(VIODEC *tb, VerilatedVcdC* trace, int ticks, int n)
+int doNTicks(Vm_IODEC *tb, VerilatedVcdC* trace, int ticks, int n)
 {
     for (int a=0;a<n;a++)
     {
@@ -24,7 +24,7 @@ int doNTicks(VIODEC *tb, VerilatedVcdC* trace, int ticks, int n)
     return ticks+n;
 }
 
-void SetA(VIODEC *tb, uint8_t value)
+void SetA(Vm_IODEC *tb, uint8_t value)
 {
     tb->A_0=value&1;
     tb->A_1=(value>>1)&1;
@@ -36,7 +36,7 @@ void SetA(VIODEC *tb, uint8_t value)
     tb->A_7=(value>>7)&1;
 }
 
-int GetLPL(VIODEC *tb)
+int GetLPL(Vm_IODEC *tb)
 {
     uint8_t lpl=0;
     lpl|=tb->LPL_3<<3;
@@ -52,7 +52,7 @@ int main(int argc, char** argv)
 
 	Verilated::traceEverOn(true);
 
-	VIODEC *tb = new VIODEC;
+	Vm_IODEC *tb = new Vm_IODEC;
 
 	VerilatedVcdC *trace = new VerilatedVcdC;
 

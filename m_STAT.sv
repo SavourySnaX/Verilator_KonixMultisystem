@@ -10,7 +10,7 @@ This module contains the status,diagnostic and lcd registers in
 the SLIPSTREAM chip on the ACW
 */
 
-module STAT                                                                     //[00015] MODULE STAT;
+module m_STAT                                                                   //[00015] MODULE STAT;
 (                                                                               //[00015] MODULE STAT;
 
     inout    D_0,                                                               //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
