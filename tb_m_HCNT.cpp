@@ -1,9 +1,9 @@
 #include <stdlib.h>
-#include "Vm_VCNT.h"
+#include "Vm_HCNT.h"
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 
-void tick(Vm_VCNT *tb, VerilatedVcdC* trace, int ticks)
+void tick(Vm_HCNT *tb, VerilatedVcdC* trace, int ticks)
 {
     tb->CLK=1;
     trace->dump(ticks*10-2);
@@ -15,7 +15,7 @@ void tick(Vm_VCNT *tb, VerilatedVcdC* trace, int ticks)
     trace->flush();
 }
 
-int doNTicks(Vm_VCNT *tb, VerilatedVcdC* trace, int ticks, int n)
+int doNTicks(Vm_HCNT *tb, VerilatedVcdC* trace, int ticks, int n)
 {
     for (int a=0;a<n;a++)
     {
@@ -30,7 +30,7 @@ int main(int argc, char** argv)
 
 	Verilated::traceEverOn(true);
 
-	Vm_VCNT *tb = new Vm_VCNT;
+	Vm_HCNT *tb = new Vm_HCNT;
 
 	VerilatedVcdC *trace = new VerilatedVcdC;
 
@@ -48,15 +48,16 @@ int main(int argc, char** argv)
 
     for (int a=0;a<512;a++)
     {
-    tb->HD1=1;
-    ticks = doNTicks(tb,trace,ticks,1);
-    tb->HD1=0;
+//    tb->HD1=1;
+//    ticks = doNTicks(tb,trace,ticks,1);
+//    tb->HD1=0;
     ticks = doNTicks(tb,trace,ticks,10);
     }
 	trace->close();
 
 	exit(EXIT_SUCCESS);
 }
+
 
 
 

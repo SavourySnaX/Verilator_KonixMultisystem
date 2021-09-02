@@ -2,18 +2,16 @@
 up counter. Load is active low, clear is active high, carry-in is
 active high */
 
-module SYNCNT
+module SYNCNT0
 (
     input D,
     input CLK,
     input CLR,
     input LDL,
-    input CI,
     output Q,
-    output QB,
-    output CO
+    output QB
 );
-
+/*
 reg value;
 reg carry;
 
@@ -30,21 +28,19 @@ begin
         value <= value ^ CI;
 end
 
-assign Q = value;
-assign QB = ~value;
+assign Q = ~value;
+assign QB = value;
 assign CO = CI & QB;
 
+*/
 
-/*
-wire CIL,LD;
-assign CIL = ~CI;
+wire LD;
 assign LD = ~LDL;
 
-wire [1:0] DIn;
+wire DI_1;
 wire DI;
-assign DIn[0] = ~((CI & Q)|(CIL & QB));     // toggle/static 
-assign DIn[1] = ~((D & LD)|(DIn[0] & LDL)); // load/count 
-assign DI = ~(DIn[1] | CLR);                // clear 
+assign DI_1 = ~((D & LD)|(QB & LDL)); // load/count 
+assign DI = ~(DI_1 | CLR);                // clear 
 
 FD1A Q_inst
 (
@@ -54,6 +50,5 @@ FD1A Q_inst
     .clk (CLK)
 );
 
-assign CO = ~(CIL | QB);
-*/
 endmodule
+

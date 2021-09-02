@@ -1,4 +1,4 @@
-/* transparent latch - active high */
+/* transparent latch - active high? */
 
 module LD1A
 (

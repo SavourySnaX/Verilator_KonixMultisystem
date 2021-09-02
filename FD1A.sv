@@ -1,6 +1,6 @@
 /* DTYPE LATCH */
 
-module FD2A
+module FD1A
 (
 	output	q,
 	output	qL,
