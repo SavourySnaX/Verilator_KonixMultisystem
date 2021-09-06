@@ -1,0 +1,67 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Mon Sep  6 09:26:51 2021
+[*]
+[dumpfile] "/home/snax/fpga/verilator/slipstream1/trace.vcd"
+[dumpfile_mtime] "Mon Sep  6 09:25:58 2021"
+[dumpfile_size] 8934
+[savefile] "/home/snax/fpga/verilator/slipstream1/OUTERCNT.gtkw"
+[timestart] 8
+[size] 1913 1073
+[pos] 2619 93
+*-5.953541 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 233
+[signals_width] 110
+[sst_expanded] 1
+[sst_vpaned_height] 309
+@28
+TOP.CCLK
+@c00022
+#{TOP.ICNT_[7:0]} TOP.ICNT_7 TOP.ICNT_6 TOP.ICNT_5 TOP.ICNT_4 TOP.ICNT_3 TOP.ICNT_2 TOP.ICNT_1 TOP.ICNT_0
+@28
+TOP.ICNT_0
+TOP.ICNT_1
+TOP.ICNT_2
+TOP.ICNT_3
+TOP.ICNT_4
+TOP.ICNT_5
+TOP.ICNT_6
+TOP.ICNT_7
+@1401200
+-group_end
+@c00022
+#{TOP.ID_[7:0]} TOP.ID_7 TOP.ID_6 TOP.ID_5 TOP.ID_4 TOP.ID_3 TOP.ID_2 TOP.ID_1 TOP.ID_0
+@28
+TOP.ID_0
+TOP.ID_1
+TOP.ID_2
+TOP.ID_3
+TOP.ID_4
+TOP.ID_5
+TOP.ID_6
+TOP.ID_7
+@1401200
+-group_end
+@28
+TOP.INCRDL
+TOP.LDOUTL
+TOP.OTCLKL
+TOP.OUTCRDL
+TOP.RESET
+@c00022
+#{TOP.D_[7:0]} TOP.D_7 TOP.D_6 TOP.D_5 TOP.D_4 TOP.D_3 TOP.D_2 TOP.D_1 TOP.D_0
+@28
+TOP.D_0
+TOP.D_1
+TOP.D_2
+TOP.D_3
+TOP.D_4
+TOP.D_5
+TOP.D_6
+TOP.D_7
+@1401200
+-group_end
+@29
+TOP.OUTER0L
+[pattern_trace] 1
+[pattern_trace] 0

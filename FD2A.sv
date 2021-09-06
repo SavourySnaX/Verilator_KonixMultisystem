@@ -1,4 +1,5 @@
 /* DTYPE LATCH reset Low */
+/* verilator lint_off UNOPTFLAT */
 
 module FD2A
 (

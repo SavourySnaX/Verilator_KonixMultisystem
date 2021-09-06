@@ -1,0 +1,74 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Sun Sep  5 12:42:46 2021
+[*]
+[dumpfile] "/home/snax/fpga/verilator/slipstream1/trace.vcd"
+[dumpfile_mtime] "Sun Sep  5 12:38:35 2021"
+[dumpfile_size] 31826
+[savefile] "/home/snax/fpga/verilator/slipstream1/wave.gtkw"
+[timestart] 10
+[size] 3466 1099
+[pos] -1 -1
+*-7.724149 947 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 233
+[signals_width] 110
+[sst_expanded] 1
+[sst_vpaned_height] 318
+@28
+TOP.DAM1L
+TOP.DSTCMP
+TOP.ICNT_0
+TOP.ICNT_1
+TOP.ICNT_2
+TOP.ID_0
+TOP.ID_1
+TOP.ID_2
+TOP.ID_3
+TOP.INHIB
+TOP.LDCMPL
+@29
+TOP.LDMODL
+@c00022
+#{TOP.PATD_[7:0]} TOP.PATD_7 TOP.PATD_6 TOP.PATD_5 TOP.PATD_4 TOP.PATD_3 TOP.PATD_2 TOP.PATD_1 TOP.PATD_0
+@28
+TOP.PATD_0
+TOP.PATD_1
+TOP.PATD_2
+TOP.PATD_3
+TOP.PATD_4
+TOP.PATD_5
+TOP.PATD_6
+TOP.PATD_7
+@1401200
+-group_end
+@c00022
+#{TOP.DSTD_[7:0]} TOP.DSTD_7 TOP.DSTD_6 TOP.DSTD_5 TOP.DSTD_4 TOP.DSTD_3 TOP.DSTD_2 TOP.DSTD_1 TOP.DSTD_0
+@28
+TOP.DSTD_0
+TOP.DSTD_1
+TOP.DSTD_2
+TOP.DSTD_3
+TOP.DSTD_4
+TOP.DSTD_5
+TOP.DSTD_6
+TOP.DSTD_7
+@1401200
+-group_end
+@c00022
+#{TOP.SRCD_[7:0]} TOP.SRCD_7 TOP.SRCD_6 TOP.SRCD_5 TOP.SRCD_4 TOP.SRCD_3 TOP.SRCD_2 TOP.SRCD_1 TOP.SRCD_0
+@28
+TOP.SRCD_0
+TOP.SRCD_1
+TOP.SRCD_2
+TOP.SRCD_3
+TOP.SRCD_4
+TOP.SRCD_5
+TOP.SRCD_6
+TOP.SRCD_7
+@1401200
+-group_end
+@28
+TOP.RES_0
+TOP.SRCCMP
+[pattern_trace] 1
+[pattern_trace] 0

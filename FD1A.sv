@@ -1,4 +1,5 @@
 /* DTYPE LATCH */
+/* verilator lint_off UNOPTFLAT */
 
 module FD1A
 (

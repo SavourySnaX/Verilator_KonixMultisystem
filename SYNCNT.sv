@@ -13,7 +13,7 @@ module SYNCNT
     output QB,
     output CO
 );
-
+/*
 reg value;
 reg carry;
 
@@ -33,9 +33,9 @@ end
 assign Q = value;
 assign QB = ~value;
 assign CO = CI & QB;
+*/
 
-
-/*
+/* verilator lint_off UNOPTFLAT */
 wire CIL,LD;
 assign CIL = ~CI;
 assign LD = ~LDL;
@@ -55,5 +55,5 @@ FD1A Q_inst
 );
 
 assign CO = ~(CIL | QB);
-*/
+
 endmodule
