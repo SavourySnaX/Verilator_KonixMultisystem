@@ -16,14 +16,14 @@ addq[0..9].
 module m_DSTAREG                                                                //[00017] MODULE DSTAREG;
 (                                                                               //[00017] MODULE DSTAREG;
 
-    inout    D_0,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,
-    inout    D_1,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,
-    inout    D_2,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,
-    inout    D_3,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,
-    inout    D_4,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,
-    inout    D_5,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,
-    inout    D_6,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,
-    inout    D_7,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,
+    input    inD_0,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,
+    input    inD_1,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,
+    input    inD_2,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,
+    input    inD_3,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,
+    input    inD_4,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,
+    input    inD_5,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,
+    input    inD_6,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,
+    input    inD_7,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,
     input    ADDQ_0,                                                            //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,
     input    ADDQ_1,                                                            //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,
     input    ADDQ_2,                                                            //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,
@@ -65,14 +65,22 @@ module m_DSTAREG                                                                
                                                                                 //[00021]    ADDQ_15,ADDQ_16,ADDQ_17,ADDQ_18,ADDQ_19,ADDQM1,DSTRDL_0,DSTRDL_1,DSTRDL_2,
                                                                                 //[00022]    ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,ID_7,LDDAL_0,LDDAL_1,LDDAL_2,SDASEL,
                                                                                 //[00023]    UPDDSTL;
-//    output    D_0,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
-//    output    D_1,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
-//    output    D_2,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
-//    output    D_3,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
-//    output    D_4,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
-//    output    D_5,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
-//    output    D_6,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
-//    output    D_7,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
+    output    outD_0,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
+    output    outD_1,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
+    output    outD_2,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
+    output    outD_3,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
+    output    outD_4,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
+    output    outD_5,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
+    output    outD_6,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
+    output    outD_7,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
+    output    enD_0,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
+    output    enD_1,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
+    output    enD_2,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
+    output    enD_3,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
+    output    enD_4,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
+    output    enD_5,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
+    output    enD_6,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
+    output    enD_7,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
     output    DAL_0,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
     output    DAL_1,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
     output    DAL_2,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
@@ -256,13 +264,21 @@ assign DAS_6 = ~((DSIGN & DSTRD_2)|(DAR_6 & DSTRDL_2));                         
 assign DAS_7 = ~((DAM1 & DSTRD_2)|(DAR_7 & DSTRDL_2));                          //[00114] DARSEL2_7_(DAS_7) = AO2A(DAM1,DSTRD_2,DAR_7,DSTRDL_2);
 
 assign DAREN = ~(DSTRDL_0 & DSTRDL_1 & DSTRDL_2);                               //[00116] DAREN_(DAREN) = ND3A(DSTRDL_0,DSTRDL_1,DSTRDL_2);
-assign D_0 = DAREN ? (~DAS_0) : 1'bZ;                                           //[00117] DAPORT_0_(D_0) = BTS5A(DAS_0,DAREN);
-assign D_1 = DAREN ? (~DAS_1) : 1'bZ;                                           //[00118] DAPORT_1_(D_1) = BTS5A(DAS_1,DAREN);
-assign D_2 = DAREN ? (~DAS_2) : 1'bZ;                                           //[00119] DAPORT_2_(D_2) = BTS5A(DAS_2,DAREN);
-assign D_3 = DAREN ? (~DAS_3) : 1'bZ;                                           //[00120] DAPORT_3_(D_3) = BTS5A(DAS_3,DAREN);
-assign D_4 = DAREN ? (~DAS_4) : 1'bZ;                                           //[00121] DAPORT_4_(D_4) = BTS5A(DAS_4,DAREN);
-assign D_5 = DAREN ? (~DAS_5) : 1'bZ;                                           //[00122] DAPORT_5_(D_5) = BTS5A(DAS_5,DAREN);
-assign D_6 = DAREN ? (~DAS_6) : 1'bZ;                                           //[00123] DAPORT_6_(D_6) = BTS5A(DAS_6,DAREN);
-assign D_7 = DAREN ? (~DAS_7) : 1'bZ;                                           //[00124] DAPORT_7_(D_7) = BTS5A(DAS_7,DAREN);
+assign outD_0 = (~DAS_0);                                           //[00117] DAPORT_0_(D_0) = BTS5A(DAS_0,DAREN);
+assign outD_1 = (~DAS_1);                                           //[00118] DAPORT_1_(D_1) = BTS5A(DAS_1,DAREN);
+assign outD_2 = (~DAS_2);                                           //[00119] DAPORT_2_(D_2) = BTS5A(DAS_2,DAREN);
+assign outD_3 = (~DAS_3);                                           //[00120] DAPORT_3_(D_3) = BTS5A(DAS_3,DAREN);
+assign outD_4 = (~DAS_4);                                           //[00121] DAPORT_4_(D_4) = BTS5A(DAS_4,DAREN);
+assign outD_5 = (~DAS_5);                                           //[00122] DAPORT_5_(D_5) = BTS5A(DAS_5,DAREN);
+assign outD_6 = (~DAS_6);                                           //[00123] DAPORT_6_(D_6) = BTS5A(DAS_6,DAREN);
+assign outD_7 = (~DAS_7);                                           //[00124] DAPORT_7_(D_7) = BTS5A(DAS_7,DAREN);
+assign enD_0 = DAREN;                                           //[00117] DAPORT_0_(D_0) = BTS5A(DAS_0,DAREN);
+assign enD_1 = DAREN;                                           //[00118] DAPORT_1_(D_1) = BTS5A(DAS_1,DAREN);
+assign enD_2 = DAREN;                                           //[00119] DAPORT_2_(D_2) = BTS5A(DAS_2,DAREN);
+assign enD_3 = DAREN;                                           //[00120] DAPORT_3_(D_3) = BTS5A(DAS_3,DAREN);
+assign enD_4 = DAREN;                                           //[00121] DAPORT_4_(D_4) = BTS5A(DAS_4,DAREN);
+assign enD_5 = DAREN;                                           //[00122] DAPORT_5_(D_5) = BTS5A(DAS_5,DAREN);
+assign enD_6 = DAREN;                                           //[00123] DAPORT_6_(D_6) = BTS5A(DAS_6,DAREN);
+assign enD_7 = DAREN;                                           //[00124] DAPORT_7_(D_7) = BTS5A(DAS_7,DAREN);
 
 endmodule                                                                       //[00126] END MODULE;

@@ -12,14 +12,14 @@ This module is the vertical timebase in the SLIPSTREAM chip on the ACW
 module m_VCNT                                                                   //[00017] MODULE VCNT;
 (                                                                               //[00017] MODULE VCNT;
 
-    inout    D_0,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,
-    inout    D_1,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,
-    inout    D_2,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,
-    inout    D_3,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,
-    inout    D_4,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,
-    inout    D_5,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,
-    inout    D_6,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,
-    inout    D_7,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,
+    input    inD_0,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,
+    input    inD_1,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,
+    input    inD_2,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,
+    input    inD_3,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,
+    input    inD_4,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,
+    input    inD_5,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,
+    input    inD_6,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,
+    input    inD_7,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,
     input    RESETL_0,                                                          //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,
     input    CLK,                                                               //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,
     input    WD_0,                                                              //[00019] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,
@@ -53,14 +53,22 @@ module m_VCNT                                                                   
     input    HINT,                                                              //[00021]    ENDH,INTL,INTH,HBORDER,HBLANKING,HVSYNC,LPCLK,HD1,DIAG,LORES,HINT;
                                                                                 //[00020]    WD_5,WD_6,WD_7,VCNTL,VCNTH,LPL_2,LPL_3,VLOCK,NTSC,GENLOCK,STARTL,STARTH,ENDL,
                                                                                 //[00021]    ENDH,INTL,INTH,HBORDER,HBLANKING,HVSYNC,LPCLK,HD1,DIAG,LORES,HINT;
-//    output    D_0,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
-//    output    D_1,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
-//    output    D_2,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
-//    output    D_3,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
-//    output    D_4,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
-//    output    D_5,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
-//    output    D_6,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
-//    output    D_7,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
+    output    outD_0,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
+    output    outD_1,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
+    output    outD_2,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
+    output    outD_3,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
+    output    outD_4,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
+    output    outD_5,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
+    output    outD_6,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
+    output    outD_7,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
+    output    enD_0,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
+    output    enD_1,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
+    output    enD_2,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
+    output    enD_3,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
+    output    enD_4,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
+    output    enD_5,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
+    output    enD_6,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
+    output    enD_7,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
     output    VVACTIVE,                                                         //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
     output    VSYNC,                                                            //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
     output    VINT,                                                             //[00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
@@ -222,22 +230,51 @@ SYNCNT Q_8__inst (.Q(VC_8),.QB(VCB_8),.CO(CO_8),.D(VCNT_8),.CLK(CLK),.CLR(NEXTV)
 
 /* the light pen register */
 
-ZTLATCH1 DL_0__inst (.QB(D_0),.D(VCB_0),.CLK(LPCLK),.ENL(LPL_2));               //[00059] DL_0_(D_0) = ZTLATCH1(D_0,VCB_0,LPCLK,LPL_2);
-ZTLATCH1 DL_1__inst (.QB(D_1),.D(VCB_1),.CLK(LPCLK),.ENL(LPL_2));               //[00060] DL_1_(D_1) = ZTLATCH1(D_1,VCB_1,LPCLK,LPL_2);
-ZTLATCH1 DL_2__inst (.QB(D_2),.D(VCB_2),.CLK(LPCLK),.ENL(LPL_2));               //[00061] DL_2_(D_2) = ZTLATCH1(D_2,VCB_2,LPCLK,LPL_2);
-ZTLATCH1 DL_3__inst (.QB(D_3),.D(VCB_3),.CLK(LPCLK),.ENL(LPL_2));               //[00062] DL_3_(D_3) = ZTLATCH1(D_3,VCB_3,LPCLK,LPL_2);
-ZTLATCH1 DL_4__inst (.QB(D_4),.D(VCB_4),.CLK(LPCLK),.ENL(LPL_2));               //[00063] DL_4_(D_4) = ZTLATCH1(D_4,VCB_4,LPCLK,LPL_2);
-ZTLATCH1 DL_5__inst (.QB(D_5),.D(VCB_5),.CLK(LPCLK),.ENL(LPL_2));               //[00064] DL_5_(D_5) = ZTLATCH1(D_5,VCB_5,LPCLK,LPL_2);
-ZTLATCH1 DL_6__inst (.QB(D_6),.D(VCB_6),.CLK(LPCLK),.ENL(LPL_2));               //[00065] DL_6_(D_6) = ZTLATCH1(D_6,VCB_6,LPCLK,LPL_2);
-ZTLATCH1 DL_7__inst (.QB(D_7),.D(VCB_7),.CLK(LPCLK),.ENL(LPL_2));               //[00066] DL_7_(D_7) = ZTLATCH1(D_7,VCB_7,LPCLK,LPL_2);
-ZTLATCH1 DH_0__inst (.QB(D_0),.D(VCB_8),.CLK(LPCLK),.ENL(LPL_3));               //[00067] DH_0_(D_0) = ZTLATCH1(D_0,VCB_8,LPCLK,LPL_3);
-assign D_1 = ~LPL_3 ? RESETL : 1'bZ;                                            //[00068] DH_1_(D_1) = MACZINVB1(RESETL,LPL_3);
-assign D_2 = ~LPL_3 ? RESETL : 1'bZ;                                            //[00069] DH_2_(D_2) = MACZINVB1(RESETL,LPL_3);
-assign D_3 = ~LPL_3 ? RESETL : 1'bZ;                                            //[00070] DH_3_(D_3) = MACZINVB1(RESETL,LPL_3);
-assign D_4 = ~LPL_3 ? RESETL : 1'bZ;                                            //[00071] DH_4_(D_4) = MACZINVB1(RESETL,LPL_3);
-assign D_5 = ~LPL_3 ? RESETL : 1'bZ;                                            //[00072] DH_5_(D_5) = MACZINVB1(RESETL,LPL_3);
-assign D_6 = ~LPL_3 ? RESETL : 1'bZ;                                            //[00073] DH_6_(D_6) = MACZINVB1(RESETL,LPL_3);
-assign D_7 = ~LPL_3 ? RESETL : 1'bZ;                                            //[00074] DH_7_(D_7) = MACZINVB1(RESETL,LPL_3);
+wire latchD_0,latchDL_0;
+wire latchD_1,latchDL_1;
+wire latchD_2,latchDL_2;
+wire latchD_3,latchDL_3;
+wire latchD_4,latchDL_4;
+wire latchD_5,latchDL_5;
+wire latchD_6,latchDL_6;
+wire latchD_7,latchDL_7;
+
+LD1A DL_0_inst(.q(latchD_0),.qL(latchDL_0),.d(VCB_0),.en(LPCLK));
+LD1A DL_1_inst(.q(latchD_1),.qL(latchDL_1),.d(VCB_1),.en(LPCLK));
+LD1A DL_2_inst(.q(latchD_2),.qL(latchDL_2),.d(VCB_2),.en(LPCLK));
+LD1A DL_3_inst(.q(latchD_3),.qL(latchDL_3),.d(VCB_3),.en(LPCLK));
+LD1A DL_4_inst(.q(latchD_4),.qL(latchDL_4),.d(VCB_4),.en(LPCLK));
+LD1A DL_5_inst(.q(latchD_5),.qL(latchDL_5),.d(VCB_5),.en(LPCLK));
+LD1A DL_6_inst(.q(latchD_6),.qL(latchDL_6),.d(VCB_6),.en(LPCLK));
+LD1A DL_7_inst(.q(latchD_7),.qL(latchDL_7),.d(VCB_7),.en(LPCLK));
+LD1A DH_0_inst(.q(latchD_0),.qL(latchDL_0),.d(VCB_8),.en(LPCLK));
+//ZTLATCH1 DL_0__inst (.QB(D_0),.D(VCB_0),.CLK(LPCLK),.ENL(LPL_2));               //[00059] DL_0_(D_0) = ZTLATCH1(D_0,VCB_0,LPCLK,LPL_2);
+//ZTLATCH1 DL_1__inst (.QB(D_1),.D(VCB_1),.CLK(LPCLK),.ENL(LPL_2));               //[00060] DL_1_(D_1) = ZTLATCH1(D_1,VCB_1,LPCLK,LPL_2);
+//ZTLATCH1 DL_2__inst (.QB(D_2),.D(VCB_2),.CLK(LPCLK),.ENL(LPL_2));               //[00061] DL_2_(D_2) = ZTLATCH1(D_2,VCB_2,LPCLK,LPL_2);
+//ZTLATCH1 DL_3__inst (.QB(D_3),.D(VCB_3),.CLK(LPCLK),.ENL(LPL_2));               //[00062] DL_3_(D_3) = ZTLATCH1(D_3,VCB_3,LPCLK,LPL_2);
+//ZTLATCH1 DL_4__inst (.QB(D_4),.D(VCB_4),.CLK(LPCLK),.ENL(LPL_2));               //[00063] DL_4_(D_4) = ZTLATCH1(D_4,VCB_4,LPCLK,LPL_2);
+//ZTLATCH1 DL_5__inst (.QB(D_5),.D(VCB_5),.CLK(LPCLK),.ENL(LPL_2));               //[00064] DL_5_(D_5) = ZTLATCH1(D_5,VCB_5,LPCLK,LPL_2);
+//ZTLATCH1 DL_6__inst (.QB(D_6),.D(VCB_6),.CLK(LPCLK),.ENL(LPL_2));               //[00065] DL_6_(D_6) = ZTLATCH1(D_6,VCB_6,LPCLK,LPL_2);
+//ZTLATCH1 DL_7__inst (.QB(D_7),.D(VCB_7),.CLK(LPCLK),.ENL(LPL_2));               //[00066] DL_7_(D_7) = ZTLATCH1(D_7,VCB_7,LPCLK,LPL_2);
+//ZTLATCH1 DH_0__inst (.QB(D_0),.D(VCB_8),.CLK(LPCLK),.ENL(LPL_3));               //[00067] DH_0_(D_0) = ZTLATCH1(D_0,VCB_8,LPCLK,LPL_3);
+
+assign outD_0 = ((~LPL_2) & latchD_0) | ((~LPL_3) & latchD_0);
+assign outD_1 = ((~LPL_2) & latchD_1) | ((~LPL_3) & RESETL);
+assign outD_2 = ((~LPL_2) & latchD_2) | ((~LPL_3) & RESETL);
+assign outD_3 = ((~LPL_2) & latchD_3) | ((~LPL_3) & RESETL);
+assign outD_4 = ((~LPL_2) & latchD_4) | ((~LPL_3) & RESETL);
+assign outD_5 = ((~LPL_2) & latchD_5) | ((~LPL_3) & RESETL);
+assign outD_6 = ((~LPL_2) & latchD_6) | ((~LPL_3) & RESETL);
+assign outD_7 = ((~LPL_2) & latchD_7) | ((~LPL_3) & RESETL);
+
+assign enD_0 = (~LPL_2) | (~LPL_3);
+assign enD_1 = (~LPL_2) | (~LPL_3);
+assign enD_2 = (~LPL_2) | (~LPL_3);                                            //[00098] DH_2_(D_2) = MACZINVB1(RESETL,LPL_3);
+assign enD_3 = (~LPL_2) | (~LPL_3);                                            //[00099] DH_3_(D_3) = MACZINVB1(RESETL,LPL_3);
+assign enD_4 = (~LPL_2) | (~LPL_3);                                            //[00100] DH_4_(D_4) = MACZINVB1(RESETL,LPL_3);
+assign enD_5 = (~LPL_2) | (~LPL_3);                                            //[00101] DH_5_(D_5) = MACZINVB1(RESETL,LPL_3);
+assign enD_6 = (~LPL_2) | (~LPL_3);                                            //[00102] DH_6_(D_6) = MACZINVB1(RESETL,LPL_3);
+assign enD_7 = (~LPL_2) | (~LPL_3);                                            //[00103] DH_7_(D_7) = MACZINVB1(RESETL,LPL_3);
 
 /* the interupt register */
 

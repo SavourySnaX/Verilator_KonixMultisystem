@@ -322,8 +322,8 @@ assign SAEN = ~(ACTIVEL | HCB_2);                                               
 assign LORESL = ~LORES;                                                         //[00152] LORESL_(LORESL) = N1A(LORES);
 assign PIXADL_0 = ~((LORES & HC_2)|(LORESL & HC_1));                            //[00153] PIXADL_0_(PIXADL_0) = AO2B(LORES,HC_2,LORESL,HC_1);
 assign PIXADL_1 = ~((LORES & HCB_3)|(LORESL & HC_2));                           //[00154] PIXADL_1_(PIXADL_1) = AO2B(LORES,HCB_3,LORESL,HC_2);
-assign PIXAD_0 = PIXADL_0;                                                      //[00155] PIXAD_0_(PIXAD_0) = B1A(PIXADL_0);
-assign PIXAD_1 = PIXADL_1;                                                      //[00156] PIXAD_1_(PIXAD_1) = B1A(PIXADL_1);
+assign PIXAD_0 = ~PIXADL_0;                                                      //[00155] PIXAD_0_(PIXAD_0) = B1A(PIXADL_0);
+assign PIXAD_1 = ~PIXADL_1;                                                      //[00156] PIXAD_1_(PIXAD_1) = B1A(PIXADL_1);
 
 /* generate timing for PSRAM chip enable */
 

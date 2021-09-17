@@ -25,42 +25,42 @@ Puting zero on the data bus during reset
 module m_BM                                                                     //[00030] MODULE BM;
 (                                                                               //[00030] MODULE BM;
 
-    inout    A_0,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_1,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_2,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_3,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_4,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_5,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_6,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_7,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_8,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_9,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_10,                                                              //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_11,                                                              //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_12,                                                              //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_13,                                                              //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_14,                                                              //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_15,                                                              //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_16,                                                              //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-    inout    A_17,                                                              //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-    inout    A_18,                                                              //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-    inout    A_19,                                                              //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-    inout    D_0,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-    inout    D_1,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-    inout    D_2,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-    inout    D_3,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-    inout    D_4,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-    inout    D_5,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-    inout    D_6,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-    inout    D_7,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-    inout    D_8,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-    inout    D_9,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-    inout    D_10,                                                              //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-    inout    D_11,                                                              //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-    inout    D_12,                                                              //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-    inout    D_13,                                                              //[00034]    D_13,D_14,D_15,RESETL_0,VADL_0,VADL_1,VADL_2,VADL_3,VADL_4,VADL_5,VADL_6,
-    inout    D_14,                                                              //[00034]    D_13,D_14,D_15,RESETL_0,VADL_0,VADL_1,VADL_2,VADL_3,VADL_4,VADL_5,VADL_6,
-    inout    D_15,                                                              //[00034]    D_13,D_14,D_15,RESETL_0,VADL_0,VADL_1,VADL_2,VADL_3,VADL_4,VADL_5,VADL_6,
+    input    inA_0,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_1,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_2,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_3,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_4,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_5,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_6,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_7,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_8,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_9,                                                               //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_10,                                                              //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_11,                                                              //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_12,                                                              //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_13,                                                              //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_14,                                                              //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_15,                                                              //[00032] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_16,                                                              //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    input    inA_17,                                                              //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    input    inA_18,                                                              //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    input    inA_19,                                                              //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    input    inD_0,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    input    inD_1,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    input    inD_2,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    input    inD_3,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    input    inD_4,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    input    inD_5,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    input    inD_6,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    input    inD_7,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    input    inD_8,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    input    inD_9,                                                               //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    input    inD_10,                                                              //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    input    inD_11,                                                              //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    input    inD_12,                                                              //[00033]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    input    inD_13,                                                              //[00034]    D_13,D_14,D_15,RESETL_0,VADL_0,VADL_1,VADL_2,VADL_3,VADL_4,VADL_5,VADL_6,
+    input    inD_14,                                                              //[00034]    D_13,D_14,D_15,RESETL_0,VADL_0,VADL_1,VADL_2,VADL_3,VADL_4,VADL_5,VADL_6,
+    input    inD_15,                                                              //[00034]    D_13,D_14,D_15,RESETL_0,VADL_0,VADL_1,VADL_2,VADL_3,VADL_4,VADL_5,VADL_6,
     input    RESETL_0,                                                          //[00034]    D_13,D_14,D_15,RESETL_0,VADL_0,VADL_1,VADL_2,VADL_3,VADL_4,VADL_5,VADL_6,
     input    VADL_0,                                                            //[00034]    D_13,D_14,D_15,RESETL_0,VADL_0,VADL_1,VADL_2,VADL_3,VADL_4,VADL_5,VADL_6,
     input    VADL_1,                                                            //[00034]    D_13,D_14,D_15,RESETL_0,VADL_0,VADL_1,VADL_2,VADL_3,VADL_4,VADL_5,VADL_6,
@@ -134,42 +134,78 @@ module m_BM                                                                     
                                                                                 //[00037]    ASL_19,IOML,ALEL,INTAL,HLDAL,BHOLDL,BWORD,DWORD,VHOLDL,SSIORD,JOYL_0,JOYL_1,
                                                                                 //[00038]    SA_0,SA_1,SA_2,SA_3,SA_4,SA_5,SA_6,SA_7,SA_8,SA_9,SA_10,SA_11,SA_12,SA_13,
                                                                                 //[00039]    SA_14,SA_15,SA_16,SA_17,SAEN,MUXL,BRD,DRD,BWR,DWR;
-//    output    A_0,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_1,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_2,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_3,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_4,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_5,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_6,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_7,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_8,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_9,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_10,                                                           //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_11,                                                           //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_12,                                                           //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_13,                                                           //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_14,                                                           //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_15,                                                           //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_16,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-//    output    A_17,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-//    output    A_18,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-//    output    A_19,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-//    output    D_0,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-//    output    D_1,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-//    output    D_2,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-//    output    D_3,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-//    output    D_4,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-//    output    D_5,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-//    output    D_6,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-//    output    D_7,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-//    output    D_8,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-//    output    D_9,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-//    output    D_10,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-//    output    D_11,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-//    output    D_12,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
-//    output    D_13,                                                           //[00042]    D_13,D_14,D_15,VAD_0,VAD_1,VAD_2,VAD_3,VAD_4,VAD_5,VAD_6,VAD_7,ADEN,VAL_0,
-//    output    D_14,                                                           //[00042]    D_13,D_14,D_15,VAD_0,VAD_1,VAD_2,VAD_3,VAD_4,VAD_5,VAD_6,VAD_7,ADEN,VAL_0,
-//    output    D_15,                                                           //[00042]    D_13,D_14,D_15,VAD_0,VAD_1,VAD_2,VAD_3,VAD_4,VAD_5,VAD_6,VAD_7,ADEN,VAL_0,
+    output    outA_0,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_1,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_2,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_3,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_4,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_5,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_6,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_7,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_8,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_9,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_10,                                                           //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_11,                                                           //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_12,                                                           //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_13,                                                           //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_14,                                                           //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_15,                                                           //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_16,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    outA_17,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    outA_18,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    outA_19,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    outD_0,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    outD_1,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    outD_2,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    outD_3,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    outD_4,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    outD_5,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    outD_6,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    outD_7,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    outD_8,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    outD_9,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    outD_10,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    outD_11,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    outD_12,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    outD_13,                                                           //[00042]    D_13,D_14,D_15,VAD_0,VAD_1,VAD_2,VAD_3,VAD_4,VAD_5,VAD_6,VAD_7,ADEN,VAL_0,
+    output    outD_14,                                                           //[00042]    D_13,D_14,D_15,VAD_0,VAD_1,VAD_2,VAD_3,VAD_4,VAD_5,VAD_6,VAD_7,ADEN,VAL_0,
+    output    outD_15,                                                           //[00042]    D_13,D_14,D_15,VAD_0,VAD_1,VAD_2,VAD_3,VAD_4,VAD_5,VAD_6,VAD_7,ADEN,VAL_0,
+    output    enA_0,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_1,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_2,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_3,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_4,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_5,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_6,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_7,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_8,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_9,                                                            //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_10,                                                           //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_11,                                                           //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_12,                                                           //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_13,                                                           //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_14,                                                           //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_15,                                                           //[00040] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_16,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    enA_17,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    enA_18,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    enA_19,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    enD_0,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    enD_1,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    enD_2,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    enD_3,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    enD_4,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    enD_5,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    enD_6,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    enD_7,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    enD_8,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    enD_9,                                                            //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    enD_10,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    enD_11,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    enD_12,                                                           //[00041]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,
+    output    enD_13,                                                           //[00042]    D_13,D_14,D_15,VAD_0,VAD_1,VAD_2,VAD_3,VAD_4,VAD_5,VAD_6,VAD_7,ADEN,VAL_0,
+    output    enD_14,                                                           //[00042]    D_13,D_14,D_15,VAD_0,VAD_1,VAD_2,VAD_3,VAD_4,VAD_5,VAD_6,VAD_7,ADEN,VAL_0,
+    output    enD_15,                                                           //[00042]    D_13,D_14,D_15,VAD_0,VAD_1,VAD_2,VAD_3,VAD_4,VAD_5,VAD_6,VAD_7,ADEN,VAL_0,
     output    VAD_0,                                                            //[00042]    D_13,D_14,D_15,VAD_0,VAD_1,VAD_2,VAD_3,VAD_4,VAD_5,VAD_6,VAD_7,ADEN,VAL_0,
     output    VAD_1,                                                            //[00042]    D_13,D_14,D_15,VAD_0,VAD_1,VAD_2,VAD_3,VAD_4,VAD_5,VAD_6,VAD_7,ADEN,VAL_0,
     output    VAD_2,                                                            //[00042]    D_13,D_14,D_15,VAD_0,VAD_1,VAD_2,VAD_3,VAD_4,VAD_5,VAD_6,VAD_7,ADEN,VAL_0,
@@ -377,26 +413,48 @@ LD1A PA_19__inst (.q(PAL_19),.qL(PA_19),.d(ASL_19),.en(ALE));                   
 /* NB the blitter should enable its address whenever hlda is asserted,
 even if it did not issue a hold, in order that this bus does not float */
 
-assign A_0 = PAEN ? (~PAL_0) : 1'bZ;                                            //[00072] A_0_(A_0) = BTS5A(PAL_0,PAEN);
-assign A_1 = PAEN ? (~PAL_1) : 1'bZ;                                            //[00073] A_1_(A_1) = BTS5A(PAL_1,PAEN);
-assign A_2 = PAEN ? (~PAL_2) : 1'bZ;                                            //[00074] A_2_(A_2) = BTS5A(PAL_2,PAEN);
-assign A_3 = PAEN ? (~PAL_3) : 1'bZ;                                            //[00075] A_3_(A_3) = BTS5A(PAL_3,PAEN);
-assign A_4 = PAEN ? (~PAL_4) : 1'bZ;                                            //[00076] A_4_(A_4) = BTS5A(PAL_4,PAEN);
-assign A_5 = PAEN ? (~PAL_5) : 1'bZ;                                            //[00077] A_5_(A_5) = BTS5A(PAL_5,PAEN);
-assign A_6 = PAEN ? (~PAL_6) : 1'bZ;                                            //[00078] A_6_(A_6) = BTS5A(PAL_6,PAEN);
-assign A_7 = PAEN ? (~PAL_7) : 1'bZ;                                            //[00079] A_7_(A_7) = BTS5A(PAL_7,PAEN);
-assign A_8 = PAEN ? (~VAL_8) : 1'bZ;                                            //[00080] A_8_(A_8) = BTS5A(VAL_8,PAEN);
-assign A_9 = PAEN ? (~VAL_9) : 1'bZ;                                            //[00081] A_9_(A_9) = BTS5A(VAL_9,PAEN);
-assign A_10 = PAEN ? (~VAL_10) : 1'bZ;                                          //[00082] A_10_(A_10) = BTS5A(VAL_10,PAEN);
-assign A_11 = PAEN ? (~VAL_11) : 1'bZ;                                          //[00083] A_11_(A_11) = BTS5A(VAL_11,PAEN);
-assign A_12 = PAEN ? (~VAL_12) : 1'bZ;                                          //[00084] A_12_(A_12) = BTS5A(VAL_12,PAEN);
-assign A_13 = PAEN ? (~VAL_13) : 1'bZ;                                          //[00085] A_13_(A_13) = BTS5A(VAL_13,PAEN);
-assign A_14 = PAEN ? (~VAL_14) : 1'bZ;                                          //[00086] A_14_(A_14) = BTS5A(VAL_14,PAEN);
-assign A_15 = PAEN ? (~VAL_15) : 1'bZ;                                          //[00087] A_15_(A_15) = BTS5A(VAL_15,PAEN);
-assign A_16 = PAEN ? (~PAL_16) : 1'bZ;                                          //[00088] A_16_(A_16) = BTS5A(PAL_16,PAEN);
-assign A_17 = PAEN ? (~PAL_17) : 1'bZ;                                          //[00089] A_17_(A_17) = BTS5A(PAL_17,PAEN);
-assign A_18 = PAEN ? (~PAL_18) : 1'bZ;                                          //[00090] A_18_(A_18) = BTS5A(PAL_18,PAEN);
-assign A_19 = PAEN ? (~PAL_19) : 1'bZ;                                          //[00091] A_19_(A_19) = BTS5A(PAL_19,PAEN);
+assign outA_0 = (~PAL_0);                                            //[00072] A_0_(A_0) = BTS5A(PAL_0,PAEN);
+assign outA_1 = (~PAL_1);                                            //[00073] A_1_(A_1) = BTS5A(PAL_1,PAEN);
+assign outA_2 = (~PAL_2);                                            //[00074] A_2_(A_2) = BTS5A(PAL_2,PAEN);
+assign outA_3 = (~PAL_3);                                            //[00075] A_3_(A_3) = BTS5A(PAL_3,PAEN);
+assign outA_4 = (~PAL_4);                                            //[00076] A_4_(A_4) = BTS5A(PAL_4,PAEN);
+assign outA_5 = (~PAL_5);                                            //[00077] A_5_(A_5) = BTS5A(PAL_5,PAEN);
+assign outA_6 = (~PAL_6);                                            //[00078] A_6_(A_6) = BTS5A(PAL_6,PAEN);
+assign outA_7 = (~PAL_7);                                            //[00079] A_7_(A_7) = BTS5A(PAL_7,PAEN);
+assign outA_8 = (~VAL_8);                                            //[00080] A_8_(A_8) = BTS5A(VAL_8,PAEN);
+assign outA_9 = (~VAL_9);                                            //[00081] A_9_(A_9) = BTS5A(VAL_9,PAEN);
+assign outA_10 = (~VAL_10);                                          //[00082] A_10_(A_10) = BTS5A(VAL_10,PAEN);
+assign outA_11 = (~VAL_11);                                          //[00083] A_11_(A_11) = BTS5A(VAL_11,PAEN);
+assign outA_12 = (~VAL_12);                                          //[00084] A_12_(A_12) = BTS5A(VAL_12,PAEN);
+assign outA_13 = (~VAL_13);                                          //[00085] A_13_(A_13) = BTS5A(VAL_13,PAEN);
+assign outA_14 = (~VAL_14);                                          //[00086] A_14_(A_14) = BTS5A(VAL_14,PAEN);
+assign outA_15 = (~VAL_15);                                          //[00087] A_15_(A_15) = BTS5A(VAL_15,PAEN);
+assign outA_16 = (~PAL_16);                                          //[00088] A_16_(A_16) = BTS5A(PAL_16,PAEN);
+assign outA_17 = (~PAL_17);                                          //[00089] A_17_(A_17) = BTS5A(PAL_17,PAEN);
+assign outA_18 = (~PAL_18);                                          //[00090] A_18_(A_18) = BTS5A(PAL_18,PAEN);
+assign outA_19 = (~PAL_19);                                          //[00091] A_19_(A_19) = BTS5A(PAL_19,PAEN);
+
+assign enA_0 = PAEN;                                            //[00072] A_0_(A_0) = BTS5A(PAL_0,PAEN);
+assign enA_1 = PAEN;                                            //[00073] A_1_(A_1) = BTS5A(PAL_1,PAEN);
+assign enA_2 = PAEN;                                            //[00074] A_2_(A_2) = BTS5A(PAL_2,PAEN);
+assign enA_3 = PAEN;                                            //[00075] A_3_(A_3) = BTS5A(PAL_3,PAEN);
+assign enA_4 = PAEN;                                            //[00076] A_4_(A_4) = BTS5A(PAL_4,PAEN);
+assign enA_5 = PAEN;                                            //[00077] A_5_(A_5) = BTS5A(PAL_5,PAEN);
+assign enA_6 = PAEN;                                            //[00078] A_6_(A_6) = BTS5A(PAL_6,PAEN);
+assign enA_7 = PAEN;                                            //[00079] A_7_(A_7) = BTS5A(PAL_7,PAEN);
+assign enA_8 = PAEN;                                            //[00080] A_8_(A_8) = BTS5A(VAL_8,PAEN);
+assign enA_9 = PAEN;                                            //[00081] A_9_(A_9) = BTS5A(VAL_9,PAEN);
+assign enA_10 = PAEN;                                          //[00082] A_10_(A_10) = BTS5A(VAL_10,PAEN);
+assign enA_11 = PAEN;                                          //[00083] A_11_(A_11) = BTS5A(VAL_11,PAEN);
+assign enA_12 = PAEN;                                          //[00084] A_12_(A_12) = BTS5A(VAL_12,PAEN);
+assign enA_13 = PAEN;                                          //[00085] A_13_(A_13) = BTS5A(VAL_13,PAEN);
+assign enA_14 = PAEN;                                          //[00086] A_14_(A_14) = BTS5A(VAL_14,PAEN);
+assign enA_15 = PAEN;                                          //[00087] A_15_(A_15) = BTS5A(VAL_15,PAEN);
+assign enA_16 = PAEN;                                          //[00088] A_16_(A_16) = BTS5A(PAL_16,PAEN);
+assign enA_17 = PAEN;                                          //[00089] A_17_(A_17) = BTS5A(PAL_17,PAEN);
+assign enA_18 = PAEN;                                          //[00090] A_18_(A_18) = BTS5A(PAL_18,PAEN);
+assign enA_19 = PAEN;                                          //[00091] A_19_(A_19) = BTS5A(PAL_19,PAEN);
+
 
 /* mix coprocessor read and write strobes */
 
@@ -412,33 +470,33 @@ assign VWRL = WRL;                                                              
 /* the video address does not appear on the internal address bus */
 
 assign SAENL = ~SAEN;                                                           //[00106] SAENL_(SAENL) = N1C(SAEN);
-assign SAENBL = SAEN;                                                           //[00107] SAENBL_(SAENBL) = B1A(SAEN);
-assign SAENB = SAENL;                                                           //[00108] SAENB_(SAENB) = B1A(SAENL);
+assign SAENBL = ~SAEN;                                                           //[00107] SAENBL_(SAENBL) = B1A(SAEN);
+assign SAENB = ~SAENL;                                                           //[00108] SAENB_(SAENB) = B1A(SAENL);
 
-assign OAL_0 = ~((SA_0 & SAENB)|(A_0 & SAENBL));                                //[00110] OA_0_(OAL_0) = AO2A(SA_0,SAENB,A_0,SAENBL);
-assign OAL_1 = ~((SA_1 & SAENB)|(A_1 & SAENBL));                                //[00111] OA_1_(OAL_1) = AO2A(SA_1,SAENB,A_1,SAENBL);
-assign OAL_2 = ~((SA_2 & SAENB)|(A_2 & SAENBL));                                //[00112] OA_2_(OAL_2) = AO2A(SA_2,SAENB,A_2,SAENBL);
-assign OAL_3 = ~((SA_3 & SAENB)|(A_3 & SAENBL));                                //[00113] OA_3_(OAL_3) = AO2A(SA_3,SAENB,A_3,SAENBL);
-assign OAL_4 = ~((SA_4 & SAENB)|(A_4 & SAENBL));                                //[00114] OA_4_(OAL_4) = AO2A(SA_4,SAENB,A_4,SAENBL);
-assign OAL_5 = ~((SA_5 & SAENB)|(A_5 & SAENBL));                                //[00115] OA_5_(OAL_5) = AO2A(SA_5,SAENB,A_5,SAENBL);
-assign OAL_6 = ~((SA_6 & SAENB)|(A_6 & SAENBL));                                //[00116] OA_6_(OAL_6) = AO2A(SA_6,SAENB,A_6,SAENBL);
-assign OAL_7 = ~((SA_7 & SAENB)|(A_7 & SAENBL));                                //[00117] OA_7_(OAL_7) = AO2A(SA_7,SAENB,A_7,SAENBL);
-assign OAL_8 = ~((SA_8 & SAENB)|(A_8 & SAENBL));                                //[00118] OA_8_(OAL_8) = AO2A(SA_8,SAENB,A_8,SAENBL);
-assign OAL_9 = ~((SA_9 & SAENB)|(A_9 & SAENBL));                                //[00119] OA_9_(OAL_9) = AO2A(SA_9,SAENB,A_9,SAENBL);
-assign OAL_10 = ~((SA_10 & SAENB)|(A_10 & SAENBL));                             //[00120] OA_10_(OAL_10) = AO2A(SA_10,SAENB,A_10,SAENBL);
-assign OAL_11 = ~((SA_11 & SAENB)|(A_11 & SAENBL));                             //[00121] OA_11_(OAL_11) = AO2A(SA_11,SAENB,A_11,SAENBL);
-assign OAL_12 = ~((SA_12 & SAENB)|(A_12 & SAENBL));                             //[00122] OA_12_(OAL_12) = AO2A(SA_12,SAENB,A_12,SAENBL);
-assign OAL_13 = ~((SA_13 & SAENB)|(A_13 & SAENBL));                             //[00123] OA_13_(OAL_13) = AO2A(SA_13,SAENB,A_13,SAENBL);
-assign OAL_14 = ~((SA_14 & SAENB)|(A_14 & SAENBL));                             //[00124] OA_14_(OAL_14) = AO2A(SA_14,SAENB,A_14,SAENBL);
-assign OAL_15 = ~((SA_15 & SAENB)|(A_15 & SAENBL));                             //[00125] OA_15_(OAL_15) = AO2A(SA_15,SAENB,A_15,SAENBL);
-assign OAL_16 = ~((SA_16 & SAENB)|(A_16 & SAENBL));                             //[00126] OA_16_(OAL_16) = AO2A(SA_16,SAENB,A_16,SAENBL);
-assign VAL_17 = ~((SA_17 & SAENB)|(A_17 & SAENBL));                             //[00127] VAL_17_(VAL_17) = AO2A(SA_17,SAENB,A_17,SAENBL);
+assign OAL_0 = ~((SA_0 & SAENB)|(inA_0 & SAENBL));                                //[00110] OA_0_(OAL_0) = AO2A(SA_0,SAENB,A_0,SAENBL);
+assign OAL_1 = ~((SA_1 & SAENB)|(inA_1 & SAENBL));                                //[00111] OA_1_(OAL_1) = AO2A(SA_1,SAENB,A_1,SAENBL);
+assign OAL_2 = ~((SA_2 & SAENB)|(inA_2 & SAENBL));                                //[00112] OA_2_(OAL_2) = AO2A(SA_2,SAENB,A_2,SAENBL);
+assign OAL_3 = ~((SA_3 & SAENB)|(inA_3 & SAENBL));                                //[00113] OA_3_(OAL_3) = AO2A(SA_3,SAENB,A_3,SAENBL);
+assign OAL_4 = ~((SA_4 & SAENB)|(inA_4 & SAENBL));                                //[00114] OA_4_(OAL_4) = AO2A(SA_4,SAENB,A_4,SAENBL);
+assign OAL_5 = ~((SA_5 & SAENB)|(inA_5 & SAENBL));                                //[00115] OA_5_(OAL_5) = AO2A(SA_5,SAENB,A_5,SAENBL);
+assign OAL_6 = ~((SA_6 & SAENB)|(inA_6 & SAENBL));                                //[00116] OA_6_(OAL_6) = AO2A(SA_6,SAENB,A_6,SAENBL);
+assign OAL_7 = ~((SA_7 & SAENB)|(inA_7 & SAENBL));                                //[00117] OA_7_(OAL_7) = AO2A(SA_7,SAENB,A_7,SAENBL);
+assign OAL_8 = ~((SA_8 & SAENB)|(inA_8 & SAENBL));                                //[00118] OA_8_(OAL_8) = AO2A(SA_8,SAENB,A_8,SAENBL);
+assign OAL_9 = ~((SA_9 & SAENB)|(inA_9 & SAENBL));                                //[00119] OA_9_(OAL_9) = AO2A(SA_9,SAENB,A_9,SAENBL);
+assign OAL_10 = ~((SA_10 & SAENB)|(inA_10 & SAENBL));                             //[00120] OA_10_(OAL_10) = AO2A(SA_10,SAENB,A_10,SAENBL);
+assign OAL_11 = ~((SA_11 & SAENB)|(inA_11 & SAENBL));                             //[00121] OA_11_(OAL_11) = AO2A(SA_11,SAENB,A_11,SAENBL);
+assign OAL_12 = ~((SA_12 & SAENB)|(inA_12 & SAENBL));                             //[00122] OA_12_(OAL_12) = AO2A(SA_12,SAENB,A_12,SAENBL);
+assign OAL_13 = ~((SA_13 & SAENB)|(inA_13 & SAENBL));                             //[00123] OA_13_(OAL_13) = AO2A(SA_13,SAENB,A_13,SAENBL);
+assign OAL_14 = ~((SA_14 & SAENB)|(inA_14 & SAENBL));                             //[00124] OA_14_(OAL_14) = AO2A(SA_14,SAENB,A_14,SAENBL);
+assign OAL_15 = ~((SA_15 & SAENB)|(inA_15 & SAENBL));                             //[00125] OA_15_(OAL_15) = AO2A(SA_15,SAENB,A_15,SAENBL);
+assign OAL_16 = ~((SA_16 & SAENB)|(inA_16 & SAENBL));                             //[00126] OA_16_(OAL_16) = AO2A(SA_16,SAENB,A_16,SAENBL);
+assign VAL_17 = ~((SA_17 & SAENB)|(inA_17 & SAENBL));                             //[00127] VAL_17_(VAL_17) = AO2A(SA_17,SAENB,A_17,SAENBL);
 
 /* the low eight address lines may be multiplexed for DRAMs */
 
 assign MUX = ~MUXL;                                                             //[00131] MUX_(MUX) = N1C(MUXL);
-assign MUXB = MUXL;                                                             //[00132] MUXB_(MUXB) = B1A(MUXL);
-assign MUXBL = MUX;                                                             //[00133] MUXBL_(MUXBL) = B1A(MUX);
+assign MUXB = ~MUXL;                                                             //[00132] MUXB_(MUXB) = B1A(MUXL);
+assign MUXBL = ~MUX;                                                             //[00133] MUXBL_(MUXBL) = B1A(MUX);
 
 assign VA_0 = ~((OAL_0 & MUXBL)|(OAL_8 & MUXB));                                //[00135] VA_0_(VA_0) = AO2A(OAL_0,MUXBL,OAL_8,MUXB);
 assign VA_1 = ~((OAL_1 & MUXBL)|(OAL_9 & MUXB));                                //[00136] VA_1_(VA_1) = AO2A(OAL_1,MUXBL,OAL_9,MUXB);
@@ -501,28 +559,11 @@ assign RESETL_5 = ~RESET_4;                                                     
 assign RESET_5 = ~RESETL_5;                                                     //[00194] RESET_5_(RESET_5) = N1A(RESETL_5);
 assign RESETL_6 = ~RESET_5;                                                     //[00195] RESETL_6_(RESETL_6) = N1A(RESET_5);
 assign RESET_6 = ~RESETL_6;                                                     //[00196] RESET_6_(RESET_6) = N1A(RESETL_6);
-assign D_0 = RESET_6 ? (~RESET_6) : 1'bZ;                                       //[00197] DR_0_(D_0) = BTS5A(RESET_6,RESET_6);
-assign D_1 = RESET_6 ? (~RESET_6) : 1'bZ;                                       //[00198] DR_1_(D_1) = BTS5A(RESET_6,RESET_6);
-assign D_2 = RESET_6 ? (~RESET_6) : 1'bZ;                                       //[00199] DR_2_(D_2) = BTS5A(RESET_6,RESET_6);
-assign D_3 = RESET_6 ? (~RESET_6) : 1'bZ;                                       //[00200] DR_3_(D_3) = BTS5A(RESET_6,RESET_6);
-assign D_4 = RESET_6 ? (~RESET_6) : 1'bZ;                                       //[00201] DR_4_(D_4) = BTS5A(RESET_6,RESET_6);
-assign D_5 = RESET_6 ? (~RESET_6) : 1'bZ;                                       //[00202] DR_5_(D_5) = BTS5A(RESET_6,RESET_6);
-assign D_6 = RESET_6 ? (~RESET_6) : 1'bZ;                                       //[00203] DR_6_(D_6) = BTS5A(RESET_6,RESET_6);
-assign D_7 = RESET_6 ? (~RESET_6) : 1'bZ;                                       //[00204] DR_7_(D_7) = BTS5A(RESET_6,RESET_6);
-
 /* zero is put onto the top half of the bus during internal memory reads
 and internal io reads. This prevents it from floating */
 
-assign IMRDL = ~(IOML & RD & A_18 & AL_19);                                     //[00209] IMRDL_(IMRDL) = ND4A(IOML,RD,A_18,AL_19);
+assign IMRDL = ~(IOML & RD & inA_18 & AL_19);                                     //[00209] IMRDL_(IMRDL) = ND4A(IOML,RD,A_18,AL_19);
 assign EN0 = ~(IMRDL & SSIORDL & RESETL_6);                                     //[00210] EN0_(EN0) = ND3B(IMRDL,SSIORDL,RESETL_6);
-assign D_8 = EN0 ? (~EN0) : 1'bZ;                                               //[00211] DR_8_(D_8) = BTS5A(EN0,EN0);
-assign D_9 = EN0 ? (~EN0) : 1'bZ;                                               //[00212] DR_9_(D_9) = BTS5A(EN0,EN0);
-assign D_10 = EN0 ? (~EN0) : 1'bZ;                                              //[00213] DR_10_(D_10) = BTS5A(EN0,EN0);
-assign D_11 = EN0 ? (~EN0) : 1'bZ;                                              //[00214] DR_11_(D_11) = BTS5A(EN0,EN0);
-assign D_12 = EN0 ? (~EN0) : 1'bZ;                                              //[00215] DR_12_(D_12) = BTS5A(EN0,EN0);
-assign D_13 = EN0 ? (~EN0) : 1'bZ;                                              //[00216] DR_13_(D_13) = BTS5A(EN0,EN0);
-assign D_14 = EN0 ? (~EN0) : 1'bZ;                                              //[00217] DR_14_(D_14) = BTS5A(EN0,EN0);
-assign D_15 = EN0 ? (~EN0) : 1'bZ;                                              //[00218] DR_15_(D_15) = BTS5A(EN0,EN0);
 
 /* enable the host data onto the internal data bus except:-
 
@@ -535,22 +576,40 @@ assign D_15 = EN0 ? (~EN0) : 1'bZ;                                              
 
 */
 
-assign D_0 = ENID ? (~SDL_0) : 1'bZ;                                            //[00231] DH_0_(D_0) = BTS5A(SDL_0,ENID);
-assign D_1 = ENID ? (~SDL_1) : 1'bZ;                                            //[00232] DH_1_(D_1) = BTS5A(SDL_1,ENID);
-assign D_2 = ENID ? (~SDL_2) : 1'bZ;                                            //[00233] DH_2_(D_2) = BTS5A(SDL_2,ENID);
-assign D_3 = ENID ? (~SDL_3) : 1'bZ;                                            //[00234] DH_3_(D_3) = BTS5A(SDL_3,ENID);
-assign D_4 = ENID ? (~SDL_4) : 1'bZ;                                            //[00235] DH_4_(D_4) = BTS5A(SDL_4,ENID);
-assign D_5 = ENID ? (~SDL_5) : 1'bZ;                                            //[00236] DH_5_(D_5) = BTS5A(SDL_5,ENID);
-assign D_6 = ENID ? (~SDL_6) : 1'bZ;                                            //[00237] DH_6_(D_6) = BTS5A(SDL_6,ENID);
-assign D_7 = ENID ? (~SDL_7) : 1'bZ;                                            //[00238] DH_7_(D_7) = BTS5A(SDL_7,ENID);
-assign D_8 = ENID ? (~VDL_8) : 1'bZ;                                            //[00239] DH_8_(D_8) = BTS5A(VDL_8,ENID);
-assign D_9 = ENID ? (~VDL_9) : 1'bZ;                                            //[00240] DH_9_(D_9) = BTS5A(VDL_9,ENID);
-assign D_10 = ENID ? (~VDL_10) : 1'bZ;                                          //[00241] DH_10_(D_10) = BTS5A(VDL_10,ENID);
-assign D_11 = ENID ? (~VDL_11) : 1'bZ;                                          //[00242] DH_11_(D_11) = BTS5A(VDL_11,ENID);
-assign D_12 = ENID ? (~VDL_12) : 1'bZ;                                          //[00243] DH_12_(D_12) = BTS5A(VDL_12,ENID);
-assign D_13 = ENID ? (~VDL_13) : 1'bZ;                                          //[00244] DH_13_(D_13) = BTS5A(VDL_13,ENID);
-assign D_14 = ENID ? (~VDL_14) : 1'bZ;                                          //[00245] DH_14_(D_14) = BTS5A(VDL_14,ENID);
-assign D_15 = ENID ? (~VDL_15) : 1'bZ;                                          //[00246] DH_15_(D_15) = BTS5A(VDL_15,ENID);
+assign outD_0 = (ENID & (~SDL_0)) | (RESET_6 & (~RESET_6));                                            //[00231] DH_0_(D_0) = BTS5A(SDL_0,ENID);
+assign outD_1 = (ENID & (~SDL_1)) | (RESET_6 & (~RESET_6));                                            //[00232] DH_1_(D_1) = BTS5A(SDL_1,ENID);
+assign outD_2 = (ENID & (~SDL_2)) | (RESET_6 & (~RESET_6));                                            //[00233] DH_2_(D_2) = BTS5A(SDL_2,ENID);
+assign outD_3 = (ENID & (~SDL_3)) | (RESET_6 & (~RESET_6));                                            //[00234] DH_3_(D_3) = BTS5A(SDL_3,ENID);
+assign outD_4 = (ENID & (~SDL_4)) | (RESET_6 & (~RESET_6));                                            //[00235] DH_4_(D_4) = BTS5A(SDL_4,ENID);
+assign outD_5 = (ENID & (~SDL_5)) | (RESET_6 & (~RESET_6));                                            //[00236] DH_5_(D_5) = BTS5A(SDL_5,ENID);
+assign outD_6 = (ENID & (~SDL_6)) | (RESET_6 & (~RESET_6));                                            //[00237] DH_6_(D_6) = BTS5A(SDL_6,ENID);
+assign outD_7 = (ENID & (~SDL_7)) | (RESET_6 & (~RESET_6));                                            //[00238] DH_7_(D_7) = BTS5A(SDL_7,ENID);
+assign outD_8 = (ENID & (~VDL_8)) | (EN0 & (~EN0));                                            //[00239] DH_8_(D_8) = BTS5A(VDL_8,ENID);
+assign outD_9 = (ENID & (~VDL_9)) | (EN0 & (~EN0));                                            //[00240] DH_9_(D_9) = BTS5A(VDL_9,ENID);
+assign outD_10 = (ENID & (~VDL_10)) | (EN0 & (~EN0));                                          //[00241] DH_10_(D_10) = BTS5A(VDL_10,ENID);
+assign outD_11 = (ENID & (~VDL_11)) | (EN0 & (~EN0));                                          //[00242] DH_11_(D_11) = BTS5A(VDL_11,ENID);
+assign outD_12 = (ENID & (~VDL_12)) | (EN0 & (~EN0));                                          //[00243] DH_12_(D_12) = BTS5A(VDL_12,ENID);
+assign outD_13 = (ENID & (~VDL_13)) | (EN0 & (~EN0));                                          //[00244] DH_13_(D_13) = BTS5A(VDL_13,ENID);
+assign outD_14 = (ENID & (~VDL_14)) | (EN0 & (~EN0));                                          //[00245] DH_14_(D_14) = BTS5A(VDL_14,ENID);
+assign outD_15 = (ENID & (~VDL_15)) | (EN0 & (~EN0));                                          //[00246] DH_15_(D_15) = BTS5A(VDL_15,ENID);
+
+assign enD_0 = ENID | RESET_6;                                            //[00231] DH_0_(D_0) = BTS5A(SDL_0,ENID);
+assign enD_1 = ENID | RESET_6;                                            //[00232] DH_1_(D_1) = BTS5A(SDL_1,ENID);
+assign enD_2 = ENID | RESET_6;                                            //[00233] DH_2_(D_2) = BTS5A(SDL_2,ENID);
+assign enD_3 = ENID | RESET_6;                                            //[00234] DH_3_(D_3) = BTS5A(SDL_3,ENID);
+assign enD_4 = ENID | RESET_6;                                            //[00235] DH_4_(D_4) = BTS5A(SDL_4,ENID);
+assign enD_5 = ENID | RESET_6;                                            //[00236] DH_5_(D_5) = BTS5A(SDL_5,ENID);
+assign enD_6 = ENID | RESET_6;                                            //[00237] DH_6_(D_6) = BTS5A(SDL_6,ENID);
+assign enD_7 = ENID | RESET_6;                                            //[00238] DH_7_(D_7) = BTS5A(SDL_7,ENID);
+assign enD_8 = ENID | EN0;                                            //[00239] DH_8_(D_8) = BTS5A(VDL_8,ENID);
+assign enD_9 = ENID | EN0;                                            //[00240] DH_9_(D_9) = BTS5A(VDL_9,ENID);
+assign enD_10 = ENID | EN0;                                          //[00241] DH_10_(D_10) = BTS5A(VDL_10,ENID);
+assign enD_11 = ENID | EN0;                                          //[00242] DH_11_(D_11) = BTS5A(VDL_11,ENID);
+assign enD_12 = ENID | EN0;                                          //[00243] DH_12_(D_12) = BTS5A(VDL_12,ENID);
+assign enD_13 = ENID | EN0;                                          //[00244] DH_13_(D_13) = BTS5A(VDL_13,ENID);
+assign enD_14 = ENID | EN0;                                          //[00245] DH_14_(D_14) = BTS5A(VDL_14,ENID);
+assign enD_15 = ENID | EN0;                                          //[00246] DH_15_(D_15) = BTS5A(VDL_15,ENID);
+
 
 /* internal IO reads are decoded by iodec */
 
@@ -558,7 +617,7 @@ assign SSIORDL = ~SSIORD;                                                       
 
 /* decode host internal memory reads */
 
-assign SSIMRDL = ~(HLDAL & IOML & VRD & A_18 & AL_19);                          //[00254] SSIMRDL_(SSIMRDL) = ND5A(HLDAL,IOML,VRD,A_18,AL_19);
+assign SSIMRDL = ~(HLDAL & IOML & VRD & inA_18 & AL_19);                          //[00254] SSIMRDL_(SSIMRDL) = ND5A(HLDAL,IOML,VRD,A_18,AL_19);
 
 /* decode coproccesor writes */
 
@@ -573,32 +632,32 @@ assign COPWRNVL = ~(HLDA & WR & SAENL);                                         
 /* decode coproccesor internal reads */
 
 assign RD = ~RDL;                                                               //[00268] RD_(RD) = N1A(RDL);
-assign COPIMRDL = ~(HLDA & RD & A_18 & AL_19);                                  //[00269] COPIMRDL_(COPIMRDL) = ND4A(HLDA,RD,A_18,AL_19);
+assign COPIMRDL = ~(HLDA & RD & inA_18 & AL_19);                                  //[00269] COPIMRDL_(COPIMRDL) = ND4A(HLDA,RD,A_18,AL_19);
 
 assign ENIDL = ~(SSIORDL & SSIMRDL & INTAL & COPWRL & COPIMRDL & RESETL_6);     //[00271] ENIDL_(ENIDL) = ND6A(SSIORDL,SSIMRDL,INTAL,COPWRL,COPIMRDL,RESETL_6);
-assign ENID = ENIDL;                                                            //[00272] ENID_(ENID) = B1A(ENIDL);
+assign ENID = ~ENIDL;                                                            //[00272] ENID_(ENID) = B1A(ENIDL);
 
 /* when SWAP1 is asserted the low byte on the internal bus is presented
 to D[8-15] output pads: when SWAP2 is asserted D[8-15] input pad is presented
 to the low byte on the internal bus */
 
-assign VAD_0 = D_0;                                                             //[00278] VAD_0_(VAD_0) = B3A(D_0);
-assign VAD_1 = D_1;                                                             //[00279] VAD_1_(VAD_1) = B3A(D_1);
-assign VAD_2 = D_2;                                                             //[00280] VAD_2_(VAD_2) = B3A(D_2);
-assign VAD_3 = D_3;                                                             //[00281] VAD_3_(VAD_3) = B3A(D_3);
-assign VAD_4 = D_4;                                                             //[00282] VAD_4_(VAD_4) = B3A(D_4);
-assign VAD_5 = D_5;                                                             //[00283] VAD_5_(VAD_5) = B3A(D_5);
-assign VAD_6 = D_6;                                                             //[00284] VAD_6_(VAD_6) = B3A(D_6);
-assign VAD_7 = D_7;                                                             //[00285] VAD_7_(VAD_7) = B3A(D_7);
+assign VAD_0 = inD_0;                                                             //[00278] VAD_0_(VAD_0) = B3A(D_0);
+assign VAD_1 = inD_1;                                                             //[00279] VAD_1_(VAD_1) = B3A(D_1);
+assign VAD_2 = inD_2;                                                             //[00280] VAD_2_(VAD_2) = B3A(D_2);
+assign VAD_3 = inD_3;                                                             //[00281] VAD_3_(VAD_3) = B3A(D_3);
+assign VAD_4 = inD_4;                                                             //[00282] VAD_4_(VAD_4) = B3A(D_4);
+assign VAD_5 = inD_5;                                                             //[00283] VAD_5_(VAD_5) = B3A(D_5);
+assign VAD_6 = inD_6;                                                             //[00284] VAD_6_(VAD_6) = B3A(D_6);
+assign VAD_7 = inD_7;                                                             //[00285] VAD_7_(VAD_7) = B3A(D_7);
 
-assign SDL_8 = ~((D_8 & SWAP1L)|(D_0 & SWAP1));                                 //[00287] SDL_8_(SDL_8) = AO2A(D_8,SWAP1L,D_0,SWAP1);
-assign SDL_9 = ~((D_9 & SWAP1L)|(D_1 & SWAP1));                                 //[00288] SDL_9_(SDL_9) = AO2A(D_9,SWAP1L,D_1,SWAP1);
-assign SDL_10 = ~((D_10 & SWAP1L)|(D_2 & SWAP1));                               //[00289] SDL_10_(SDL_10) = AO2A(D_10,SWAP1L,D_2,SWAP1);
-assign SDL_11 = ~((D_11 & SWAP1L)|(D_3 & SWAP1));                               //[00290] SDL_11_(SDL_11) = AO2A(D_11,SWAP1L,D_3,SWAP1);
-assign SDL_12 = ~((D_12 & SWAP1L)|(D_4 & SWAP1));                               //[00291] SDL_12_(SDL_12) = AO2A(D_12,SWAP1L,D_4,SWAP1);
-assign SDL_13 = ~((D_13 & SWAP1L)|(D_5 & SWAP1));                               //[00292] SDL_13_(SDL_13) = AO2A(D_13,SWAP1L,D_5,SWAP1);
-assign SDL_14 = ~((D_14 & SWAP1L)|(D_6 & SWAP1));                               //[00293] SDL_14_(SDL_14) = AO2A(D_14,SWAP1L,D_6,SWAP1);
-assign SDL_15 = ~((D_15 & SWAP1L)|(D_7 & SWAP1));                               //[00294] SDL_15_(SDL_15) = AO2A(D_15,SWAP1L,D_7,SWAP1);
+assign SDL_8 = ~((inD_8 & SWAP1L)|(inD_0 & SWAP1));                                 //[00287] SDL_8_(SDL_8) = AO2A(D_8,SWAP1L,D_0,SWAP1);
+assign SDL_9 = ~((inD_9 & SWAP1L)|(inD_1 & SWAP1));                                 //[00288] SDL_9_(SDL_9) = AO2A(D_9,SWAP1L,D_1,SWAP1);
+assign SDL_10 = ~((inD_10 & SWAP1L)|(inD_2 & SWAP1));                               //[00289] SDL_10_(SDL_10) = AO2A(D_10,SWAP1L,D_2,SWAP1);
+assign SDL_11 = ~((inD_11 & SWAP1L)|(inD_3 & SWAP1));                               //[00290] SDL_11_(SDL_11) = AO2A(D_11,SWAP1L,D_3,SWAP1);
+assign SDL_12 = ~((inD_12 & SWAP1L)|(inD_4 & SWAP1));                               //[00291] SDL_12_(SDL_12) = AO2A(D_12,SWAP1L,D_4,SWAP1);
+assign SDL_13 = ~((inD_13 & SWAP1L)|(inD_5 & SWAP1));                               //[00292] SDL_13_(SDL_13) = AO2A(D_13,SWAP1L,D_5,SWAP1);
+assign SDL_14 = ~((inD_14 & SWAP1L)|(inD_6 & SWAP1));                               //[00293] SDL_14_(SDL_14) = AO2A(D_14,SWAP1L,D_6,SWAP1);
+assign SDL_15 = ~((inD_15 & SWAP1L)|(inD_7 & SWAP1));                               //[00294] SDL_15_(SDL_15) = AO2A(D_15,SWAP1L,D_7,SWAP1);
 assign VD_8 = ~SDL_8;                                                           //[00295] VD_8_(VD_8) = N1A(SDL_8);
 assign VD_9 = ~SDL_9;                                                           //[00296] VD_9_(VD_9) = N1A(SDL_9);
 assign VD_10 = ~SDL_10;                                                         //[00297] VD_10_(VD_10) = N1A(SDL_10);
@@ -634,14 +693,14 @@ assign SDL_7 = ~SD_7;                                                           
 
 /* decode odd host SRAM accesses */
 
-assign AL_18 = ~A_18;                                                           //[00331] AL_18_(AL_18) = N1A(A_18);
-assign AL_19 = ~A_19;                                                           //[00332] AL_19_(AL_19) = N1A(A_19);
-assign HODDL = ~(HLDAL & IOML & A_0 & AL_18 & AL_19);                           //[00333] HODDL_(HODDL) = ND5A(HLDAL,IOML,A_0,AL_18,AL_19);
+assign AL_18 = ~inA_18;                                                           //[00331] AL_18_(AL_18) = N1A(A_18);
+assign AL_19 = ~inA_19;                                                           //[00332] AL_19_(AL_19) = N1A(A_19);
+assign HODDL = ~(HLDAL & IOML & inA_0 & AL_18 & AL_19);                           //[00333] HODDL_(HODDL) = ND5A(HLDAL,IOML,A_0,AL_18,AL_19);
 assign HODDRL = RDL | HODDL;                                                    //[00334] HODDRL_(HODDRL) = OR2A(RDL,HODDL);
 
 /* decode odd coproccesor SRAM accesses */
 
-assign CODDL = ~(HLDA & SAENL & A_0 & AL_18 & AL_19 & WORDL);                   //[00338] CODDL_(CODDL) = ND6A(HLDA,SAENL,A_0,AL_18,AL_19,WORDL);
+assign CODDL = ~(HLDA & SAENL & inA_0 & AL_18 & AL_19 & WORDL);                   //[00338] CODDL_(CODDL) = ND6A(HLDA,SAENL,A_0,AL_18,AL_19,WORDL);
 
 /* decode joystick reads */
 
@@ -673,7 +732,7 @@ assign ADEN = ~(HODDRL & SSIMRDL & SSIORDL & JOYL & INTAL & COPWRNVL);          
 
 */
 
-assign HODDWL = ~(HLDAL & IOML & VWR & A_0 & AL_18 & AL_19);                    //[00370] HODDWL_(HODDWL) = ND6A(HLDAL,IOML,VWR,A_0,AL_18,AL_19);
+assign HODDWL = ~(HLDAL & IOML & VWR & inA_0 & AL_18 & AL_19);                    //[00370] HODDWL_(HODDWL) = ND6A(HLDAL,IOML,VWR,A_0,AL_18,AL_19);
 
 assign DEN = ~(HODDWL & COPWRNVL);                                              //[00372] DEN_(DEN) = ND2C(HODDWL,COPWRNVL);
 assign DENL = ~DEN;                                                             //[00373] DENL_(DENL) = N1A(DEN);
@@ -696,19 +755,19 @@ assign HOLDL = BHOLDL & VHOLDL;                                                 
 /* palcs is decoded here */
 /* the palette RAM lies between 40000 and 401FF */
 
-assign PR = ~(A_12 | A_13 | A_14 | A_15 | A_16 | A_17 | AL_18 | A_19);          //[00393] PR_(PR) = NR8A(A_12,A_13,A_14,A_15,A_16,A_17,AL_18,A_19);
-assign AL_9 = ~A_9;                                                             //[00394] AL_9_(AL_9) = N1A(A_9);
-assign AL_10 = ~A_10;                                                           //[00395] AL_10_(AL_10) = N1A(A_10);
-assign AL_11 = ~A_11;                                                           //[00396] AL_11_(AL_11) = N1A(A_11);
-assign AL_14 = ~A_14;                                                           //[00397] AL_14_(AL_14) = N1A(A_14);
+assign PR = ~(inA_12 | inA_13 | inA_14 | inA_15 | inA_16 | inA_17 | AL_18 | inA_19);          //[00393] PR_(PR) = NR8A(A_12,A_13,A_14,A_15,A_16,A_17,AL_18,A_19);
+assign AL_9 = ~inA_9;                                                             //[00394] AL_9_(AL_9) = N1A(A_9);
+assign AL_10 = ~inA_10;                                                           //[00395] AL_10_(AL_10) = N1A(A_10);
+assign AL_11 = ~inA_11;                                                           //[00396] AL_11_(AL_11) = N1A(A_11);
+assign AL_14 = ~inA_14;                                                           //[00397] AL_14_(AL_14) = N1A(A_14);
 
 assign PALCSL = ~(PR & IOML & AL_9 & AL_10 & AL_11);                            //[00399] PALCSL_(PALCSL) = ND5A(PR,IOML,AL_9,AL_10,AL_11);
 assign PALCS = ~PALCSL;                                                         //[00400] PALCS_(PALCS) = N1C(PALCSL);
 
 /* the dsp lies between 41000 and 41FFF */
 
-assign AL_12 = ~A_12;                                                           //[00404] AL_12_(AL_12) = N1A(A_12);
-assign D0 = ~(AL_12 | A_13 | A_14 | A_15 | A_16 | A_17 | AL_18 | A_19);         //[00405] D0_(D0) = NR8A(AL_12,A_13,A_14,A_15,A_16,A_17,AL_18,A_19);
+assign AL_12 = ~inA_12;                                                           //[00404] AL_12_(AL_12) = N1A(A_12);
+assign D0 = ~(AL_12 | inA_13 | inA_14 | inA_15 | inA_16 | inA_17 | AL_18 | inA_19);         //[00405] D0_(D0) = NR8A(AL_12,A_13,A_14,A_15,A_16,A_17,AL_18,A_19);
 assign DCSL = ~(D0 & IOML & AL_11);                                             //[00406] DCSL_(DCSL) = ND3C(D0,IOML,AL_11);
 
 endmodule                                                                       //[00408] END MODULE;

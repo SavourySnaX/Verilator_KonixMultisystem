@@ -13,14 +13,14 @@ the SLIPSTREAM chip on the ACW
 module m_STAT                                                                   //[00015] MODULE STAT;
 (                                                                               //[00015] MODULE STAT;
 
-    inout    D_0,                                                               //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
-    inout    D_1,                                                               //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
-    inout    D_2,                                                               //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
-    inout    D_3,                                                               //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
-    inout    D_4,                                                               //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
-    inout    D_5,                                                               //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
-    inout    D_6,                                                               //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
-    inout    D_7,                                                               //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
+    input    inD_0,                                                               //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
+    input    inD_1,                                                               //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
+    input    inD_2,                                                               //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
+    input    inD_3,                                                               //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
+    input    inD_4,                                                               //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
+    input    inD_5,                                                               //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
+    input    inD_6,                                                               //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
+    input    inD_7,                                                               //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
     input    RESETL_0,                                                          //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
     input    WD_0,                                                              //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
     input    WD_1,                                                              //[00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
@@ -37,14 +37,22 @@ module m_STAT                                                                   
     input    FASTL,                                                             //[00018]    DIAGL_0,DIAG_1,LCD,LPSET,PALL,PSRAML,FASTL,XTALL;
     input    XTALL,                                                             //[00018]    DIAGL_0,DIAG_1,LCD,LPSET,PALL,PSRAML,FASTL,XTALL;
                                                                                 //[00018]    DIAGL_0,DIAG_1,LCD,LPSET,PALL,PSRAML,FASTL,XTALL;
-//    output    D_0,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
-//    output    D_1,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
-//    output    D_2,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
-//    output    D_3,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
-//    output    D_4,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
-//    output    D_5,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
-//    output    D_6,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
-//    output    D_7,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
+    output    outD_0,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
+    output    outD_1,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
+    output    outD_2,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
+    output    outD_3,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
+    output    outD_4,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
+    output    outD_5,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
+    output    outD_6,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
+    output    outD_7,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
+    output    enD_0,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
+    output    enD_1,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
+    output    enD_2,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
+    output    enD_3,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
+    output    enD_4,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
+    output    enD_5,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
+    output    enD_6,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
+    output    enD_7,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
     output    OPEN,                                                             //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
     output    NTSC,                                                             //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
     output    TESTENL,                                                          //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OPEN,NTSC,TESTENL,PSUEDO,VCEN,TMODE,
@@ -108,14 +116,22 @@ LD1A DOEN__inst (.q(DOEN),.qL(DOENL),.d(WD_1),.en(LCD));                        
 
 /* the status register */
 
-assign D_0 = ~STATL ? PAL : 1'bZ;                                               //[00057] D_0_(D_0) = MACZINVB1(PAL,STATL);
 assign LPSETL = ~LPSET;                                                         //[00058] LPSETL_(LPSETL) = N1A(LPSET);
-assign D_1 = ~STATL ? LPSETL : 1'bZ;                                            //[00059] D_1_(D_1) = MACZINVB1(LPSETL,STATL);
-assign D_2 = ~STATL ? SLOW : 1'bZ;                                              //[00060] D_2_(D_2) = MACZINVB1(SLOW,STATL);
-assign D_3 = ~STATL ? RESETL_1 : 1'bZ;                                          //[00061] D_3_(D_3) = MACZINVB1(RESETL_1,STATL);
-assign D_4 = ~STATL ? RESETL_1 : 1'bZ;                                          //[00062] D_4_(D_4) = MACZINVB1(RESETL_1,STATL);
-assign D_5 = ~STATL ? RESETL_1 : 1'bZ;                                          //[00063] D_5_(D_5) = MACZINVB1(RESETL_1,STATL);
-assign D_6 = ~STATL ? RESETL_1 : 1'bZ;                                          //[00064] D_6_(D_6) = MACZINVB1(RESETL_1,STATL);
-assign D_7 = ~STATL ? RESETL_1 : 1'bZ;                                          //[00065] D_7_(D_7) = MACZINVB1(RESETL_1,STATL);
+assign outD_0 = PAL;                                               //[00057] D_0_(D_0) = MACZINVB1(PAL,STATL);
+assign outD_1 = LPSETL;                                            //[00059] D_1_(D_1) = MACZINVB1(LPSETL,STATL);
+assign outD_2 = SLOW;                                              //[00060] D_2_(D_2) = MACZINVB1(SLOW,STATL);
+assign outD_3 = RESETL_1;                                          //[00061] D_3_(D_3) = MACZINVB1(RESETL_1,STATL);
+assign outD_4 = RESETL_1;                                          //[00062] D_4_(D_4) = MACZINVB1(RESETL_1,STATL);
+assign outD_5 = RESETL_1;                                          //[00063] D_5_(D_5) = MACZINVB1(RESETL_1,STATL);
+assign outD_6 = RESETL_1;                                          //[00064] D_6_(D_6) = MACZINVB1(RESETL_1,STATL);
+assign outD_7 = RESETL_1;                                          //[00065] D_7_(D_7) = MACZINVB1(RESETL_1,STATL);
+assign enD_0 = ~STATL;                                           //[00057] D_0_(D_0) = MACZINVB1(PAL,STATL);
+assign enD_1 = ~STATL;                                           //[00059] D_1_(D_1) = MACZINVB1(LPSETL,STATL);
+assign enD_2 = ~STATL;                                           //[00060] D_2_(D_2) = MACZINVB1(SLOW,STATL);
+assign enD_3 = ~STATL;                                          //[00061] D_3_(D_3) = MACZINVB1(RESETL_1,STATL);
+assign enD_4 = ~STATL;                                          //[00062] D_4_(D_4) = MACZINVB1(RESETL_1,STATL);
+assign enD_5 = ~STATL;                                          //[00063] D_5_(D_5) = MACZINVB1(RESETL_1,STATL);
+assign enD_6 = ~STATL;                                          //[00064] D_6_(D_6) = MACZINVB1(RESETL_1,STATL);
+assign enD_7 = ~STATL;                                          //[00065] D_7_(D_7) = MACZINVB1(RESETL_1,STATL);
 
 endmodule                                                                       //[00068] END MODULE;

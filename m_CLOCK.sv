@@ -135,7 +135,7 @@ assign CCLK = ~((TSTCLK & MCK)|(TSTCLKL & CCLKD));                              
 
 assign LPL = ~LP;                                                               //[00088] LPL_(LPL) = N1A(LP);
 assign DCLKL = ~((TSTCLK & LPL)|(TSTCLKL & DCLKD));                             //[00089] DCLK_(DCLKL) = AO2C(TSTCLK,LPL,TSTCLKL,DCLKD);
-assign DQCLK = DCLKL;                                                           //[00090] DQCLK_(DQCLK) = B1A(DCLKL);
+assign DQCLK = ~DCLKL;                                                           //[00090] DQCLK_(DQCLK) = B1A(DCLKL);
 
 /* the processor clock is either 6Mhz or 9Mhz */
 

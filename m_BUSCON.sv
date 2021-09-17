@@ -11,12 +11,12 @@ Bus Control and IO decoding
 module m_BUSCON                                                                 //[00012] MODULE BUSCON;
 (                                                                               //[00012] MODULE BUSCON;
 
-    inout    D_0,                                                               //[00014] INPUTS	D_0,D_3,D_4,D_5,D_6,D_7,A_0,A_1,A_2,A_3,A_4,BCSL,HLDAL,DSPBRQL,ID_0,INTL,
-    inout    D_3,                                                               //[00014] INPUTS	D_0,D_3,D_4,D_5,D_6,D_7,A_0,A_1,A_2,A_3,A_4,BCSL,HLDAL,DSPBRQL,ID_0,INTL,
-    inout    D_4,                                                               //[00014] INPUTS	D_0,D_3,D_4,D_5,D_6,D_7,A_0,A_1,A_2,A_3,A_4,BCSL,HLDAL,DSPBRQL,ID_0,INTL,
-    inout    D_5,                                                               //[00014] INPUTS	D_0,D_3,D_4,D_5,D_6,D_7,A_0,A_1,A_2,A_3,A_4,BCSL,HLDAL,DSPBRQL,ID_0,INTL,
-    inout    D_6,                                                               //[00014] INPUTS	D_0,D_3,D_4,D_5,D_6,D_7,A_0,A_1,A_2,A_3,A_4,BCSL,HLDAL,DSPBRQL,ID_0,INTL,
-    inout    D_7,                                                               //[00014] INPUTS	D_0,D_3,D_4,D_5,D_6,D_7,A_0,A_1,A_2,A_3,A_4,BCSL,HLDAL,DSPBRQL,ID_0,INTL,
+    input    inD_0,                                                               //[00014] INPUTS	D_0,D_3,D_4,D_5,D_6,D_7,A_0,A_1,A_2,A_3,A_4,BCSL,HLDAL,DSPBRQL,ID_0,INTL,
+    input    inD_3,                                                               //[00014] INPUTS	D_0,D_3,D_4,D_5,D_6,D_7,A_0,A_1,A_2,A_3,A_4,BCSL,HLDAL,DSPBRQL,ID_0,INTL,
+    input    inD_4,                                                               //[00014] INPUTS	D_0,D_3,D_4,D_5,D_6,D_7,A_0,A_1,A_2,A_3,A_4,BCSL,HLDAL,DSPBRQL,ID_0,INTL,
+    input    inD_5,                                                               //[00014] INPUTS	D_0,D_3,D_4,D_5,D_6,D_7,A_0,A_1,A_2,A_3,A_4,BCSL,HLDAL,DSPBRQL,ID_0,INTL,
+    input    inD_6,                                                               //[00014] INPUTS	D_0,D_3,D_4,D_5,D_6,D_7,A_0,A_1,A_2,A_3,A_4,BCSL,HLDAL,DSPBRQL,ID_0,INTL,
+    input    inD_7,                                                               //[00014] INPUTS	D_0,D_3,D_4,D_5,D_6,D_7,A_0,A_1,A_2,A_3,A_4,BCSL,HLDAL,DSPBRQL,ID_0,INTL,
     input    A_0,                                                               //[00014] INPUTS	D_0,D_3,D_4,D_5,D_6,D_7,A_0,A_1,A_2,A_3,A_4,BCSL,HLDAL,DSPBRQL,ID_0,INTL,
     input    A_1,                                                               //[00014] INPUTS	D_0,D_3,D_4,D_5,D_6,D_7,A_0,A_1,A_2,A_3,A_4,BCSL,HLDAL,DSPBRQL,ID_0,INTL,
     input    A_2,                                                               //[00014] INPUTS	D_0,D_3,D_4,D_5,D_6,D_7,A_0,A_1,A_2,A_3,A_4,BCSL,HLDAL,DSPBRQL,ID_0,INTL,
@@ -34,12 +34,18 @@ module m_BUSCON                                                                 
     input    RUN,                                                               //[00015]    IORDL,IOWRL,INCYCL,RESET,RUN,STOP;
     input    STOP,                                                              //[00015]    IORDL,IOWRL,INCYCL,RESET,RUN,STOP;
                                                                                 //[00015]    IORDL,IOWRL,INCYCL,RESET,RUN,STOP;
-//    output    D_0,                                                            //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
-//    output    D_3,                                                            //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
-//    output    D_4,                                                            //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
-//    output    D_5,                                                            //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
-//    output    D_6,                                                            //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
-//    output    D_7,                                                            //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
+    output    outD_0,                                                            //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
+    output    outD_3,                                                            //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
+    output    outD_4,                                                            //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
+    output    outD_5,                                                            //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
+    output    outD_6,                                                            //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
+    output    outD_7,                                                            //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
+    output    enD_0,                                                            //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
+    output    enD_3,                                                            //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
+    output    enD_4,                                                            //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
+    output    enD_5,                                                            //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
+    output    enD_6,                                                            //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
+    output    enD_7,                                                            //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
     output    ACKINT,                                                           //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
     output    BHOLDL,                                                           //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
     output    BUSOE,                                                            //[00016] OUTPUTS	D_0,D_3,D_4,D_5,D_6,D_7,ACKINT,BHOLDL,BUSOE,CMDWRL,CONWRL,DSPBAKL,
@@ -186,13 +192,19 @@ assign STRD = ~STRDL;                                                           
 /* Interrupt stop is true if run is active, int is active and bus hold
 is inactive */
 assign ISTOPL = ~(RUN & FINT & BHOLDL);                                         //[00118] ISTOPL_(ISTOPL) = ND3A(RUN,FINT,BHOLDL);
-assign D_0 = STRD ? (~ISTOPL) : 1'bZ;                                           //[00119] STAT_0_(D_0) = BTS5A(ISTOPL,STRD);
+assign outD_0 = ~ISTOPL;                                           //[00119] STAT_0_(D_0) = BTS5A(ISTOPL,STRD);
+assign enD_0 = STRD;                                           //[00119] STAT_0_(D_0) = BTS5A(ISTOPL,STRD);
 
-assign D_3 = STRD ? (~STRD) : 1'bZ;                                             //[00121] STAT_3_(D_3) = BTS5A(STRD,STRD);
-assign D_4 = STRD ? (~STRD) : 1'bZ;                                             //[00122] STAT_4_(D_4) = BTS5A(STRD,STRD);
-assign D_5 = STRD ? (~STRD) : 1'bZ;                                             //[00123] STAT_5_(D_5) = BTS5A(STRD,STRD);
-assign D_6 = STRD ? (~STRD) : 1'bZ;                                             //[00124] STAT_6_(D_6) = BTS5A(STRD,STRD);
-assign D_7 = STRD ? (~STRD) : 1'bZ;                                             //[00125] STAT_7_(D_7) = BTS5A(STRD,STRD);
+assign outD_3 = (~STRD);                                             //[00121] STAT_3_(D_3) = BTS5A(STRD,STRD);
+assign outD_4 = (~STRD);                                             //[00122] STAT_4_(D_4) = BTS5A(STRD,STRD);
+assign outD_5 = (~STRD);                                             //[00123] STAT_5_(D_5) = BTS5A(STRD,STRD);
+assign outD_6 = (~STRD);                                             //[00124] STAT_6_(D_6) = BTS5A(STRD,STRD);
+assign outD_7 = (~STRD);                                             //[00125] STAT_7_(D_7) = BTS5A(STRD,STRD);
+assign enD_3 = STRD;                                             //[00121] STAT_3_(D_3) = BTS5A(STRD,STRD);
+assign enD_4 = STRD;                                             //[00122] STAT_4_(D_4) = BTS5A(STRD,STRD);
+assign enD_5 = STRD;                                             //[00123] STAT_5_(D_5) = BTS5A(STRD,STRD);
+assign enD_6 = STRD;                                             //[00124] STAT_6_(D_6) = BTS5A(STRD,STRD);
+assign enD_7 = STRD;                                             //[00125] STAT_7_(D_7) = BTS5A(STRD,STRD);
 
 /* The blitter control register.  The remainder of this register lies
 within the state block */

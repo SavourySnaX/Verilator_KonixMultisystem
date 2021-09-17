@@ -15,22 +15,22 @@ sixteen bit mode the high byte is always the source data.
 module m_LFU                                                                    //[00016] MODULE LFU;
 (                                                                               //[00016] MODULE LFU;
 
-    inout    D_0,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
-    inout    D_1,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
-    inout    D_2,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
-    inout    D_3,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
-    inout    D_4,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
-    inout    D_5,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
-    inout    D_6,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
-    inout    D_7,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
-    inout    D_8,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
-    inout    D_9,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
-    inout    D_10,                                                              //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
-    inout    D_11,                                                              //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
-    inout    D_12,                                                              //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
-    inout    D_13,                                                              //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
-    inout    D_14,                                                              //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
-    inout    D_15,                                                              //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
+    input    inD_0,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
+    input    inD_1,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
+    input    inD_2,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
+    input    inD_3,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
+    input    inD_4,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
+    input    inD_5,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
+    input    inD_6,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
+    input    inD_7,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
+    input    inD_8,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
+    input    inD_9,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
+    input    inD_10,                                                              //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
+    input    inD_11,                                                              //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
+    input    inD_12,                                                              //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
+    input    inD_13,                                                              //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
+    input    inD_14,                                                              //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
+    input    inD_15,                                                              //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
     input    DAM1L,                                                             //[00019]    DAM1L,DATOEL,DSTD_0,DSTD_1,DSTD_2,DSTD_3,DSTD_4,DSTD_5,DSTD_6,DSTD_7,ID_4,
     input    DATOEL,                                                            //[00019]    DAM1L,DATOEL,DSTD_0,DSTD_1,DSTD_2,DSTD_3,DSTD_4,DSTD_5,DSTD_6,DSTD_7,ID_4,
     input    DSTD_0,                                                            //[00019]    DAM1L,DATOEL,DSTD_0,DSTD_1,DSTD_2,DSTD_3,DSTD_4,DSTD_5,DSTD_6,DSTD_7,ID_4,
@@ -71,27 +71,43 @@ module m_LFU                                                                    
     input    SRCD_12,                                                           //[00022]    SRCD_8,SRCD_9,SRCD_10,SRCD_11,SRCD_12,SRCD_13,SRCD_14,SRCD_15;
     input    SRCD_13,                                                           //[00022]    SRCD_8,SRCD_9,SRCD_10,SRCD_11,SRCD_12,SRCD_13,SRCD_14,SRCD_15;
     input    SRCD_14,                                                           //[00022]    SRCD_8,SRCD_9,SRCD_10,SRCD_11,SRCD_12,SRCD_13,SRCD_14,SRCD_15;
-    input    SRCD_15                                                            //[00022]    SRCD_8,SRCD_9,SRCD_10,SRCD_11,SRCD_12,SRCD_13,SRCD_14,SRCD_15;
+    input    SRCD_15,                                                           //[00022]    SRCD_8,SRCD_9,SRCD_10,SRCD_11,SRCD_12,SRCD_13,SRCD_14,SRCD_15;
                                                                                 //[00019]    DAM1L,DATOEL,DSTD_0,DSTD_1,DSTD_2,DSTD_3,DSTD_4,DSTD_5,DSTD_6,DSTD_7,ID_4,
                                                                                 //[00020]    ID_5,ID_6,ID_7,LDCMPL,LDMODL,PATD_0,PATD_1,PATD_2,PATD_3,PATD_4,PATD_5,
                                                                                 //[00021]    PATD_6,PATD_7,RES_0,SRCD_0,SRCD_1,SRCD_2,SRCD_3,SRCD_4,SRCD_5,SRCD_6,SRCD_7,
                                                                                 //[00022]    SRCD_8,SRCD_9,SRCD_10,SRCD_11,SRCD_12,SRCD_13,SRCD_14,SRCD_15;
-//    output    D_0,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
-//    output    D_1,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
-//    output    D_2,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
-//    output    D_3,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
-//    output    D_4,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
-//    output    D_5,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
-//    output    D_6,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
-//    output    D_7,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
-//    output    D_8,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
-//    output    D_9,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
-//    output    D_10,                                                           //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
-//    output    D_11,                                                           //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
-//    output    D_12,                                                           //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
-//    output    D_13,                                                           //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
-//    output    D_14,                                                           //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
-//    output    D_15                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    outD_0,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    outD_1,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    outD_2,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    outD_3,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    outD_4,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    outD_5,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    outD_6,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    outD_7,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    outD_8,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    outD_9,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    outD_10,                                                           //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    outD_11,                                                           //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    outD_12,                                                           //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    outD_13,                                                           //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    outD_14,                                                           //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    outD_15,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    enD_0,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    enD_1,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    enD_2,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    enD_3,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    enD_4,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    enD_5,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    enD_6,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    enD_7,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    enD_8,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    enD_9,                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    enD_10,                                                           //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    enD_11,                                                           //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    enD_12,                                                           //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    enD_13,                                                           //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    enD_14,                                                           //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
+    output    enD_15                                                            //[00023] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15;
 );                                                                              //[00016] MODULE LFU;
                                                                                 //[00024] LEVEL FUNCTION;
 wire RESL_0;                                                                    //[00027] RESL_0_(RESL_0) = N1A(RES_0);
@@ -186,21 +202,37 @@ assign FDOL_7 = ~((HIDSEL & DSTD_7)|(HIDSELL & FD_7));                          
 /* Drive the output data onto the data bus */
 
 assign DATOE = ~DATOEL;                                                         //[00076] DATOE_(DATOE) = N1C(DATOEL);
-assign D_0 = DATOE ? (~FDOL_0) : 1'bZ;                                          //[00077] LFDRIV_0_(D_0) = BTS5A(FDOL_0,DATOE);
-assign D_1 = DATOE ? (~FDOL_1) : 1'bZ;                                          //[00078] LFDRIV_1_(D_1) = BTS5A(FDOL_1,DATOE);
-assign D_2 = DATOE ? (~FDOL_2) : 1'bZ;                                          //[00079] LFDRIV_2_(D_2) = BTS5A(FDOL_2,DATOE);
-assign D_3 = DATOE ? (~FDOL_3) : 1'bZ;                                          //[00080] LFDRIV_3_(D_3) = BTS5A(FDOL_3,DATOE);
-assign D_4 = DATOE ? (~FDOL_4) : 1'bZ;                                          //[00081] LFDRIV_4_(D_4) = BTS5A(FDOL_4,DATOE);
-assign D_5 = DATOE ? (~FDOL_5) : 1'bZ;                                          //[00082] LFDRIV_5_(D_5) = BTS5A(FDOL_5,DATOE);
-assign D_6 = DATOE ? (~FDOL_6) : 1'bZ;                                          //[00083] LFDRIV_6_(D_6) = BTS5A(FDOL_6,DATOE);
-assign D_7 = DATOE ? (~FDOL_7) : 1'bZ;                                          //[00084] LFDRIV_7_(D_7) = BTS5A(FDOL_7,DATOE);
-assign D_8 = DATOE ? SRCD_8 : 1'bZ;                                             //[00085] LFDRIV_8_(D_8) = BTS4A(SRCD_8,DATOE);
-assign D_9 = DATOE ? SRCD_9 : 1'bZ;                                             //[00086] LFDRIV_9_(D_9) = BTS4A(SRCD_9,DATOE);
-assign D_10 = DATOE ? SRCD_10 : 1'bZ;                                           //[00087] LFDRIV_10_(D_10) = BTS4A(SRCD_10,DATOE);
-assign D_11 = DATOE ? SRCD_11 : 1'bZ;                                           //[00088] LFDRIV_11_(D_11) = BTS4A(SRCD_11,DATOE);
-assign D_12 = DATOE ? SRCD_12 : 1'bZ;                                           //[00089] LFDRIV_12_(D_12) = BTS4A(SRCD_12,DATOE);
-assign D_13 = DATOE ? SRCD_13 : 1'bZ;                                           //[00090] LFDRIV_13_(D_13) = BTS4A(SRCD_13,DATOE);
-assign D_14 = DATOE ? SRCD_14 : 1'bZ;                                           //[00091] LFDRIV_14_(D_14) = BTS4A(SRCD_14,DATOE);
-assign D_15 = DATOE ? SRCD_15 : 1'bZ;                                           //[00092] LFDRIV_15_(D_15) = BTS4A(SRCD_15,DATOE);
+assign outD_0 = (~FDOL_0);                                          //[00077] LFDRIV_0_(D_0) = BTS5A(FDOL_0,DATOE);
+assign outD_1 = (~FDOL_1);                                          //[00078] LFDRIV_1_(D_1) = BTS5A(FDOL_1,DATOE);
+assign outD_2 = (~FDOL_2);                                          //[00079] LFDRIV_2_(D_2) = BTS5A(FDOL_2,DATOE);
+assign outD_3 = (~FDOL_3);                                          //[00080] LFDRIV_3_(D_3) = BTS5A(FDOL_3,DATOE);
+assign outD_4 = (~FDOL_4);                                          //[00081] LFDRIV_4_(D_4) = BTS5A(FDOL_4,DATOE);
+assign outD_5 = (~FDOL_5);                                          //[00082] LFDRIV_5_(D_5) = BTS5A(FDOL_5,DATOE);
+assign outD_6 = (~FDOL_6);                                          //[00083] LFDRIV_6_(D_6) = BTS5A(FDOL_6,DATOE);
+assign outD_7 = (~FDOL_7);                                          //[00084] LFDRIV_7_(D_7) = BTS5A(FDOL_7,DATOE);
+assign outD_8 = SRCD_8;                                             //[00085] LFDRIV_8_(D_8) = BTS4A(SRCD_8,DATOE);
+assign outD_9 = SRCD_9;                                             //[00086] LFDRIV_9_(D_9) = BTS4A(SRCD_9,DATOE);
+assign outD_10 = SRCD_10;                                           //[00087] LFDRIV_10_(D_10) = BTS4A(SRCD_10,DATOE);
+assign outD_11 = SRCD_11;                                           //[00088] LFDRIV_11_(D_11) = BTS4A(SRCD_11,DATOE);
+assign outD_12 = SRCD_12;                                           //[00089] LFDRIV_12_(D_12) = BTS4A(SRCD_12,DATOE);
+assign outD_13 = SRCD_13;                                           //[00090] LFDRIV_13_(D_13) = BTS4A(SRCD_13,DATOE);
+assign outD_14 = SRCD_14;                                           //[00091] LFDRIV_14_(D_14) = BTS4A(SRCD_14,DATOE);
+assign outD_15 = SRCD_15;                                           //[00092] LFDRIV_15_(D_15) = BTS4A(SRCD_15,DATOE);
+assign enD_0 = DATOE;                                          //[00077] LFDRIV_0_(D_0) = BTS5A(FDOL_0,DATOE);
+assign enD_1 = DATOE;                                          //[00078] LFDRIV_1_(D_1) = BTS5A(FDOL_1,DATOE);
+assign enD_2 = DATOE;                                          //[00079] LFDRIV_2_(D_2) = BTS5A(FDOL_2,DATOE);
+assign enD_3 = DATOE;                                          //[00080] LFDRIV_3_(D_3) = BTS5A(FDOL_3,DATOE);
+assign enD_4 = DATOE;                                          //[00081] LFDRIV_4_(D_4) = BTS5A(FDOL_4,DATOE);
+assign enD_5 = DATOE;                                          //[00082] LFDRIV_5_(D_5) = BTS5A(FDOL_5,DATOE);
+assign enD_6 = DATOE;                                          //[00083] LFDRIV_6_(D_6) = BTS5A(FDOL_6,DATOE);
+assign enD_7 = DATOE;                                          //[00084] LFDRIV_7_(D_7) = BTS5A(FDOL_7,DATOE);
+assign enD_8 = DATOE;                                             //[00085] LFDRIV_8_(D_8) = BTS4A(SRCD_8,DATOE);
+assign enD_9 = DATOE;                                             //[00086] LFDRIV_9_(D_9) = BTS4A(SRCD_9,DATOE);
+assign enD_10 = DATOE;                                           //[00087] LFDRIV_10_(D_10) = BTS4A(SRCD_10,DATOE);
+assign enD_11 = DATOE;                                           //[00088] LFDRIV_11_(D_11) = BTS4A(SRCD_11,DATOE);
+assign enD_12 = DATOE;                                           //[00089] LFDRIV_12_(D_12) = BTS4A(SRCD_12,DATOE);
+assign enD_13 = DATOE;                                           //[00090] LFDRIV_13_(D_13) = BTS4A(SRCD_13,DATOE);
+assign enD_14 = DATOE;                                           //[00091] LFDRIV_14_(D_14) = BTS4A(SRCD_14,DATOE);
+assign enD_15 = DATOE;                                           //[00092] LFDRIV_15_(D_15) = BTS4A(SRCD_15,DATOE);
 
 endmodule                                                                       //[00094] END MODULE;

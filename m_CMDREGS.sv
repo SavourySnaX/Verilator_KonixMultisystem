@@ -13,8 +13,8 @@ Parts of some of these registers lie elsewhere in the blitter.
 module m_CMDREGS                                                                //[00014] MODULE CMDREGS;
 (                                                                               //[00014] MODULE CMDREGS;
 
-    inout    D_1,                                                               //[00016] INPUTS	D_1,D_2,CCLK,CMDWRL,CONWRL,ICNT_8,ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,
-    inout    D_2,                                                               //[00016] INPUTS	D_1,D_2,CCLK,CMDWRL,CONWRL,ICNT_8,ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,
+    input    inD_1,                                                               //[00016] INPUTS	D_1,D_2,CCLK,CMDWRL,CONWRL,ICNT_8,ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,
+    input    inD_2,                                                               //[00016] INPUTS	D_1,D_2,CCLK,CMDWRL,CONWRL,ICNT_8,ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,
     input    CCLK,                                                              //[00016] INPUTS	D_1,D_2,CCLK,CMDWRL,CONWRL,ICNT_8,ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,
     input    CMDWRL,                                                            //[00016] INPUTS	D_1,D_2,CCLK,CMDWRL,CONWRL,ICNT_8,ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,
     input    CONWRL,                                                            //[00016] INPUTS	D_1,D_2,CCLK,CMDWRL,CONWRL,ICNT_8,ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,
@@ -33,8 +33,10 @@ module m_CMDREGS                                                                
     input    STOP,                                                              //[00017]    ID_7,LDMODL,LDCMDL,RESET,STOP,STRD;
     input    STRD,                                                              //[00017]    ID_7,LDMODL,LDCMDL,RESET,STOP,STRD;
                                                                                 //[00017]    ID_7,LDMODL,LDCMDL,RESET,STOP,STRD;
-//    output    D_1,                                                            //[00018] OUTPUTS	D_1,D_2,COLST,DSTEN,DSTUP,LINDR,PARRD,RES_0,RES_1,RESUME,RUN,SRCEN,
-//    output    D_2,                                                            //[00018] OUTPUTS	D_1,D_2,COLST,DSTEN,DSTUP,LINDR,PARRD,RES_0,RES_1,RESUME,RUN,SRCEN,
+    output    outD_1,                                                            //[00018] OUTPUTS	D_1,D_2,COLST,DSTEN,DSTUP,LINDR,PARRD,RES_0,RES_1,RESUME,RUN,SRCEN,
+    output    outD_2,                                                            //[00018] OUTPUTS	D_1,D_2,COLST,DSTEN,DSTUP,LINDR,PARRD,RES_0,RES_1,RESUME,RUN,SRCEN,
+    output    enD_1,                                                            //[00018] OUTPUTS	D_1,D_2,COLST,DSTEN,DSTUP,LINDR,PARRD,RES_0,RES_1,RESUME,RUN,SRCEN,
+    output    enD_2,                                                            //[00018] OUTPUTS	D_1,D_2,COLST,DSTEN,DSTUP,LINDR,PARRD,RES_0,RES_1,RESUME,RUN,SRCEN,
     output    COLST,                                                            //[00018] OUTPUTS	D_1,D_2,COLST,DSTEN,DSTUP,LINDR,PARRD,RES_0,RES_1,RESUME,RUN,SRCEN,
     output    DSTEN,                                                            //[00018] OUTPUTS	D_1,D_2,COLST,DSTEN,DSTUP,LINDR,PARRD,RES_0,RES_1,RESUME,RUN,SRCEN,
     output    DSTUP,                                                            //[00018] OUTPUTS	D_1,D_2,COLST,DSTEN,DSTUP,LINDR,PARRD,RES_0,RES_1,RESUME,RUN,SRCEN,
@@ -120,7 +122,9 @@ assign SRESET = ~SRESETL;                                                       
 
 /* Blitter status port (part of) */
 
-assign D_1 = STRD ? STOP : 1'bZ;                                                //[00064] STAT_1_(D_1) = BTS4A(STOP,STRD);
-assign D_2 = STRD ? ICNT_8 : 1'bZ;                                              //[00065] STAT_2_(D_2) = BTS4A(ICNT_8,STRD);
+assign outD_1 = STOP;                                                //[00064] STAT_1_(D_1) = BTS4A(STOP,STRD);
+assign outD_2 = ICNT_8;                                              //[00065] STAT_2_(D_2) = BTS4A(ICNT_8,STRD);
+assign enD_1 = STRD;                                                //[00064] STAT_1_(D_1) = BTS4A(STOP,STRD);
+assign enD_2 = STRD;                                              //[00065] STAT_2_(D_2) = BTS4A(ICNT_8,STRD);
 
 endmodule                                                                       //[00067] END MODULE;

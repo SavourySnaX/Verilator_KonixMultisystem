@@ -21,14 +21,14 @@ the source register may already have been loaded in the first half.
 module m_SRCAREG                                                                //[00022] MODULE SRCAREG;
 (                                                                               //[00022] MODULE SRCAREG;
 
-    inout    D_0,                                                               //[00024] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,
-    inout    D_1,                                                               //[00024] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,
-    inout    D_2,                                                               //[00024] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,
-    inout    D_3,                                                               //[00024] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,
-    inout    D_4,                                                               //[00024] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,
-    inout    D_5,                                                               //[00024] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,
-    inout    D_6,                                                               //[00024] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,
-    inout    D_7,                                                               //[00024] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,
+    input    inD_0,                                                               //[00024] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,
+    input    inD_1,                                                               //[00024] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,
+    input    inD_2,                                                               //[00024] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,
+    input    inD_3,                                                               //[00024] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,
+    input    inD_4,                                                               //[00024] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,
+    input    inD_5,                                                               //[00024] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,
+    input    inD_6,                                                               //[00024] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,
+    input    inD_7,                                                               //[00024] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,
     input    ADDBACKL,                                                          //[00024] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,
     input    ADDBLDL,                                                           //[00024] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,
     input    ADDQ_0,                                                            //[00024] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,
@@ -72,14 +72,22 @@ module m_SRCAREG                                                                
                                                                                 //[00026]    ADDQ_13,ADDQ_14,ADDQ_15,ADDQ_16,ADDQ_17,ADDQ_18,ADDQ_19,ADDQM1,ID_0,ID_1,
                                                                                 //[00027]    ID_2,ID_3,ID_4,ID_5,ID_6,ID_7,LDSAL_0,LDSAL_1,LDSAL_2,SDASEL,SRCRDL_0,
                                                                                 //[00028]    SRCRDL_1,SRCRDL_2,UPSLDL;
-//    output    D_0,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
-//    output    D_1,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
-//    output    D_2,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
-//    output    D_3,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
-//    output    D_4,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
-//    output    D_5,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
-//    output    D_6,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
-//    output    D_7,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
+    output    outD_0,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
+    output    outD_1,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
+    output    outD_2,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
+    output    outD_3,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
+    output    outD_4,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
+    output    outD_5,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
+    output    outD_6,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
+    output    outD_7,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
+    output    enD_0,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
+    output    enD_1,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
+    output    enD_2,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
+    output    enD_3,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
+    output    enD_4,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
+    output    enD_5,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
+    output    enD_6,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
+    output    enD_7,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
     output    SAL_0,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
     output    SAL_1,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
     output    SAL_2,                                                            //[00029] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
@@ -225,15 +233,15 @@ assign SDASELL = ~SDASEL;                                                       
 assign ADDSEL = ~(SDASELL | ADDBACK);                                           //[00059] ADDSEL_(ADDSEL) = NR2C(SDASELL,ADDBACK);
 assign DATSEL = ~(SDASEL | ADDBACK);                                            //[00060] DATSEL_(DATSEL) = NR2C(SDASEL,ADDBACK);
 
-assign SIM1 = ~((ADDBACK & LAQM1) | (ADDSEL & ADDQM1) | (ADDQM1 & DATSEL));     //[00062] SMUXM1_(SIM1) = AO11A(ADDBACK,LAQM1,ADDSEL,ADDQM1,DATSEL,ID_7);
-assign SI_0 = ~((ADDBACK & LAQ_0) | (ADDSEL & ADDQ_0) | (ADDQ_0 & DATSEL));     //[00063] SMUX_0_(SI_0) = AO11A(ADDBACK,LAQ_0,ADDSEL,ADDQ_0,DATSEL,ID_0);
-assign SI_1 = ~((ADDBACK & LAQ_1) | (ADDSEL & ADDQ_1) | (ADDQ_1 & DATSEL));     //[00064] SMUX_1_(SI_1) = AO11A(ADDBACK,LAQ_1,ADDSEL,ADDQ_1,DATSEL,ID_1);
-assign SI_2 = ~((ADDBACK & LAQ_2) | (ADDSEL & ADDQ_2) | (ADDQ_2 & DATSEL));     //[00065] SMUX_2_(SI_2) = AO11A(ADDBACK,LAQ_2,ADDSEL,ADDQ_2,DATSEL,ID_2);
-assign SI_3 = ~((ADDBACK & LAQ_3) | (ADDSEL & ADDQ_3) | (ADDQ_3 & DATSEL));     //[00066] SMUX_3_(SI_3) = AO11A(ADDBACK,LAQ_3,ADDSEL,ADDQ_3,DATSEL,ID_3);
-assign SI_4 = ~((ADDBACK & LAQ_4) | (ADDSEL & ADDQ_4) | (ADDQ_4 & DATSEL));     //[00067] SMUX_4_(SI_4) = AO11A(ADDBACK,LAQ_4,ADDSEL,ADDQ_4,DATSEL,ID_4);
-assign SI_5 = ~((ADDBACK & LAQ_5) | (ADDSEL & ADDQ_5) | (ADDQ_5 & DATSEL));     //[00068] SMUX_5_(SI_5) = AO11A(ADDBACK,LAQ_5,ADDSEL,ADDQ_5,DATSEL,ID_5);
-assign SI_6 = ~((ADDBACK & LAQ_6) | (ADDSEL & ADDQ_6) | (ADDQ_6 & DATSEL));     //[00069] SMUX_6_(SI_6) = AO11A(ADDBACK,LAQ_6,ADDSEL,ADDQ_6,DATSEL,ID_6);
-assign SI_7 = ~((ADDBACK & LAQ_7) | (ADDSEL & ADDQ_7) | (ADDQ_7 & DATSEL));     //[00070] SMUX_7_(SI_7) = AO11A(ADDBACK,LAQ_7,ADDSEL,ADDQ_7,DATSEL,ID_7);
+assign SIM1 = ~((ADDBACK & LAQM1) | (ADDSEL & ADDQM1) | (DATSEL & ID_7));       //[00062] SMUXM1_(SIM1) = AO11A(ADDBACK,LAQM1,ADDSEL,ADDQM1,DATSEL,ID_7);
+assign SI_0 = ~((ADDBACK & LAQ_0) | (ADDSEL & ADDQ_0) | (DATSEL & ID_0));       //[00063] SMUX_0_(SI_0) = AO11A(ADDBACK,LAQ_0,ADDSEL,ADDQ_0,DATSEL,ID_0);
+assign SI_1 = ~((ADDBACK & LAQ_1) | (ADDSEL & ADDQ_1) | (DATSEL & ID_1));       //[00064] SMUX_1_(SI_1) = AO11A(ADDBACK,LAQ_1,ADDSEL,ADDQ_1,DATSEL,ID_1);
+assign SI_2 = ~((ADDBACK & LAQ_2) | (ADDSEL & ADDQ_2) | (DATSEL & ID_2));       //[00065] SMUX_2_(SI_2) = AO11A(ADDBACK,LAQ_2,ADDSEL,ADDQ_2,DATSEL,ID_2);
+assign SI_3 = ~((ADDBACK & LAQ_3) | (ADDSEL & ADDQ_3) | (DATSEL & ID_3));       //[00066] SMUX_3_(SI_3) = AO11A(ADDBACK,LAQ_3,ADDSEL,ADDQ_3,DATSEL,ID_3);
+assign SI_4 = ~((ADDBACK & LAQ_4) | (ADDSEL & ADDQ_4) | (DATSEL & ID_4));       //[00067] SMUX_4_(SI_4) = AO11A(ADDBACK,LAQ_4,ADDSEL,ADDQ_4,DATSEL,ID_4);
+assign SI_5 = ~((ADDBACK & LAQ_5) | (ADDSEL & ADDQ_5) | (DATSEL & ID_5));       //[00068] SMUX_5_(SI_5) = AO11A(ADDBACK,LAQ_5,ADDSEL,ADDQ_5,DATSEL,ID_5);
+assign SI_6 = ~((ADDBACK & LAQ_6) | (ADDSEL & ADDQ_6) | (DATSEL & ID_6));       //[00069] SMUX_6_(SI_6) = AO11A(ADDBACK,LAQ_6,ADDSEL,ADDQ_6,DATSEL,ID_6);
+assign SI_7 = ~((ADDBACK & LAQ_7) | (ADDSEL & ADDQ_7) | (DATSEL & ID_7));       //[00070] SMUX_7_(SI_7) = AO11A(ADDBACK,LAQ_7,ADDSEL,ADDQ_7,DATSEL,ID_7);
 assign SI_8 = ~((SDASEL & ADDQ_8)|(SDASELL & ID_0));                            //[00071] SMUX_8_(SI_8) = AO2A(SDASEL,ADDQ_8,SDASELL,ID_0);
 assign SI_9 = ~((SDASEL & ADDQ_9)|(SDASELL & ID_1));                            //[00072] SMUX_9_(SI_9) = AO2A(SDASEL,ADDQ_9,SDASELL,ID_1);
 assign SI_10 = ~((SDASEL & ADDQ_10)|(SDASELL & ID_2));                          //[00073] SMUX_10_(SI_10) = AO2A(SDASEL,ADDQ_10,SDASELL,ID_2);
@@ -301,13 +309,21 @@ assign SAS_6 = ~((SSIGN & SRCRD_2)|(SAR_6 & SRCRDL_2));                         
 assign SAS_7 = ~((SAM1 & SRCRD_2)|(SAR_7 & SRCRDL_2));                          //[00135] SARSEL2_7_(SAS_7) = AO2A(SAM1,SRCRD_2,SAR_7,SRCRDL_2);
 
 assign SAREN = ~(SRCRDL_0 & SRCRDL_1 & SRCRDL_2);                               //[00137] SAREN_(SAREN) = ND3B(SRCRDL_0,SRCRDL_1,SRCRDL_2);
-assign D_0 = SAREN ? (~SAS_0) : 1'bZ;                                           //[00138] SAPORT_0_(D_0) = BTS5A(SAS_0,SAREN);
-assign D_1 = SAREN ? (~SAS_1) : 1'bZ;                                           //[00139] SAPORT_1_(D_1) = BTS5A(SAS_1,SAREN);
-assign D_2 = SAREN ? (~SAS_2) : 1'bZ;                                           //[00140] SAPORT_2_(D_2) = BTS5A(SAS_2,SAREN);
-assign D_3 = SAREN ? (~SAS_3) : 1'bZ;                                           //[00141] SAPORT_3_(D_3) = BTS5A(SAS_3,SAREN);
-assign D_4 = SAREN ? (~SAS_4) : 1'bZ;                                           //[00142] SAPORT_4_(D_4) = BTS5A(SAS_4,SAREN);
-assign D_5 = SAREN ? (~SAS_5) : 1'bZ;                                           //[00143] SAPORT_5_(D_5) = BTS5A(SAS_5,SAREN);
-assign D_6 = SAREN ? (~SAS_6) : 1'bZ;                                           //[00144] SAPORT_6_(D_6) = BTS5A(SAS_6,SAREN);
-assign D_7 = SAREN ? (~SAS_7) : 1'bZ;                                           //[00145] SAPORT_7_(D_7) = BTS5A(SAS_7,SAREN);
+assign outD_0 = (~SAS_0);                                           //[00138] SAPORT_0_(D_0) = BTS5A(SAS_0,SAREN);
+assign outD_1 = (~SAS_1);                                           //[00139] SAPORT_1_(D_1) = BTS5A(SAS_1,SAREN);
+assign outD_2 = (~SAS_2);                                           //[00140] SAPORT_2_(D_2) = BTS5A(SAS_2,SAREN);
+assign outD_3 = (~SAS_3);                                           //[00141] SAPORT_3_(D_3) = BTS5A(SAS_3,SAREN);
+assign outD_4 = (~SAS_4);                                           //[00142] SAPORT_4_(D_4) = BTS5A(SAS_4,SAREN);
+assign outD_5 = (~SAS_5);                                           //[00143] SAPORT_5_(D_5) = BTS5A(SAS_5,SAREN);
+assign outD_6 = (~SAS_6);                                           //[00144] SAPORT_6_(D_6) = BTS5A(SAS_6,SAREN);
+assign outD_7 = (~SAS_7);                                           //[00145] SAPORT_7_(D_7) = BTS5A(SAS_7,SAREN);
+assign enD_0 = SAREN;                                           //[00138] SAPORT_0_(D_0) = BTS5A(SAS_0,SAREN);
+assign enD_1 = SAREN;                                           //[00139] SAPORT_1_(D_1) = BTS5A(SAS_1,SAREN);
+assign enD_2 = SAREN;                                           //[00140] SAPORT_2_(D_2) = BTS5A(SAS_2,SAREN);
+assign enD_3 = SAREN;                                           //[00141] SAPORT_3_(D_3) = BTS5A(SAS_3,SAREN);
+assign enD_4 = SAREN;                                           //[00142] SAPORT_4_(D_4) = BTS5A(SAS_4,SAREN);
+assign enD_5 = SAREN;                                           //[00143] SAPORT_5_(D_5) = BTS5A(SAS_5,SAREN);
+assign enD_6 = SAREN;                                           //[00144] SAPORT_6_(D_6) = BTS5A(SAS_6,SAREN);
+assign enD_7 = SAREN;                                           //[00145] SAPORT_7_(D_7) = BTS5A(SAS_7,SAREN);
 
 endmodule                                                                       //[00147] END MODULE;

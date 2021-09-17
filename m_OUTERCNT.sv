@@ -13,14 +13,14 @@ This is a synchronous down counter, loaded as part fo the blitter program.
 module m_OUTERCNT                                                               //[00014] MODULE OUTERCNT;
 (                                                                               //[00014] MODULE OUTERCNT;
 
-    inout    D_0,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
-    inout    D_1,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
-    inout    D_2,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
-    inout    D_3,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
-    inout    D_4,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
-    inout    D_5,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
-    inout    D_6,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
-    inout    D_7,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
+    input    inD_0,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
+    input    inD_1,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
+    input    inD_2,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
+    input    inD_3,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
+    input    inD_4,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
+    input    inD_5,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
+    input    inD_6,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
+    input    inD_7,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
     input    CCLK,                                                              //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
     input    ICNT_0,                                                            //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
     input    ICNT_1,                                                            //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
@@ -45,14 +45,22 @@ module m_OUTERCNT                                                               
     input    RESET,                                                             //[00018]    OTCLKL,OUTCRDL,RESET;
                                                                                 //[00017]    ICNT_5,ICNT_6,ICNT_7,ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,ID_7,INCRDL,LDOUTL,
                                                                                 //[00018]    OTCLKL,OUTCRDL,RESET;
-//    output    D_0,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
-//    output    D_1,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
-//    output    D_2,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
-//    output    D_3,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
-//    output    D_4,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
-//    output    D_5,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
-//    output    D_6,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
-//    output    D_7,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
+    output    outD_0,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
+    output    outD_1,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
+    output    outD_2,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
+    output    outD_3,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
+    output    outD_4,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
+    output    outD_5,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
+    output    outD_6,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
+    output    outD_7,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
+    output    enD_0,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
+    output    enD_1,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
+    output    enD_2,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
+    output    enD_3,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
+    output    enD_4,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
+    output    enD_5,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
+    output    enD_6,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
+    output    enD_7,                                                            //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
     output    OUTER0L                                                           //[00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,OUTER0L;
 );                                                                              //[00014] MODULE OUTERCNT;
                                                                                 //[00020] LEVEL FUNCTION;
@@ -150,13 +158,21 @@ assign RC_5 = ~((INCRDL & OCNT_5)|(OUTCRDL & ICNT_5));                          
 assign RC_6 = ~((INCRDL & OCNT_6)|(OUTCRDL & ICNT_6));                          //[00073] CRDSEL_6_(RC_6) = AO2A(INCRDL,OCNT_6,OUTCRDL,ICNT_6);
 assign RC_7 = ~((INCRDL & OCNT_7)|(OUTCRDL & ICNT_7));                          //[00074] CRDSEL_7_(RC_7) = AO2A(INCRDL,OCNT_7,OUTCRDL,ICNT_7);
 assign KEVIN = ~(INCRDL & OUTCRDL);                                             //[00075] KEVIN_(KEVIN) = ND2A(INCRDL,OUTCRDL);
-assign D_0 = KEVIN ? (~RC_0) : 1'bZ;                                            //[00076] CRDEN_0_(D_0) = BTS5A(RC_0,KEVIN);
-assign D_1 = KEVIN ? (~RC_1) : 1'bZ;                                            //[00077] CRDEN_1_(D_1) = BTS5A(RC_1,KEVIN);
-assign D_2 = KEVIN ? (~RC_2) : 1'bZ;                                            //[00078] CRDEN_2_(D_2) = BTS5A(RC_2,KEVIN);
-assign D_3 = KEVIN ? (~RC_3) : 1'bZ;                                            //[00079] CRDEN_3_(D_3) = BTS5A(RC_3,KEVIN);
-assign D_4 = KEVIN ? (~RC_4) : 1'bZ;                                            //[00080] CRDEN_4_(D_4) = BTS5A(RC_4,KEVIN);
-assign D_5 = KEVIN ? (~RC_5) : 1'bZ;                                            //[00081] CRDEN_5_(D_5) = BTS5A(RC_5,KEVIN);
-assign D_6 = KEVIN ? (~RC_6) : 1'bZ;                                            //[00082] CRDEN_6_(D_6) = BTS5A(RC_6,KEVIN);
-assign D_7 = KEVIN ? (~RC_7) : 1'bZ;                                            //[00083] CRDEN_7_(D_7) = BTS5A(RC_7,KEVIN);
+assign outD_0 = (~RC_0);                                            //[00076] CRDEN_0_(D_0) = BTS5A(RC_0,KEVIN);
+assign outD_1 = (~RC_1);                                            //[00077] CRDEN_1_(D_1) = BTS5A(RC_1,KEVIN);
+assign outD_2 = (~RC_2);                                            //[00078] CRDEN_2_(D_2) = BTS5A(RC_2,KEVIN);
+assign outD_3 = (~RC_3);                                            //[00079] CRDEN_3_(D_3) = BTS5A(RC_3,KEVIN);
+assign outD_4 = (~RC_4);                                            //[00080] CRDEN_4_(D_4) = BTS5A(RC_4,KEVIN);
+assign outD_5 = (~RC_5);                                            //[00081] CRDEN_5_(D_5) = BTS5A(RC_5,KEVIN);
+assign outD_6 = (~RC_6);                                            //[00082] CRDEN_6_(D_6) = BTS5A(RC_6,KEVIN);
+assign outD_7 = (~RC_7);                                            //[00083] CRDEN_7_(D_7) = BTS5A(RC_7,KEVIN);
+assign enD_0 = KEVIN;                                            //[00076] CRDEN_0_(D_0) = BTS5A(RC_0,KEVIN);
+assign enD_1 = KEVIN;                                            //[00077] CRDEN_1_(D_1) = BTS5A(RC_1,KEVIN);
+assign enD_2 = KEVIN;                                            //[00078] CRDEN_2_(D_2) = BTS5A(RC_2,KEVIN);
+assign enD_3 = KEVIN;                                            //[00079] CRDEN_3_(D_3) = BTS5A(RC_3,KEVIN);
+assign enD_4 = KEVIN;                                            //[00080] CRDEN_4_(D_4) = BTS5A(RC_4,KEVIN);
+assign enD_5 = KEVIN;                                            //[00081] CRDEN_5_(D_5) = BTS5A(RC_5,KEVIN);
+assign enD_6 = KEVIN;                                            //[00082] CRDEN_6_(D_6) = BTS5A(RC_6,KEVIN);
+assign enD_7 = KEVIN;                                            //[00083] CRDEN_7_(D_7) = BTS5A(RC_7,KEVIN);
 
 endmodule                                                                       //[00085] END MODULE;

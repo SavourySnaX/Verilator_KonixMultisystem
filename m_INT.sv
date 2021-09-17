@@ -12,14 +12,14 @@ This module is the interupt manager in the SLIPSTREAM chip on the ACW
 module m_INT                                                                    //[00014] MODULE INT;
 (                                                                               //[00014] MODULE INT;
 
-    inout    D_0,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
-    inout    D_1,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
-    inout    D_2,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
-    inout    D_3,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
-    inout    D_4,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
-    inout    D_5,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
-    inout    D_6,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
-    inout    D_7,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
+    input    inD_0,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
+    input    inD_1,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
+    input    inD_2,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
+    input    inD_3,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
+    input    inD_4,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
+    input    inD_5,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
+    input    inD_6,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
+    input    inD_7,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
     input    RESETL_0,                                                          //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
     input    CLK,                                                               //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
     input    VINT,                                                              //[00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
@@ -34,14 +34,22 @@ module m_INT                                                                    
     input    WD_3,                                                              //[00017]    INTAL,ACK,WD_0,WD_1,WD_2,WD_3,DIS;
     input    DIS,                                                               //[00017]    INTAL,ACK,WD_0,WD_1,WD_2,WD_3,DIS;
                                                                                 //[00017]    INTAL,ACK,WD_0,WD_1,WD_2,WD_3,DIS;
-//    output    D_0,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
-//    output    D_1,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
-//    output    D_2,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
-//    output    D_3,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
-//    output    D_4,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
-//    output    D_5,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
-//    output    D_6,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
-//    output    D_7,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
+    output    outD_0,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
+    output    outD_1,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
+    output    outD_2,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
+    output    outD_3,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
+    output    outD_4,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
+    output    outD_5,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
+    output    outD_6,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
+    output    outD_7,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
+    output    enD_0,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
+    output    enD_1,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
+    output    enD_2,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
+    output    enD_3,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
+    output    enD_4,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
+    output    enD_5,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
+    output    enD_6,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
+    output    enD_7,                                                            //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
     output    INTL                                                              //[00018] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,INTL;
 );                                                                              //[00014] MODULE INT;
                                                                                 //[00019] LEVEL FUNCTION;
@@ -185,14 +193,22 @@ assign INTL = ~(I_0 | I_1 | I_2 | I_3);                                         
 
 /* enable onto bus during INTA */
 
-assign D_0 = ~INTAL ? VL_0 : 1'bZ;                                              //[00097] D_0_(D_0) = MACZINVB1(VL_0,INTAL);
-assign D_1 = ~INTAL ? VL_1 : 1'bZ;                                              //[00098] D_1_(D_1) = MACZINVB1(VL_1,INTAL);
-assign D_2 = ~INTAL ? VL_2 : 1'bZ;                                              //[00099] D_2_(D_2) = MACZINVB1(VL_2,INTAL);
-assign D_3 = ~INTAL ? RESETL_0 : 1'bZ;                                          //[00100] D_3_(D_3) = MACZINVB1(RESETL_0,INTAL);
-assign D_4 = ~INTAL ? RESETL_0 : 1'bZ;                                          //[00101] D_4_(D_4) = MACZINVB1(RESETL_0,INTAL);
-assign D_5 = ~INTAL ? RES : 1'bZ;                                               //[00102] D_5_(D_5) = MACZINVB1(RES,INTAL);
-assign D_6 = ~INTAL ? RESETL_0 : 1'bZ;                                          //[00103] D_6_(D_6) = MACZINVB1(RESETL_0,INTAL);
-assign D_7 = ~INTAL ? RESETL_0 : 1'bZ;                                          //[00104] D_7_(D_7) = MACZINVB1(RESETL_0,INTAL);
+assign outD_0 = VL_0;                                              //[00097] D_0_(D_0) = MACZINVB1(VL_0,INTAL);
+assign outD_1 = VL_1;                                              //[00098] D_1_(D_1) = MACZINVB1(VL_1,INTAL);
+assign outD_2 = VL_2;                                              //[00099] D_2_(D_2) = MACZINVB1(VL_2,INTAL);
+assign outD_3 = RESETL_0;                                          //[00100] D_3_(D_3) = MACZINVB1(RESETL_0,INTAL);
+assign outD_4 = RESETL_0;                                          //[00101] D_4_(D_4) = MACZINVB1(RESETL_0,INTAL);
+assign outD_5 = RES;                                               //[00102] D_5_(D_5) = MACZINVB1(RES,INTAL);
+assign outD_6 = RESETL_0;                                          //[00103] D_6_(D_6) = MACZINVB1(RESETL_0,INTAL);
+assign outD_7 = RESETL_0;                                          //[00104] D_7_(D_7) = MACZINVB1(RESETL_0,INTAL);
+assign enD_0 = ~INTAL;                                              //[00097] D_0_(D_0) = MACZINVB1(VL_0,INTAL);
+assign enD_1 = ~INTAL;                                              //[00098] D_1_(D_1) = MACZINVB1(VL_1,INTAL);
+assign enD_2 = ~INTAL;                                              //[00099] D_2_(D_2) = MACZINVB1(VL_2,INTAL);
+assign enD_3 = ~INTAL;                                          //[00100] D_3_(D_3) = MACZINVB1(RESETL_0,INTAL);
+assign enD_4 = ~INTAL;                                          //[00101] D_4_(D_4) = MACZINVB1(RESETL_0,INTAL);
+assign enD_5 = ~INTAL;                                           //[00102] D_5_(D_5) = MACZINVB1(RES,INTAL);
+assign enD_6 = ~INTAL;                                          //[00103] D_6_(D_6) = MACZINVB1(RESETL_0,INTAL);
+assign enD_7 = ~INTAL;                                          //[00104] D_7_(D_7) = MACZINVB1(RESETL_0,INTAL);
 
 /* clear the appropriate interupt */
 

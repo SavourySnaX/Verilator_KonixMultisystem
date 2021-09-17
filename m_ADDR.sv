@@ -14,34 +14,34 @@ arithmetic logic.
 module m_ADDR                                                                   //[00015] MODULE ADDR;
 (                                                                               //[00015] MODULE ADDR;
 
-    inout    A_0,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_1,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_2,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_3,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_4,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_5,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_6,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_7,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_8,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_9,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_10,                                                              //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_11,                                                              //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_12,                                                              //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_13,                                                              //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_14,                                                              //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_15,                                                              //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-    inout    A_16,                                                              //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
-    inout    A_17,                                                              //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
-    inout    A_18,                                                              //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
-    inout    A_19,                                                              //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
-    inout    D_0,                                                               //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
-    inout    D_1,                                                               //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
-    inout    D_2,                                                               //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
-    inout    D_3,                                                               //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
-    inout    D_4,                                                               //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
-    inout    D_5,                                                               //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
-    inout    D_6,                                                               //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
-    inout    D_7,                                                               //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
+    input    inA_0,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_1,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_2,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_3,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_4,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_5,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_6,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_7,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_8,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_9,                                                               //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_10,                                                              //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_11,                                                              //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_12,                                                              //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_13,                                                              //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_14,                                                              //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_15,                                                              //[00017] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    input    inA_16,                                                              //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
+    input    inA_17,                                                              //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
+    input    inA_18,                                                              //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
+    input    inA_19,                                                              //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
+    input    inD_0,                                                               //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
+    input    inD_1,                                                               //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
+    input    inD_2,                                                               //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
+    input    inD_3,                                                               //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
+    input    inD_4,                                                               //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
+    input    inD_5,                                                               //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
+    input    inD_6,                                                               //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
+    input    inD_7,                                                               //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
     input    ADDBACKL,                                                          //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
     input    ADDBLDL,                                                           //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
     input    ADSTP,                                                             //[00018]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADSTP,
@@ -88,34 +88,62 @@ module m_ADDR                                                                   
                                                                                 //[00020]    ID_7,LDDAL_0,LDDAL_1,LDDAL_2,LDSAL_0,LDSAL_1,LDSAL_2,LDSTPL,LDMODL,LINDR,
                                                                                 //[00021]    PCEN,PCWRL_0,PCWRL_1,PCWRL_2,RES_0,RES_1,RUN,SDASEL,SRCRD,SRCRDL_0,SRCRDL_1,
                                                                                 //[00022]    SRCRDL_2,UPDDSTL,UPDPCL,UPDSRCL,UPSLDL;
-//    output    A_0,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_1,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_2,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_3,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_4,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_5,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_6,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_7,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_8,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_9,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_10,                                                           //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_11,                                                           //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_12,                                                           //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_13,                                                           //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_14,                                                           //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_15,                                                           //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
-//    output    A_16,                                                           //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
-//    output    A_17,                                                           //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
-//    output    A_18,                                                           //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
-//    output    A_19,                                                           //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
-//    output    D_0,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
-//    output    D_1,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
-//    output    D_2,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
-//    output    D_3,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
-//    output    D_4,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
-//    output    D_5,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
-//    output    D_6,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
-//    output    D_7,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    outA_0,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_1,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_2,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_3,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_4,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_5,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_6,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_7,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_8,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_9,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_10,                                                           //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_11,                                                           //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_12,                                                           //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_13,                                                           //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_14,                                                           //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_15,                                                           //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    outA_16,                                                           //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    outA_17,                                                           //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    outA_18,                                                           //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    outA_19,                                                           //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    outD_0,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    outD_1,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    outD_2,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    outD_3,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    outD_4,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    outD_5,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    outD_6,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    outD_7,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    enA_0,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_1,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_2,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_3,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_4,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_5,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_6,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_7,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_8,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_9,                                                            //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_10,                                                           //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_11,                                                           //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_12,                                                           //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_13,                                                           //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_14,                                                           //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_15,                                                           //[00023] OUTPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+    output    enA_16,                                                           //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    enA_17,                                                           //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    enA_18,                                                           //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    enA_19,                                                           //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    enD_0,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    enD_1,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    enD_2,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    enD_3,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    enD_4,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    enD_5,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    enD_6,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
+    output    enD_7,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
     output    BORROW,                                                           //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
     output    DAM1L,                                                            //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
     output    DSTCMP,                                                           //[00024]    A_16,A_17,A_18,A_19,D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,BORROW,DAM1L,DSTCMP,
@@ -258,7 +286,13 @@ wire CINH15;                                                                    
 wire HISIGN;                                                                    //[00065]    BORROW,CARRYIN_0,CARRYIN_1,CINH6,CINH7,CINH15,HISIGN,
 wire VHISIGN;                                                                   //[00066]    VHISIGN) = ADDBSEL(ADSTP,CARRYOUT,SRCENF,DSIGN,DWRAP,LINDR,RES_0,RES_1,
 
-m_DSTAREG DSTAREG_ (.D_0(D_0),.D_1(D_1),.D_2(D_2),.D_3(D_3),.D_4(D_4),.D_5(D_5),.D_6(D_6),.D_7(D_7),.ADDQ_0(ADDQ_0),.ADDQ_1(ADDQ_1),.ADDQ_2(ADDQ_2),.ADDQ_3(ADDQ_3),.ADDQ_4(ADDQ_4),.ADDQ_5(ADDQ_5),.ADDQ_6(ADDQ_6),.ADDQ_7(ADDQ_7),.ADDQ_8(ADDQ_8),.ADDQ_9(ADDQ_9),.ADDQ_10(ADDQ_10),.ADDQ_11(ADDQ_11),.ADDQ_12(ADDQ_12),.ADDQ_13(ADDQ_13),.ADDQ_14(ADDQ_14),.ADDQ_15(ADDQ_15),.ADDQ_16(ADDQ_16),.ADDQ_17(ADDQ_17),.ADDQ_18(ADDQ_18),.ADDQ_19(ADDQ_19),.ADDQM1(ADDQM1),.DSTRDL_0(DSTRDL_0),.DSTRDL_1(DSTRDL_1),.DSTRDL_2(DSTRDL_2),.ID_0(ID_0),.ID_1(ID_1),.ID_2(ID_2),.ID_3(ID_3),.ID_4(ID_4),.ID_5(ID_5),.ID_6(ID_6),.ID_7(ID_7),.LDDAL_0(LDDAL_0),.LDDAL_1(LDDAL_1),.LDDAL_2(LDDAL_2),.SDASEL(SDASEL),.UPDDSTL(UPDDSTL),.DAL_0(DAL_0),.DAL_1(DAL_1),.DAL_2(DAL_2),.DAL_3(DAL_3),.DAL_4(DAL_4),.DAL_5(DAL_5),.DAL_6(DAL_6),.DAL_7(DAL_7),.DAL_8(DAL_8),.DAL_9(DAL_9),.DAL_10(DAL_10),.DAL_11(DAL_11),.DAL_12(DAL_12),.DAL_13(DAL_13),.DAL_14(DAL_14),.DAL_15(DAL_15),.DAL_16(DAL_16),.DAL_17(DAL_17),.DAL_18(DAL_18),.DAL_19(DAL_19),.DAM1L(DAM1L),.DSTCMP(DSTCMP),.DSIGN(DSIGN),.DWRAP(DWRAP));//[00029] DSTAREG_(D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
+wire DSTAREG_outD_0,DSTAREG_outD_1,DSTAREG_outD_2,DSTAREG_outD_3,DSTAREG_outD_4,DSTAREG_outD_5,DSTAREG_outD_6,DSTAREG_outD_7;
+wire DSTAREG_enD_0,DSTAREG_enD_1,DSTAREG_enD_2,DSTAREG_enD_3,DSTAREG_enD_4,DSTAREG_enD_5,DSTAREG_enD_6,DSTAREG_enD_7;
+
+m_DSTAREG DSTAREG_ (.inD_0(inD_0),.inD_1(inD_1),.inD_2(inD_2),.inD_3(inD_3),.inD_4(inD_4),.inD_5(inD_5),.inD_6(inD_6),.inD_7(inD_7),
+                    .outD_0(DSTAREG_outD_0),.outD_1(DSTAREG_outD_1),.outD_2(DSTAREG_outD_2),.outD_3(DSTAREG_outD_3),.outD_4(DSTAREG_outD_4),.outD_5(DSTAREG_outD_5),.outD_6(DSTAREG_outD_6),.outD_7(DSTAREG_outD_7),
+                    .enD_0(DSTAREG_enD_0),.enD_1(DSTAREG_enD_1),.enD_2(DSTAREG_enD_2),.enD_3(DSTAREG_enD_3),.enD_4(DSTAREG_enD_4),.enD_5(DSTAREG_enD_5),.enD_6(DSTAREG_enD_6),.enD_7(DSTAREG_enD_7),
+    .ADDQ_0(ADDQ_0),.ADDQ_1(ADDQ_1),.ADDQ_2(ADDQ_2),.ADDQ_3(ADDQ_3),.ADDQ_4(ADDQ_4),.ADDQ_5(ADDQ_5),.ADDQ_6(ADDQ_6),.ADDQ_7(ADDQ_7),.ADDQ_8(ADDQ_8),.ADDQ_9(ADDQ_9),.ADDQ_10(ADDQ_10),.ADDQ_11(ADDQ_11),.ADDQ_12(ADDQ_12),.ADDQ_13(ADDQ_13),.ADDQ_14(ADDQ_14),.ADDQ_15(ADDQ_15),.ADDQ_16(ADDQ_16),.ADDQ_17(ADDQ_17),.ADDQ_18(ADDQ_18),.ADDQ_19(ADDQ_19),.ADDQM1(ADDQM1),.DSTRDL_0(DSTRDL_0),.DSTRDL_1(DSTRDL_1),.DSTRDL_2(DSTRDL_2),.ID_0(ID_0),.ID_1(ID_1),.ID_2(ID_2),.ID_3(ID_3),.ID_4(ID_4),.ID_5(ID_5),.ID_6(ID_6),.ID_7(ID_7),.LDDAL_0(LDDAL_0),.LDDAL_1(LDDAL_1),.LDDAL_2(LDDAL_2),.SDASEL(SDASEL),.UPDDSTL(UPDDSTL),.DAL_0(DAL_0),.DAL_1(DAL_1),.DAL_2(DAL_2),.DAL_3(DAL_3),.DAL_4(DAL_4),.DAL_5(DAL_5),.DAL_6(DAL_6),.DAL_7(DAL_7),.DAL_8(DAL_8),.DAL_9(DAL_9),.DAL_10(DAL_10),.DAL_11(DAL_11),.DAL_12(DAL_12),.DAL_13(DAL_13),.DAL_14(DAL_14),.DAL_15(DAL_15),.DAL_16(DAL_16),.DAL_17(DAL_17),.DAL_18(DAL_18),.DAL_19(DAL_19),.DAM1L(DAM1L),.DSTCMP(DSTCMP),.DSIGN(DSIGN),.DWRAP(DWRAP));//[00029] DSTAREG_(D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,DAL_0,DAL_1,DAL_2,DAL_3,DAL_4,DAL_5,
                                                                                 //[00030]    DAL_6,DAL_7,DAL_8,DAL_9,DAL_10,DAL_11,DAL_12,DAL_13,DAL_14,DAL_15,DAL_16,
                                                                                 //[00031]    DAL_17,DAL_18,DAL_19,DAM1L,DSTCMP,DSIGN,DWRAP) = DSTAREG(D_0,D_1,D_2,D_3,D_4,
                                                                                 //[00032]    D_5,D_6,D_7,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,ADDQ_5,ADDQ_6,ADDQ_7,ADDQ_8,
@@ -266,7 +300,13 @@ m_DSTAREG DSTAREG_ (.D_0(D_0),.D_1(D_1),.D_2(D_2),.D_3(D_3),.D_4(D_4),.D_5(D_5),
                                                                                 //[00034]    ADDQ_18,ADDQ_19,ADDQM1,DSTRDL_0,DSTRDL_1,DSTRDL_2,ID_0,ID_1,ID_2,ID_3,ID_4,
                                                                                 //[00035]    ID_5,ID_6,ID_7,LDDAL_0,LDDAL_1,LDDAL_2,SDASEL,UPDDSTL);
 
-m_SRCAREG SRCAREG_ (.D_0(D_0),.D_1(D_1),.D_2(D_2),.D_3(D_3),.D_4(D_4),.D_5(D_5),.D_6(D_6),.D_7(D_7),.ADDBACKL(ADDBACKL),.ADDBLDL(ADDBLDL),.ADDQ_0(ADDQ_0),.ADDQ_1(ADDQ_1),.ADDQ_2(ADDQ_2),.ADDQ_3(ADDQ_3),.ADDQ_4(ADDQ_4),.ADDQ_5(ADDQ_5),.ADDQ_6(ADDQ_6),.ADDQ_7(ADDQ_7),.ADDQ_8(ADDQ_8),.ADDQ_9(ADDQ_9),.ADDQ_10(ADDQ_10),.ADDQ_11(ADDQ_11),.ADDQ_12(ADDQ_12),.ADDQ_13(ADDQ_13),.ADDQ_14(ADDQ_14),.ADDQ_15(ADDQ_15),.ADDQ_16(ADDQ_16),.ADDQ_17(ADDQ_17),.ADDQ_18(ADDQ_18),.ADDQ_19(ADDQ_19),.ADDQM1(ADDQM1),.ID_0(ID_0),.ID_1(ID_1),.ID_2(ID_2),.ID_3(ID_3),.ID_4(ID_4),.ID_5(ID_5),.ID_6(ID_6),.ID_7(ID_7),.LDSAL_0(LDSAL_0),.LDSAL_1(LDSAL_1),.LDSAL_2(LDSAL_2),.SDASEL(SDASEL),.SRCRDL_0(SRCRDL_0),.SRCRDL_1(SRCRDL_1),.SRCRDL_2(SRCRDL_2),.UPSLDL(UPSLDL),.SAL_0(SAL_0),.SAL_1(SAL_1),.SAL_2(SAL_2),.SAL_3(SAL_3),.SAL_4(SAL_4),.SAL_5(SAL_5),.SAL_6(SAL_6),.SAL_7(SAL_7),.SAL_8(SAL_8),.SAL_9(SAL_9),.SAL_10(SAL_10),.SAL_11(SAL_11),.SAL_12(SAL_12),.SAL_13(SAL_13),.SAL_14(SAL_14),.SAL_15(SAL_15),.SAL_16(SAL_16),.SAL_17(SAL_17),.SAL_18(SAL_18),.SAL_19(SAL_19),.SAM1L(SAM1L),.SRCCMP(SRCCMP),.SSIGN(SSIGN),.SWRAP(SWRAP));//[00037] SRCAREG_(D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
+wire SRCAREG_outD_0,SRCAREG_outD_1,SRCAREG_outD_2,SRCAREG_outD_3,SRCAREG_outD_4,SRCAREG_outD_5,SRCAREG_outD_6,SRCAREG_outD_7;
+wire SRCAREG_enD_0,SRCAREG_enD_1,SRCAREG_enD_2,SRCAREG_enD_3,SRCAREG_enD_4,SRCAREG_enD_5,SRCAREG_enD_6,SRCAREG_enD_7;
+
+m_SRCAREG SRCAREG_ (.inD_0(inD_0),.inD_1(inD_1),.inD_2(inD_2),.inD_3(inD_3),.inD_4(inD_4),.inD_5(inD_5),.inD_6(inD_6),.inD_7(inD_7),
+                    .outD_0(SRCAREG_outD_0),.outD_1(SRCAREG_outD_1),.outD_2(SRCAREG_outD_2),.outD_3(SRCAREG_outD_3),.outD_4(SRCAREG_outD_4),.outD_5(SRCAREG_outD_5),.outD_6(SRCAREG_outD_6),.outD_7(SRCAREG_outD_7),
+                    .enD_0(SRCAREG_enD_0),.enD_1(SRCAREG_enD_1),.enD_2(SRCAREG_enD_2),.enD_3(SRCAREG_enD_3),.enD_4(SRCAREG_enD_4),.enD_5(SRCAREG_enD_5),.enD_6(SRCAREG_enD_6),.enD_7(SRCAREG_enD_7),
+    .ADDBACKL(ADDBACKL),.ADDBLDL(ADDBLDL),.ADDQ_0(ADDQ_0),.ADDQ_1(ADDQ_1),.ADDQ_2(ADDQ_2),.ADDQ_3(ADDQ_3),.ADDQ_4(ADDQ_4),.ADDQ_5(ADDQ_5),.ADDQ_6(ADDQ_6),.ADDQ_7(ADDQ_7),.ADDQ_8(ADDQ_8),.ADDQ_9(ADDQ_9),.ADDQ_10(ADDQ_10),.ADDQ_11(ADDQ_11),.ADDQ_12(ADDQ_12),.ADDQ_13(ADDQ_13),.ADDQ_14(ADDQ_14),.ADDQ_15(ADDQ_15),.ADDQ_16(ADDQ_16),.ADDQ_17(ADDQ_17),.ADDQ_18(ADDQ_18),.ADDQ_19(ADDQ_19),.ADDQM1(ADDQM1),.ID_0(ID_0),.ID_1(ID_1),.ID_2(ID_2),.ID_3(ID_3),.ID_4(ID_4),.ID_5(ID_5),.ID_6(ID_6),.ID_7(ID_7),.LDSAL_0(LDSAL_0),.LDSAL_1(LDSAL_1),.LDSAL_2(LDSAL_2),.SDASEL(SDASEL),.SRCRDL_0(SRCRDL_0),.SRCRDL_1(SRCRDL_1),.SRCRDL_2(SRCRDL_2),.UPSLDL(UPSLDL),.SAL_0(SAL_0),.SAL_1(SAL_1),.SAL_2(SAL_2),.SAL_3(SAL_3),.SAL_4(SAL_4),.SAL_5(SAL_5),.SAL_6(SAL_6),.SAL_7(SAL_7),.SAL_8(SAL_8),.SAL_9(SAL_9),.SAL_10(SAL_10),.SAL_11(SAL_11),.SAL_12(SAL_12),.SAL_13(SAL_13),.SAL_14(SAL_14),.SAL_15(SAL_15),.SAL_16(SAL_16),.SAL_17(SAL_17),.SAL_18(SAL_18),.SAL_19(SAL_19),.SAM1L(SAM1L),.SRCCMP(SRCCMP),.SSIGN(SSIGN),.SWRAP(SWRAP));//[00037] SRCAREG_(D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,
                                                                                 //[00038]    SAL_6,SAL_7,SAL_8,SAL_9,SAL_10,SAL_11,SAL_12,SAL_13,SAL_14,SAL_15,SAL_16,
                                                                                 //[00039]    SAL_17,SAL_18,SAL_19,SAM1L,SRCCMP,SSIGN,SWRAP) = SRCAREG(D_0,D_1,D_2,D_3,D_4,
                                                                                 //[00040]    D_5,D_6,D_7,ADDBACKL,ADDBLDL,ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,ADDQ_5,
@@ -307,7 +347,13 @@ m_ADDRADD ADDRADD_ (.ADDAM1(ADDAM1),.ADDA_0(ADDA_0),.ADDA_1(ADDA_1),.ADDA_2(ADDA
                                                                                 //[00075]    ADDB_3,ADDB_4,ADDB_5,ADDB_6,ADDB_7,ADDB_8,CARRYIN_0,CARRYIN_1,CINH6,CINH7,
                                                                                 //[00076]    CINH15,HISIGN,VHISIGN);
 
-m_ADDROUT ADDROUT_ (.A_0(A_0),.A_1(A_1),.A_2(A_2),.A_3(A_3),.A_4(A_4),.A_5(A_5),.A_6(A_6),.A_7(A_7),.A_8(A_8),.A_9(A_9),.A_10(A_10),.A_11(A_11),.A_12(A_12),.A_13(A_13),.A_14(A_14),.A_15(A_15),.A_16(A_16),.A_17(A_17),.A_18(A_18),.A_19(A_19),.SAL_0(SAL_0),.SAL_1(SAL_1),.SAL_2(SAL_2),.SAL_3(SAL_3),.SAL_4(SAL_4),.SAL_5(SAL_5),.SAL_6(SAL_6),.SAL_7(SAL_7),.SAL_8(SAL_8),.SAL_9(SAL_9),.SAL_10(SAL_10),.SAL_11(SAL_11),.SAL_12(SAL_12),.SAL_13(SAL_13),.SAL_14(SAL_14),.SAL_15(SAL_15),.SAL_16(SAL_16),.SAL_17(SAL_17),.SAL_18(SAL_18),.SAL_19(SAL_19),.DAL_0(DAL_0),.DAL_1(DAL_1),.DAL_2(DAL_2),.DAL_3(DAL_3),.DAL_4(DAL_4),.DAL_5(DAL_5),.DAL_6(DAL_6),.DAL_7(DAL_7),.DAL_8(DAL_8),.DAL_9(DAL_9),.DAL_10(DAL_10),.DAL_11(DAL_11),.DAL_12(DAL_12),.DAL_13(DAL_13),.DAL_14(DAL_14),.DAL_15(DAL_15),.DAL_16(DAL_16),.DAL_17(DAL_17),.DAL_18(DAL_18),.DAL_19(DAL_19),.PCL_0(PCL_0),.PCL_1(PCL_1),.PCL_2(PCL_2),.PCL_3(PCL_3),.PCL_4(PCL_4),.PCL_5(PCL_5),.PCL_6(PCL_6),.PCL_7(PCL_7),.PCL_8(PCL_8),.PCL_9(PCL_9),.PCL_10(PCL_10),.PCL_11(PCL_11),.PCL_12(PCL_12),.PCL_13(PCL_13),.PCL_14(PCL_14),.PCL_15(PCL_15),.PCL_16(PCL_16),.PCL_17(PCL_17),.PCL_18(PCL_18),.PCL_19(PCL_19),.PCEN(PCEN),.SRCRD(SRCRD),.BUSOE(BUSOE));//[00078] ADDROUT_(A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
+wire ADDROUT_outA_0,ADDROUT_outA_1,ADDROUT_outA_2,ADDROUT_outA_3,ADDROUT_outA_4,ADDROUT_outA_5,ADDROUT_outA_6,ADDROUT_outA_7,ADDROUT_outA_8,ADDROUT_outA_9,ADDROUT_outA_10,ADDROUT_outA_11,ADDROUT_outA_12,ADDROUT_outA_13,ADDROUT_outA_14,ADDROUT_outA_15,ADDROUT_outA_16,ADDROUT_outA_17,ADDROUT_outA_18,ADDROUT_outA_19;
+wire ADDROUT_enA_0,ADDROUT_enA_1,ADDROUT_enA_2,ADDROUT_enA_3,ADDROUT_enA_4,ADDROUT_enA_5,ADDROUT_enA_6,ADDROUT_enA_7,ADDROUT_enA_8,ADDROUT_enA_9,ADDROUT_enA_10,ADDROUT_enA_11,ADDROUT_enA_12,ADDROUT_enA_13,ADDROUT_enA_14,ADDROUT_enA_15,ADDROUT_enA_16,ADDROUT_enA_17,ADDROUT_enA_18,ADDROUT_enA_19;
+
+m_ADDROUT ADDROUT_ (.inA_0(inA_0),.inA_1(inA_1),.inA_2(inA_2),.inA_3(inA_3),.inA_4(inA_4),.inA_5(inA_5),.inA_6(inA_6),.inA_7(inA_7),.inA_8(inA_8),.inA_9(inA_9),.inA_10(inA_10),.inA_11(inA_11),.inA_12(inA_12),.inA_13(inA_13),.inA_14(inA_14),.inA_15(inA_15),.inA_16(inA_16),.inA_17(inA_17),.inA_18(inA_18),.inA_19(inA_19),
+                    .outA_0(ADDROUT_outA_0),.outA_1(ADDROUT_outA_1),.outA_2(ADDROUT_outA_2),.outA_3(ADDROUT_outA_3),.outA_4(ADDROUT_outA_4),.outA_5(ADDROUT_outA_5),.outA_6(ADDROUT_outA_6),.outA_7(ADDROUT_outA_7),.outA_8(ADDROUT_outA_8),.outA_9(ADDROUT_outA_9),.outA_10(ADDROUT_outA_10),.outA_11(ADDROUT_outA_11),.outA_12(ADDROUT_outA_12),.outA_13(ADDROUT_outA_13),.outA_14(ADDROUT_outA_14),.outA_15(ADDROUT_outA_15),.outA_16(ADDROUT_outA_16),.outA_17(ADDROUT_outA_17),.outA_18(ADDROUT_outA_18),.outA_19(ADDROUT_outA_19),
+                    .enA_0(ADDROUT_enA_0),.enA_1(ADDROUT_enA_1),.enA_2(ADDROUT_enA_2),.enA_3(ADDROUT_enA_3),.enA_4(ADDROUT_enA_4),.enA_5(ADDROUT_enA_5),.enA_6(ADDROUT_enA_6),.enA_7(ADDROUT_enA_7),.enA_8(ADDROUT_enA_8),.enA_9(ADDROUT_enA_9),.enA_10(ADDROUT_enA_10),.enA_11(ADDROUT_enA_11),.enA_12(ADDROUT_enA_12),.enA_13(ADDROUT_enA_13),.enA_14(ADDROUT_enA_14),.enA_15(ADDROUT_enA_15),.enA_16(ADDROUT_enA_16),.enA_17(ADDROUT_enA_17),.enA_18(ADDROUT_enA_18),.enA_19(ADDROUT_enA_19),
+            .SAL_0(SAL_0),.SAL_1(SAL_1),.SAL_2(SAL_2),.SAL_3(SAL_3),.SAL_4(SAL_4),.SAL_5(SAL_5),.SAL_6(SAL_6),.SAL_7(SAL_7),.SAL_8(SAL_8),.SAL_9(SAL_9),.SAL_10(SAL_10),.SAL_11(SAL_11),.SAL_12(SAL_12),.SAL_13(SAL_13),.SAL_14(SAL_14),.SAL_15(SAL_15),.SAL_16(SAL_16),.SAL_17(SAL_17),.SAL_18(SAL_18),.SAL_19(SAL_19),.DAL_0(DAL_0),.DAL_1(DAL_1),.DAL_2(DAL_2),.DAL_3(DAL_3),.DAL_4(DAL_4),.DAL_5(DAL_5),.DAL_6(DAL_6),.DAL_7(DAL_7),.DAL_8(DAL_8),.DAL_9(DAL_9),.DAL_10(DAL_10),.DAL_11(DAL_11),.DAL_12(DAL_12),.DAL_13(DAL_13),.DAL_14(DAL_14),.DAL_15(DAL_15),.DAL_16(DAL_16),.DAL_17(DAL_17),.DAL_18(DAL_18),.DAL_19(DAL_19),.PCL_0(PCL_0),.PCL_1(PCL_1),.PCL_2(PCL_2),.PCL_3(PCL_3),.PCL_4(PCL_4),.PCL_5(PCL_5),.PCL_6(PCL_6),.PCL_7(PCL_7),.PCL_8(PCL_8),.PCL_9(PCL_9),.PCL_10(PCL_10),.PCL_11(PCL_11),.PCL_12(PCL_12),.PCL_13(PCL_13),.PCL_14(PCL_14),.PCL_15(PCL_15),.PCL_16(PCL_16),.PCL_17(PCL_17),.PCL_18(PCL_18),.PCL_19(PCL_19),.PCEN(PCEN),.SRCRD(SRCRD),.BUSOE(BUSOE));//[00078] ADDROUT_(A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
                                                                                 //[00079]    A_16,A_17,A_18,A_19) = ADDROUT(A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,
                                                                                 //[00080]    A_11,A_12,A_13,A_14,A_15,A_16,A_17,A_18,A_19,SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,
                                                                                 //[00081]    SAL_5,SAL_6,SAL_7,SAL_8,SAL_9,SAL_10,SAL_11,SAL_12,SAL_13,SAL_14,SAL_15,
@@ -316,5 +362,65 @@ m_ADDROUT ADDROUT_ (.A_0(A_0),.A_1(A_1),.A_2(A_2),.A_3(A_3),.A_4(A_4),.A_5(A_5),
                                                                                 //[00084]    DAL_19,PCL_0,PCL_1,PCL_2,PCL_3,PCL_4,PCL_5,PCL_6,PCL_7,PCL_8,PCL_9,PCL_10,
                                                                                 //[00085]    PCL_11,PCL_12,PCL_13,PCL_14,PCL_15,PCL_16,PCL_17,PCL_18,PCL_19,PCEN,SRCRD,
                                                                                 //[00086]    BUSOE);
+
+assign outD_0 = (SRCAREG_outD_0 & SRCAREG_enD_0) | (DSTAREG_outD_0 & DSTAREG_enD_0);
+assign outD_1 = (SRCAREG_outD_1 & SRCAREG_enD_1) | (DSTAREG_outD_1 & DSTAREG_enD_1);
+assign outD_2 = (SRCAREG_outD_2 & SRCAREG_enD_2) | (DSTAREG_outD_2 & DSTAREG_enD_2);
+assign outD_3 = (SRCAREG_outD_3 & SRCAREG_enD_3) | (DSTAREG_outD_3 & DSTAREG_enD_3);
+assign outD_4 = (SRCAREG_outD_4 & SRCAREG_enD_4) | (DSTAREG_outD_4 & DSTAREG_enD_4);
+assign outD_5 = (SRCAREG_outD_5 & SRCAREG_enD_5) | (DSTAREG_outD_5 & DSTAREG_enD_5);
+assign outD_6 = (SRCAREG_outD_6 & SRCAREG_enD_6) | (DSTAREG_outD_6 & DSTAREG_enD_6);
+assign outD_7 = (SRCAREG_outD_7 & SRCAREG_enD_7) | (DSTAREG_outD_7 & DSTAREG_enD_7);
+
+assign enD_0 = SRCAREG_enD_0 | DSTAREG_enD_0;
+assign enD_1 = SRCAREG_enD_1 | DSTAREG_enD_1;
+assign enD_2 = SRCAREG_enD_2 | DSTAREG_enD_2;
+assign enD_3 = SRCAREG_enD_3 | DSTAREG_enD_3;
+assign enD_4 = SRCAREG_enD_4 | DSTAREG_enD_4;
+assign enD_5 = SRCAREG_enD_5 | DSTAREG_enD_5;
+assign enD_6 = SRCAREG_enD_6 | DSTAREG_enD_6;
+assign enD_7 = SRCAREG_enD_7 | DSTAREG_enD_7;
+
+assign outA_0 = (ADDROUT_outA_0 & ADDROUT_enA_0);
+assign outA_1 = (ADDROUT_outA_1 & ADDROUT_enA_1);
+assign outA_2 = (ADDROUT_outA_2 & ADDROUT_enA_2);
+assign outA_3 = (ADDROUT_outA_3 & ADDROUT_enA_3);
+assign outA_4 = (ADDROUT_outA_4 & ADDROUT_enA_4);
+assign outA_5 = (ADDROUT_outA_5 & ADDROUT_enA_5);
+assign outA_6 = (ADDROUT_outA_6 & ADDROUT_enA_6);
+assign outA_7 = (ADDROUT_outA_7 & ADDROUT_enA_7);
+assign outA_8 = (ADDROUT_outA_8 & ADDROUT_enA_8);
+assign outA_9 = (ADDROUT_outA_9 & ADDROUT_enA_9);
+assign outA_10 = (ADDROUT_outA_10 & ADDROUT_enA_10);
+assign outA_11 = (ADDROUT_outA_11 & ADDROUT_enA_11);
+assign outA_12 = (ADDROUT_outA_12 & ADDROUT_enA_12);
+assign outA_13 = (ADDROUT_outA_13 & ADDROUT_enA_13);
+assign outA_14 = (ADDROUT_outA_14 & ADDROUT_enA_14);
+assign outA_15 = (ADDROUT_outA_15 & ADDROUT_enA_15);
+assign outA_16 = (ADDROUT_outA_16 & ADDROUT_enA_16);
+assign outA_17 = (ADDROUT_outA_17 & ADDROUT_enA_17);
+assign outA_18 = (ADDROUT_outA_18 & ADDROUT_enA_18);
+assign outA_19 = (ADDROUT_outA_19 & ADDROUT_enA_19);
+
+assign enA_0 = ADDROUT_enA_0;
+assign enA_1 = ADDROUT_enA_1;
+assign enA_2 = ADDROUT_enA_2;
+assign enA_3 = ADDROUT_enA_3;
+assign enA_4 = ADDROUT_enA_4;
+assign enA_5 = ADDROUT_enA_5;
+assign enA_6 = ADDROUT_enA_6;
+assign enA_7 = ADDROUT_enA_7;
+assign enA_8 = ADDROUT_enA_8;
+assign enA_9 = ADDROUT_enA_9;
+assign enA_10 = ADDROUT_enA_10;
+assign enA_11 = ADDROUT_enA_11;
+assign enA_12 = ADDROUT_enA_12;
+assign enA_13 = ADDROUT_enA_13;
+assign enA_14 = ADDROUT_enA_14;
+assign enA_15 = ADDROUT_enA_15;
+assign enA_16 = ADDROUT_enA_16;
+assign enA_17 = ADDROUT_enA_17;
+assign enA_18 = ADDROUT_enA_18;
+assign enA_19 = ADDROUT_enA_19;
 
 endmodule                                                                       //[00088] END MODULE;

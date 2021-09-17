@@ -12,7 +12,7 @@
 ##MODULE=m_PIX
 
 #------ VIDEO MAIN -----#
-#MODULE=m_VID
+MODULE=m_VID
 
 #----- BLITTER DATA ELEMENTS -----#
 
@@ -54,7 +54,7 @@
 #MODULE=m_BUSCON
 
 #------ BLITTER MAIN -----#
-MODULE=m_BLIT
+#MODULE=m_BLIT
 
 .PHONY:sim
 sim: trace.vcd

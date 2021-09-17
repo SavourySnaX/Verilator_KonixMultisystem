@@ -14,30 +14,30 @@ This module is the pixel generator in the SLIPSTREAM chip on the ACW
 module m_PIX                                                                    //[00016] MODULE PIX;
 (                                                                               //[00016] MODULE PIX;
 
-    inout    D_0,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-    inout    D_1,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-    inout    D_2,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-    inout    D_3,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-    inout    D_4,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-    inout    D_5,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-    inout    D_6,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-    inout    D_7,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-    inout    P7L_0,                                                             //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-    inout    P7L_1,                                                             //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-    inout    P7L_2,                                                             //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-    inout    P7L_3,                                                             //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-    inout    P7L_4,                                                             //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-    inout    P7L_5,                                                             //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-    inout    P7L_6,                                                             //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
-    inout    P7L_7,                                                             //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
-    inout    P7L_8,                                                             //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
-    inout    P7L_9,                                                             //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
-    inout    P7L_10,                                                            //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
-    inout    P7L_11,                                                            //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
-    inout    P7L_12,                                                            //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
-    inout    P7L_13,                                                            //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
-    inout    P7L_14,                                                            //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
-    inout    P7L_15,                                                            //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
+    input    inD_0,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    input    inD_1,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    input    inD_2,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    input    inD_3,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    input    inD_4,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    input    inD_5,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    input    inD_6,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    input    inD_7,                                                               //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    input    inP7L_0,                                                             //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    input    inP7L_1,                                                             //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    input    inP7L_2,                                                             //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    input    inP7L_3,                                                             //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    input    inP7L_4,                                                             //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    input    inP7L_5,                                                             //[00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    input    inP7L_6,                                                             //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
+    input    inP7L_7,                                                             //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
+    input    inP7L_8,                                                             //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
+    input    inP7L_9,                                                             //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
+    input    inP7L_10,                                                            //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
+    input    inP7L_11,                                                            //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
+    input    inP7L_12,                                                            //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
+    input    inP7L_13,                                                            //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
+    input    inP7L_14,                                                            //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
+    input    inP7L_15,                                                            //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
     input    RESETL_0,                                                          //[00019]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RESETL_0,
     input    CLK,                                                               //[00020]    CLK,WD_0,WD_1,WD_2,WD_3,WD_4,WD_5,WD_6,WD_7,MODE,BORDL,BORDH,TRANS,MASK,
     input    WD_0,                                                              //[00020]    CLK,WD_0,WD_1,WD_2,WD_3,WD_4,WD_5,WD_6,WD_7,MODE,BORDL,BORDH,TRANS,MASK,
@@ -97,30 +97,54 @@ module m_PIX                                                                    
                                                                                 //[00021]    INDEX,BORDER,BLANKING,HC_0,HC_1,A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,RDL,WRL,
                                                                                 //[00022]    WE,PALCS,PIXLD_0,PIXLD_1,PIXAD_0,PIXAD_1,TMODE,IDL_0,IDL_1,IDL_2,IDL_3,IDL_4,
                                                                                 //[00023]    IDL_5,IDL_6,IDL_7,IDL_8,IDL_9,IDL_10,IDL_11,IDL_12,IDL_13,IDL_14,IDL_15;
-//    output    D_0,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-//    output    D_1,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-//    output    D_2,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-//    output    D_3,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-//    output    D_4,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-//    output    D_5,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-//    output    D_6,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-//    output    D_7,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-//    output    P7L_0,                                                          //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-//    output    P7L_1,                                                          //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-//    output    P7L_2,                                                          //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-//    output    P7L_3,                                                          //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-//    output    P7L_4,                                                          //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-//    output    P7L_5,                                                          //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
-//    output    P7L_6,                                                          //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
-//    output    P7L_7,                                                          //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
-//    output    P7L_8,                                                          //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
-//    output    P7L_9,                                                          //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
-//    output    P7L_10,                                                         //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
-//    output    P7L_11,                                                         //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
-//    output    P7L_12,                                                         //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
-//    output    P7L_13,                                                         //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
-//    output    P7L_14,                                                         //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
-//    output    P7L_15,                                                         //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    outD_0,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    outD_1,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    outD_2,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    outD_3,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    outD_4,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    outD_5,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    outD_6,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    outD_7,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    outP7L_0,                                                          //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    outP7L_1,                                                          //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    outP7L_2,                                                          //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    outP7L_3,                                                          //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    outP7L_4,                                                          //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    outP7L_5,                                                          //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    outP7L_6,                                                          //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    outP7L_7,                                                          //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    outP7L_8,                                                          //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    outP7L_9,                                                          //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    outP7L_10,                                                         //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    outP7L_11,                                                         //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    outP7L_12,                                                         //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    outP7L_13,                                                         //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    outP7L_14,                                                         //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    outP7L_15,                                                         //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    enD_0,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    enD_1,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    enD_2,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    enD_3,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    enD_4,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    enD_5,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    enD_6,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    enD_7,                                                            //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    enP7L_0,                                                          //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    enP7L_1,                                                          //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    enP7L_2,                                                          //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    enP7L_3,                                                          //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    enP7L_4,                                                          //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    enP7L_5,                                                          //[00024] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
+    output    enP7L_6,                                                          //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    enP7L_7,                                                          //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    enP7L_8,                                                          //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    enP7L_9,                                                          //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    enP7L_10,                                                         //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    enP7L_11,                                                         //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    enP7L_12,                                                         //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    enP7L_13,                                                         //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    enP7L_14,                                                         //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
+    output    enP7L_15,                                                         //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
     output    RL_0,                                                             //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
     output    RL_1,                                                             //[00025]    P7L_6,P7L_7,P7L_8,P7L_9,P7L_10,P7L_11,P7L_12,P7L_13,P7L_14,P7L_15,RL_0,RL_1,
     output    RL_2,                                                             //[00026]    RL_2,RL_3,GL_0,GL_1,GL_2,GL_3,BL_0,BL_1,BL_2,BL_3,INC_2,MODE_0,MODE_1,
@@ -634,14 +658,14 @@ assign P6_7 = ~((M_7 & IB_7)|(MB_7 & P5L_7));                                   
 /* look up the physical colour in the palette */
 /* latch even palette data..so it can be written during odd writes */
 
-LD1A PED_0__inst (.q(PED_0),.qL(PEDL_0),.d(D_0),.en(EVEN));                     //[00202] PED_0_(PED_0,PEDL_0) = LD1A(D_0,EVEN);
-LD1A PED_1__inst (.q(PED_1),.qL(PEDL_1),.d(D_1),.en(EVEN));                     //[00203] PED_1_(PED_1,PEDL_1) = LD1A(D_1,EVEN);
-LD1A PED_2__inst (.q(PED_2),.qL(PEDL_2),.d(D_2),.en(EVEN));                     //[00204] PED_2_(PED_2,PEDL_2) = LD1A(D_2,EVEN);
-LD1A PED_3__inst (.q(PED_3),.qL(PEDL_3),.d(D_3),.en(EVEN));                     //[00205] PED_3_(PED_3,PEDL_3) = LD1A(D_3,EVEN);
-LD1A PED_4__inst (.q(PED_4),.qL(PEDL_4),.d(D_4),.en(EVEN));                     //[00206] PED_4_(PED_4,PEDL_4) = LD1A(D_4,EVEN);
-LD1A PED_5__inst (.q(PED_5),.qL(PEDL_5),.d(D_5),.en(EVEN));                     //[00207] PED_5_(PED_5,PEDL_5) = LD1A(D_5,EVEN);
-LD1A PED_6__inst (.q(PED_6),.qL(PEDL_6),.d(D_6),.en(EVEN));                     //[00208] PED_6_(PED_6,PEDL_6) = LD1A(D_6,EVEN);
-LD1A PED_7__inst (.q(PED_7),.qL(PEDL_7),.d(D_7),.en(EVEN));                     //[00209] PED_7_(PED_7,PEDL_7) = LD1A(D_7,EVEN);
+LD1A PED_0__inst (.q(PED_0),.qL(PEDL_0),.d(inD_0),.en(EVEN));                     //[00202] PED_0_(PED_0,PEDL_0) = LD1A(D_0,EVEN);
+LD1A PED_1__inst (.q(PED_1),.qL(PEDL_1),.d(inD_1),.en(EVEN));                     //[00203] PED_1_(PED_1,PEDL_1) = LD1A(D_1,EVEN);
+LD1A PED_2__inst (.q(PED_2),.qL(PEDL_2),.d(inD_2),.en(EVEN));                     //[00204] PED_2_(PED_2,PEDL_2) = LD1A(D_2,EVEN);
+LD1A PED_3__inst (.q(PED_3),.qL(PEDL_3),.d(inD_3),.en(EVEN));                     //[00205] PED_3_(PED_3,PEDL_3) = LD1A(D_3,EVEN);
+LD1A PED_4__inst (.q(PED_4),.qL(PEDL_4),.d(inD_4),.en(EVEN));                     //[00206] PED_4_(PED_4,PEDL_4) = LD1A(D_4,EVEN);
+LD1A PED_5__inst (.q(PED_5),.qL(PEDL_5),.d(inD_5),.en(EVEN));                     //[00207] PED_5_(PED_5,PEDL_5) = LD1A(D_5,EVEN);
+LD1A PED_6__inst (.q(PED_6),.qL(PEDL_6),.d(inD_6),.en(EVEN));                     //[00208] PED_6_(PED_6,PEDL_6) = LD1A(D_6,EVEN);
+LD1A PED_7__inst (.q(PED_7),.qL(PEDL_7),.d(inD_7),.en(EVEN));                     //[00209] PED_7_(PED_7,PEDL_7) = LD1A(D_7,EVEN);
 assign EVEN = PALCS & WE & AL_0;                                                //[00210] EVEN_(EVEN) = AND3A(PALCS,WE,AL_0);
 
 assign PALCSL = ~PALCS;                                                         //[00212] PALCSL_(PALCSL) = N1C(PALCS);
@@ -655,59 +679,75 @@ assign PA_6 = ~((PALCSL & P6_6)|(PALCS & A_7));                                 
 assign PA_7 = ~((PALCSL & P6_7)|(PALCS & A_8));                                 //[00220] PA_7_(PA_7) = AO2A(PALCSL,P6_7,PALCS,A_8);
 assign PCS = RESL;                                                              //[00221] PCS_(PCS) = B3A(RESL);
 assign PWR = ~(PALCSL | WRL);                                                   //[00222] PWR_(PWR) = NR2C(PALCSL,WRL);
-assign P7L_0 = PWR ? (~PED_0) : 1'bZ;                                           //[00223] P7_0_(P7L_0) = BTS5A(PED_0,PWR);
-assign P7L_1 = PWR ? (~PED_1) : 1'bZ;                                           //[00224] P7_1_(P7L_1) = BTS5A(PED_1,PWR);
-assign P7L_2 = PWR ? (~PED_2) : 1'bZ;                                           //[00225] P7_2_(P7L_2) = BTS5A(PED_2,PWR);
-assign P7L_3 = PWR ? (~PED_3) : 1'bZ;                                           //[00226] P7_3_(P7L_3) = BTS5A(PED_3,PWR);
-assign P7L_4 = PWR ? (~PED_4) : 1'bZ;                                           //[00227] P7_4_(P7L_4) = BTS5A(PED_4,PWR);
-assign P7L_5 = PWR ? (~PED_5) : 1'bZ;                                           //[00228] P7_5_(P7L_5) = BTS5A(PED_5,PWR);
-assign P7L_6 = PWR ? (~PED_6) : 1'bZ;                                           //[00229] P7_6_(P7L_6) = BTS5A(PED_6,PWR);
-assign P7L_7 = PWR ? (~PED_7) : 1'bZ;                                           //[00230] P7_7_(P7L_7) = BTS5A(PED_7,PWR);
-assign P7L_8 = PWR ? (~D_0) : 1'bZ;                                             //[00231] P7_8_(P7L_8) = BTS5A(D_0,PWR);
-assign P7L_9 = PWR ? (~D_1) : 1'bZ;                                             //[00232] P7_9_(P7L_9) = BTS5A(D_1,PWR);
-assign P7L_10 = PWR ? (~D_2) : 1'bZ;                                            //[00233] P7_10_(P7L_10) = BTS5A(D_2,PWR);
-assign P7L_11 = PWR ? (~D_3) : 1'bZ;                                            //[00234] P7_11_(P7L_11) = BTS5A(D_3,PWR);
-assign P7L_12 = PWR ? (~D_4) : 1'bZ;                                            //[00235] P7_12_(P7L_12) = BTS5A(D_4,PWR);
-assign P7L_13 = PWR ? (~D_5) : 1'bZ;                                            //[00236] P7_13_(P7L_13) = BTS5A(D_5,PWR);
-assign P7L_14 = PWR ? (~D_6) : 1'bZ;                                            //[00237] P7_14_(P7L_14) = BTS5A(D_6,PWR);
-assign P7L_15 = PWR ? (~D_7) : 1'bZ;                                            //[00238] P7_15_(P7L_15) = BTS5A(D_7,PWR);
+assign outP7L_0 = (~PED_0);                                           //[00223] P7_0_(P7L_0) = BTS5A(PED_0,PWR);
+assign outP7L_1 = (~PED_1);                                           //[00224] P7_1_(P7L_1) = BTS5A(PED_1,PWR);
+assign outP7L_2 = (~PED_2);                                           //[00225] P7_2_(P7L_2) = BTS5A(PED_2,PWR);
+assign outP7L_3 = (~PED_3);                                           //[00226] P7_3_(P7L_3) = BTS5A(PED_3,PWR);
+assign outP7L_4 = (~PED_4);                                           //[00227] P7_4_(P7L_4) = BTS5A(PED_4,PWR);
+assign outP7L_5 = (~PED_5);                                           //[00228] P7_5_(P7L_5) = BTS5A(PED_5,PWR);
+assign outP7L_6 = (~PED_6);                                           //[00229] P7_6_(P7L_6) = BTS5A(PED_6,PWR);
+assign outP7L_7 = (~PED_7);                                           //[00230] P7_7_(P7L_7) = BTS5A(PED_7,PWR);
+assign outP7L_8 = (~inD_0);                                             //[00231] P7_8_(P7L_8) = BTS5A(D_0,PWR);
+assign outP7L_9 = (~inD_1);                                             //[00232] P7_9_(P7L_9) = BTS5A(D_1,PWR);
+assign outP7L_10 = (~inD_2);                                            //[00233] P7_10_(P7L_10) = BTS5A(D_2,PWR);
+assign outP7L_11 = (~inD_3);                                            //[00234] P7_11_(P7L_11) = BTS5A(D_3,PWR);
+assign outP7L_12 = (~inD_4);                                            //[00235] P7_12_(P7L_12) = BTS5A(D_4,PWR);
+assign outP7L_13 = (~inD_5);                                            //[00236] P7_13_(P7L_13) = BTS5A(D_5,PWR);
+assign outP7L_14 = (~inD_6);                                            //[00237] P7_14_(P7L_14) = BTS5A(D_6,PWR);
+assign outP7L_15 = (~inD_7);                                            //[00238] P7_15_(P7L_15) = BTS5A(D_7,PWR);
+assign enP7L_0 = PWR;                                           //[00223] P7_0_(P7L_0) = BTS5A(PED_0,PWR);
+assign enP7L_1 = PWR;                                           //[00224] P7_1_(P7L_1) = BTS5A(PED_1,PWR);
+assign enP7L_2 = PWR;                                           //[00225] P7_2_(P7L_2) = BTS5A(PED_2,PWR);
+assign enP7L_3 = PWR;                                           //[00226] P7_3_(P7L_3) = BTS5A(PED_3,PWR);
+assign enP7L_4 = PWR;                                           //[00227] P7_4_(P7L_4) = BTS5A(PED_4,PWR);
+assign enP7L_5 = PWR;                                           //[00228] P7_5_(P7L_5) = BTS5A(PED_5,PWR);
+assign enP7L_6 = PWR;                                           //[00229] P7_6_(P7L_6) = BTS5A(PED_6,PWR);
+assign enP7L_7 = PWR;                                           //[00230] P7_7_(P7L_7) = BTS5A(PED_7,PWR);
+assign enP7L_8 = PWR;                                             //[00231] P7_8_(P7L_8) = BTS5A(D_0,PWR);
+assign enP7L_9 = PWR;                                             //[00232] P7_9_(P7L_9) = BTS5A(D_1,PWR);
+assign enP7L_10 = PWR;                                            //[00233] P7_10_(P7L_10) = BTS5A(D_2,PWR);
+assign enP7L_11 = PWR;                                            //[00234] P7_11_(P7L_11) = BTS5A(D_3,PWR);
+assign enP7L_12 = PWR;                                            //[00235] P7_12_(P7L_12) = BTS5A(D_4,PWR);
+assign enP7L_13 = PWR;                                            //[00236] P7_13_(P7L_13) = BTS5A(D_5,PWR);
+assign enP7L_14 = PWR;                                            //[00237] P7_14_(P7L_14) = BTS5A(D_6,PWR);
+assign enP7L_15 = PWR;                                            //[00238] P7_15_(P7L_15) = BTS5A(D_7,PWR);
 assign AL_0 = ~A_0;                                                             //[00239] AL_0_(AL_0) = N1A(A_0);
 assign PERD = ~(PALCSL | RDL | A_0);                                            //[00240] PERD_(PERD) = NR3C(PALCSL,RDL,A_0);
 assign PORD = ~(PALCSL | RDL | AL_0);                                           //[00241] PORD_(PORD) = NR3C(PALCSL,RDL,AL_0);
-assign D_0 = PERD ? (~P7L_0) : 1'bZ;                                            //[00242] DE_0_(D_0) = BTS5A(P7L_0,PERD);
-assign D_1 = PERD ? (~P7L_1) : 1'bZ;                                            //[00243] DE_1_(D_1) = BTS5A(P7L_1,PERD);
-assign D_2 = PERD ? (~P7L_2) : 1'bZ;                                            //[00244] DE_2_(D_2) = BTS5A(P7L_2,PERD);
-assign D_3 = PERD ? (~P7L_3) : 1'bZ;                                            //[00245] DE_3_(D_3) = BTS5A(P7L_3,PERD);
-assign D_4 = PERD ? (~P7L_4) : 1'bZ;                                            //[00246] DE_4_(D_4) = BTS5A(P7L_4,PERD);
-assign D_5 = PERD ? (~P7L_5) : 1'bZ;                                            //[00247] DE_5_(D_5) = BTS5A(P7L_5,PERD);
-assign D_6 = PERD ? (~P7L_6) : 1'bZ;                                            //[00248] DE_6_(D_6) = BTS5A(P7L_6,PERD);
-assign D_7 = PERD ? (~P7L_7) : 1'bZ;                                            //[00249] DE_7_(D_7) = BTS5A(P7L_7,PERD);
-assign D_0 = PORD ? (~P7L_8) : 1'bZ;                                            //[00250] DO_0_(D_0) = BTS5A(P7L_8,PORD);
-assign D_1 = PORD ? (~P7L_9) : 1'bZ;                                            //[00251] DO_1_(D_1) = BTS5A(P7L_9,PORD);
-assign D_2 = PORD ? (~P7L_10) : 1'bZ;                                           //[00252] DO_2_(D_2) = BTS5A(P7L_10,PORD);
-assign D_3 = PORD ? (~P7L_11) : 1'bZ;                                           //[00253] DO_3_(D_3) = BTS5A(P7L_11,PORD);
-assign D_4 = PORD ? (~P7L_12) : 1'bZ;                                           //[00254] DO_4_(D_4) = BTS5A(P7L_12,PORD);
-assign D_5 = PORD ? (~P7L_13) : 1'bZ;                                           //[00255] DO_5_(D_5) = BTS5A(P7L_13,PORD);
-assign D_6 = PORD ? (~P7L_14) : 1'bZ;                                           //[00256] DO_6_(D_6) = BTS5A(P7L_14,PORD);
-assign D_7 = PORD ? (~P7L_15) : 1'bZ;                                           //[00257] DO_7_(D_7) = BTS5A(P7L_15,PORD);
+assign outD_0 = (PERD & (~inP7L_0)) | (PORD & (~inP7L_8));                                            //[00242] DE_0_(D_0) = BTS5A(P7L_0,PERD);
+assign outD_1 = (PERD & (~inP7L_1)) | (PORD & (~inP7L_9));                                            //[00243] DE_1_(D_1) = BTS5A(P7L_1,PERD);
+assign outD_2 = (PERD & (~inP7L_2)) | (PORD & (~inP7L_10));                                            //[00244] DE_2_(D_2) = BTS5A(P7L_2,PERD);
+assign outD_3 = (PERD & (~inP7L_3)) | (PORD & (~inP7L_11));                                            //[00245] DE_3_(D_3) = BTS5A(P7L_3,PERD);
+assign outD_4 = (PERD & (~inP7L_4)) | (PORD & (~inP7L_12));                                            //[00246] DE_4_(D_4) = BTS5A(P7L_4,PERD);
+assign outD_5 = (PERD & (~inP7L_5)) | (PORD & (~inP7L_13));                                            //[00247] DE_5_(D_5) = BTS5A(P7L_5,PERD);
+assign outD_6 = (PERD & (~inP7L_6)) | (PORD & (~inP7L_14));                                            //[00248] DE_6_(D_6) = BTS5A(P7L_6,PERD);
+assign outD_7 = (PERD & (~inP7L_7)) | (PORD & (~inP7L_15));                                            //[00249] DE_7_(D_7) = BTS5A(P7L_7,PERD);
+assign enD_0 = PORD | PERD;                                            //[00250] DO_0_(D_0) = BTS5A(P7L_8,PORD);
+assign enD_1 = PORD | PERD;                                            //[00251] DO_1_(D_1) = BTS5A(P7L_9,PORD);
+assign enD_2 = PORD | PERD;                                           //[00252] DO_2_(D_2) = BTS5A(P7L_10,PORD);
+assign enD_3 = PORD | PERD;                                           //[00253] DO_3_(D_3) = BTS5A(P7L_11,PORD);
+assign enD_4 = PORD | PERD;                                           //[00254] DO_4_(D_4) = BTS5A(P7L_12,PORD);
+assign enD_5 = PORD | PERD;                                           //[00255] DO_5_(D_5) = BTS5A(P7L_13,PORD);
+assign enD_6 = PORD | PERD;                                           //[00256] DO_6_(D_6) = BTS5A(P7L_14,PORD);
+assign enD_7 = PORD | PERD;                                           //[00257] DO_7_(D_7) = BTS5A(P7L_15,PORD);
 assign POE = PALCSL | WRL;                                                      //[00258] POE_(POE) = OR2A(PALCSL,WRL);
 assign PWE = PALCS & WE & A_0;                                                  //[00259] PWE_(PWE) = AND3A(PALCS,WE,A_0);
-assign P7_0 = ~P7L_0;                                                           //[00260] PX7_0_(P7_0) = N1A(P7L_0);
-assign P7_1 = ~P7L_1;                                                           //[00261] PX7_1_(P7_1) = N1A(P7L_1);
-assign P7_2 = ~P7L_2;                                                           //[00262] PX7_2_(P7_2) = N1A(P7L_2);
-assign P7_3 = ~P7L_3;                                                           //[00263] PX7_3_(P7_3) = N1A(P7L_3);
-assign P7_4 = ~P7L_4;                                                           //[00264] PX7_4_(P7_4) = N1A(P7L_4);
-assign P7_5 = ~P7L_5;                                                           //[00265] PX7_5_(P7_5) = N1A(P7L_5);
-assign P7_6 = ~P7L_6;                                                           //[00266] PX7_6_(P7_6) = N1A(P7L_6);
-assign P7_7 = ~P7L_7;                                                           //[00267] PX7_7_(P7_7) = N1A(P7L_7);
-assign P7_8 = ~P7L_8;                                                           //[00268] PX7_8_(P7_8) = N1A(P7L_8);
-assign P7_9 = ~P7L_9;                                                           //[00269] PX7_9_(P7_9) = N1A(P7L_9);
-assign P7_10 = ~P7L_10;                                                         //[00270] PX7_10_(P7_10) = N1A(P7L_10);
-assign P7_11 = ~P7L_11;                                                         //[00271] PX7_11_(P7_11) = N1A(P7L_11);
-assign P7_12 = ~P7L_12;                                                         //[00272] PX7_12_(P7_12) = N1A(P7L_12);
-assign P7_13 = ~P7L_13;                                                         //[00273] PX7_13_(P7_13) = N1A(P7L_13);
-assign P7_14 = ~P7L_14;                                                         //[00274] PX7_14_(P7_14) = N1A(P7L_14);
-assign P7_15 = ~P7L_15;                                                         //[00275] PX7_15_(P7_15) = N1A(P7L_15);
+assign P7_0 = ~inP7L_0;                                                           //[00260] PX7_0_(P7_0) = N1A(P7L_0);
+assign P7_1 = ~inP7L_1;                                                           //[00261] PX7_1_(P7_1) = N1A(P7L_1);
+assign P7_2 = ~inP7L_2;                                                           //[00262] PX7_2_(P7_2) = N1A(P7L_2);
+assign P7_3 = ~inP7L_3;                                                           //[00263] PX7_3_(P7_3) = N1A(P7L_3);
+assign P7_4 = ~inP7L_4;                                                           //[00264] PX7_4_(P7_4) = N1A(P7L_4);
+assign P7_5 = ~inP7L_5;                                                           //[00265] PX7_5_(P7_5) = N1A(P7L_5);
+assign P7_6 = ~inP7L_6;                                                           //[00266] PX7_6_(P7_6) = N1A(P7L_6);
+assign P7_7 = ~inP7L_7;                                                           //[00267] PX7_7_(P7_7) = N1A(P7L_7);
+assign P7_8 = ~inP7L_8;                                                           //[00268] PX7_8_(P7_8) = N1A(P7L_8);
+assign P7_9 = ~inP7L_9;                                                           //[00269] PX7_9_(P7_9) = N1A(P7L_9);
+assign P7_10 = ~inP7L_10;                                                         //[00270] PX7_10_(P7_10) = N1A(P7L_10);
+assign P7_11 = ~inP7L_11;                                                         //[00271] PX7_11_(P7_11) = N1A(P7L_11);
+assign P7_12 = ~inP7L_12;                                                         //[00272] PX7_12_(P7_12) = N1A(P7L_12);
+assign P7_13 = ~inP7L_13;                                                         //[00273] PX7_13_(P7_13) = N1A(P7L_13);
+assign P7_14 = ~inP7L_14;                                                         //[00274] PX7_14_(P7_14) = N1A(P7L_14);
+assign P7_15 = ~inP7L_15;                                                         //[00275] PX7_15_(P7_15) = N1A(P7L_15);
 
 /* blanking and test mode */
 /* test mode generates a physical colour directly from the logical */
