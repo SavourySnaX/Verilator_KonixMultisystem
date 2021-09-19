@@ -1,0 +1,279 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Sun Sep 19 09:42:49 2021
+[*]
+[dumpfile] "/home/snax/fpga/verilator/slipstream1/trace.vcd"
+[dumpfile_mtime] "Sun Sep 19 09:33:09 2021"
+[dumpfile_size] 55586
+[savefile] "/home/snax/fpga/verilator/slipstream1/DMA.gtkw"
+[timestart] 8
+[size] 5048 1376
+[pos] -101 -101
+*-7.840926 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.m_DMA.
+[treeopen] TOP.m_DMA.MACHINE_.
+[sst_width] 233
+[signals_width] 126
+[sst_expanded] 1
+[sst_vpaned_height] 414
+@200
+-INPUTS
+@28
+TOP.CLK
+TOP.DQCLK
+@c00022
+#{TOP.inA_[19:0]} TOP.inA_19 TOP.inA_18 TOP.inA_17 TOP.inA_16 TOP.inA_15 TOP.inA_14 TOP.inA_13 TOP.inA_12 TOP.inA_11 TOP.inA_10 TOP.inA_9 TOP.inA_8 TOP.inA_7 TOP.inA_6 TOP.inA_5 TOP.inA_4 TOP.inA_3 TOP.inA_2 TOP.inA_1 TOP.inA_0
+@28
+TOP.inA_0
+TOP.inA_1
+TOP.inA_2
+TOP.inA_3
+TOP.inA_4
+TOP.inA_5
+TOP.inA_6
+TOP.inA_7
+TOP.inA_8
+TOP.inA_9
+TOP.inA_10
+TOP.inA_11
+TOP.inA_12
+TOP.inA_13
+TOP.inA_14
+TOP.inA_15
+TOP.inA_16
+TOP.inA_17
+TOP.inA_18
+TOP.inA_19
+@1401200
+-group_end
+@c00022
+#{TOP.inD_[15:0]} TOP.inD_15 TOP.inD_14 TOP.inD_13 TOP.inD_12 TOP.inD_11 TOP.inD_10 TOP.inD_9 TOP.inD_8 TOP.inD_7 TOP.inD_6 TOP.inD_5 TOP.inD_4 TOP.inD_3 TOP.inD_2 TOP.inD_1 TOP.inD_0
+@28
+TOP.inD_0
+TOP.inD_1
+TOP.inD_2
+TOP.inD_3
+TOP.inD_4
+TOP.inD_5
+TOP.inD_6
+TOP.inD_7
+TOP.inD_8
+TOP.inD_9
+TOP.inD_10
+TOP.inD_11
+TOP.inD_12
+TOP.inD_13
+TOP.inD_14
+TOP.inD_15
+@1401200
+-group_end
+@c00022
+#{TOP.DDB_[15:0]} TOP.DDB_15 TOP.DDB_14 TOP.DDB_13 TOP.DDB_12 TOP.DDB_11 TOP.DDB_10 TOP.DDB_9 TOP.DDB_8 TOP.DDB_7 TOP.DDB_6 TOP.DDB_5 TOP.DDB_4 TOP.DDB_3 TOP.DDB_2 TOP.DDB_1 TOP.DDB_0
+@28
+TOP.DDB_0
+TOP.DDB_1
+TOP.DDB_2
+TOP.DDB_3
+TOP.DDB_4
+TOP.DDB_5
+TOP.DDB_6
+TOP.DDB_7
+TOP.DDB_8
+TOP.DDB_9
+TOP.DDB_10
+TOP.DDB_11
+TOP.DDB_12
+TOP.DDB_13
+TOP.DDB_14
+TOP.DDB_15
+@1401200
+-group_end
+@28
+TOP.DMA0RDL
+TOP.DMA0WRL
+TOP.DMA1RDL
+TOP.DMA1WRL
+TOP.DMDRDL
+TOP.DMDWRL
+TOP.DSPBAKL
+TOP.WAITL
+TOP.RESETL
+TOP.RUN
+@200
+-OUTPUTS
+@28
+TOP.DSPBRQL
+TOP.MREQ
+TOP.RD
+TOP.WORD
+TOP.WR
+@c00022
+#{TOP.enA_[19:0]} TOP.enA_19 TOP.enA_18 TOP.enA_17 TOP.enA_16 TOP.enA_15 TOP.enA_14 TOP.enA_13 TOP.enA_12 TOP.enA_11 TOP.enA_10 TOP.enA_9 TOP.enA_8 TOP.enA_7 TOP.enA_6 TOP.enA_5 TOP.enA_4 TOP.enA_3 TOP.enA_2 TOP.enA_1 TOP.enA_0
+@28
+TOP.enA_0
+TOP.enA_1
+TOP.enA_2
+TOP.enA_3
+TOP.enA_4
+TOP.enA_5
+TOP.enA_6
+TOP.enA_7
+TOP.enA_8
+TOP.enA_9
+TOP.enA_10
+TOP.enA_11
+TOP.enA_12
+TOP.enA_13
+TOP.enA_14
+TOP.enA_15
+TOP.enA_16
+TOP.enA_17
+TOP.enA_18
+TOP.enA_19
+@1401200
+-group_end
+@c00022
+#{TOP.outA_[19:0]} TOP.outA_19 TOP.outA_18 TOP.outA_17 TOP.outA_16 TOP.outA_15 TOP.outA_14 TOP.outA_13 TOP.outA_12 TOP.outA_11 TOP.outA_10 TOP.outA_9 TOP.outA_8 TOP.outA_7 TOP.outA_6 TOP.outA_5 TOP.outA_4 TOP.outA_3 TOP.outA_2 TOP.outA_1 TOP.outA_0
+@28
+TOP.outA_0
+TOP.outA_1
+TOP.outA_2
+TOP.outA_3
+TOP.outA_4
+TOP.outA_5
+TOP.outA_6
+TOP.outA_7
+TOP.outA_8
+TOP.outA_9
+TOP.outA_10
+TOP.outA_11
+TOP.outA_12
+TOP.outA_13
+TOP.outA_14
+TOP.outA_15
+TOP.outA_16
+TOP.outA_17
+TOP.outA_18
+TOP.outA_19
+@1401200
+-group_end
+@c00022
+#{TOP.enDD_[15:0]} TOP.enDD_15 TOP.enDD_14 TOP.enDD_13 TOP.enDD_12 TOP.enDD_11 TOP.enDD_10 TOP.enDD_9 TOP.enDD_8 TOP.enDD_7 TOP.enDD_6 TOP.enDD_5 TOP.enDD_4 TOP.enDD_3 TOP.enDD_2 TOP.enDD_1 TOP.enDD_0
+@28
+TOP.enDD_0
+TOP.enDD_1
+TOP.enDD_2
+TOP.enDD_3
+TOP.enDD_4
+TOP.enDD_5
+TOP.enDD_6
+TOP.enDD_7
+TOP.enDD_8
+TOP.enDD_9
+TOP.enDD_10
+TOP.enDD_11
+TOP.enDD_12
+TOP.enDD_13
+TOP.enDD_14
+TOP.enDD_15
+@1401200
+-group_end
+@c00022
+#{TOP.outDD_[15:0]} TOP.outDD_15 TOP.outDD_14 TOP.outDD_13 TOP.outDD_12 TOP.outDD_11 TOP.outDD_10 TOP.outDD_9 TOP.outDD_8 TOP.outDD_7 TOP.outDD_6 TOP.outDD_5 TOP.outDD_4 TOP.outDD_3 TOP.outDD_2 TOP.outDD_1 TOP.outDD_0
+@28
+TOP.outDD_0
+TOP.outDD_1
+TOP.outDD_2
+TOP.outDD_3
+TOP.outDD_4
+TOP.outDD_5
+TOP.outDD_6
+TOP.outDD_7
+TOP.outDD_8
+TOP.outDD_9
+TOP.outDD_10
+TOP.outDD_11
+TOP.outDD_12
+TOP.outDD_13
+TOP.outDD_14
+TOP.outDD_15
+@1401200
+-group_end
+@c00022
+#{TOP.enD_[15:0]} TOP.enD_15 TOP.enD_14 TOP.enD_13 TOP.enD_12 TOP.enD_11 TOP.enD_10 TOP.enD_9 TOP.enD_8 TOP.enD_7 TOP.enD_6 TOP.enD_5 TOP.enD_4 TOP.enD_3 TOP.enD_2 TOP.enD_1 TOP.enD_0
+@28
+TOP.enD_0
+TOP.enD_1
+TOP.enD_2
+TOP.enD_3
+TOP.enD_4
+TOP.enD_5
+TOP.enD_6
+TOP.enD_7
+TOP.enD_8
+TOP.enD_9
+TOP.enD_10
+TOP.enD_11
+TOP.enD_12
+TOP.enD_13
+TOP.enD_14
+TOP.enD_15
+@1401200
+-group_end
+@c00022
+#{TOP.outD_[15:0]} TOP.outD_15 TOP.outD_14 TOP.outD_13 TOP.outD_12 TOP.outD_11 TOP.outD_10 TOP.outD_9 TOP.outD_8 TOP.outD_7 TOP.outD_6 TOP.outD_5 TOP.outD_4 TOP.outD_3 TOP.outD_2 TOP.outD_1 TOP.outD_0
+@28
+TOP.outD_0
+TOP.outD_1
+TOP.outD_2
+TOP.outD_3
+TOP.outD_4
+TOP.outD_5
+TOP.outD_6
+TOP.outD_7
+TOP.outD_8
+TOP.outD_9
+TOP.outD_10
+TOP.outD_11
+TOP.outD_12
+TOP.outD_13
+TOP.outD_14
+TOP.outD_15
+@1401200
+-group_end
+@200
+-STATE
+@28
+TOP.m_DMA.MACHINE_.CLK
+TOP.m_DMA.MACHINE_.DL_1
+TOP.m_DMA.MACHINE_.DMA0WR
+TOP.m_DMA.MACHINE_.DMA0WRL
+TOP.m_DMA.MACHINE_.DMCL_0
+TOP.m_DMA.MACHINE_.DMCL_1
+TOP.m_DMA.MACHINE_.DMC_0
+TOP.m_DMA.MACHINE_.DMC_1
+TOP.m_DMA.MACHINE_.DSPBAK
+TOP.m_DMA.MACHINE_.DSPBAKL
+@c00022
+#{TOP.m_DMA.MACHINE_.D_[4:0]} TOP.m_DMA.MACHINE_.D_4 TOP.m_DMA.MACHINE_.D_3 TOP.m_DMA.MACHINE_.D_2 TOP.m_DMA.MACHINE_.D_1 TOP.m_DMA.MACHINE_.D_0
+@28
+TOP.m_DMA.MACHINE_.D_0
+TOP.m_DMA.MACHINE_.D_1
+TOP.m_DMA.MACHINE_.D_2
+TOP.m_DMA.MACHINE_.D_3
+TOP.m_DMA.MACHINE_.D_4
+@1401200
+-group_end
+@28
+TOP.m_DMA.MACHINE_.MREQ
+TOP.m_DMA.MACHINE_.MREQL
+TOP.m_DMA.MACHINE_.MRQU
+TOP.m_DMA.MACHINE_.RESETL
+TOP.m_DMA.MACHINE_.ST23
+TOP.m_DMA.MACHINE_.ST23L
+TOP.m_DMA.MACHINE_.ST23U
+@29
+TOP.m_DMA.MACHINE_.WAIT
+[pattern_trace] 1
+[pattern_trace] 0
