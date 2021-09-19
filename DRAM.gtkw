@@ -1,0 +1,138 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Sun Sep 19 11:09:25 2021
+[*]
+[dumpfile] "/home/snax/fpga/verilator/slipstream1/trace.vcd"
+[dumpfile_mtime] "Sun Sep 19 11:07:40 2021"
+[dumpfile_size] 257740
+[savefile] "/home/snax/fpga/verilator/slipstream1/DRAM.gtkw"
+[timestart] 10711
+[size] 5048 1376
+[pos] -101 -101
+*-7.113683 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[sst_width] 233
+[signals_width] 126
+[sst_expanded] 1
+[sst_vpaned_height] 876
+@200
+-INPUTS
+@28
+TOP.CLK
+TOP.DQCLK
+@800023
+#{TOP.DA_[8:0]} TOP.DA_8 TOP.DA_7 TOP.DA_6 TOP.DA_5 TOP.DA_4 TOP.DA_3 TOP.DA_2 TOP.DA_1 TOP.DA_0
+@29
+TOP.DA_0
+TOP.DA_1
+TOP.DA_2
+TOP.DA_3
+TOP.DA_4
+TOP.DA_5
+TOP.DA_6
+TOP.DA_7
+TOP.DA_8
+@1001201
+-group_end
+@c00062
+[color] 3
+#{TOP.DAL_[8:4]} TOP.DAL_8 TOP.DAL_6 TOP.DAL_5 TOP.DAL_4
+@28
+TOP.DAL_4
+TOP.DAL_5
+TOP.DAL_6
+TOP.DAL_8
+@1401240
+-group_end
+@c00022
+#{TOP.inDD_[15:0]} TOP.inDD_15 TOP.inDD_14 TOP.inDD_13 TOP.inDD_12 TOP.inDD_11 TOP.inDD_10 TOP.inDD_9 TOP.inDD_8 TOP.inDD_7 TOP.inDD_6 TOP.inDD_5 TOP.inDD_4 TOP.inDD_3 TOP.inDD_2 TOP.inDD_1 TOP.inDD_0
+@28
+TOP.inDD_0
+TOP.inDD_1
+TOP.inDD_2
+TOP.inDD_3
+TOP.inDD_4
+TOP.inDD_5
+TOP.inDD_6
+TOP.inDD_7
+TOP.inDD_8
+TOP.inDD_9
+TOP.inDD_10
+TOP.inDD_11
+TOP.inDD_12
+TOP.inDD_13
+TOP.inDD_14
+TOP.inDD_15
+@1401200
+-group_end
+@28
+TOP.READL
+TOP.WRITEL
+TOP.TRARDL
+TOP.IXRDL
+TOP.DAC
+TOP.DMA1RDL
+TOP.MZ2RDL
+TOP.PCRDL
+TOP.MODRDL
+TOP.GPRDL
+TOP.GPWRL
+TOP.RESETL
+TOP.INPUT
+@200
+-OUTPUTS
+@c00022
+#{TOP.enDD_[15:0]} TOP.enDD_15 TOP.enDD_14 TOP.enDD_13 TOP.enDD_12 TOP.enDD_11 TOP.enDD_10 TOP.enDD_9 TOP.enDD_8 TOP.enDD_7 TOP.enDD_6 TOP.enDD_5 TOP.enDD_4 TOP.enDD_3 TOP.enDD_2 TOP.enDD_1 TOP.enDD_0
+@28
+TOP.enDD_0
+TOP.enDD_1
+TOP.enDD_2
+TOP.enDD_3
+TOP.enDD_4
+TOP.enDD_5
+TOP.enDD_6
+TOP.enDD_7
+TOP.enDD_8
+TOP.enDD_9
+TOP.enDD_10
+TOP.enDD_11
+TOP.enDD_12
+TOP.enDD_13
+TOP.enDD_14
+TOP.enDD_15
+@1401200
+-group_end
+@c00022
+#{TOP.outDD_[15:0]} TOP.outDD_15 TOP.outDD_14 TOP.outDD_13 TOP.outDD_12 TOP.outDD_11 TOP.outDD_10 TOP.outDD_9 TOP.outDD_8 TOP.outDD_7 TOP.outDD_6 TOP.outDD_5 TOP.outDD_4 TOP.outDD_3 TOP.outDD_2 TOP.outDD_1 TOP.outDD_0
+@28
+TOP.outDD_0
+TOP.outDD_1
+TOP.outDD_2
+TOP.outDD_3
+TOP.outDD_4
+TOP.outDD_5
+TOP.outDD_6
+TOP.outDD_7
+TOP.outDD_8
+TOP.outDD_9
+TOP.outDD_10
+TOP.outDD_11
+TOP.outDD_12
+TOP.outDD_13
+TOP.outDD_14
+TOP.outDD_15
+@1401200
+-group_end
+@28
+TOP.DRAMEN
+TOP.DRAMWR
+TOP.OUTPUT
+TOP.REGS
+TOP.ROMEN
+@200
+-INTERNALS
+@28
+TOP.m_DRAM.CONEN
+TOP.m_DRAM.CONST
+[pattern_trace] 1
+[pattern_trace] 0

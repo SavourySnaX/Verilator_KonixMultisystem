@@ -59,7 +59,9 @@
 #------ DSP ELEMENTS -----#
 #MODULE=m_PC
 #MODULE=m_PWM
-MODULE=m_DMA
+##MODULE=m_DMA
+#MODULE=m_PRAM
+MODULE=m_DRAM
 
 .PHONY:sim
 sim: trace.vcd
