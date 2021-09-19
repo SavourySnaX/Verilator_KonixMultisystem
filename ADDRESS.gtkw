@@ -1,0 +1,131 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Sun Sep 19 11:24:16 2021
+[*]
+[dumpfile] "/home/snax/fpga/verilator/slipstream1/trace.vcd"
+[dumpfile_mtime] "Sun Sep 19 11:22:03 2021"
+[dumpfile_size] 21312
+[savefile] "/home/snax/fpga/verilator/slipstream1/ADDRESS.gtkw"
+[timestart] 8
+[size] 5048 1376
+[pos] -101 -101
+*-5.953541 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 233
+[signals_width] 118
+[sst_expanded] 1
+[sst_vpaned_height] 414
+@200
+-INPUTS
+@28
+TOP.CLK
+TOP.DQCLK
+TOP.ASEL_0
+TOP.ASEL_1
+@c00022
+#{TOP.A_[9:1]} TOP.A_9 TOP.A_8 TOP.A_7 TOP.A_6 TOP.A_5 TOP.A_4 TOP.A_3 TOP.A_2 TOP.A_1
+@28
+TOP.A_1
+TOP.A_2
+TOP.A_3
+TOP.A_4
+TOP.A_5
+TOP.A_6
+TOP.A_7
+TOP.A_8
+TOP.A_9
+@1401200
+-group_end
+@c00022
+#{TOP.DDB_[8:0]} TOP.DDB_8 TOP.DDB_7 TOP.DDB_6 TOP.DDB_5 TOP.DDB_4 TOP.DDB_3 TOP.DDB_2 TOP.DDB_1 TOP.DDB_0
+@28
+TOP.DDB_0
+TOP.DDB_1
+TOP.DDB_2
+TOP.DDB_3
+TOP.DDB_4
+TOP.DDB_5
+TOP.DDB_6
+TOP.DDB_7
+TOP.DDB_8
+@1401200
+-group_end
+@c00022
+#{TOP.PD_[8:0]} TOP.PD_8 TOP.PD_7 TOP.PD_6 TOP.PD_5 TOP.PD_4 TOP.PD_3 TOP.PD_2 TOP.PD_1 TOP.PD_0
+@28
+TOP.PD_0
+TOP.PD_1
+TOP.PD_2
+TOP.PD_3
+TOP.PD_4
+TOP.PD_5
+TOP.PD_6
+TOP.PD_7
+TOP.PD_8
+@1401200
+-group_end
+@28
+TOP.IXRDL
+TOP.IXWRL
+TOP.INTRALDL
+TOP.TRARDL
+TOP.RESETL
+@200
+-OUTPUTS
+@c00022
+#{TOP.DA_[8:0]} TOP.DA_8 TOP.DA_7 TOP.DA_6 TOP.DA_5 TOP.DA_4 TOP.DA_3 TOP.DA_2 TOP.DA_1 TOP.DA_0
+@28
+TOP.DA_0
+TOP.DA_1
+TOP.DA_2
+TOP.DA_3
+TOP.DA_4
+TOP.DA_5
+TOP.DA_6
+TOP.DA_7
+TOP.DA_8
+@1401200
+-group_end
+@c00062
+[color] 3
+#{TOP.DAL_[8:0]} TOP.DAL_8 TOP.DAL_6 TOP.DAL_5 TOP.DAL_4 TOP.DAL_3 TOP.DAL_2 TOP.DAL_1 TOP.DAL_0
+@28
+TOP.DAL_0
+TOP.DAL_1
+TOP.DAL_2
+TOP.DAL_3
+TOP.DAL_4
+TOP.DAL_5
+TOP.DAL_6
+TOP.DAL_8
+@1401240
+-group_end
+@c00022
+#{TOP.enDD_[8:0]} TOP.enDD_8 TOP.enDD_7 TOP.enDD_6 TOP.enDD_5 TOP.enDD_4 TOP.enDD_3 TOP.enDD_2 TOP.enDD_1 TOP.enDD_0
+@28
+TOP.enDD_0
+TOP.enDD_1
+TOP.enDD_2
+TOP.enDD_3
+TOP.enDD_4
+TOP.enDD_5
+TOP.enDD_6
+TOP.enDD_7
+TOP.enDD_8
+@1401200
+-group_end
+@c00023
+#{TOP.outDD_[8:0]} TOP.outDD_8 TOP.outDD_7 TOP.outDD_6 TOP.outDD_5 TOP.outDD_4 TOP.outDD_3 TOP.outDD_2 TOP.outDD_1 TOP.outDD_0
+@28
+TOP.outDD_0
+TOP.outDD_1
+TOP.outDD_2
+TOP.outDD_3
+TOP.outDD_4
+TOP.outDD_5
+TOP.outDD_6
+TOP.outDD_7
+TOP.outDD_8
+@1401201
+-group_end
+[pattern_trace] 1
+[pattern_trace] 0
