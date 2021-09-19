@@ -26,14 +26,14 @@ int doNTicks(Vm_INT *tb, VerilatedVcdC* trace, int ticks, int n)
 
 void SetD(Vm_INT *tb, uint8_t value)
 {
-    tb->D_0=value&1;
-    tb->D_1=(value>>1)&1;
-    tb->D_2=(value>>2)&1;
-    tb->D_3=(value>>3)&1;
-    tb->D_4=(value>>4)&1;
-    tb->D_5=(value>>5)&1;
-    tb->D_6=(value>>6)&1;
-    tb->D_7=(value>>7)&1;
+    tb->inD_0=value&1;
+    tb->inD_1=(value>>1)&1;
+    tb->inD_2=(value>>2)&1;
+    tb->inD_3=(value>>3)&1;
+    tb->inD_4=(value>>4)&1;
+    tb->inD_5=(value>>5)&1;
+    tb->inD_6=(value>>6)&1;
+    tb->inD_7=(value>>7)&1;
 }
 
 void SetWD(Vm_INT *tb, uint8_t value)

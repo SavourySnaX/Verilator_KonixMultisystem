@@ -1,0 +1,91 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Sun Sep 19 09:04:19 2021
+[*]
+[dumpfile] "/home/snax/fpga/verilator/slipstream1/trace.vcd"
+[dumpfile_mtime] "Sun Sep 19 09:00:52 2021"
+[dumpfile_size] 19833
+[savefile] "/home/snax/fpga/verilator/slipstream1/PC.gtkw"
+[timestart] 8
+[size] 5048 1376
+[pos] -101 -101
+*-5.801365 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 233
+[signals_width] 110
+[sst_expanded] 1
+[sst_vpaned_height] 414
+@c00022
+#{TOP.DDB_[7:0]} TOP.DDB_7 TOP.DDB_6 TOP.DDB_5 TOP.DDB_4 TOP.DDB_3 TOP.DDB_2 TOP.DDB_1 TOP.DDB_0
+@28
+TOP.DDB_0
+TOP.DDB_1
+TOP.DDB_2
+TOP.DDB_3
+TOP.DDB_4
+TOP.DDB_5
+TOP.DDB_6
+TOP.DDB_7
+@1401200
+-group_end
+@c00023
+#{TOP.HA_[8:1]} TOP.HA_8 TOP.HA_7 TOP.HA_6 TOP.HA_5 TOP.HA_4 TOP.HA_3 TOP.HA_2 TOP.HA_1
+@28
+TOP.HA_1
+TOP.HA_2
+TOP.HA_3
+TOP.HA_4
+TOP.HA_5
+TOP.HA_6
+TOP.HA_7
+TOP.HA_8
+@1401201
+-group_end
+@28
+TOP.HPCWRL
+TOP.PCRDL
+TOP.PCWRL
+@c00022
+#{TOP.PC_[7:0]} TOP.PC_7 TOP.PC_6 TOP.PC_5 TOP.PC_4 TOP.PC_3 TOP.PC_2 TOP.PC_1 TOP.PC_0
+@28
+TOP.PC_0
+TOP.PC_1
+TOP.PC_2
+TOP.PC_3
+TOP.PC_4
+TOP.PC_5
+TOP.PC_6
+TOP.PC_7
+@1401200
+-group_end
+@28
+TOP.RESETL
+TOP.RUN
+TOP.XCK
+@c00022
+#{TOP.enD_[7:0]} TOP.enD_7 TOP.enD_6 TOP.enD_5 TOP.enD_4 TOP.enD_3 TOP.enD_2 TOP.enD_1 TOP.enD_0
+@28
+TOP.enD_0
+TOP.enD_1
+TOP.enD_2
+TOP.enD_3
+TOP.enD_4
+TOP.enD_5
+TOP.enD_6
+TOP.enD_7
+@1401200
+-group_end
+@c00022
+#{TOP.outD_[7:0]} TOP.outD_7 TOP.outD_6 TOP.outD_5 TOP.outD_4 TOP.outD_3 TOP.outD_2 TOP.outD_1 TOP.outD_0
+@28
+TOP.outD_0
+TOP.outD_1
+TOP.outD_2
+TOP.outD_3
+TOP.outD_4
+TOP.outD_5
+TOP.outD_6
+TOP.outD_7
+@1401200
+-group_end
+[pattern_trace] 1
+[pattern_trace] 0

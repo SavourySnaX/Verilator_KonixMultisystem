@@ -1,0 +1,44 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Sun Sep 19 09:18:12 2021
+[*]
+[dumpfile] "/home/snax/fpga/verilator/slipstream1/trace.vcd"
+[dumpfile_mtime] "Sun Sep 19 09:16:18 2021"
+[dumpfile_size] 17694
+[savefile] "/home/snax/fpga/verilator/slipstream1/PWM.gtkw"
+[timestart] 8
+[size] 5048 1376
+[pos] -101 -101
+*-5.680753 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 233
+[signals_width] 94
+[sst_expanded] 1
+[sst_vpaned_height] 414
+@28
+TOP.DACWRL
+@c00022
+#{TOP.D_[15:2]} TOP.D_15 TOP.D_14 TOP.D_13 TOP.D_12 TOP.D_11 TOP.D_10 TOP.D_9 TOP.D_8 TOP.D_7 TOP.D_6 TOP.D_5 TOP.D_4 TOP.D_3 TOP.D_2
+@28
+TOP.D_2
+TOP.D_3
+TOP.D_4
+TOP.D_5
+TOP.D_6
+TOP.D_7
+TOP.D_8
+TOP.D_9
+TOP.D_10
+TOP.D_11
+TOP.D_12
+TOP.D_13
+TOP.D_14
+TOP.D_15
+@1401200
+-group_end
+@29
+TOP.PW_1
+TOP.PW_2
+@28
+TOP.XCK
+[pattern_trace] 1
+[pattern_trace] 0

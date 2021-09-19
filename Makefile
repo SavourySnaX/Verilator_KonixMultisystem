@@ -12,14 +12,14 @@
 ##MODULE=m_PIX
 
 #------ VIDEO MAIN -----#
-MODULE=m_VID
+#MODULE=m_VID
 
 #----- BLITTER DATA ELEMENTS -----#
 
 #MODULE=m_SRCDATA
 #MODULE=m_DSTDATA
 #MODULE=m_PATDATA
-##MODULE=m_COMP
+#MODULE=m_COMP
 #MODULE=m_LFU
 
 #----- BLITTER STATE ELEMENTS -----#
@@ -55,6 +55,10 @@ MODULE=m_VID
 
 #------ BLITTER MAIN -----#
 #MODULE=m_BLIT
+
+#------ DSP ELEMENTS -----#
+#MODULE=m_PC
+MODULE=m_PWM
 
 .PHONY:sim
 sim: trace.vcd
