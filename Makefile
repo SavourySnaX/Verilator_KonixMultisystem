@@ -68,7 +68,10 @@
 ##MODULE=m_INTRUDE
 
 #----- DSP MAIN ----#
-MODULE=m_DSP
+#MODULE=m_DSP
+
+#----- SS MAIN ----#
+MODULE=m_SS
 
 .PHONY:sim
 sim: trace.vcd
@@ -98,7 +101,7 @@ trace.vcd: ./obj_dir/V$(MODULE)
 .stamp.verilate: $(MODULE).sv tb_$(MODULE).cpp
 	@echo
 	@echo "### VERILATING ###"
-	verilator -Wall -Wno-unused --trace -cc $(MODULE).sv --exe tb_$(MODULE).cpp
+	verilator -Wall -Wno-unused -Wno-UNOPTFLAT --trace -cc $(MODULE).sv --exe tb_$(MODULE).cpp
 	@touch .stamp.verilate
 
 .PHONY:lint

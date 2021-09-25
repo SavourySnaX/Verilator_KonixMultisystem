@@ -1,0 +1,527 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Sat Sep 25 07:25:21 2021
+[*]
+[dumpfile] "/home/snax/fpga/verilator/slipstream1/trace.vcd"
+[dumpfile_mtime] "Thu Sep 23 15:23:14 2021"
+[dumpfile_size] 168385628
+[savefile] "/home/snax/fpga/verilator/slipstream1/SS.gtkw"
+[timestart] 3499000
+[size] 5048 1376
+[pos] -196 -196
+*-14.630892 4720784 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.m_SS.
+[treeopen] TOP.m_SS.VID_.
+[sst_width] 233
+[signals_width] 224
+[sst_expanded] 1
+[sst_vpaned_height] 876
+@200
+-From Main Board
+@28
+TOP.XXTAL
+@200
+-Processor Signals
+@c00022
+#{TOP.inXAD_[7:0]} TOP.inXAD_7 TOP.inXAD_6 TOP.inXAD_5 TOP.inXAD_4 TOP.inXAD_3 TOP.inXAD_2 TOP.inXAD_1 TOP.inXAD_0
+@28
+TOP.inXAD_0
+TOP.inXAD_1
+TOP.inXAD_2
+TOP.inXAD_3
+TOP.inXAD_4
+TOP.inXAD_5
+TOP.inXAD_6
+TOP.inXAD_7
+@1401200
+-group_end
+@c00022
+#{TOP.inXA_[15:8]} TOP.inXA_15 TOP.inXA_14 TOP.inXA_13 TOP.inXA_12 TOP.inXA_11 TOP.inXA_10 TOP.inXA_9 TOP.inXA_8
+@28
+TOP.inXA_8
+TOP.inXA_9
+TOP.inXA_10
+TOP.inXA_11
+TOP.inXA_12
+TOP.inXA_13
+TOP.inXA_14
+TOP.inXA_15
+@1401200
+-group_end
+@c00022
+#{TOP.inXD_[15:8]} TOP.inXD_15 TOP.inXD_14 TOP.inXD_13 TOP.inXD_12 TOP.inXD_11 TOP.inXD_10 TOP.inXD_9 TOP.inXD_8
+@28
+TOP.inXD_8
+TOP.inXD_9
+TOP.inXD_10
+TOP.inXD_11
+TOP.inXD_12
+TOP.inXD_13
+TOP.inXD_14
+TOP.inXD_15
+@1401200
+-group_end
+@c00022
+#{TOP.XAS_[19:16]} TOP.XAS_19 TOP.XAS_18 TOP.XAS_17 TOP.XAS_16
+@28
+TOP.XAS_16
+TOP.XAS_17
+TOP.XAS_18
+TOP.XAS_19
+@1401200
+-group_end
+@28
+TOP.XRESET
+TOP.XIOM
+TOP.XALE
+TOP.XINTA
+TOP.XHLDA
+TOP.XRDL
+TOP.XWRL
+@200
+-Misc Inputs
+@28
+TOP.inXHSYNCL
+TOP.inXVSYNCL
+@c00028
+#{TOP.XAI_[2:0]} TOP.XAI_2 TOP.XAI_1 TOP.XAI_0
+@28
+TOP.XAI_0
+TOP.XAI_1
+TOP.XAI_2
+@1401200
+-group_end
+@c00028
+#{TOP.inXJOYL_[2:0]} TOP.inXJOYL_2 TOP.inXJOYL_1 TOP.inXJOYL_0
+@28
+TOP.inXJOYL_0
+TOP.inXJOYL_1
+TOP.inXJOYL_2
+@1401200
+-group_end
+@28
+TOP.inXDSP_IO
+TOP.XLPL
+TOP.XTESTPIN
+@200
+-To Main Board
+-Processor Signals
+@28
+TOP.XPCLK
+@c00022
+#{TOP.enXAD_[7:0]} TOP.enXAD_7 TOP.enXAD_6 TOP.enXAD_5 TOP.enXAD_4 TOP.enXAD_3 TOP.enXAD_2 TOP.enXAD_1 TOP.enXAD_0
+@28
+TOP.enXAD_0
+TOP.enXAD_1
+TOP.enXAD_2
+TOP.enXAD_3
+TOP.enXAD_4
+TOP.enXAD_5
+TOP.enXAD_6
+TOP.enXAD_7
+@1401200
+-group_end
+@c00022
+#{TOP.outXAD_[7:0]} TOP.outXAD_7 TOP.outXAD_6 TOP.outXAD_5 TOP.outXAD_4 TOP.outXAD_3 TOP.outXAD_2 TOP.outXAD_1 TOP.outXAD_0
+@28
+TOP.outXAD_0
+TOP.outXAD_1
+TOP.outXAD_2
+TOP.outXAD_3
+TOP.outXAD_4
+TOP.outXAD_5
+TOP.outXAD_6
+TOP.outXAD_7
+@1401200
+-group_end
+@c00022
+#{TOP.enXA_[15:8]} TOP.enXA_15 TOP.enXA_14 TOP.enXA_13 TOP.enXA_12 TOP.enXA_11 TOP.enXA_10 TOP.enXA_9 TOP.enXA_8
+@28
+TOP.enXA_8
+TOP.enXA_9
+TOP.enXA_10
+TOP.enXA_11
+TOP.enXA_12
+TOP.enXA_13
+TOP.enXA_14
+TOP.enXA_15
+@1401200
+-group_end
+@c00022
+#{TOP.outXA_[15:8]} TOP.outXA_15 TOP.outXA_14 TOP.outXA_13 TOP.outXA_12 TOP.outXA_11 TOP.outXA_10 TOP.outXA_9 TOP.outXA_8
+@28
+TOP.outXA_8
+TOP.outXA_9
+TOP.outXA_10
+TOP.outXA_11
+TOP.outXA_12
+TOP.outXA_13
+TOP.outXA_14
+TOP.outXA_15
+@1401200
+-group_end
+@c00022
+#{TOP.enXD_[15:8]} TOP.enXD_15 TOP.enXD_14 TOP.enXD_13 TOP.enXD_12 TOP.enXD_11 TOP.enXD_10 TOP.enXD_9 TOP.enXD_8
+@28
+TOP.enXD_8
+TOP.enXD_9
+TOP.enXD_10
+TOP.enXD_11
+TOP.enXD_12
+TOP.enXD_13
+TOP.enXD_14
+TOP.enXD_15
+@1401200
+-group_end
+@c00022
+#{TOP.outXD_[15:8]} TOP.outXD_15 TOP.outXD_14 TOP.outXD_13 TOP.outXD_12 TOP.outXD_11 TOP.outXD_10 TOP.outXD_9 TOP.outXD_8
+@28
+TOP.outXD_8
+TOP.outXD_9
+TOP.outXD_10
+TOP.outXD_11
+TOP.outXD_12
+TOP.outXD_13
+TOP.outXD_14
+TOP.outXD_15
+@1401200
+-group_end
+@28
+TOP.XHOLD
+TOP.XINTR
+@200
+-Misc Outputs
+-Video
+@28
+TOP.enXVSYNCL
+TOP.outXVSYNCL
+TOP.enXHSYNCL
+TOP.outXHSYNCL
+TOP.XCHROMA
+@c00022
+#{TOP.XR_[3:0]} TOP.XR_3 TOP.XR_2 TOP.XR_1 TOP.XR_0
+@28
+TOP.XR_0
+TOP.XR_1
+TOP.XR_2
+TOP.XR_3
+@1401200
+-group_end
+@c00022
+#{TOP.XG_[3:0]} TOP.XG_3 TOP.XG_2 TOP.XG_1 TOP.XG_0
+@28
+TOP.XG_0
+TOP.XG_1
+TOP.XG_2
+TOP.XG_3
+@1401200
+-group_end
+@c00022
+#{TOP.XB_[3:0]} TOP.XB_3 TOP.XB_2 TOP.XB_1 TOP.XB_0
+@28
+TOP.XB_0
+TOP.XB_1
+TOP.XB_2
+TOP.XB_3
+@1401200
+-group_end
+@200
+-Audio
+@28
+TOP.XLEFTH
+TOP.XLEFTL
+TOP.XRIGHTH
+TOP.XRIGHTL
+@200
+-Other
+@28
+TOP.XAISEL
+TOP.enXDSP_IO
+TOP.outXDSP_IO
+@c00028
+#{TOP.enXJOYL_[2:0]} TOP.enXJOYL_2 TOP.enXJOYL_1 TOP.enXJOYL_0
+@28
+TOP.enXJOYL_0
+TOP.enXJOYL_1
+TOP.enXJOYL_2
+@1401200
+-group_end
+@c00028
+#{TOP.outXJOYL_[2:0]} TOP.outXJOYL_2 TOP.outXJOYL_1 TOP.outXJOYL_0
+@28
+TOP.outXJOYL_0
+TOP.outXJOYL_1
+TOP.outXJOYL_2
+@1401200
+-group_end
+@c00022
+#{TOP.XA_[17:0]} TOP.XA_17 TOP.XA_16 TOP.XA_7 TOP.XA_6 TOP.XA_5 TOP.XA_4 TOP.XA_3 TOP.XA_2 TOP.XA_1 TOP.XA_0
+@28
+TOP.XA_0
+TOP.XA_1
+TOP.XA_2
+TOP.XA_3
+TOP.XA_4
+TOP.XA_5
+TOP.XA_6
+TOP.XA_7
+TOP.XA_16
+TOP.XA_17
+@1401200
+-group_end
+@28
+TOP.XCASL
+@800028
+#{TOP.XCSL_[1:0]} TOP.XCSL_1 TOP.XCSL_0
+@28
+TOP.XCSL_0
+TOP.XCSL_1
+@1001200
+-group_end
+@28
+TOP.XGPIOL_0
+TOP.XGPIOL_1
+TOP.XINC
+TOP.XOEL
+@c00028
+#{TOP.XSCEL_[1:0]} TOP.XSCEL_1 TOP.XSCEL_0
+@28
+TOP.XSCEL_0
+TOP.XSCEL_1
+@1401200
+-group_end
+@28
+TOP.XWEL
+TOP.XXTALO
+@200
+------
+@22
+TOP.m_SS.PD[15:0]
+TOP.m_SS.PALD[15:0]
+TOP.m_SS.D[15:0]
+TOP.m_SS.A[19:0]
+@28
+TOP.m_SS.FASTL
+TOP.m_SS.PALL
+@c00022
++{VerticalCounter} #{TOP.m_SS.VID_.VCNT_.VC_[8:0]} TOP.m_SS.VID_.VCNT_.VC_8 TOP.m_SS.VID_.VCNT_.VC_7 TOP.m_SS.VID_.VCNT_.VC_6 TOP.m_SS.VID_.VCNT_.VC_5 TOP.m_SS.VID_.VCNT_.VC_4 TOP.m_SS.VID_.VCNT_.VC_3 TOP.m_SS.VID_.VCNT_.VC_2 TOP.m_SS.VID_.VCNT_.VC_1 TOP.m_SS.VID_.VCNT_.VC_0
+@28
+TOP.m_SS.VID_.VCNT_.VC_0
+TOP.m_SS.VID_.VCNT_.VC_1
+TOP.m_SS.VID_.VCNT_.VC_2
+TOP.m_SS.VID_.VCNT_.VC_3
+TOP.m_SS.VID_.VCNT_.VC_4
+TOP.m_SS.VID_.VCNT_.VC_5
+TOP.m_SS.VID_.VCNT_.VC_6
+TOP.m_SS.VID_.VCNT_.VC_7
+TOP.m_SS.VID_.VCNT_.VC_8
+@1401200
+-group_end
+@c00022
+#{TOP.m_SS.VID_.inA_[19:0]} TOP.m_SS.VID_.inA_19 TOP.m_SS.VID_.inA_18 TOP.m_SS.VID_.inA_17 TOP.m_SS.VID_.inA_16 TOP.m_SS.VID_.inA_15 TOP.m_SS.VID_.inA_14 TOP.m_SS.VID_.inA_13 TOP.m_SS.VID_.inA_12 TOP.m_SS.VID_.inA_11 TOP.m_SS.VID_.inA_10 TOP.m_SS.VID_.inA_9 TOP.m_SS.VID_.inA_8 TOP.m_SS.VID_.inA_7 TOP.m_SS.VID_.inA_6 TOP.m_SS.VID_.inA_5 TOP.m_SS.VID_.inA_4 TOP.m_SS.VID_.inA_3 TOP.m_SS.VID_.inA_2 TOP.m_SS.VID_.inA_1 TOP.m_SS.VID_.inA_0
+@28
+TOP.m_SS.VID_.inA_0
+TOP.m_SS.VID_.inA_1
+TOP.m_SS.VID_.inA_2
+TOP.m_SS.VID_.inA_3
+TOP.m_SS.VID_.inA_4
+TOP.m_SS.VID_.inA_5
+TOP.m_SS.VID_.inA_6
+TOP.m_SS.VID_.inA_7
+TOP.m_SS.VID_.inA_8
+TOP.m_SS.VID_.inA_9
+TOP.m_SS.VID_.inA_10
+TOP.m_SS.VID_.inA_11
+TOP.m_SS.VID_.inA_12
+TOP.m_SS.VID_.inA_13
+TOP.m_SS.VID_.inA_14
+TOP.m_SS.VID_.inA_15
+TOP.m_SS.VID_.inA_16
+TOP.m_SS.VID_.inA_17
+TOP.m_SS.VID_.inA_18
+TOP.m_SS.VID_.inA_19
+@1401200
+-group_end
+@c00022
+#{TOP.m_SS.VID_.inD_[15:0]} TOP.m_SS.VID_.inD_15 TOP.m_SS.VID_.inD_14 TOP.m_SS.VID_.inD_13 TOP.m_SS.VID_.inD_12 TOP.m_SS.VID_.inD_11 TOP.m_SS.VID_.inD_10 TOP.m_SS.VID_.inD_9 TOP.m_SS.VID_.inD_8 TOP.m_SS.VID_.inD_7 TOP.m_SS.VID_.inD_6 TOP.m_SS.VID_.inD_5 TOP.m_SS.VID_.inD_4 TOP.m_SS.VID_.inD_3 TOP.m_SS.VID_.inD_2 TOP.m_SS.VID_.inD_1 TOP.m_SS.VID_.inD_0
+@28
+TOP.m_SS.VID_.inD_0
+TOP.m_SS.VID_.inD_1
+TOP.m_SS.VID_.inD_2
+TOP.m_SS.VID_.inD_3
+TOP.m_SS.VID_.inD_4
+TOP.m_SS.VID_.inD_5
+TOP.m_SS.VID_.inD_6
+TOP.m_SS.VID_.inD_7
+TOP.m_SS.VID_.inD_8
+TOP.m_SS.VID_.inD_9
+TOP.m_SS.VID_.inD_10
+TOP.m_SS.VID_.inD_11
+TOP.m_SS.VID_.inD_12
+TOP.m_SS.VID_.inD_13
+TOP.m_SS.VID_.inD_14
+TOP.m_SS.VID_.inD_15
+@1401200
+-group_end
+@c00022
+#{TOP.m_SS.VID_.inPD_[15:0]} TOP.m_SS.VID_.inPD_15 TOP.m_SS.VID_.inPD_14 TOP.m_SS.VID_.inPD_13 TOP.m_SS.VID_.inPD_12 TOP.m_SS.VID_.inPD_11 TOP.m_SS.VID_.inPD_10 TOP.m_SS.VID_.inPD_9 TOP.m_SS.VID_.inPD_8 TOP.m_SS.VID_.inPD_7 TOP.m_SS.VID_.inPD_6 TOP.m_SS.VID_.inPD_5 TOP.m_SS.VID_.inPD_4 TOP.m_SS.VID_.inPD_3 TOP.m_SS.VID_.inPD_2 TOP.m_SS.VID_.inPD_1 TOP.m_SS.VID_.inPD_0
+@28
+TOP.m_SS.VID_.inPD_0
+TOP.m_SS.VID_.inPD_1
+TOP.m_SS.VID_.inPD_2
+TOP.m_SS.VID_.inPD_3
+TOP.m_SS.VID_.inPD_4
+TOP.m_SS.VID_.inPD_5
+TOP.m_SS.VID_.inPD_6
+TOP.m_SS.VID_.inPD_7
+TOP.m_SS.VID_.inPD_8
+TOP.m_SS.VID_.inPD_9
+TOP.m_SS.VID_.inPD_10
+TOP.m_SS.VID_.inPD_11
+TOP.m_SS.VID_.inPD_12
+TOP.m_SS.VID_.inPD_13
+TOP.m_SS.VID_.inPD_14
+TOP.m_SS.VID_.inPD_15
+@1401200
+-group_end
+@c00022
+#{TOP.m_SS.VID_.drv5_enD_[7:0]} TOP.m_SS.VID_.drv5_enD_7 TOP.m_SS.VID_.drv5_enD_6 TOP.m_SS.VID_.drv5_enD_5 TOP.m_SS.VID_.drv5_enD_4 TOP.m_SS.VID_.drv5_enD_3 TOP.m_SS.VID_.drv5_enD_2 TOP.m_SS.VID_.drv5_enD_1 TOP.m_SS.VID_.drv5_enD_0
+@28
+TOP.m_SS.VID_.drv5_enD_0
+TOP.m_SS.VID_.drv5_enD_1
+TOP.m_SS.VID_.drv5_enD_2
+TOP.m_SS.VID_.drv5_enD_3
+TOP.m_SS.VID_.drv5_enD_4
+TOP.m_SS.VID_.drv5_enD_5
+TOP.m_SS.VID_.drv5_enD_6
+TOP.m_SS.VID_.drv5_enD_7
+@1401200
+-group_end
+@c00022
+#{TOP.m_SS.VID_.drv4_enD_[7:0]} TOP.m_SS.VID_.drv4_enD_7 TOP.m_SS.VID_.drv4_enD_6 TOP.m_SS.VID_.drv4_enD_5 TOP.m_SS.VID_.drv4_enD_4 TOP.m_SS.VID_.drv4_enD_3 TOP.m_SS.VID_.drv4_enD_2 TOP.m_SS.VID_.drv4_enD_1 TOP.m_SS.VID_.drv4_enD_0
+@28
+TOP.m_SS.VID_.drv4_enD_0
+TOP.m_SS.VID_.drv4_enD_1
+TOP.m_SS.VID_.drv4_enD_2
+TOP.m_SS.VID_.drv4_enD_3
+TOP.m_SS.VID_.drv4_enD_4
+TOP.m_SS.VID_.drv4_enD_5
+TOP.m_SS.VID_.drv4_enD_6
+TOP.m_SS.VID_.drv4_enD_7
+@1401200
+-group_end
+@c00022
+#{TOP.m_SS.VID_.drv3_enD_[7:0]} TOP.m_SS.VID_.drv3_enD_7 TOP.m_SS.VID_.drv3_enD_6 TOP.m_SS.VID_.drv3_enD_5 TOP.m_SS.VID_.drv3_enD_4 TOP.m_SS.VID_.drv3_enD_3 TOP.m_SS.VID_.drv3_enD_2 TOP.m_SS.VID_.drv3_enD_1 TOP.m_SS.VID_.drv3_enD_0
+@28
+TOP.m_SS.VID_.drv3_enD_0
+TOP.m_SS.VID_.drv3_enD_1
+TOP.m_SS.VID_.drv3_enD_2
+TOP.m_SS.VID_.drv3_enD_3
+TOP.m_SS.VID_.drv3_enD_4
+TOP.m_SS.VID_.drv3_enD_5
+TOP.m_SS.VID_.drv3_enD_6
+TOP.m_SS.VID_.drv3_enD_7
+@1401200
+-group_end
+@c00022
+#{TOP.m_SS.VID_.drv2_enD_[7:0]} TOP.m_SS.VID_.drv2_enD_7 TOP.m_SS.VID_.drv2_enD_6 TOP.m_SS.VID_.drv2_enD_5 TOP.m_SS.VID_.drv2_enD_4 TOP.m_SS.VID_.drv2_enD_3 TOP.m_SS.VID_.drv2_enD_2 TOP.m_SS.VID_.drv2_enD_1 TOP.m_SS.VID_.drv2_enD_0
+@28
+TOP.m_SS.VID_.drv2_enD_0
+TOP.m_SS.VID_.drv2_enD_1
+TOP.m_SS.VID_.drv2_enD_2
+TOP.m_SS.VID_.drv2_enD_3
+TOP.m_SS.VID_.drv2_enD_4
+TOP.m_SS.VID_.drv2_enD_5
+TOP.m_SS.VID_.drv2_enD_6
+TOP.m_SS.VID_.drv2_enD_7
+@1401200
+-group_end
+@c00022
+#{TOP.m_SS.VID_.drv1_enD_[7:0]} TOP.m_SS.VID_.drv1_enD_7 TOP.m_SS.VID_.drv1_enD_6 TOP.m_SS.VID_.drv1_enD_5 TOP.m_SS.VID_.drv1_enD_4 TOP.m_SS.VID_.drv1_enD_3 TOP.m_SS.VID_.drv1_enD_2 TOP.m_SS.VID_.drv1_enD_1 TOP.m_SS.VID_.drv1_enD_0
+@28
+TOP.m_SS.VID_.drv1_enD_0
+TOP.m_SS.VID_.drv1_enD_1
+TOP.m_SS.VID_.drv1_enD_2
+TOP.m_SS.VID_.drv1_enD_3
+TOP.m_SS.VID_.drv1_enD_4
+TOP.m_SS.VID_.drv1_enD_5
+TOP.m_SS.VID_.drv1_enD_6
+TOP.m_SS.VID_.drv1_enD_7
+@1401200
+-group_end
+@c00022
+#{TOP.m_SS.VID_.drv0_enD_[15:0]} TOP.m_SS.VID_.drv0_enD_15 TOP.m_SS.VID_.drv0_enD_14 TOP.m_SS.VID_.drv0_enD_13 TOP.m_SS.VID_.drv0_enD_12 TOP.m_SS.VID_.drv0_enD_11 TOP.m_SS.VID_.drv0_enD_10 TOP.m_SS.VID_.drv0_enD_9 TOP.m_SS.VID_.drv0_enD_8 TOP.m_SS.VID_.drv0_enD_7 TOP.m_SS.VID_.drv0_enD_6 TOP.m_SS.VID_.drv0_enD_5 TOP.m_SS.VID_.drv0_enD_4 TOP.m_SS.VID_.drv0_enD_3 TOP.m_SS.VID_.drv0_enD_2 TOP.m_SS.VID_.drv0_enD_1 TOP.m_SS.VID_.drv0_enD_0
+@28
+TOP.m_SS.VID_.drv0_enD_0
+TOP.m_SS.VID_.drv0_enD_1
+TOP.m_SS.VID_.drv0_enD_2
+TOP.m_SS.VID_.drv0_enD_3
+TOP.m_SS.VID_.drv0_enD_4
+TOP.m_SS.VID_.drv0_enD_5
+TOP.m_SS.VID_.drv0_enD_6
+TOP.m_SS.VID_.drv0_enD_7
+TOP.m_SS.VID_.drv0_enD_8
+TOP.m_SS.VID_.drv0_enD_9
+TOP.m_SS.VID_.drv0_enD_10
+TOP.m_SS.VID_.drv0_enD_11
+TOP.m_SS.VID_.drv0_enD_12
+TOP.m_SS.VID_.drv0_enD_13
+TOP.m_SS.VID_.drv0_enD_14
+TOP.m_SS.VID_.drv0_enD_15
+@1401200
+-group_end
+@c00022
+#{TOP.m_SS.VID_.HCNT_.drv1_enD_[7:0]} TOP.m_SS.VID_.HCNT_.drv1_enD_7 TOP.m_SS.VID_.HCNT_.drv1_enD_6 TOP.m_SS.VID_.HCNT_.drv1_enD_5 TOP.m_SS.VID_.HCNT_.drv1_enD_4 TOP.m_SS.VID_.HCNT_.drv1_enD_3 TOP.m_SS.VID_.HCNT_.drv1_enD_2 TOP.m_SS.VID_.HCNT_.drv1_enD_1 TOP.m_SS.VID_.HCNT_.drv1_enD_0
+@28
+TOP.m_SS.VID_.HCNT_.drv1_enD_0
+TOP.m_SS.VID_.HCNT_.drv1_enD_1
+TOP.m_SS.VID_.HCNT_.drv1_enD_2
+TOP.m_SS.VID_.HCNT_.drv1_enD_3
+TOP.m_SS.VID_.HCNT_.drv1_enD_4
+TOP.m_SS.VID_.HCNT_.drv1_enD_5
+TOP.m_SS.VID_.HCNT_.drv1_enD_6
+TOP.m_SS.VID_.HCNT_.drv1_enD_7
+@1401200
+-group_end
+@c00022
+#{TOP.m_SS.VID_.HCNT_.drv0_enD_[7:0]} TOP.m_SS.VID_.HCNT_.drv0_enD_7 TOP.m_SS.VID_.HCNT_.drv0_enD_6 TOP.m_SS.VID_.HCNT_.drv0_enD_5 TOP.m_SS.VID_.HCNT_.drv0_enD_4 TOP.m_SS.VID_.HCNT_.drv0_enD_3 TOP.m_SS.VID_.HCNT_.drv0_enD_2 TOP.m_SS.VID_.HCNT_.drv0_enD_1 TOP.m_SS.VID_.HCNT_.drv0_enD_0
+@28
+TOP.m_SS.VID_.HCNT_.drv0_enD_0
+TOP.m_SS.VID_.HCNT_.drv0_enD_1
+TOP.m_SS.VID_.HCNT_.drv0_enD_2
+TOP.m_SS.VID_.HCNT_.drv0_enD_3
+TOP.m_SS.VID_.HCNT_.drv0_enD_4
+TOP.m_SS.VID_.HCNT_.drv0_enD_5
+TOP.m_SS.VID_.HCNT_.drv0_enD_6
+TOP.m_SS.VID_.HCNT_.drv0_enD_7
+@1401200
+-group_end
+@c00022
+#{TOP.m_SS.VID_.VCNT_.drv1_enD_[7:0]} TOP.m_SS.VID_.VCNT_.drv1_enD_7 TOP.m_SS.VID_.VCNT_.drv1_enD_6 TOP.m_SS.VID_.VCNT_.drv1_enD_5 TOP.m_SS.VID_.VCNT_.drv1_enD_4 TOP.m_SS.VID_.VCNT_.drv1_enD_3 TOP.m_SS.VID_.VCNT_.drv1_enD_2 TOP.m_SS.VID_.VCNT_.drv1_enD_1 TOP.m_SS.VID_.VCNT_.drv1_enD_0
+@28
+TOP.m_SS.VID_.VCNT_.drv1_enD_0
+TOP.m_SS.VID_.VCNT_.drv1_enD_1
+TOP.m_SS.VID_.VCNT_.drv1_enD_2
+TOP.m_SS.VID_.VCNT_.drv1_enD_3
+TOP.m_SS.VID_.VCNT_.drv1_enD_4
+TOP.m_SS.VID_.VCNT_.drv1_enD_5
+TOP.m_SS.VID_.VCNT_.drv1_enD_6
+TOP.m_SS.VID_.VCNT_.drv1_enD_7
+@1401200
+-group_end
+@c00023
+#{TOP.m_SS.VID_.VCNT_.drv0_enD_[7:0]} TOP.m_SS.VID_.VCNT_.drv0_enD_7 TOP.m_SS.VID_.VCNT_.drv0_enD_6 TOP.m_SS.VID_.VCNT_.drv0_enD_5 TOP.m_SS.VID_.VCNT_.drv0_enD_4 TOP.m_SS.VID_.VCNT_.drv0_enD_3 TOP.m_SS.VID_.VCNT_.drv0_enD_2 TOP.m_SS.VID_.VCNT_.drv0_enD_1 TOP.m_SS.VID_.VCNT_.drv0_enD_0
+@28
+TOP.m_SS.VID_.VCNT_.drv0_enD_0
+TOP.m_SS.VID_.VCNT_.drv0_enD_1
+TOP.m_SS.VID_.VCNT_.drv0_enD_2
+TOP.m_SS.VID_.VCNT_.drv0_enD_3
+TOP.m_SS.VID_.VCNT_.drv0_enD_4
+TOP.m_SS.VID_.VCNT_.drv0_enD_5
+TOP.m_SS.VID_.VCNT_.drv0_enD_6
+TOP.m_SS.VID_.VCNT_.drv0_enD_7
+@1401201
+-group_end
+[pattern_trace] 1
+[pattern_trace] 0
