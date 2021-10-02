@@ -259,22 +259,22 @@ m_SYNCNT Q_8_ (.D(VCNT_8),.CLK(CLK),.CLR(NEXTV),.LDL(VCNTLBL),.CI(CO_7),.Q(VC_8)
 
 /* the light pen register */
 
-wire DL_0__drv0_outD_0,DL_0__drv0_outD_0L; LD1A DL_0__inst (.q(DL_0__drv0_outD_0),.qL(DL_0__drv0_outD_0L),.d(VCB_0),.en(LPCLK)); assign drv0_outD_0 = inD_0; assign drv0_enD_0 = LPL_2; //[VCNT.NET:00059] DL_0_(D_0) = ZTLATCH1(D_0,VCB_0,LPCLK,LPL_2);
-wire DL_1__drv0_outD_1,DL_1__drv0_outD_1L; LD1A DL_1__inst (.q(DL_1__drv0_outD_1),.qL(DL_1__drv0_outD_1L),.d(VCB_1),.en(LPCLK)); assign drv0_outD_1 = inD_1; assign drv0_enD_1 = LPL_2; //[VCNT.NET:00060] DL_1_(D_1) = ZTLATCH1(D_1,VCB_1,LPCLK,LPL_2);
-wire DL_2__drv0_outD_2,DL_2__drv0_outD_2L; LD1A DL_2__inst (.q(DL_2__drv0_outD_2),.qL(DL_2__drv0_outD_2L),.d(VCB_2),.en(LPCLK)); assign drv0_outD_2 = inD_2; assign drv0_enD_2 = LPL_2; //[VCNT.NET:00061] DL_2_(D_2) = ZTLATCH1(D_2,VCB_2,LPCLK,LPL_2);
-wire DL_3__drv0_outD_3,DL_3__drv0_outD_3L; LD1A DL_3__inst (.q(DL_3__drv0_outD_3),.qL(DL_3__drv0_outD_3L),.d(VCB_3),.en(LPCLK)); assign drv0_outD_3 = inD_3; assign drv0_enD_3 = LPL_2; //[VCNT.NET:00062] DL_3_(D_3) = ZTLATCH1(D_3,VCB_3,LPCLK,LPL_2);
-wire DL_4__drv0_outD_4,DL_4__drv0_outD_4L; LD1A DL_4__inst (.q(DL_4__drv0_outD_4),.qL(DL_4__drv0_outD_4L),.d(VCB_4),.en(LPCLK)); assign drv0_outD_4 = inD_4; assign drv0_enD_4 = LPL_2; //[VCNT.NET:00063] DL_4_(D_4) = ZTLATCH1(D_4,VCB_4,LPCLK,LPL_2);
-wire DL_5__drv0_outD_5,DL_5__drv0_outD_5L; LD1A DL_5__inst (.q(DL_5__drv0_outD_5),.qL(DL_5__drv0_outD_5L),.d(VCB_5),.en(LPCLK)); assign drv0_outD_5 = inD_5; assign drv0_enD_5 = LPL_2; //[VCNT.NET:00064] DL_5_(D_5) = ZTLATCH1(D_5,VCB_5,LPCLK,LPL_2);
-wire DL_6__drv0_outD_6,DL_6__drv0_outD_6L; LD1A DL_6__inst (.q(DL_6__drv0_outD_6),.qL(DL_6__drv0_outD_6L),.d(VCB_6),.en(LPCLK)); assign drv0_outD_6 = inD_6; assign drv0_enD_6 = LPL_2; //[VCNT.NET:00065] DL_6_(D_6) = ZTLATCH1(D_6,VCB_6,LPCLK,LPL_2);
-wire DL_7__drv0_outD_7,DL_7__drv0_outD_7L; LD1A DL_7__inst (.q(DL_7__drv0_outD_7),.qL(DL_7__drv0_outD_7L),.d(VCB_7),.en(LPCLK)); assign drv0_outD_7 = inD_7; assign drv0_enD_7 = LPL_2; //[VCNT.NET:00066] DL_7_(D_7) = ZTLATCH1(D_7,VCB_7,LPCLK,LPL_2);
-wire DH_0__drv1_outD_0,DH_0__drv1_outD_0L; LD1A DH_0__inst (.q(DH_0__drv1_outD_0),.qL(DH_0__drv1_outD_0L),.d(VCB_8),.en(LPCLK)); assign drv1_outD_0 = inD_0; assign drv1_enD_0 = LPL_3; //[VCNT.NET:00067] DH_0_(D_0) = ZTLATCH1(D_0,VCB_8,LPCLK,LPL_3);
-assign drv1_outD_1 = RESETL; assign drv1_enD_1 = ~LPL_3;                        //[VCNT.NET:00068] DH_1_(D_1) = MACZINVB1(RESETL,LPL_3);
-assign drv1_outD_2 = RESETL; assign drv1_enD_2 = ~LPL_3;                        //[VCNT.NET:00069] DH_2_(D_2) = MACZINVB1(RESETL,LPL_3);
-assign drv1_outD_3 = RESETL; assign drv1_enD_3 = ~LPL_3;                        //[VCNT.NET:00070] DH_3_(D_3) = MACZINVB1(RESETL,LPL_3);
-assign drv1_outD_4 = RESETL; assign drv1_enD_4 = ~LPL_3;                        //[VCNT.NET:00071] DH_4_(D_4) = MACZINVB1(RESETL,LPL_3);
-assign drv1_outD_5 = RESETL; assign drv1_enD_5 = ~LPL_3;                        //[VCNT.NET:00072] DH_5_(D_5) = MACZINVB1(RESETL,LPL_3);
-assign drv1_outD_6 = RESETL; assign drv1_enD_6 = ~LPL_3;                        //[VCNT.NET:00073] DH_6_(D_6) = MACZINVB1(RESETL,LPL_3);
-assign drv1_outD_7 = RESETL; assign drv1_enD_7 = ~LPL_3;                        //[VCNT.NET:00074] DH_7_(D_7) = MACZINVB1(RESETL,LPL_3);
+wire DL_0__drv0_outD_0,DL_0__drv0_outD_0L; LD1A DL_0__inst (.q(DL_0__drv0_outD_0),.qL(DL_0__drv0_outD_0L),.d(VCB_0),.en(LPCLK)); assign drv0_outD_0 = ~inD_0; assign drv0_enD_0 = ~LPL_2; //[VCNT.NET:00059] DL_0_(D_0) = ZTLATCH1(D_0,VCB_0,LPCLK,LPL_2);
+wire DL_1__drv0_outD_1,DL_1__drv0_outD_1L; LD1A DL_1__inst (.q(DL_1__drv0_outD_1),.qL(DL_1__drv0_outD_1L),.d(VCB_1),.en(LPCLK)); assign drv0_outD_1 = ~inD_1; assign drv0_enD_1 = ~LPL_2; //[VCNT.NET:00060] DL_1_(D_1) = ZTLATCH1(D_1,VCB_1,LPCLK,LPL_2);
+wire DL_2__drv0_outD_2,DL_2__drv0_outD_2L; LD1A DL_2__inst (.q(DL_2__drv0_outD_2),.qL(DL_2__drv0_outD_2L),.d(VCB_2),.en(LPCLK)); assign drv0_outD_2 = ~inD_2; assign drv0_enD_2 = ~LPL_2; //[VCNT.NET:00061] DL_2_(D_2) = ZTLATCH1(D_2,VCB_2,LPCLK,LPL_2);
+wire DL_3__drv0_outD_3,DL_3__drv0_outD_3L; LD1A DL_3__inst (.q(DL_3__drv0_outD_3),.qL(DL_3__drv0_outD_3L),.d(VCB_3),.en(LPCLK)); assign drv0_outD_3 = ~inD_3; assign drv0_enD_3 = ~LPL_2; //[VCNT.NET:00062] DL_3_(D_3) = ZTLATCH1(D_3,VCB_3,LPCLK,LPL_2);
+wire DL_4__drv0_outD_4,DL_4__drv0_outD_4L; LD1A DL_4__inst (.q(DL_4__drv0_outD_4),.qL(DL_4__drv0_outD_4L),.d(VCB_4),.en(LPCLK)); assign drv0_outD_4 = ~inD_4; assign drv0_enD_4 = ~LPL_2; //[VCNT.NET:00063] DL_4_(D_4) = ZTLATCH1(D_4,VCB_4,LPCLK,LPL_2);
+wire DL_5__drv0_outD_5,DL_5__drv0_outD_5L; LD1A DL_5__inst (.q(DL_5__drv0_outD_5),.qL(DL_5__drv0_outD_5L),.d(VCB_5),.en(LPCLK)); assign drv0_outD_5 = ~inD_5; assign drv0_enD_5 = ~LPL_2; //[VCNT.NET:00064] DL_5_(D_5) = ZTLATCH1(D_5,VCB_5,LPCLK,LPL_2);
+wire DL_6__drv0_outD_6,DL_6__drv0_outD_6L; LD1A DL_6__inst (.q(DL_6__drv0_outD_6),.qL(DL_6__drv0_outD_6L),.d(VCB_6),.en(LPCLK)); assign drv0_outD_6 = ~inD_6; assign drv0_enD_6 = ~LPL_2; //[VCNT.NET:00065] DL_6_(D_6) = ZTLATCH1(D_6,VCB_6,LPCLK,LPL_2);
+wire DL_7__drv0_outD_7,DL_7__drv0_outD_7L; LD1A DL_7__inst (.q(DL_7__drv0_outD_7),.qL(DL_7__drv0_outD_7L),.d(VCB_7),.en(LPCLK)); assign drv0_outD_7 = ~inD_7; assign drv0_enD_7 = ~LPL_2; //[VCNT.NET:00066] DL_7_(D_7) = ZTLATCH1(D_7,VCB_7,LPCLK,LPL_2);
+wire DH_0__drv1_outD_0,DH_0__drv1_outD_0L; LD1A DH_0__inst (.q(DH_0__drv1_outD_0),.qL(DH_0__drv1_outD_0L),.d(VCB_8),.en(LPCLK)); assign drv1_outD_0 = ~inD_0; assign drv1_enD_0 = ~LPL_3; //[VCNT.NET:00067] DH_0_(D_0) = ZTLATCH1(D_0,VCB_8,LPCLK,LPL_3);
+assign drv1_outD_1 = ~RESETL; assign drv1_enD_1 = ~LPL_3;                       //[VCNT.NET:00068] DH_1_(D_1) = MACZINVB1(RESETL,LPL_3);
+assign drv1_outD_2 = ~RESETL; assign drv1_enD_2 = ~LPL_3;                       //[VCNT.NET:00069] DH_2_(D_2) = MACZINVB1(RESETL,LPL_3);
+assign drv1_outD_3 = ~RESETL; assign drv1_enD_3 = ~LPL_3;                       //[VCNT.NET:00070] DH_3_(D_3) = MACZINVB1(RESETL,LPL_3);
+assign drv1_outD_4 = ~RESETL; assign drv1_enD_4 = ~LPL_3;                       //[VCNT.NET:00071] DH_4_(D_4) = MACZINVB1(RESETL,LPL_3);
+assign drv1_outD_5 = ~RESETL; assign drv1_enD_5 = ~LPL_3;                       //[VCNT.NET:00072] DH_5_(D_5) = MACZINVB1(RESETL,LPL_3);
+assign drv1_outD_6 = ~RESETL; assign drv1_enD_6 = ~LPL_3;                       //[VCNT.NET:00073] DH_6_(D_6) = MACZINVB1(RESETL,LPL_3);
+assign drv1_outD_7 = ~RESETL; assign drv1_enD_7 = ~LPL_3;                       //[VCNT.NET:00074] DH_7_(D_7) = MACZINVB1(RESETL,LPL_3);
 
 /* the interupt register */
 

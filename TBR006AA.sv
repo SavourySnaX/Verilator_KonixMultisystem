@@ -15,9 +15,8 @@ assign DE = OE ? 16'b1111111111111111 : 16'b0000000000000000;
 assign DO = mem[A][15:0];
 
 initial begin
-    $readmemh("/home/snax/fpga/OLDDIRS/SS/SINTAB.ROM",mem);
+    $readmemb("/home/snax/fpga/OLDDIRS/SS/SINTAB.ROM",mem);
 end
-// TODO load rom file - or make this a ram, and do it..?
 
 endmodule
 

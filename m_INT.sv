@@ -204,14 +204,14 @@ assign INTL = ~(I_0 | I_1 | I_2 | I_3);                                         
 
 /* enable onto bus during INTA */
 
-assign drv0_outD_0 = VL_0; assign drv0_enD_0 = ~INTAL;                          //[INT.NET:00097] D_0_(D_0) = MACZINVB1(VL_0,INTAL);
-assign drv0_outD_1 = VL_1; assign drv0_enD_1 = ~INTAL;                          //[INT.NET:00098] D_1_(D_1) = MACZINVB1(VL_1,INTAL);
-assign drv0_outD_2 = VL_2; assign drv0_enD_2 = ~INTAL;                          //[INT.NET:00099] D_2_(D_2) = MACZINVB1(VL_2,INTAL);
-assign drv0_outD_3 = RESETL_0; assign drv0_enD_3 = ~INTAL;                      //[INT.NET:00100] D_3_(D_3) = MACZINVB1(RESETL_0,INTAL);
-assign drv0_outD_4 = RESETL_0; assign drv0_enD_4 = ~INTAL;                      //[INT.NET:00101] D_4_(D_4) = MACZINVB1(RESETL_0,INTAL);
-assign drv0_outD_5 = RES; assign drv0_enD_5 = ~INTAL;                           //[INT.NET:00102] D_5_(D_5) = MACZINVB1(RES,INTAL);
-assign drv0_outD_6 = RESETL_0; assign drv0_enD_6 = ~INTAL;                      //[INT.NET:00103] D_6_(D_6) = MACZINVB1(RESETL_0,INTAL);
-assign drv0_outD_7 = RESETL_0; assign drv0_enD_7 = ~INTAL;                      //[INT.NET:00104] D_7_(D_7) = MACZINVB1(RESETL_0,INTAL);
+assign drv0_outD_0 = ~VL_0; assign drv0_enD_0 = ~INTAL;                         //[INT.NET:00097] D_0_(D_0) = MACZINVB1(VL_0,INTAL);
+assign drv0_outD_1 = ~VL_1; assign drv0_enD_1 = ~INTAL;                         //[INT.NET:00098] D_1_(D_1) = MACZINVB1(VL_1,INTAL);
+assign drv0_outD_2 = ~VL_2; assign drv0_enD_2 = ~INTAL;                         //[INT.NET:00099] D_2_(D_2) = MACZINVB1(VL_2,INTAL);
+assign drv0_outD_3 = ~RESETL_0; assign drv0_enD_3 = ~INTAL;                     //[INT.NET:00100] D_3_(D_3) = MACZINVB1(RESETL_0,INTAL);
+assign drv0_outD_4 = ~RESETL_0; assign drv0_enD_4 = ~INTAL;                     //[INT.NET:00101] D_4_(D_4) = MACZINVB1(RESETL_0,INTAL);
+assign drv0_outD_5 = ~RES; assign drv0_enD_5 = ~INTAL;                          //[INT.NET:00102] D_5_(D_5) = MACZINVB1(RES,INTAL);
+assign drv0_outD_6 = ~RESETL_0; assign drv0_enD_6 = ~INTAL;                     //[INT.NET:00103] D_6_(D_6) = MACZINVB1(RESETL_0,INTAL);
+assign drv0_outD_7 = ~RESETL_0; assign drv0_enD_7 = ~INTAL;                     //[INT.NET:00104] D_7_(D_7) = MACZINVB1(RESETL_0,INTAL);
 
 /* clear the appropriate interupt */
 

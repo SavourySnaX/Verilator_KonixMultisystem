@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Sat Sep 25 09:36:14 2021
+[*] Wed Sep 29 15:03:47 2021
 [*]
 [dumpfile] "/home/snax/fpga/verilator/slipstream1/trace.vcd"
-[dumpfile_mtime] "Sat Sep 25 08:41:12 2021"
-[dumpfile_size] 268673395
-[savefile] "/home/snax/fpga/verilator/slipstream1/SS.gtkw"
-[timestart] 3541752
+[dumpfile_mtime] "Wed Sep 29 08:32:55 2021"
+[dumpfile_size] 2678062324
+[savefile] "/home/snax/fpga/verilator/slipstream1/SS_Debug_VideoFetchCorruption.gtkw"
+[timestart] 4233157
 [size] 5048 1376
-[pos] -51 -51
-*-6.630892 3542865 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -1 -1
+*-4.630892 4233360 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
 [treeopen] TOP.m_SS.
 [treeopen] TOP.m_SS.VID_.
@@ -195,9 +195,7 @@ TOP.XINTR
 -Video
 @28
 TOP.enXVSYNCL
-@29
 TOP.outXVSYNCL
-@28
 TOP.enXHSYNCL
 TOP.outXHSYNCL
 TOP.XCHROMA
@@ -274,17 +272,20 @@ TOP.XA_17
 -group_end
 @28
 TOP.XCASL
-@800028
+@800068
+[color] 3
 #{TOP.XCSL_[1:0]} TOP.XCSL_1 TOP.XCSL_0
 @28
 TOP.XCSL_0
 TOP.XCSL_1
-@1001200
+@1001240
 -group_end
 @28
 TOP.XGPIOL_0
 TOP.XGPIOL_1
+@29
 TOP.XINC
+@28
 TOP.XOEL
 @c00028
 #{TOP.XSCEL_[1:0]} TOP.XSCEL_1 TOP.XSCEL_0
@@ -558,5 +559,63 @@ TOP.m_SS.PALRAM_.SO
 TOP.m_SS.PALRAM_.WR
 TOP.m_SS.PALCS
 TOP.m_SS.POE
+@200
+-
+@28
+TOP.m_SS.VID_.MEM_.SCE_0
+TOP.m_SS.VID_.MEM_.SCE_1
+TOP.m_SS.VID_.MEM_.CS_0
+TOP.m_SS.VID_.MEM_.CS_1
+TOP.m_SS.VID_.MEM_.A_0
+TOP.m_SS.VID_.MEM_.A_18
+TOP.m_SS.VID_.MEM_.A_19
+TOP.m_SS.VID_.MEM_.DEC_0
+TOP.m_SS.VID_.MEM_.DEC_1
+TOP.m_SS.VID_.MEM_.DEC_2
+TOP.m_SS.VID_.MEM_.DEC_3
+TOP.m_SS.VID_.MEM_.T00
+TOP.m_SS.VID_.MEM_.T01
+TOP.m_SS.VID_.MEM_.T02
+TOP.m_SS.VID_.MEM_.TYPE_0
+TOP.m_SS.VID_.MEM_.TYPE_1
+TOP.m_SS.VID_.MEM_.T11
+TOP.m_SS.VID_.MEM_.T12
+TOP.m_SS.VID_.MEM_.T13
+TOP.m_SS.VID_.MEM_.MEM_0
+TOP.m_SS.VID_.MEM_.MEM_1
+TOP.m_SS.VID_.MEM_.MEM_2
+TOP.m_SS.VID_.MEM_.MEM_3
+TOP.m_SS.VID_.MEM_.HREQL
+@c00028
+#{TOP.m_SS.VID_.MEM_.Q_[1:0]} TOP.m_SS.VID_.MEM_.Q_1 TOP.m_SS.VID_.MEM_.Q_0
+@28
+TOP.m_SS.VID_.MEM_.Q_0
+TOP.m_SS.VID_.MEM_.Q_1
+@1401200
+-group_end
+@28
+TOP.m_SS.VID_.MEM_.QREQL_0
+TOP.m_SS.VID_.MEM_.QREQL_1
+TOP.m_SS.VID_.MEM_.QREQL_2
+TOP.m_SS.VID_.MEM_.SREQL_0
+TOP.m_SS.VID_.MEM_.SREQL_1
+TOP.m_SS.VID_.MEM_.REQ_0
+TOP.m_SS.VID_.MEM_.REQ_1
+TOP.m_SS.VID_.MEM_.REQ_2
+TOP.m_SS.VID_.MEM_.START1
+TOP.m_SS.VID_.MEM_.PSCE
+TOP.m_SS.VID_.MEM_.WIDEPL
+TOP.m_SS.VID_.MEM_.VCSL
+TOP.m_SS.VID_.MEM_.EVENPL
+TOP.m_SS.VID_.MEM_.ODDPL
+TOP.m_SS.VID_.MEM_.RASL_0
+TOP.m_SS.VID_.MEM_.RASL_1
+TOP.m_SS.VID_.MEM_.PSCEL_0
+TOP.m_SS.VID_.MEM_.PSCEL_1
+TOP.m_SS.VID_.MEM_.RDWRL_0
+TOP.m_SS.VID_.MEM_.RDWRL_1
+TOP.m_SS.VID_.MEM_.VRAS
+TOP.m_SS.VID_.MEM_.VRASL_0
+TOP.m_SS.VID_.MEM_.VRASL_1
 [pattern_trace] 1
 [pattern_trace] 0

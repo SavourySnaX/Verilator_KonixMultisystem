@@ -126,15 +126,15 @@ LD1A DOEN__inst (.q(DOEN),.qL(DOENL),.d(WD_1),.en(LCD));                        
 
 /* the status register */
 
-assign drv0_outD_0 = PAL; assign drv0_enD_0 = ~STATL;                           //[STAT.NET:00057] D_0_(D_0) = MACZINVB1(PAL,STATL);
+assign drv0_outD_0 = ~PAL; assign drv0_enD_0 = ~STATL;                          //[STAT.NET:00057] D_0_(D_0) = MACZINVB1(PAL,STATL);
 assign LPSETL = ~LPSET;                                                         //[STAT.NET:00058] LPSETL_(LPSETL) = N1A(LPSET);
-assign drv0_outD_1 = LPSETL; assign drv0_enD_1 = ~STATL;                        //[STAT.NET:00059] D_1_(D_1) = MACZINVB1(LPSETL,STATL);
-assign drv0_outD_2 = SLOW; assign drv0_enD_2 = ~STATL;                          //[STAT.NET:00060] D_2_(D_2) = MACZINVB1(SLOW,STATL);
-assign drv0_outD_3 = RESETL_1; assign drv0_enD_3 = ~STATL;                      //[STAT.NET:00061] D_3_(D_3) = MACZINVB1(RESETL_1,STATL);
-assign drv0_outD_4 = RESETL_1; assign drv0_enD_4 = ~STATL;                      //[STAT.NET:00062] D_4_(D_4) = MACZINVB1(RESETL_1,STATL);
-assign drv0_outD_5 = RESETL_1; assign drv0_enD_5 = ~STATL;                      //[STAT.NET:00063] D_5_(D_5) = MACZINVB1(RESETL_1,STATL);
-assign drv0_outD_6 = RESETL_1; assign drv0_enD_6 = ~STATL;                      //[STAT.NET:00064] D_6_(D_6) = MACZINVB1(RESETL_1,STATL);
-assign drv0_outD_7 = RESETL_1; assign drv0_enD_7 = ~STATL;                      //[STAT.NET:00065] D_7_(D_7) = MACZINVB1(RESETL_1,STATL);
+assign drv0_outD_1 = ~LPSETL; assign drv0_enD_1 = ~STATL;                       //[STAT.NET:00059] D_1_(D_1) = MACZINVB1(LPSETL,STATL);
+assign drv0_outD_2 = ~SLOW; assign drv0_enD_2 = ~STATL;                         //[STAT.NET:00060] D_2_(D_2) = MACZINVB1(SLOW,STATL);
+assign drv0_outD_3 = ~RESETL_1; assign drv0_enD_3 = ~STATL;                     //[STAT.NET:00061] D_3_(D_3) = MACZINVB1(RESETL_1,STATL);
+assign drv0_outD_4 = ~RESETL_1; assign drv0_enD_4 = ~STATL;                     //[STAT.NET:00062] D_4_(D_4) = MACZINVB1(RESETL_1,STATL);
+assign drv0_outD_5 = ~RESETL_1; assign drv0_enD_5 = ~STATL;                     //[STAT.NET:00063] D_5_(D_5) = MACZINVB1(RESETL_1,STATL);
+assign drv0_outD_6 = ~RESETL_1; assign drv0_enD_6 = ~STATL;                     //[STAT.NET:00064] D_6_(D_6) = MACZINVB1(RESETL_1,STATL);
+assign drv0_outD_7 = ~RESETL_1; assign drv0_enD_7 = ~STATL;                     //[STAT.NET:00065] D_7_(D_7) = MACZINVB1(RESETL_1,STATL);
 
 
 assign outD_0 = (drv0_outD_0 & drv0_enD_0);
