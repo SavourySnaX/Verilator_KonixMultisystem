@@ -4,10 +4,15 @@
 #include "verilated_vcd_c.h"
 
 #define TEST_VIDEO  0
+#define AUDIO_OUT   1
 #define VIDEO_OUT   1
 #define TRACE_ON    1
 
+#define FRAME_START 0
+#define FRAME_STOP  1
+
 int lastPCLK = 2;
+bool gTrace=false;
 
 int hold=0;
 int tState=0;
@@ -215,6 +220,10 @@ void BusProcessorEmulation(Vm_SS *tb)
     if ((tb->XHLDA) && (tb->XOEL==0))
     {
         uint32_t ramAddress=latchedAddressRead;//FetchRamAddress(tb);
+        if (gTrace)
+        {
+ //           printf("RAM FETCH : %08X\n",ramAddress);
+        }
         if (ramAddress>1024*1024)
         {
             printf("RAM FETCH ERROR, out of range : %08X\n",ramAddress);
@@ -248,6 +257,10 @@ void BusProcessorEmulation(Vm_SS *tb)
     if ((tb->XHLDA) && (tb->XWEL==0))
     {
         uint32_t ramAddress=FetchSlipstreamRamAddress(tb);
+        if (gTrace)
+        {
+            //printf("RAM WRITE : %08X <-    %02X   %02X\n",ramAddress, GetXAD(tb), GetXD(tb));
+        }
         if (ramAddress>1024*1024)
         {
             printf("RAM WRITE ERROR, out of range : %08X\n",ramAddress);
@@ -293,7 +306,6 @@ void BusProcessorEmulation(Vm_SS *tb)
     //}
 }
 
-bool gTrace=false;
 
 void tick(Vm_SS *tb, VerilatedVcdC* trace, int ticks)
 {
@@ -463,7 +475,7 @@ int lineNum=0;
 
 int virtFrameNum=0;
 char filename[128];
-void ProcessVideo(Vm_SS *tb)
+int ProcessVideo(Vm_SS *tb)
 {
 #if VIDEO_OUT
     if ( ((lastChroma==1) && (tb->XCHROMA==0)) || ((lastChroma==0) && (tb->XCHROMA==1)) )
@@ -480,9 +492,12 @@ void ProcessVideo(Vm_SS *tb)
                     waitingForFrameStart=0;
                     virtFrameNum++;
                     printf("Found Frame Start %d\n", virtFrameNum);
-                    if (virtFrameNum=2)
+                    if (virtFrameNum==FRAME_START)
                         gTrace=true;
-                    sprintf(filename, "PIXELS%03d.data", virtFrameNum);
+
+                    if (virtFrameNum==FRAME_STOP)
+                        return 1;
+                    sprintf(filename, "pics/PIXELS%03d.data", virtFrameNum);
                     remove(filename);
                 }
             }
@@ -538,7 +553,31 @@ void ProcessVideo(Vm_SS *tb)
     }
     lastChroma=tb->XCHROMA;
 #endif
+    return 0;
 }
+
+int lastDCLK=2;
+
+void ProcessAudio(Vm_SS *tb)
+{
+#if AUDIO_OUT
+    if ( ((lastDCLK==1) && (tb->DQCLK==0)) || ((lastDCLK==0) && (tb->DQCLK==1)) )
+    {
+        FILE* hack = fopen("leftl.raw","ab"); 
+        int16_t v = tb->LEFTDAC;
+        v>>=2;
+        fwrite(&v,2,1,hack);
+        fclose(hack);
+        hack = fopen("rightl.raw","ab"); 
+        v = tb->RIGHTDAC;
+        v>>=2;
+        fwrite(&v,2,1,hack);
+        fclose(hack);
+    }
+    lastDCLK=tb->DQCLK;
+#endif
+}
+
 
 void LoadP88(const char* path)
 {
@@ -571,6 +610,118 @@ void LoadP88(const char* path)
     }
 }
 
+const char* DSP_TranslateInstruction(uint16_t addr,uint16_t pWord)
+{
+    static char staticBuffer[65536];
+	uint16_t pAddr=(pWord&0x1FF);		// bottom 9 bits 
+	uint16_t pOpcode=(pWord&0xF800)>>11;		// top 5 bits?
+	uint8_t isConditional=(pWord&0x0400)>>10;
+	uint8_t isIndexed=(pWord&0x0200)>>9;
+
+	// Quick test
+
+	switch (pOpcode)
+	{
+		case 0:
+			sprintf(staticBuffer, "%s MOV (%04X%s),MZ0\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 1:
+			sprintf(staticBuffer, "%s MOV (%04X%s),MZ1\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 2:
+			sprintf(staticBuffer, "%s MOV MZ0,(%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 3:
+			sprintf(staticBuffer, "%s MOV MZ1,(%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 4:
+			sprintf(staticBuffer, "%s CCF\n",isConditional?"IF C THEN":"");
+			break;
+		case 5:
+			sprintf(staticBuffer, "%s MOV DMA0,(%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 6:
+			sprintf(staticBuffer, "%s MOV DMA1,(%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 7:
+			sprintf(staticBuffer, "%s MOV DMD,(%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 8:
+			sprintf(staticBuffer, "%s MOV (%04X%s),DMD\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 9:
+			sprintf(staticBuffer, "%s MAC (%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 10:
+			sprintf(staticBuffer, "%s MOV MODE,(%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 11:
+			sprintf(staticBuffer, "%s MOV IX,(%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 12:
+			sprintf(staticBuffer, "%s MOV (%04X%s),PC\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 13:
+			sprintf(staticBuffer, "%s MOV X,(%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 14:
+			sprintf(staticBuffer, "%s MOV (%04X%s),X\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 15:
+			sprintf(staticBuffer, "%s MULT (%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 16:
+			sprintf(staticBuffer, "%s ADD (%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 17:
+			sprintf(staticBuffer, "%s SUB (%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 18:
+			sprintf(staticBuffer, "%s AND (%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 19:
+			sprintf(staticBuffer, "%s OR (%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 20:
+			sprintf(staticBuffer, "%s ADC (%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 21:
+			sprintf(staticBuffer, "%s SBC (%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 22:
+			sprintf(staticBuffer, "%s MOV (%04X%s),AZ\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 23:
+			sprintf(staticBuffer, "%s MOV AZ,(%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 24:
+			sprintf(staticBuffer, "%s MOV (%04X%s),Z2\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 25:
+			sprintf(staticBuffer, "%s MOV DAC1,(%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 26:
+			sprintf(staticBuffer, "%s MOV DAC2,(%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 27:
+			sprintf(staticBuffer, "%s MOV DAC12,(%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 28:
+			sprintf(staticBuffer, "%s GAI (%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 29:
+			sprintf(staticBuffer, "%s MOV PC,(%04X%s)\n",isConditional?"IF C THEN":"",pAddr,isIndexed?"+IX":"");
+			break;
+		case 30:
+			sprintf(staticBuffer, "%s NOP\n",isConditional?"IF C THEN":"");
+			break;
+		case 31:
+			sprintf(staticBuffer, "%s INTRUDE\n",isConditional?"IF C THEN":"");
+			break;
+	}
+
+    return staticBuffer;
+}
 
 int main(int argc, char** argv)
 {
@@ -614,6 +765,10 @@ int main(int argc, char** argv)
     tb->XRESET=0;
     ticks = doNTicks(tb,trace,ticks,10);
 
+    remove("leftl.raw");
+    remove("lefth.raw");
+    remove("rightl.raw");
+    remove("righth.raw");
 
 #if TEST_VIDEO
     LoadRAM();
@@ -661,10 +816,15 @@ int main(int argc, char** argv)
 
 #endif
 
+    if (FRAME_START == 0)
+        gTrace=true;
+
     int lastFrameNum = frameNum;
-    while (ticks < 6*757*312)
+    while (1)//ticks < 6*757*312)
     {
-        ProcessVideo(tb);
+        if (ProcessVideo(tb)==1)
+         break;
+        ProcessAudio(tb);
 
         if (writeState==0 && nextT1Write == 0)
         {
@@ -717,7 +877,7 @@ int main(int argc, char** argv)
                     writeIO=0;
                 else
                     writeIO=1;
-                if ((writeAddress<0x41000) || (writeAddress>0x42000))  // SKIP DSP 
+//                if ((writeAddress<0x41000) || (writeAddress>0x42000))  // SKIP DSP 
                     nextT1Write=1;
             
                 fscanf(hw, "%08X%c%08X%02X\n", &frameNum, &dest, &address, &data);
@@ -737,18 +897,11 @@ int main(int argc, char** argv)
 	trace->close();
 #endif
 
+    printf("PRAM\n");
+    for (int a=0;a<256;a++)
+    {
+        printf("%08X : %04X : %s\n", a, tb->m_SS__DOT__PROGRAM___DOT__mem[a], DSP_TranslateInstruction(a, tb->m_SS__DOT__PROGRAM___DOT__mem[a]));
+    }
+
 	exit(EXIT_SUCCESS);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
