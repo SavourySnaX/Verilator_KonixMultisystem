@@ -71,7 +71,10 @@
 #MODULE=m_DSP
 
 #----- SS MAIN ----#
-MODULE=m_SS
+#MODULE=m_SS
+
+#----- top (includes cpu) ----#
+MODULE=m_top
 
 .PHONY:sim
 sim: trace.vcd
@@ -101,7 +104,7 @@ trace.vcd: ./obj_dir/V$(MODULE)
 .stamp.verilate: $(MODULE).sv tb_$(MODULE).cpp
 	@echo
 	@echo "### VERILATING ###"
-	verilator -Wall -Wno-unused -Wno-UNOPTFLAT --trace -cc $(MODULE).sv --exe tb_$(MODULE).cpp
+	verilator -Wall -Wno-WIDTH -Wno-unused -Wno-UNOPTFLAT --trace -cc $(MODULE).sv --exe tb_$(MODULE).cpp
 	@touch .stamp.verilate
 
 .PHONY:lint

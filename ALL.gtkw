@@ -1,0 +1,61 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Sun Oct 10 10:10:21 2021
+[*]
+[dumpfile] "/home/snax/fpga/verilator/slipstream1/trace.vcd"
+[dumpfile_mtime] "Sun Oct 10 10:07:23 2021"
+[dumpfile_size] 1192932
+[savefile] "/home/snax/fpga/verilator/slipstream1/ALL.gtkw"
+[timestart] 108
+[size] 2301 1275
+[pos] -1 -1
+*-9.000000 125 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.m_top.
+[sst_width] 233
+[signals_width] 158
+[sst_expanded] 1
+[sst_vpaned_height] 379
+@28
+TOP.FCLK
+TOP.RESET
+@22
+TOP.ABus[19:0]
+TOP.inRamData[15:0]
+TOP.outRamData[15:0]
+@28
+TOP.Word
+TOP.Write
+TOP.Chroma
+TOP.VSyncL
+TOP.HSyncL
+@22
+TOP.Red[3:0]
+TOP.Green[3:0]
+TOP.Blue[3:0]
+@200
+-
+@28
+TOP.m_top.Processor.ALE
+TOP.m_top.Processor.CLK
+TOP.m_top.Processor.CORE_CLK
+TOP.m_top.Processor.DEN
+TOP.m_top.Processor.DTR
+TOP.m_top.Processor.HOLD
+TOP.m_top.Processor.HOLDA
+TOP.m_top.Processor.INTA_n
+TOP.m_top.Processor.INTR
+TOP.m_top.Processor.IOM
+TOP.m_top.Processor.NMI
+TOP.m_top.Processor.RD_n
+TOP.m_top.Processor.READY
+@29
+TOP.m_top.Processor.RESET
+@28
+TOP.m_top.Processor.WR_n
+@22
+TOP.m_top.Processor.addr[19:0]
+TOP.m_top.Processor.din[7:0]
+TOP.m_top.Processor.dout[7:0]
+[pattern_trace] 1
+[pattern_trace] 0

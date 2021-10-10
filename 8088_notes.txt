@@ -1,0 +1,91 @@
+
+:00000000   b80000  mov ax,0x0              1011 1000 | 0000 0000 0000 0000
+loc_00000003:
+:00000003   e70d    out 0xd,ax              1110 0111 | 0000 1101
+:00000005   40      inc ax                  0100 0000 | 
+:00000006   ebfb    jmp loc_00000003        1110 1011 | 1111 1011
+
+; assume prefetch queue looks like this :
+
+B8 00 00 E7     FULL
+
+B8 matches 01011????.00             Cycle 1
+                 rrr
+Q->tmpbL 00                         Cycle 2
+Q->tmpbH 00                         Cycle 3
+tmpB->rrr->000      tmpB->AX        Cycle 4
+--------------------------
+
+E7 0D 40 EB     FULL
+
+E7 matches 01110011?.00             Cycle 1
+
+Q->tmpbL 0D                         Cycle 2
+ZERO -> tmpbH     tmpb->SIGMA       Cycle 3
+SIGMA-> IND       initiate Write    Cycle 4
+
+Write Cycle IND                     Cycle 1
+Write Cycle AL                      Cycle 2
+Write Cycle AL                      Cycle 3
+Write Cycle AL                      Cycle 4
+
+Write Cycle IND+1                   Cycle 1
+Write Cycle AH                      Cycle 2
+Write Cycle AH                      Cycle 3
+Write Cycle AH                      Cycle 4
+
+---------------------------
+
+40 EB FB 00
+
+40 matches 00100????.00
+                irrr
+
+rrr->000->AX->tmpb  
+tmpb        00 00           ALU INC tmpb    Cycle 1
+SIGMA -> rrr->000->AX                       Cycle 2
+                                            Cycle 3
+                                            Cycle 4
+----------------
+
+EB FB 00 00
+
+EB matches 0111010?1.00                                             Cycle 1
+                  w             w=width, 1 = 8bit, 0 = 16 bit
+
+Q -> tmpbL      SKIPs next Cycle                                    Cycle 2
+<skipped> Q->tmpbH                                                  Cycle 3
+STOP PREFETCH                                                       Cycle 4
+
+CORRECT ADDR BASED ON PREFETCH                                      Cycle 5
+PC->tmpa                            ALU ADD (a+b)                   Cycle 6
+SIGMA->PC                           FLUSH prefetch Q                Cycle 7
+
+
+
+
+Microcode
+
+First Instruction : 
+01c A C E  HIJ     P   T        Q     -> tmpbL     0   L8       2        01011????.00  MOV r,i
+01d ABC E  HIJ L  OPQRSTU       Q     -> tmpbH                                         
+01e  B  E GHI  L  OPQR          tmpb  -> M         4   none  RNI                       
+01f   CD FGHIJ L N     TU       IK    -> tmpa      5   UNC   EAOFFSET                  [DI]
+
+Second Instruction :
+0b0 A C E  HIJ L  OPQRSTU       Q     -> tmpbL                           01110011?.00  OUT ib,A
+0b1 ABC EF HIJ  MN     T        ZERO  -> tmpbH     1   PASS  tmpb                      
+0b2 A C  F  I  L  OPQRSTU       SIGMA -> IND                                           
+0b3  BC  FG    LM O Q STU       XA    -> OPR       6   W     D0,P0                     
+
+Third Instruction :
+17c A CD F   J  MN   R TU       M     -> tmpb      1   XI    tmpb, NX    00100????.00  INC/DEC
+17d  B  EF  I KL  OPQR          SIGMA -> M         4   none  RNI      F                
+
+Final Instruction :
+0d0 A C E  HIJ     P   T        Q     -> tmpbL     0   L8       2        0111010?1.00  JMP cw/JMP cb
+0d1 ABC E  HIJ L  OPQRSTU       Q     -> tmpbH                                         
+0d2 ABC  F HI  L  OPQR TU                          4   none  SUSP                      RELJMP
+0d3 ABC  F HI  L  OPQR T                           4   none  CORR                      
+0d4   CD    I   M               PC    -> tmpa      1   ADD   tmpa        0111010?1.01  
+0d5   C  F  I  L     R          SIGMA -> PC        4   FLUSH RNI                       

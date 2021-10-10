@@ -9,7 +9,7 @@
 #define TRACE_ON    1
 
 #define FRAME_START 0
-#define FRAME_STOP  1
+#define FRAME_STOP  4
 
 int lastPCLK = 2;
 bool gTrace=false;
@@ -63,7 +63,6 @@ void TickRisingCpu(Vm_SS* tb)
                 nextT1Write=0;
                 writeState=1;
             }
-            tb->XALE=1;
             if (writeState)
             {
                 tb->XIOM=writeIO;
@@ -123,6 +122,7 @@ void TickFallingCpu(Vm_SS* tb)
     switch (tState)
     {
         case 0: // T1
+            tb->XALE=1;
             if (writeState)
             {
             }
@@ -794,7 +794,7 @@ int main(int argc, char** argv)
 
 #else
 
-    FILE* hw = fopen("/home/snax/SLIP.DAT","r"); 
+    FILE* hw = fopen("/home/snax/LINES.DAT","r"); 
 
     int frameNum = -1;
     int address=0;
