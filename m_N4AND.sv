@@ -1,6 +1,7 @@
 module m_N4AND                                                                  //[IODEC.NET:00115] MODULE N4AND;
 (                                                                               //[IODEC.NET:00115] MODULE N4AND;
 
+    input    MasterClock,
     input    R,                                                                 //[IODEC.NET:00117] INPUTS	R,A,B,C,D;
     input    A,                                                                 //[IODEC.NET:00117] INPUTS	R,A,B,C,D;
     input    B,                                                                 //[IODEC.NET:00117] INPUTS	R,A,B,C,D;

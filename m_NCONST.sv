@@ -1,6 +1,7 @@
 module m_NCONST                                                                 //[DRAM.NET:00053] MODULE NCONST;
 (                                                                               //[DRAM.NET:00053] MODULE NCONST;
 
+    input    MasterClock,
     input    inDD_0,                                                            //[DRAM.NET:00055] INPUTS	DD_0,DD_1,DD_2,DD_3,DD_4,DD_5,DD_6,DD_7,DD_8,DD_9,DD_10,DD_11,DD_12,
     input    inDD_1,                                                            //[DRAM.NET:00055] INPUTS	DD_0,DD_1,DD_2,DD_3,DD_4,DD_5,DD_6,DD_7,DD_8,DD_9,DD_10,DD_11,DD_12,
     input    inDD_2,                                                            //[DRAM.NET:00055] INPUTS	DD_0,DD_1,DD_2,DD_3,DD_4,DD_5,DD_6,DD_7,DD_8,DD_9,DD_10,DD_11,DD_12,
@@ -130,7 +131,7 @@ wire drv0_enDD_15;                                                              
 /* Set all these fake locations to zero if reset or dsp reading a register */
 /* First check for register read */
 
-m_MACNAND7 REGRD_ (.A(TRARDL),.B(IXRDL),.C(DMA1RDL),.D(MZ2RDL),.E(PCRDL),.F(MODRDL),.G(GPRDL),.Q(REGRD));//[DRAM.NET:00066] REGRD_(REGRD) = MACNAND7(TRARDL,IXRDL,DMA1RDL,MZ2RDL,PCRDL,MODRDL,GPRDL);
+m_MACNAND7 REGRD_ (.MasterClock(MasterClock),.A(TRARDL),.B(IXRDL),.C(DMA1RDL),.D(MZ2RDL),.E(PCRDL),.F(MODRDL),.G(GPRDL),.Q(REGRD));//[DRAM.NET:00066] REGRD_(REGRD) = MACNAND7(TRARDL,IXRDL,DMA1RDL,MZ2RDL,PCRDL,MODRDL,GPRDL);
 assign ZERO = ~(RESET | REGRD);                                                 //[DRAM.NET:00067] ZERO_(ZERO) = NR2C(RESET,REGRD);
 assign RESET = ~RESETL;                                                         //[DRAM.NET:00068] RESET_(RESET) = N1A(RESETL);
 assign DAL_0 = ~(A_0 & ZERO);                                                   //[DRAM.NET:00069] DAL_0_(DAL_0) = ND2C(A_0,ZERO);

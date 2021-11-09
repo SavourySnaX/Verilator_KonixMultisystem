@@ -1,6 +1,7 @@
 module m_FILL                                                                   //[DRAM.NET:00133] MODULE FILL;
 (                                                                               //[DRAM.NET:00133] MODULE FILL;
 
+    input    MasterClock,
     input    inDD_0,                                                            //[DRAM.NET:00135] INPUTS	DD_0,DD_1,DD_2,DD_3,DD_4,DD_5,DD_6,A_0,A_1,A_2,A_3,A_4,A_5,A_6,ENAB;
     input    inDD_1,                                                            //[DRAM.NET:00135] INPUTS	DD_0,DD_1,DD_2,DD_3,DD_4,DD_5,DD_6,A_0,A_1,A_2,A_3,A_4,A_5,A_6,ENAB;
     input    inDD_2,                                                            //[DRAM.NET:00135] INPUTS	DD_0,DD_1,DD_2,DD_3,DD_4,DD_5,DD_6,A_0,A_1,A_2,A_3,A_4,A_5,A_6,ENAB;

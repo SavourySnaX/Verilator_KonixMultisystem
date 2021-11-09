@@ -14,6 +14,7 @@ This state machine controls the blitter memory interface
 module m_STMEM                                                                  //[STMEM.NET:00014] MODULE STMEM;
 (                                                                               //[STMEM.NET:00014] MODULE STMEM;
 
+    input    MasterClock,
     input    ACKINT,                                                            //[STMEM.NET:00016] INPUTS	ACKINT,CCLK,COMCRQ,IDSTWR,INCRQ,INHIB,PARCRQ,RESET,RES_0,RES_1,WAITL;
     input    CCLK,                                                              //[STMEM.NET:00016] INPUTS	ACKINT,CCLK,COMCRQ,IDSTWR,INCRQ,INHIB,PARCRQ,RESET,RES_0,RES_1,WAITL;
     input    COMCRQ,                                                            //[STMEM.NET:00016] INPUTS	ACKINT,CCLK,COMCRQ,IDSTWR,INCRQ,INHIB,PARCRQ,RESET,RES_0,RES_1,WAITL;

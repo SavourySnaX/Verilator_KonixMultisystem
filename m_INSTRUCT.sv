@@ -4,6 +4,7 @@
 module m_INSTRUCT                                                               //[INSTRUCT.NET:00004] MODULE INSTRUCT;
 (                                                                               //[INSTRUCT.NET:00004] MODULE INSTRUCT;
 
+    input    MasterClock,
     input    PD_9,                                                              //[INSTRUCT.NET:00006] INPUTS	PD_9,PD_10,PD_11,PD_12,PD_13,PD_14,PD_15,DA_0,DA_1,DA_2,DA_3,DAL_0,DAL_1,
     input    PD_10,                                                             //[INSTRUCT.NET:00006] INPUTS	PD_9,PD_10,PD_11,PD_12,PD_13,PD_14,PD_15,DA_0,DA_1,DA_2,DA_3,DAL_0,DAL_1,
     input    PD_11,                                                             //[INSTRUCT.NET:00006] INPUTS	PD_9,PD_10,PD_11,PD_12,PD_13,PD_14,PD_15,DA_0,DA_1,DA_2,DA_3,DAL_0,DAL_1,

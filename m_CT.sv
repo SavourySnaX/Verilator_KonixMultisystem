@@ -1,6 +1,7 @@
 module m_CT                                                                     //[COUNTERS.NET:00050] MODULE CT;
 (                                                                               //[COUNTERS.NET:00050] MODULE CT;
 
+    input    MasterClock,
     input    D,                                                                 //[COUNTERS.NET:00052] INPUTS	D,LD,LDL,ENAB,CK,RESETL;
     input    LD,                                                                //[COUNTERS.NET:00052] INPUTS	D,LD,LDL,ENAB,CK,RESETL;
     input    LDL,                                                               //[COUNTERS.NET:00052] INPUTS	D,LD,LDL,ENAB,CK,RESETL;

@@ -12,6 +12,7 @@ Pattern data register
 module m_PATDATA                                                                //[PATDATA.NET:00012] MODULE PATDATA;
 (                                                                               //[PATDATA.NET:00012] MODULE PATDATA;
 
+    input    MasterClock,
     input    LDPATL,                                                            //[PATDATA.NET:00014] INPUTS	LDPATL,ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,ID_7;
     input    ID_0,                                                              //[PATDATA.NET:00014] INPUTS	LDPATL,ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,ID_7;
     input    ID_1,                                                              //[PATDATA.NET:00014] INPUTS	LDPATL,ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,ID_7;

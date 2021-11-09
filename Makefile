@@ -76,36 +76,42 @@
 #----- top (includes cpu) ----#
 MODULE=m_top
 
+#----- Mister ------#
+#MODULE=m_konix
+
+#VL_DEBUG=--prof-cfuncs -CFLAGS -DVL_DEBUG
+VL_DEBUG=
+
 .PHONY:sim
-sim: trace.vcd
+sim: $(MODULE).vcd
 
 .PHONY:verilate
-verilate: .stamp.verilate
+verilate: .$(MODULE).stamp.verilate
 
 .PHONY:build
-build: obj_dir/Valu
+build: $(MODULE).obj_dir/Valu
 
 .PHONY:waves
-waves: trace.vcd
+waves: $(MODULE).vcd
 	@echo
 	@echo "### WAVES ###"
-	gtkwave trace.vcd
+	gtkwave $(MODULE).vcd
 
-trace.vcd: ./obj_dir/V$(MODULE)
+$(MODULE).vcd: ./$(MODULE).obj_dir/V$(MODULE)
 	@echo
 	@echo "### SIMULATING ###"
-	@./obj_dir/V$(MODULE)
+	@./$(MODULE).obj_dir/V$(MODULE)
 
-./obj_dir/V$(MODULE): .stamp.verilate
+./$(MODULE).obj_dir/V$(MODULE): ./$(MODULE).obj_dir/.$(MODULE).stamp.verilate
 	@echo
 	@echo "### BUILDING SIM ###"
-	make -C obj_dir -f V$(MODULE).mk V$(MODULE)
+	make CXXFLAGS='-g -DTRACE_FILE=\"$(MODULE).vcd\"' -C $(MODULE).obj_dir -f V$(MODULE).mk V$(MODULE)
 
-.stamp.verilate: $(MODULE).sv tb_$(MODULE).cpp
+./$(MODULE).obj_dir/.$(MODULE).stamp.verilate: $(MODULE).sv tb_$(MODULE).cpp
 	@echo
 	@echo "### VERILATING ###"
-	verilator -Wall -Wno-WIDTH -Wno-unused -Wno-UNOPTFLAT --trace -cc $(MODULE).sv --exe tb_$(MODULE).cpp
-	@touch .stamp.verilate
+	verilator --Mdir ./$(MODULE).obj_dir -Wall -Wno-WIDTH -Wno-unused -Wno-UNOPTFLAT --trace $(VL_DEBUG) -cc $(MODULE).sv --exe tb_$(MODULE).cpp
+	@touch ./$(MODULE).obj_dir/.$(MODULE).stamp.verilate
 
 .PHONY:lint
 lint: $(MODULE).sv
@@ -113,6 +119,5 @@ lint: $(MODULE).sv
 
 .PHONY: clean
 clean:
-	rm -rf .stamp.*;
-	rm -rf ./obj_dir
-	rm -rf trace.vcd
+	rm -rf ./$(MODULE).obj_dir
+	rm -rf $(MODULE).vcd

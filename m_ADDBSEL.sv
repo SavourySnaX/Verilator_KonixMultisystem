@@ -69,6 +69,7 @@ register, so that two-tick line-draw computations may be made.
 module m_ADDBSEL                                                                //[ADDBSEL.NET:00069] MODULE ADDBSEL;
 (                                                                               //[ADDBSEL.NET:00069] MODULE ADDBSEL;
 
+    input    MasterClock,
     input    ADSTP,                                                             //[ADDBSEL.NET:00071] INPUTS	ADSTP,CARRYOUT,SRCENF,DSIGN,DWRAP,LINDR,RES_0,RES_1,STEP_0,STEP_1,STEP_2,
     input    CARRYOUT,                                                          //[ADDBSEL.NET:00071] INPUTS	ADSTP,CARRYOUT,SRCENF,DSIGN,DWRAP,LINDR,RES_0,RES_1,STEP_0,STEP_1,STEP_2,
     input    SRCENF,                                                            //[ADDBSEL.NET:00071] INPUTS	ADSTP,CARRYOUT,SRCENF,DSIGN,DWRAP,LINDR,RES_0,RES_1,STEP_0,STEP_1,STEP_2,

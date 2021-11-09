@@ -16,6 +16,7 @@ old blitter.
 module m_STOUTER                                                                //[STOUTER.NET:00016] MODULE STOUTER;
 (                                                                               //[STOUTER.NET:00016] MODULE STOUTER;
 
+    input    MasterClock,
     input    COMDN,                                                             //[STOUTER.NET:00018] INPUTS	COMDN,DSTUP,IQUIET,OUTER0L,PARDN,PARRD,SRESET,SRCUP,CCLK;
     input    DSTUP,                                                             //[STOUTER.NET:00018] INPUTS	COMDN,DSTUP,IQUIET,OUTER0L,PARDN,PARRD,SRESET,SRCUP,CCLK;
     input    IQUIET,                                                            //[STOUTER.NET:00018] INPUTS	COMDN,DSTUP,IQUIET,OUTER0L,PARDN,PARRD,SRESET,SRCUP,CCLK;

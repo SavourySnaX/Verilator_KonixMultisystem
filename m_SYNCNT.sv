@@ -23,6 +23,7 @@ active high */
 module m_SYNCNT                                                                 //[LEGO.NET:00023] MODULE SYNCNT;
 (                                                                               //[LEGO.NET:00023] MODULE SYNCNT;
 
+    input    MasterClock,
     input    D,                                                                 //[LEGO.NET:00025] INPUTS	D,CLK,CLR,LDL,CI;
     input    CLK,                                                               //[LEGO.NET:00025] INPUTS	D,CLK,CLR,LDL,CI;
     input    CLR,                                                               //[LEGO.NET:00025] INPUTS	D,CLK,CLR,LDL,CI;
@@ -39,7 +40,7 @@ wire DI_0;                                                                      
 wire DI_1;                                                                      //[LEGO.NET:00035] DI_1_(DI_1) = AO2A(D,LD,DI_0,LDL);/* load/count */
 wire DI;                                                                        //[LEGO.NET:00037] DI_(DI) = NR2A(DI_1,CLR);		/* clear */
 
-m_MACINV2 CIL_ (.I1(CI),.I2(LDL),.Q1(CIL),.Q2(LD));                             //[LEGO.NET:00030] CIL_(CIL,LD) = MACINV2(CI,LDL);
+m_MACINV2 CIL_ (.MasterClock(MasterClock),.I1(CI),.I2(LDL),.Q1(CIL),.Q2(LD));   //[LEGO.NET:00030] CIL_(CIL,LD) = MACINV2(CI,LDL);
 
 
 assign DI_0 = ~((CI & Q)|(CIL & QB));                                           //[LEGO.NET:00033] DI_0_(DI_0) = AO2A(CI,Q,CIL,QB);	/* toggle/static */

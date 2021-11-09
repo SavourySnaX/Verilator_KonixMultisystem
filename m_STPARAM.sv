@@ -15,6 +15,7 @@ the outer loop.
 module m_STPARAM                                                                //[STPARAM.NET:00015] MODULE STPARAM;
 (                                                                               //[STPARAM.NET:00015] MODULE STPARAM;
 
+    input    MasterClock,
     input    CYCEND,                                                            //[STPARAM.NET:00017] INPUTS	CYCEND,ICYCEND,SRESET,CCLK,RDPAR;
     input    ICYCEND,                                                           //[STPARAM.NET:00017] INPUTS	CYCEND,ICYCEND,SRESET,CCLK,RDPAR;
     input    SRESET,                                                            //[STPARAM.NET:00017] INPUTS	CYCEND,ICYCEND,SRESET,CCLK,RDPAR;

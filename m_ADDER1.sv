@@ -1,6 +1,7 @@
 module m_ADDER1                                                                 //[COUNTERS.NET:00201] MODULE ADDER1;
 (                                                                               //[COUNTERS.NET:00201] MODULE ADDER1;
 
+    input    MasterClock,
     input    X,                                                                 //[COUNTERS.NET:00203] INPUTS	X,Y;
     input    Y,                                                                 //[COUNTERS.NET:00203] INPUTS	X,Y;
     output    Z,                                                                //[COUNTERS.NET:00204] OUTPUTS	Z,COUT;

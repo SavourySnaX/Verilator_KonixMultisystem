@@ -9,10 +9,14 @@
 #define TRACE_ON    0
 
 #define FRAME_START 0
-#define FRAME_STOP  10
+#define FRAME_STOP  5
 
 int lastPCLK = 2;
 bool gTrace=false;
+
+#define SRAM_INSTALLED    (128*1024)
+#define DRAM_INSTALLED    (256*1024)
+#define ROM_INSTALLED     (256*1024)
 
 int hold=0;
 int tState=0;
@@ -22,28 +26,9 @@ int writeIO=0;
 uint32_t writeAddress=0;
 uint8_t writeValue=0;
 
-void SetXAD(Vm_top *tb, uint8_t value);
-void SetXA(Vm_top *tb, uint8_t value);
-void SetXD(Vm_top *tb, uint8_t value);
-void SetJOY(Vm_top *tb, uint8_t value);
-void SetXAS(Vm_top *tb, uint8_t value);
-void SetXAI(Vm_top *tb, uint8_t value);
-uint8_t GetXAD(Vm_top *tb);
-uint8_t GetXD(Vm_top *tb);
-
-uint8_t RAM[1024*1024];
-
-void LoadRAM()
-{
-    FILE* myDump=fopen("/home/snax/Work/Slipstream/build/VRAM.BIN","rb");
-    for(int a=0;a<256*1024;a++)
-    {
-        uint8_t byte;
-        fread(&byte,1,1,myDump);
-        RAM[a]=byte;
-    }
-    fclose(myDump);
-}
+uint8_t SRAM[SRAM_INSTALLED];
+uint8_t DRAM[DRAM_INSTALLED];
+uint8_t ROM[ROM_INSTALLED];
 
 void tick(Vm_top *tb, VerilatedVcdC* trace, int ticks)
 {
@@ -198,6 +183,73 @@ void ProcessAudio(Vm_top *tb)
 #endif
 }
 
+#define SEGTOPHYS(seg,off)	( ((seg)<<4) + (off) )				// Convert Segment,offset pair to physical address
+int HandleLoadSection(FILE* inFile)
+{
+	uint16_t	segment,offset;
+	uint16_t	size;
+	int		a=0;
+	uint8_t		byte;
+
+	if (2!=fread(&segment,1,2,inFile))
+	{
+		printf("Failed to read segment for LoadSection\n");
+		exit(1);
+	}
+	if (2!=fread(&offset,1,2,inFile))
+	{
+		printf("Failed to read offset for LoadSection\n");
+		exit(1);
+	}
+	fseek(inFile,2,SEEK_CUR);		// skip unknown
+	if (2!=fread(&size,1,2,inFile))
+	{
+		printf("Failed to read size for LoadSection\n");
+		exit(1);
+	}
+
+	printf("Found Section Load Memory : %04X:%04X   (%08X bytes)\n",segment,offset,size);
+
+	for (a=0;a<size;a++)
+	{
+		if (1!=fread(&byte,1,1,inFile))
+		{
+			printf("Failed to read data from LoadSection\n");
+			exit(1);
+		}
+        DRAM[(a+SEGTOPHYS(segment,offset))&(DRAM_INSTALLED-1)] = byte;
+	}
+
+	return 8+size;
+}
+
+int HandleExecuteSection(FILE* inFile)
+{
+	uint16_t	segment,offset;
+	
+	if (2!=fread(&segment,1,2,inFile))
+	{
+		printf("Failed to read segment for ExecuteSection\n");
+		exit(1);
+	}
+	if (2!=fread(&offset,1,2,inFile))
+	{
+		printf("Failed to read offset for ExecuteSection\n");
+		exit(1);
+	}
+
+    // Create FAR Call in RESET address
+    ROM[0xFFFF0&(ROM_INSTALLED-1)]=0xEA;
+    ROM[0xFFFF1&(ROM_INSTALLED-1)]=0x00;
+    ROM[0xFFFF2&(ROM_INSTALLED-1)]=offset>>8;
+    ROM[0xFFFF3&(ROM_INSTALLED-1)]=offset;
+    ROM[0xFFFF4&(ROM_INSTALLED-1)]=segment>>8;
+    ROM[0xFFFF5&(ROM_INSTALLED-1)]=segment;
+
+	printf("Found Section Execute : %04X:%04X\n",segment,offset);
+
+	return 4;
+}
 
 void LoadP88(const char* path)
 {
@@ -221,10 +273,10 @@ void LoadP88(const char* path)
             case 0xFF:
                 break;
             case 0xC8:
-                // Load
+                size-=HandleLoadSection(p88);
                 break;
             case 0xCA:
-                // Exec
+                size-=HandleExecuteSection(p88);
                 break;
         }
     }
@@ -240,9 +292,13 @@ int main(int argc, char** argv)
 
 	VerilatedVcdC *trace = new VerilatedVcdC;
 
+    LoadP88("/home/snax/ROMS/KONIX_LINE_TEST.P88");
+    //LoadP88("/home/snax/ROMS/KONIX_TEST_RAM.P88");
+    //LoadP88("/home/snax/Work/AOTMC89/aomc.p88");
+
 #if TRACE_ON
 	tb->trace(trace, 99);
-	trace->open("trace.vcd");
+	trace->open(TRACE_FILE);
 #endif
 
     tb->RESET=1;
@@ -257,15 +313,53 @@ int main(int argc, char** argv)
 
     if (FRAME_START == 0)
         gTrace=true;
-    const unsigned char ROM[8] = {0xb8, 0x00, 0x00, 0xE7, 0x0D, 0x40, 0xEB, 0xFB};
-    while (1)//ticks < 3*757*312)
+    while (1)//ticks < 757*312)
     {
         if (ProcessVideo(tb)==1)
          break;
 
         ticks = doNTicks(tb,trace,ticks, 1);
 
-        tb->inRamData = ROM[tb->ABus&0x7];
+        if (tb->Write)
+        {
+            uint32_t screenAddress = tb->ABus&(SRAM_INSTALLED-1);
+            if (tb->ABus<SRAM_INSTALLED)  // Screen Chips are Word accessed
+            {
+                SRAM[screenAddress]=tb->outRamData;
+                if (tb->Word)
+                    SRAM[screenAddress+1]=tb->outRamData>>8;
+            }
+            else if (tb->ABus>=0x80000 && tb->ABus<0x80000 + DRAM_INSTALLED)
+            {
+                DRAM[tb->ABus&(DRAM_INSTALLED-1)]=tb->outRamData;
+            }
+        }
+
+        if (tb->Read)
+        {
+            uint32_t screenAddress = (tb->ABus&(SRAM_INSTALLED-1)&(~1));
+            if (tb->ABus<SRAM_INSTALLED)  // Screen Chips are Word accessed
+            {
+                uint16_t fromRam = SRAM[screenAddress+1];
+                fromRam<<=8;
+                fromRam|=SRAM[screenAddress];
+                tb->inRamData = fromRam;
+            }
+            else if (tb->ABus>=0x80000 && tb->ABus<0x80000 + DRAM_INSTALLED)
+            {
+                uint16_t fromRam = SRAM[screenAddress+1];
+                fromRam<<=8;
+                fromRam|=DRAM[tb->ABus&(DRAM_INSTALLED-1)];
+                tb->inRamData = fromRam;
+            }
+            else if (tb->ABus>=0xC0000)
+            {
+                uint16_t fromRam = SRAM[screenAddress+1];
+                fromRam<<=8;
+                fromRam|=ROM[tb->ABus&(ROM_INSTALLED-1)];
+                tb->inRamData = fromRam;
+            }
+        }
     }
 
 #if TRACE_ON

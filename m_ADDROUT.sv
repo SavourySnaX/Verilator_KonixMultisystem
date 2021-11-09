@@ -17,6 +17,7 @@ A18 and A19 have their own enables to get them out damn fast.
 module m_ADDROUT                                                                //[ADDROUT.NET:00017] MODULE ADDROUT;
 (                                                                               //[ADDROUT.NET:00017] MODULE ADDROUT;
 
+    input    MasterClock,
     input    inA_0,                                                             //[ADDROUT.NET:00019] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
     input    inA_1,                                                             //[ADDROUT.NET:00019] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
     input    inA_2,                                                             //[ADDROUT.NET:00019] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,

@@ -1,6 +1,7 @@
 module m_MACJKBART                                                              //[QMACROS.NET:00054] MODULE MACJKBART;
 (                                                                               //[QMACROS.NET:00054] MODULE MACJKBART;
 
+    input    MasterClock,
     input    J,                                                                 //[QMACROS.NET:00056] INPUTS	J,KL,CLK;
     input    KL,                                                                //[QMACROS.NET:00056] INPUTS	J,KL,CLK;
     input    CLK,                                                               //[QMACROS.NET:00056] INPUTS	J,KL,CLK;

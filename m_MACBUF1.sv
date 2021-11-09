@@ -1,6 +1,7 @@
 module m_MACBUF1                                                                //[QMACROS.NET:00028] MODULE MACBUF1;
 (                                                                               //[QMACROS.NET:00028] MODULE MACBUF1;
 
+    input    MasterClock,
     input    I,                                                                 //[QMACROS.NET:00030] INPUTS	I;
     output    Q                                                                 //[QMACROS.NET:00031] OUTPUTS	Q;
 );                                                                              //[QMACROS.NET:00028] MODULE MACBUF1;

@@ -1,6 +1,7 @@
 module m_SR                                                                     //[LEGO.NET:00237] MODULE SR;
 (                                                                               //[LEGO.NET:00237] MODULE SR;
 
+    input    MasterClock,
     input    S,                                                                 //[LEGO.NET:00239] INPUTS	S,R;
     input    R,                                                                 //[LEGO.NET:00239] INPUTS	S,R;
     output    Q,                                                                //[LEGO.NET:00240] OUTPUTS	Q,QL;

@@ -5,6 +5,7 @@
 module m_ALU                                                                    //[ALU.NET:00005] MODULE ALU;
 (                                                                               //[ALU.NET:00005] MODULE ALU;
 
+    input    MasterClock,
     input    DDB_0,                                                             //[ALU.NET:00007] INPUTS	DDB_0,DDB_1,DDB_2,DDB_3,DDB_4,DDB_5,DDB_6,DDB_7,DDB_8,DDB_9,DDB_10,DDB_11,DDB_12,DDB_13,DDB_14,DDB_15,
     input    DDB_1,                                                             //[ALU.NET:00007] INPUTS	DDB_0,DDB_1,DDB_2,DDB_3,DDB_4,DDB_5,DDB_6,DDB_7,DDB_8,DDB_9,DDB_10,DDB_11,DDB_12,DDB_13,DDB_14,DDB_15,
     input    DDB_2,                                                             //[ALU.NET:00007] INPUTS	DDB_0,DDB_1,DDB_2,DDB_3,DDB_4,DDB_5,DDB_6,DDB_7,DDB_8,DDB_9,DDB_10,DDB_11,DDB_12,DDB_13,DDB_14,DDB_15,
@@ -896,7 +897,7 @@ FD2A CARRYFLAG__inst (.q(CARRY),.qL(CARRYL),.d(CMUX),.clk(CYLDL),.rL(RESETL));  
 
 assign CIN1 = ~(WITHCYL | CARRYL);                                              //[ALU.NET:00337] CIN1_(CIN1) = NR2A(WITHCYL,CARRYL);
 assign CINL = ~(CIN1 | SUB);                                                    //[ALU.NET:00338] CINL_(CINL) = NR2A(CIN1,SUB);
-m_CYMUX CMUX_ (.A(COUT),.B(MZ_36),.C(CARRYL),.SELL_0(RESWRL),.SELL_1(CCFL),.Z(CMUX));//[ALU.NET:00339] CMUX_(CMUX) = CYMUX(COUT,MZ_36,CARRYL,RESWRL,CCFL);
+m_CYMUX CMUX_ (.MasterClock(MasterClock),.A(COUT),.B(MZ_36),.C(CARRYL),.SELL_0(RESWRL),.SELL_1(CCFL),.Z(CMUX));//[ALU.NET:00339] CMUX_(CMUX) = CYMUX(COUT,MZ_36,CARRYL,RESWRL,CCFL);
 
 
 /* Write enable signals are combined with CLK locally, to ensure smallest
@@ -910,7 +911,8 @@ assign RESREGWRL = RESWRL & ZWRL;                                               
 assign RESWR = ~(RESREGWRL | DQCLK);                                            //[ALU.NET:00350] RESWR_(RESWR) = NR2C(RESREGWRL,DQCLK);
 assign CYLDL = CARRYWRL | DQCLK;                                                //[ALU.NET:00351] CYLDL_(CYLDL) = OR2A(CARRYWRL,DQCLK);	
 /* load carry latch
-	at the same time as result */
+
+						at the same time as result */
 assign MODRD = ~MODRDL;                                                         //[ALU.NET:00354] MODRD_(MODRD) = N1B(MODRDL);
 assign MODWR = ~(MODWRL | DQCLK);                                               //[ALU.NET:00355] MODWR_(MODWR) = NR2B(MODWRL,DQCLK);
 /* Mode register */

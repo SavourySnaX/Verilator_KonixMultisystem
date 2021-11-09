@@ -1,6 +1,7 @@
 module m_MUX                                                                    //[COUNTERS.NET:00243] MODULE MUX;
 (                                                                               //[COUNTERS.NET:00243] MODULE MUX;
 
+    input    MasterClock,
     input    A,                                                                 //[COUNTERS.NET:00245] INPUTS	A,B,C,D;
     input    B,                                                                 //[COUNTERS.NET:00245] INPUTS	A,B,C,D;
     input    C,                                                                 //[COUNTERS.NET:00245] INPUTS	A,B,C,D;

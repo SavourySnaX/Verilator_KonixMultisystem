@@ -15,6 +15,7 @@ Macros for Qudos cells not represented in LSI Logic Library
 module m_MACINV2                                                                //[QMACROS.NET:00015] MODULE MACINV2;
 (                                                                               //[QMACROS.NET:00015] MODULE MACINV2;
 
+    input    MasterClock,
     input    I1,                                                                //[QMACROS.NET:00017] INPUTS	I1,I2;
     input    I2,                                                                //[QMACROS.NET:00017] INPUTS	I1,I2;
     output    Q1,                                                               //[QMACROS.NET:00018] OUTPUTS	Q1,Q2;

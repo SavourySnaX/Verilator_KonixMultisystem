@@ -1,6 +1,7 @@
 module m_CYMUX                                                                  //[ALU.NET:00377] MODULE CYMUX;
 (                                                                               //[ALU.NET:00377] MODULE CYMUX;
 
+    input    MasterClock,
     input    A,                                                                 //[ALU.NET:00379] INPUTS	A,B,C,SELL_0,SELL_1;
     input    B,                                                                 //[ALU.NET:00379] INPUTS	A,B,C,SELL_0,SELL_1;
     input    C,                                                                 //[ALU.NET:00379] INPUTS	A,B,C,SELL_0,SELL_1;

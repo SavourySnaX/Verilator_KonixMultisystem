@@ -1,6 +1,7 @@
 module m_MACAND8                                                                //[QMACROS.NET:00067] MODULE MACAND8;
 (                                                                               //[QMACROS.NET:00067] MODULE MACAND8;
 
+    input    MasterClock,
     input    A,                                                                 //[QMACROS.NET:00069] INPUTS A,B,C,D,E,F,G,H;
     input    B,                                                                 //[QMACROS.NET:00069] INPUTS A,B,C,D,E,F,G,H;
     input    C,                                                                 //[QMACROS.NET:00069] INPUTS A,B,C,D,E,F,G,H;

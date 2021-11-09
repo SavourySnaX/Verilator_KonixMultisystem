@@ -12,6 +12,7 @@ Bus Control and IO decoding
 module m_BUSCON                                                                 //[BUSCON.NET:00012] MODULE BUSCON;
 (                                                                               //[BUSCON.NET:00012] MODULE BUSCON;
 
+    input    MasterClock,
     input    inD_0,                                                             //[BUSCON.NET:00014] INPUTS	D_0,D_3,D_4,D_5,D_6,D_7,A_0,A_1,A_2,A_3,A_4,BCSL,HLDAL,DSPBRQL,ID_0,INTL,
     input    inD_3,                                                             //[BUSCON.NET:00014] INPUTS	D_0,D_3,D_4,D_5,D_6,D_7,A_0,A_1,A_2,A_3,A_4,BCSL,HLDAL,DSPBRQL,ID_0,INTL,
     input    inD_4,                                                             //[BUSCON.NET:00014] INPUTS	D_0,D_3,D_4,D_5,D_6,D_7,A_0,A_1,A_2,A_3,A_4,BCSL,HLDAL,DSPBRQL,ID_0,INTL,

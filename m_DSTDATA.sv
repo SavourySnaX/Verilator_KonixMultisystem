@@ -12,6 +12,7 @@ Destination Data Register
 module m_DSTDATA                                                                //[DSTDATA.NET:00012] MODULE DSTDATA;
 (                                                                               //[DSTDATA.NET:00012] MODULE DSTDATA;
 
+    input    MasterClock,
     input    LDDSTL,                                                            //[DSTDATA.NET:00014] INPUTS	LDDSTL,ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,ID_7;
     input    ID_0,                                                              //[DSTDATA.NET:00014] INPUTS	LDDSTL,ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,ID_7;
     input    ID_1,                                                              //[DSTDATA.NET:00014] INPUTS	LDDSTL,ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,ID_7;

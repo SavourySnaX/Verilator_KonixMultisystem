@@ -14,6 +14,7 @@ This module is the io decode in the SLIPSTREAM chip on the ACW
 module m_IODEC                                                                  //[IODEC.NET:00014] MODULE IODEC;
 (                                                                               //[IODEC.NET:00014] MODULE IODEC;
 
+    input    MasterClock,
     input    RESETL_0,                                                          //[IODEC.NET:00016] INPUTS	RESETL_0,CLK,IOML,VRD,VWR,A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7;
     input    CLK,                                                               //[IODEC.NET:00016] INPUTS	RESETL_0,CLK,IOML,VRD,VWR,A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7;
     input    IOML,                                                              //[IODEC.NET:00016] INPUTS	RESETL_0,CLK,IOML,VRD,VWR,A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7;

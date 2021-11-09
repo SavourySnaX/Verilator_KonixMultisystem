@@ -4,6 +4,7 @@
 module m_INTRUDE                                                                //[INTRUDE.NET:00004] MODULE INTRUDE;
 (                                                                               //[INTRUDE.NET:00004] MODULE INTRUDE;
 
+    input    MasterClock,
     input    inHD_0,                                                            //[INTRUDE.NET:00006] INPUTS	HD_0,HD_1,HD_2,HD_3,HD_4,HD_5,HD_6,HD_7,
     input    inHD_1,                                                            //[INTRUDE.NET:00006] INPUTS	HD_0,HD_1,HD_2,HD_3,HD_4,HD_5,HD_6,HD_7,
     input    inHD_2,                                                            //[INTRUDE.NET:00006] INPUTS	HD_0,HD_1,HD_2,HD_3,HD_4,HD_5,HD_6,HD_7,
@@ -314,22 +315,22 @@ assign drv1_outHD_7 = OUP_7; assign drv1_enHD_7 = HTRURDLO;                     
    writing (hostwrL is LOW), then DSP data is always directed to the latch
    input.    */
 
-m_MUX INP_0_ (.A(DDB_0),.B(HOSTWRL),.C(inHD_0),.D(HOSTWR),.Z(INP_0));           //[INTRUDE.NET:00094] INP_0_(INP_0) = MUX(DDB_0,HOSTWRL,HD_0,HOSTWR);
-m_MUX INP_1_ (.A(DDB_1),.B(HOSTWRL),.C(inHD_1),.D(HOSTWR),.Z(INP_1));           //[INTRUDE.NET:00095] INP_1_(INP_1) = MUX(DDB_1,HOSTWRL,HD_1,HOSTWR);
-m_MUX INP_2_ (.A(DDB_2),.B(HOSTWRL),.C(inHD_2),.D(HOSTWR),.Z(INP_2));           //[INTRUDE.NET:00096] INP_2_(INP_2) = MUX(DDB_2,HOSTWRL,HD_2,HOSTWR);
-m_MUX INP_3_ (.A(DDB_3),.B(HOSTWRL),.C(inHD_3),.D(HOSTWR),.Z(INP_3));           //[INTRUDE.NET:00097] INP_3_(INP_3) = MUX(DDB_3,HOSTWRL,HD_3,HOSTWR);
-m_MUX INP_4_ (.A(DDB_4),.B(HOSTWRL),.C(inHD_4),.D(HOSTWR),.Z(INP_4));           //[INTRUDE.NET:00098] INP_4_(INP_4) = MUX(DDB_4,HOSTWRL,HD_4,HOSTWR);
-m_MUX INP_5_ (.A(DDB_5),.B(HOSTWRL),.C(inHD_5),.D(HOSTWR),.Z(INP_5));           //[INTRUDE.NET:00099] INP_5_(INP_5) = MUX(DDB_5,HOSTWRL,HD_5,HOSTWR);
-m_MUX INP_6_ (.A(DDB_6),.B(HOSTWRL),.C(inHD_6),.D(HOSTWR),.Z(INP_6));           //[INTRUDE.NET:00100] INP_6_(INP_6) = MUX(DDB_6,HOSTWRL,HD_6,HOSTWR);
-m_MUX INP_7_ (.A(DDB_7),.B(HOSTWRL),.C(inHD_7),.D(HOSTWR),.Z(INP_7));           //[INTRUDE.NET:00101] INP_7_(INP_7) = MUX(DDB_7,HOSTWRL,HD_7,HOSTWR);
-m_MUX INP_8_ (.A(DDB_8),.B(HOSTWRL),.C(inHD_0),.D(HOSTWR),.Z(INP_8));           //[INTRUDE.NET:00102] INP_8_(INP_8) = MUX(DDB_8,HOSTWRL,HD_0,HOSTWR);
-m_MUX INP_9_ (.A(DDB_9),.B(HOSTWRL),.C(inHD_1),.D(HOSTWR),.Z(INP_9));           //[INTRUDE.NET:00103] INP_9_(INP_9) = MUX(DDB_9,HOSTWRL,HD_1,HOSTWR);
-m_MUX INP_10_ (.A(DDB_10),.B(HOSTWRL),.C(inHD_2),.D(HOSTWR),.Z(INP_10));        //[INTRUDE.NET:00104] INP_10_(INP_10) = MUX(DDB_10,HOSTWRL,HD_2,HOSTWR);
-m_MUX INP_11_ (.A(DDB_11),.B(HOSTWRL),.C(inHD_3),.D(HOSTWR),.Z(INP_11));        //[INTRUDE.NET:00105] INP_11_(INP_11) = MUX(DDB_11,HOSTWRL,HD_3,HOSTWR);
-m_MUX INP_12_ (.A(DDB_12),.B(HOSTWRL),.C(inHD_4),.D(HOSTWR),.Z(INP_12));        //[INTRUDE.NET:00106] INP_12_(INP_12) = MUX(DDB_12,HOSTWRL,HD_4,HOSTWR);
-m_MUX INP_13_ (.A(DDB_13),.B(HOSTWRL),.C(inHD_5),.D(HOSTWR),.Z(INP_13));        //[INTRUDE.NET:00107] INP_13_(INP_13) = MUX(DDB_13,HOSTWRL,HD_5,HOSTWR);
-m_MUX INP_14_ (.A(DDB_14),.B(HOSTWRL),.C(inHD_6),.D(HOSTWR),.Z(INP_14));        //[INTRUDE.NET:00108] INP_14_(INP_14) = MUX(DDB_14,HOSTWRL,HD_6,HOSTWR);
-m_MUX INP_15_ (.A(DDB_15),.B(HOSTWRL),.C(inHD_7),.D(HOSTWR),.Z(INP_15));        //[INTRUDE.NET:00109] INP_15_(INP_15) = MUX(DDB_15,HOSTWRL,HD_7,HOSTWR);
+m_MUX INP_0_ (.MasterClock(MasterClock),.A(DDB_0),.B(HOSTWRL),.C(inHD_0),.D(HOSTWR),.Z(INP_0));//[INTRUDE.NET:00094] INP_0_(INP_0) = MUX(DDB_0,HOSTWRL,HD_0,HOSTWR);
+m_MUX INP_1_ (.MasterClock(MasterClock),.A(DDB_1),.B(HOSTWRL),.C(inHD_1),.D(HOSTWR),.Z(INP_1));//[INTRUDE.NET:00095] INP_1_(INP_1) = MUX(DDB_1,HOSTWRL,HD_1,HOSTWR);
+m_MUX INP_2_ (.MasterClock(MasterClock),.A(DDB_2),.B(HOSTWRL),.C(inHD_2),.D(HOSTWR),.Z(INP_2));//[INTRUDE.NET:00096] INP_2_(INP_2) = MUX(DDB_2,HOSTWRL,HD_2,HOSTWR);
+m_MUX INP_3_ (.MasterClock(MasterClock),.A(DDB_3),.B(HOSTWRL),.C(inHD_3),.D(HOSTWR),.Z(INP_3));//[INTRUDE.NET:00097] INP_3_(INP_3) = MUX(DDB_3,HOSTWRL,HD_3,HOSTWR);
+m_MUX INP_4_ (.MasterClock(MasterClock),.A(DDB_4),.B(HOSTWRL),.C(inHD_4),.D(HOSTWR),.Z(INP_4));//[INTRUDE.NET:00098] INP_4_(INP_4) = MUX(DDB_4,HOSTWRL,HD_4,HOSTWR);
+m_MUX INP_5_ (.MasterClock(MasterClock),.A(DDB_5),.B(HOSTWRL),.C(inHD_5),.D(HOSTWR),.Z(INP_5));//[INTRUDE.NET:00099] INP_5_(INP_5) = MUX(DDB_5,HOSTWRL,HD_5,HOSTWR);
+m_MUX INP_6_ (.MasterClock(MasterClock),.A(DDB_6),.B(HOSTWRL),.C(inHD_6),.D(HOSTWR),.Z(INP_6));//[INTRUDE.NET:00100] INP_6_(INP_6) = MUX(DDB_6,HOSTWRL,HD_6,HOSTWR);
+m_MUX INP_7_ (.MasterClock(MasterClock),.A(DDB_7),.B(HOSTWRL),.C(inHD_7),.D(HOSTWR),.Z(INP_7));//[INTRUDE.NET:00101] INP_7_(INP_7) = MUX(DDB_7,HOSTWRL,HD_7,HOSTWR);
+m_MUX INP_8_ (.MasterClock(MasterClock),.A(DDB_8),.B(HOSTWRL),.C(inHD_0),.D(HOSTWR),.Z(INP_8));//[INTRUDE.NET:00102] INP_8_(INP_8) = MUX(DDB_8,HOSTWRL,HD_0,HOSTWR);
+m_MUX INP_9_ (.MasterClock(MasterClock),.A(DDB_9),.B(HOSTWRL),.C(inHD_1),.D(HOSTWR),.Z(INP_9));//[INTRUDE.NET:00103] INP_9_(INP_9) = MUX(DDB_9,HOSTWRL,HD_1,HOSTWR);
+m_MUX INP_10_ (.MasterClock(MasterClock),.A(DDB_10),.B(HOSTWRL),.C(inHD_2),.D(HOSTWR),.Z(INP_10));//[INTRUDE.NET:00104] INP_10_(INP_10) = MUX(DDB_10,HOSTWRL,HD_2,HOSTWR);
+m_MUX INP_11_ (.MasterClock(MasterClock),.A(DDB_11),.B(HOSTWRL),.C(inHD_3),.D(HOSTWR),.Z(INP_11));//[INTRUDE.NET:00105] INP_11_(INP_11) = MUX(DDB_11,HOSTWRL,HD_3,HOSTWR);
+m_MUX INP_12_ (.MasterClock(MasterClock),.A(DDB_12),.B(HOSTWRL),.C(inHD_4),.D(HOSTWR),.Z(INP_12));//[INTRUDE.NET:00106] INP_12_(INP_12) = MUX(DDB_12,HOSTWRL,HD_4,HOSTWR);
+m_MUX INP_13_ (.MasterClock(MasterClock),.A(DDB_13),.B(HOSTWRL),.C(inHD_5),.D(HOSTWR),.Z(INP_13));//[INTRUDE.NET:00107] INP_13_(INP_13) = MUX(DDB_13,HOSTWRL,HD_5,HOSTWR);
+m_MUX INP_14_ (.MasterClock(MasterClock),.A(DDB_14),.B(HOSTWRL),.C(inHD_6),.D(HOSTWR),.Z(INP_14));//[INTRUDE.NET:00108] INP_14_(INP_14) = MUX(DDB_14,HOSTWRL,HD_6,HOSTWR);
+m_MUX INP_15_ (.MasterClock(MasterClock),.A(DDB_15),.B(HOSTWRL),.C(inHD_7),.D(HOSTWR),.Z(INP_15));//[INTRUDE.NET:00109] INP_15_(INP_15) = MUX(DDB_15,HOSTWRL,HD_7,HOSTWR);
 
 
 /* Decode the Host Intrude transactions */
@@ -351,7 +352,7 @@ assign INTRALDL = ~(HOSTWR | HOSTRD);                                           
 /* include the state machine */
 
 
-m_RUDMC INTRUDE_ (.WR(HOSTWR),.CLK(CLK),.RESETL(RESETL),.RD(HOSTRD),.TRUDY(INTRUD),.I_0(INTRUD_0),.I_1(INTRUD_1),.I_2(INTRUD_2),.I_3(INTRUD_3),.IL_0(INTRUDL_0),.IL_1(INTRUDL_1),.IL_2(INTRUDL_2),.IL_3(INTRUDL_3));//[INTRUDE.NET:00131] INTRUDE_(INTRUD_0,INTRUD_1,INTRUD_2,INTRUD_3,INTRUDL_0,INTRUDL_1,INTRUDL_2,
+m_RUDMC INTRUDE_ (.MasterClock(MasterClock),.WR(HOSTWR),.CLK(CLK),.RESETL(RESETL),.RD(HOSTRD),.TRUDY(INTRUD),.I_0(INTRUD_0),.I_1(INTRUD_1),.I_2(INTRUD_2),.I_3(INTRUD_3),.IL_0(INTRUDL_0),.IL_1(INTRUDL_1),.IL_2(INTRUDL_2),.IL_3(INTRUDL_3));//[INTRUDE.NET:00131] INTRUDE_(INTRUD_0,INTRUD_1,INTRUD_2,INTRUD_3,INTRUDL_0,INTRUDL_1,INTRUDL_2,
                                                                                 //[INTRUDE.NET:00132]    INTRUDL_3) = RUDMC(HOSTWR,CLK,RESETL,HOSTRD,INTRUD);
 
 

@@ -14,6 +14,7 @@ Parts of some of these registers lie elsewhere in the blitter.
 module m_CMDREGS                                                                //[CMDREGS.NET:00014] MODULE CMDREGS;
 (                                                                               //[CMDREGS.NET:00014] MODULE CMDREGS;
 
+    input    MasterClock,
     input    inD_1,                                                             //[CMDREGS.NET:00016] INPUTS	D_1,D_2,CCLK,CMDWRL,CONWRL,ICNT_8,ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,
     input    inD_2,                                                             //[CMDREGS.NET:00016] INPUTS	D_1,D_2,CCLK,CMDWRL,CONWRL,ICNT_8,ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,
     input    CCLK,                                                              //[CMDREGS.NET:00016] INPUTS	D_1,D_2,CCLK,CMDWRL,CONWRL,ICNT_8,ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,

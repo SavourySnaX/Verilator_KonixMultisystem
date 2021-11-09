@@ -15,6 +15,7 @@ This module is the clock generator in the SLIPSTREAM chip on the ACW
 module m_CLOCK                                                                  //[CLOCK.NET:00015] MODULE CLOCK;
 (                                                                               //[CLOCK.NET:00015] MODULE CLOCK;
 
+    input    MasterClock,
     input    MCK,                                                               //[CLOCK.NET:00017] INPUTS	MCK,VRD,VWR,NTSC,FAST,TSTCLK,LP;
     input    VRD,                                                               //[CLOCK.NET:00017] INPUTS	MCK,VRD,VWR,NTSC,FAST,TSTCLK,LP;
     input    VWR,                                                               //[CLOCK.NET:00017] INPUTS	MCK,VRD,VWR,NTSC,FAST,TSTCLK,LP;

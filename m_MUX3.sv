@@ -1,6 +1,7 @@
 module m_MUX3                                                                   //[COUNTERS.NET:00228] MODULE MUX3;
 (                                                                               //[COUNTERS.NET:00228] MODULE MUX3;
 
+    input    MasterClock,
     input    A,                                                                 //[COUNTERS.NET:00230] INPUTS	A,B,C,SEL_0,SEL_1;
     input    B,                                                                 //[COUNTERS.NET:00230] INPUTS	A,B,C,SEL_0,SEL_1;
     input    C,                                                                 //[COUNTERS.NET:00230] INPUTS	A,B,C,SEL_0,SEL_1;

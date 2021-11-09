@@ -12,6 +12,7 @@ Address adder A input multiplexer
 module m_ADDAMUX                                                                //[ADDAMUX.NET:00012] MODULE ADDAMUX;
 (                                                                               //[ADDAMUX.NET:00012] MODULE ADDAMUX;
 
+    input    MasterClock,
     input    SAL_0,                                                             //[ADDAMUX.NET:00014] INPUTS	SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,SAL_6,SAL_7,SAL_8,SAL_9,SAL_10,
     input    SAL_1,                                                             //[ADDAMUX.NET:00014] INPUTS	SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,SAL_6,SAL_7,SAL_8,SAL_9,SAL_10,
     input    SAL_2,                                                             //[ADDAMUX.NET:00014] INPUTS	SAL_0,SAL_1,SAL_2,SAL_3,SAL_4,SAL_5,SAL_6,SAL_7,SAL_8,SAL_9,SAL_10,

@@ -15,6 +15,7 @@ the SLIPSTREAM chip on the ACW
 module m_STAT                                                                   //[STAT.NET:00015] MODULE STAT;
 (                                                                               //[STAT.NET:00015] MODULE STAT;
 
+    input    MasterClock,
     input    inD_0,                                                             //[STAT.NET:00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
     input    inD_1,                                                             //[STAT.NET:00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,
     input    inD_2,                                                             //[STAT.NET:00017] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,WD_0,WD_1,WD_2,WD_3,WD_4,STATL,

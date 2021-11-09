@@ -12,6 +12,7 @@ Blitter Inner Loop State Machine
 module m_STINNER                                                                //[STINNER.NET:00012] MODULE STINNER;
 (                                                                               //[STINNER.NET:00012] MODULE STINNER;
 
+    input    MasterClock,
     input    BORROW,                                                            //[STINNER.NET:00014] INPUTS	BORROW,CCLK,COLST,CYCEND,CYCST,DAM1L,DSTEN,ICYCEND,ICYCST,ILDPATL,INHIB,
     input    CCLK,                                                              //[STINNER.NET:00014] INPUTS	BORROW,CCLK,COLST,CYCEND,CYCST,DAM1L,DSTEN,ICYCEND,ICYCST,ILDPATL,INHIB,
     input    COLST,                                                             //[STINNER.NET:00014] INPUTS	BORROW,CCLK,COLST,CYCEND,CYCST,DAM1L,DSTEN,ICYCEND,ICYCST,ILDPATL,INHIB,

@@ -20,6 +20,7 @@ is given by the signal srcltoh.
 module m_SRCDATA                                                                //[SRCDATA.NET:00020] MODULE SRCDATA;
 (                                                                               //[SRCDATA.NET:00020] MODULE SRCDATA;
 
+    input    MasterClock,
     input    ID_0,                                                              //[SRCDATA.NET:00022] INPUTS	ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,ID_7,ID_8,ID_9,ID_10,ID_11,ID_12,
     input    ID_1,                                                              //[SRCDATA.NET:00022] INPUTS	ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,ID_7,ID_8,ID_9,ID_10,ID_11,ID_12,
     input    ID_2,                                                              //[SRCDATA.NET:00022] INPUTS	ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,ID_7,ID_8,ID_9,ID_10,ID_11,ID_12,

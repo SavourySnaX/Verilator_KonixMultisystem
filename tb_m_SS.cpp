@@ -9,7 +9,7 @@
 #define TRACE_ON    1
 
 #define FRAME_START 0
-#define FRAME_STOP  4
+#define FRAME_STOP  3
 
 int lastPCLK = 2;
 bool gTrace=false;
@@ -735,7 +735,7 @@ int main(int argc, char** argv)
 
 #if TRACE_ON
 	tb->trace(trace, 99);
-	trace->open("trace.vcd");
+	trace->open(TRACE_FILE);
 #endif
 
     SetXAD(tb,0);

@@ -4,7 +4,7 @@
 *	vtim-hdl					*
 *	2/11/88						*
 ********************************************************/
-/* verilator lint_off UNOPTFLAT */
+
 /*
 This module provides the video timing in the SLIPSTREAM chip on the ACW
 */
@@ -12,9 +12,11 @@ This module provides the video timing in the SLIPSTREAM chip on the ACW
 
 
 
+/* verilator lint_off UNOPTFLAT */
 module m_VTIM                                                                   //[VTIM.NET:00015] MODULE VTIM;
 (                                                                               //[VTIM.NET:00015] MODULE VTIM;
 
+    input    MasterClock,
     input    RESETL_0,                                                          //[VTIM.NET:00017] INPUTS	RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,WD_5,WD_6,WD_7,MODE_0,MODE_1,
     input    CLK,                                                               //[VTIM.NET:00017] INPUTS	RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,WD_5,WD_6,WD_7,MODE_0,MODE_1,
     input    WD_0,                                                              //[VTIM.NET:00017] INPUTS	RESETL_0,CLK,WD_0,WD_1,WD_2,WD_3,WD_4,WD_5,WD_6,WD_7,MODE_0,MODE_1,
@@ -232,35 +234,35 @@ assign VSTARTL = ~VSTART;                                                       
 at the begining of the line after scrl2 is written */
 
 assign SCRLL_2 = ~SCRL_2;                                                       //[VTIM.NET:00059] SCRLL_2_(SCRLL_2) = N1A(SCRL_2);
-m_SR NEWSCROLL_ (.S(SCRLL_2),.R(LOADL),.Q(NEWSCROLL),.QL(NEWSCROLLL));          //[VTIM.NET:00060] NEWSCROLL_(NEWSCROLL,NEWSCROLLL) = SR(SCRLL_2,LOADL);
+m_SR NEWSCROLL_ (.MasterClock(MasterClock),.S(SCRLL_2),.R(LOADL),.Q(NEWSCROLL),.QL(NEWSCROLLL));//[VTIM.NET:00060] NEWSCROLL_(NEWSCROLL,NEWSCROLLL) = SR(SCRLL_2,LOADL);
 assign UPDATEL = ~(HD1 & NEWSCROLL);                                            //[VTIM.NET:00061] UPDATEL_(UPDATEL) = ND2A(HD1,NEWSCROLL);
 assign LOAD = ~(UPDATEL & VSTARTL);                                             //[VTIM.NET:00062] LOAD_(LOAD) = ND2A(UPDATEL,VSTARTL);
 assign LOADL = ~LOAD;                                                           //[VTIM.NET:00063] LOADL_(LOADL) = N1B(LOAD);
 
 assign SA_0 = RES;                                                              //[VTIM.NET:00065] SA_0_(SA_0) = B3A(RES);
-m_SYNCNT SA_1_ (.D(SCR_1),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(LINC),.Q(SA_1),.QB(SAB_1),.CO(CO_1));//[VTIM.NET:00066] SA_1_(SA_1,SAB_1,CO_1) = SYNCNT(SCR_1,CLK,RES,LOADL,LINC);
-m_SYNCNT SA_2_ (.D(SCR_2),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_1),.Q(SA_2),.QB(SAB_2),.CO(CO_2));//[VTIM.NET:00067] SA_2_(SA_2,SAB_2,CO_2) = SYNCNT(SCR_2,CLK,RES,LOADL,CO_1);
-m_SYNCNT SA_3_ (.D(SCR_3),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_2),.Q(SA_3),.QB(SAB_3),.CO(CO_3));//[VTIM.NET:00068] SA_3_(SA_3,SAB_3,CO_3) = SYNCNT(SCR_3,CLK,RES,LOADL,CO_2);
-m_SYNCNT SA_4_ (.D(SCR_4),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_3),.Q(SA_4),.QB(SAB_4),.CO(CO_4));//[VTIM.NET:00069] SA_4_(SA_4,SAB_4,CO_4) = SYNCNT(SCR_4,CLK,RES,LOADL,CO_3);
-m_SYNCNT SA_5_ (.D(SCR_5),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_4),.Q(SA_5),.QB(SAB_5),.CO(CO_5));//[VTIM.NET:00070] SA_5_(SA_5,SAB_5,CO_5) = SYNCNT(SCR_5,CLK,RES,LOADL,CO_4);
-m_SYNCNT SA_6_ (.D(SCR_6),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_5),.Q(SA_6),.QB(SAB_6),.CO(CO_6));//[VTIM.NET:00071] SA_6_(SA_6,SAB_6,CO_6) = SYNCNT(SCR_6,CLK,RES,LOADL,CO_5);
+m_SYNCNT SA_1_ (.MasterClock(MasterClock),.D(SCR_1),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(LINC),.Q(SA_1),.QB(SAB_1),.CO(CO_1));//[VTIM.NET:00066] SA_1_(SA_1,SAB_1,CO_1) = SYNCNT(SCR_1,CLK,RES,LOADL,LINC);
+m_SYNCNT SA_2_ (.MasterClock(MasterClock),.D(SCR_2),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_1),.Q(SA_2),.QB(SAB_2),.CO(CO_2));//[VTIM.NET:00067] SA_2_(SA_2,SAB_2,CO_2) = SYNCNT(SCR_2,CLK,RES,LOADL,CO_1);
+m_SYNCNT SA_3_ (.MasterClock(MasterClock),.D(SCR_3),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_2),.Q(SA_3),.QB(SAB_3),.CO(CO_3));//[VTIM.NET:00068] SA_3_(SA_3,SAB_3,CO_3) = SYNCNT(SCR_3,CLK,RES,LOADL,CO_2);
+m_SYNCNT SA_4_ (.MasterClock(MasterClock),.D(SCR_4),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_3),.Q(SA_4),.QB(SAB_4),.CO(CO_4));//[VTIM.NET:00069] SA_4_(SA_4,SAB_4,CO_4) = SYNCNT(SCR_4,CLK,RES,LOADL,CO_3);
+m_SYNCNT SA_5_ (.MasterClock(MasterClock),.D(SCR_5),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_4),.Q(SA_5),.QB(SAB_5),.CO(CO_5));//[VTIM.NET:00070] SA_5_(SA_5,SAB_5,CO_5) = SYNCNT(SCR_5,CLK,RES,LOADL,CO_4);
+m_SYNCNT SA_6_ (.MasterClock(MasterClock),.D(SCR_6),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_5),.Q(SA_6),.QB(SAB_6),.CO(CO_6));//[VTIM.NET:00071] SA_6_(SA_6,SAB_6,CO_6) = SYNCNT(SCR_6,CLK,RES,LOADL,CO_5);
 
-m_SYNCNT SA_7_ (.D(SCR_7),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(EN_7),.Q(SA_7),.QB(SAB_7),.CO(CO_7));//[VTIM.NET:00073] SA_7_(SA_7,SAB_7,CO_7) = SYNCNT(SCR_7,CLK,RES,LOADL,EN_7);
-m_SYNCNT SA_8_ (.D(SCR_8),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(EN_8),.Q(SA_8),.QB(SAB_8),.CO(CO_8));//[VTIM.NET:00074] SA_8_(SA_8,SAB_8,CO_8) = SYNCNT(SCR_8,CLK,RES,LOADL,EN_8);
+m_SYNCNT SA_7_ (.MasterClock(MasterClock),.D(SCR_7),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(EN_7),.Q(SA_7),.QB(SAB_7),.CO(CO_7));//[VTIM.NET:00073] SA_7_(SA_7,SAB_7,CO_7) = SYNCNT(SCR_7,CLK,RES,LOADL,EN_7);
+m_SYNCNT SA_8_ (.MasterClock(MasterClock),.D(SCR_8),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(EN_8),.Q(SA_8),.QB(SAB_8),.CO(CO_8));//[VTIM.NET:00074] SA_8_(SA_8,SAB_8,CO_8) = SYNCNT(SCR_8,CLK,RES,LOADL,EN_8);
 
-m_SYNCNT SA_9_ (.D(SCR_9),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_8),.Q(SA_9),.QB(SAB_9),.CO(CO_9));//[VTIM.NET:00076] SA_9_(SA_9,SAB_9,CO_9) = SYNCNT(SCR_9,CLK,RES,LOADL,CO_8);
-m_SYNCNT SA_10_ (.D(SCR_10),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_9),.Q(SA_10),.QB(SAB_10),.CO(CO_10));//[VTIM.NET:00077] SA_10_(SA_10,SAB_10,CO_10) = SYNCNT(SCR_10,CLK,RES,LOADL,CO_9);
-m_SYNCNT SA_11_ (.D(SCR_11),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_10),.Q(SA_11),.QB(SAB_11),.CO(CO_11));//[VTIM.NET:00078] SA_11_(SA_11,SAB_11,CO_11) = SYNCNT(SCR_11,CLK,RES,LOADL,CO_10);
-m_SYNCNT SA_12_ (.D(SCR_12),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_11),.Q(SA_12),.QB(SAB_12),.CO(CO_12));//[VTIM.NET:00079] SA_12_(SA_12,SAB_12,CO_12) = SYNCNT(SCR_12,CLK,RES,LOADL,CO_11);
-m_SYNCNT SA_13_ (.D(SCR_13),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_12),.Q(SA_13),.QB(SAB_13),.CO(CO_13));//[VTIM.NET:00080] SA_13_(SA_13,SAB_13,CO_13) = SYNCNT(SCR_13,CLK,RES,LOADL,CO_12);
-m_SYNCNT SA_14_ (.D(SCR_14),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_13),.Q(SA_14),.QB(SAB_14),.CO(CO_14));//[VTIM.NET:00081] SA_14_(SA_14,SAB_14,CO_14) = SYNCNT(SCR_14,CLK,RES,LOADL,CO_13);
-m_SYNCNT SA_15_ (.D(SCR_15),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_14),.Q(SA_15),.QB(SAB_15),.CO(CO_15));//[VTIM.NET:00082] SA_15_(SA_15,SAB_15,CO_15) = SYNCNT(SCR_15,CLK,RES,LOADL,CO_14);
+m_SYNCNT SA_9_ (.MasterClock(MasterClock),.D(SCR_9),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_8),.Q(SA_9),.QB(SAB_9),.CO(CO_9));//[VTIM.NET:00076] SA_9_(SA_9,SAB_9,CO_9) = SYNCNT(SCR_9,CLK,RES,LOADL,CO_8);
+m_SYNCNT SA_10_ (.MasterClock(MasterClock),.D(SCR_10),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_9),.Q(SA_10),.QB(SAB_10),.CO(CO_10));//[VTIM.NET:00077] SA_10_(SA_10,SAB_10,CO_10) = SYNCNT(SCR_10,CLK,RES,LOADL,CO_9);
+m_SYNCNT SA_11_ (.MasterClock(MasterClock),.D(SCR_11),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_10),.Q(SA_11),.QB(SAB_11),.CO(CO_11));//[VTIM.NET:00078] SA_11_(SA_11,SAB_11,CO_11) = SYNCNT(SCR_11,CLK,RES,LOADL,CO_10);
+m_SYNCNT SA_12_ (.MasterClock(MasterClock),.D(SCR_12),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_11),.Q(SA_12),.QB(SAB_12),.CO(CO_12));//[VTIM.NET:00079] SA_12_(SA_12,SAB_12,CO_12) = SYNCNT(SCR_12,CLK,RES,LOADL,CO_11);
+m_SYNCNT SA_13_ (.MasterClock(MasterClock),.D(SCR_13),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_12),.Q(SA_13),.QB(SAB_13),.CO(CO_13));//[VTIM.NET:00080] SA_13_(SA_13,SAB_13,CO_13) = SYNCNT(SCR_13,CLK,RES,LOADL,CO_12);
+m_SYNCNT SA_14_ (.MasterClock(MasterClock),.D(SCR_14),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_13),.Q(SA_14),.QB(SAB_14),.CO(CO_14));//[VTIM.NET:00081] SA_14_(SA_14,SAB_14,CO_14) = SYNCNT(SCR_14,CLK,RES,LOADL,CO_13);
+m_SYNCNT SA_15_ (.MasterClock(MasterClock),.D(SCR_15),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_14),.Q(SA_15),.QB(SAB_15),.CO(CO_15));//[VTIM.NET:00082] SA_15_(SA_15,SAB_15,CO_15) = SYNCNT(SCR_15,CLK,RES,LOADL,CO_14);
 
 /* the screen may or may not wrap around 64k boundary */
 
 assign INC = CO_15 & NOWRAP;                                                    //[VTIM.NET:00086] NOWRAP_(INC) = AND2A(CO_15,NOWRAP);
-m_SYNCNT SA_16_ (.D(SCR_16),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(INC),.Q(SA_16),.QB(SAB_16),.CO(CO_16));//[VTIM.NET:00087] SA_16_(SA_16,SAB_16,CO_16) = SYNCNT(SCR_16,CLK,RES,LOADL,INC);
-m_SYNCNT SAL_17_ (.D(SCR_17),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_16),.Q(SA_17),.QB(SAB_17),.CO(CO_17));//[VTIM.NET:00088] SAL_17_(SA_17,SAB_17,CO_17) = SYNCNT(SCR_17,CLK,RES,LOADL,CO_16);
+m_SYNCNT SA_16_ (.MasterClock(MasterClock),.D(SCR_16),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(INC),.Q(SA_16),.QB(SAB_16),.CO(CO_16));//[VTIM.NET:00087] SA_16_(SA_16,SAB_16,CO_16) = SYNCNT(SCR_16,CLK,RES,LOADL,INC);
+m_SYNCNT SAL_17_ (.MasterClock(MasterClock),.D(SCR_17),.CLK(CLK),.CLR(RES),.LDL(LOADL),.CI(CO_16),.Q(SA_17),.QB(SAB_17),.CO(CO_17));//[VTIM.NET:00088] SAL_17_(SA_17,SAB_17,CO_17) = SYNCNT(SCR_17,CLK,RES,LOADL,CO_16);
 
 assign ENL_7 = ~((LORES & HINC)|(LORESL & CO_6));                               //[VTIM.NET:00090] ENL_7_(ENL_7) = AO2A(LORES,HINC,LORESL,CO_6);
 assign ENL_8 = ~((LORES & CO_7)|(LORESL & HINC));                               //[VTIM.NET:00091] ENL_8_(ENL_8) = AO2A(LORES,CO_7,LORESL,HINC);

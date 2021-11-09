@@ -12,6 +12,7 @@ Blitter data comparator
 module m_COMP                                                                   //[COMP.NET:00012] MODULE COMP;
 (                                                                               //[COMP.NET:00012] MODULE COMP;
 
+    input    MasterClock,
     input    DSTCMP,                                                            //[COMP.NET:00014] INPUTS	DSTCMP,ID_0,ID_1,ID_2,ID_3,LDCMPL,LDMODL,SRCD_0,SRCD_1,SRCD_2,SRCD_3,
     input    ID_0,                                                              //[COMP.NET:00014] INPUTS	DSTCMP,ID_0,ID_1,ID_2,ID_3,LDCMPL,LDMODL,SRCD_0,SRCD_1,SRCD_2,SRCD_3,
     input    ID_1,                                                              //[COMP.NET:00014] INPUTS	DSTCMP,ID_0,ID_1,ID_2,ID_3,LDCMPL,LDMODL,SRCD_0,SRCD_1,SRCD_2,SRCD_3,
@@ -242,7 +243,7 @@ assign BIT = ~(BITG_0 & BITG_1 & BITG_2 & BITG_3 & BITG_4 & BITG_5 & BITG_6 & BI
 /* Plane number comparison
    Priority Equal and Not Equal */
 
-m_MACINV2 TRMINV1_ (.I1(SEQ_3),.I2(SEQ_6),.Q1(TRM1),.Q2(TRM2));                 //[COMP.NET:00111] TRMINV1_(TRM1,TRM2) = MACINV2(SEQ_3,SEQ_6);
+m_MACINV2 TRMINV1_ (.MasterClock(MasterClock),.I1(SEQ_3),.I2(SEQ_6),.Q1(TRM1),.Q2(TRM2));//[COMP.NET:00111] TRMINV1_(TRM1,TRM2) = MACINV2(SEQ_3,SEQ_6);
 assign DAM1 = ~DAM1L;                                                           //[COMP.NET:00112] DAM1_(DAM1) = N1A(DAM1L);
 assign PRTRM_0 = ~(TRM1 & DAM1L);                                               //[COMP.NET:00113] PRTRM0G_(PRTRM_0) = ND2A(TRM1,DAM1L);
 assign PRTRM_1 = ~(TRM3 & DAM1);                                                //[COMP.NET:00114] PRTRM1G_(PRTRM_1) = ND2A(TRM3,DAM1);

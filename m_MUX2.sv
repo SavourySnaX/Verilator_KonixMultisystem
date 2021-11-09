@@ -1,6 +1,7 @@
 module m_MUX2                                                                   //[MACROS.NET:00027] MODULE MUX2;
 (                                                                               //[MACROS.NET:00027] MODULE MUX2;
 
+    input    MasterClock,
     input    IN1,                                                               //[MACROS.NET:00029] INPUTS	IN1,SEL1,IN2,SEL2;
     input    SEL1,                                                              //[MACROS.NET:00029] INPUTS	IN1,SEL1,IN2,SEL2;
     input    IN2,                                                               //[MACROS.NET:00029] INPUTS	IN1,SEL1,IN2,SEL2;

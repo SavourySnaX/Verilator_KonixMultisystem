@@ -1,8 +1,9 @@
 /* PORTED BY HAND AT PRESENT */
 
-
 module m_SS
 (
+    input   MasterClock,
+
     input   inXAD_0,
     input   inXAD_1,
     input   inXAD_2,
@@ -158,6 +159,11 @@ module m_SS
     ,output DQCLK
     ,output [13:0] LEFTDAC
     ,output [13:0] RIGHTDAC
+
+    ,input FCLK
+    ,output [19:0] SLIPADDRESS
+	 
+	 ,output BLANKING
 );
 
 // COMBINED FROM OUTS
@@ -266,12 +272,13 @@ wire POE,PWE,AISEL,INCL,DSP_EN,/*DQCLK,*/DSPBRQL;
 wire DSPBAKL,LEFTL,LEFTH,RIGHTL,RIGHTH,DSP_IN,DSP_OUT;
 wire PRAMEN,PRAMWR,DRAMEN,DRAMWR,ROMEN;
 
-wire TCX,TCY,INT,TESTPINPO,XTALLI,WEL,WE,OE,CASL;
+wire TCX,TCY,INT,TESTPINPO,XTALLI,WEL,CASL;
 wire OEL,CHROMA,INC;
 
 // Video
 
 m_VID VID_(
+    .MasterClock(MasterClock),
     .inA_0(A[0]),.inA_1(A[1]),.inA_2(A[2]),.inA_3(A[3]),.inA_4(A[4]),.inA_5(A[5]),.inA_6(A[6]),.inA_7(A[7]),
     .inA_8(A[8]),.inA_9(A[9]),.inA_10(A[10]),.inA_11(A[11]),.inA_12(A[12]),.inA_13(A[13]),.inA_14(A[14]),.inA_15(A[15]),
     .inA_16(A[16]),.inA_17(A[17]),.inA_18(A[18]),.inA_19(A[19]),
@@ -320,11 +327,13 @@ m_VID VID_(
     .OE(OE),.CAS(CAS),.IORDL(IORDL),.IOWRL(IOWRL),.BCSL(BCSL),.DCSL(DCSL),.ICCLK(ICCLK),.WAITL(WAITL),.RDL(RDL),.WRL(WRL),
     .PA_0(PA[0]),.PA_1(PA[1]),.PA_2(PA[2]),.PA_3(PA[3]),.PA_4(PA[4]),.PA_5(PA[5]),.PA_6(PA[6]),.PA_7(PA[7]),
     .POE(POE),.PWE(PWE),.PCS(PCS),.MO(AISEL),.INCL(INCL),.DOEN(DSP_EN),.GPIOL_0(GPIOL[0]),.GPIOL_1(GPIOL[1]),.DQCLK(DQCLK)
+	 ,.BLANKING(BLANKING)
 );
 
 // Blitter
 
 m_BLIT BLIT_(
+    .MasterClock(MasterClock),
     .inA_0(A[0]),.inA_1(A[1]),.inA_2(A[2]),.inA_3(A[3]),.inA_4(A[4]),.inA_5(A[5]),.inA_6(A[6]),.inA_7(A[7]),
     .inA_8(A[8]),.inA_9(A[9]),.inA_10(A[10]),.inA_11(A[11]),.inA_12(A[12]),.inA_13(A[13]),.inA_14(A[14]),.inA_15(A[15]),
     .inA_16(A[16]),.inA_17(A[17]),.inA_18(A[18]),.inA_19(A[19]),
@@ -347,6 +356,7 @@ m_BLIT BLIT_(
 // DSP
 
 m_DSP DSP_(
+    .MasterClock(MasterClock),
     .inA_0(A[0]),.inA_1(A[1]),.inA_2(A[2]),.inA_3(A[3]),.inA_4(A[4]),.inA_5(A[5]),.inA_6(A[6]),.inA_7(A[7]),
     .inA_8(A[8]),.inA_9(A[9]),.inA_10(A[10]),.inA_11(A[11]),.inA_12(A[12]),.inA_13(A[13]),.inA_14(A[14]),.inA_15(A[15]),
     .inA_16(A[16]),.inA_17(A[17]),.inA_18(A[18]),.inA_19(A[19]),
@@ -799,9 +809,19 @@ assign XGPIOL_1 = GPIOL[1];             // GPIOL_1_(XGPIOL_1) = &B4R(GPIOL_1);
 // COMBINING SIGNALS
 
 assign A = (AVIDo & AVIDe) | (ABLITo & ABLITe) | (ADSPo & ADSPe);
+assign SLIPADDRESS = A;
+
 assign D = (DVIDo & DVIDe) | (DBLITo & DBLITe) | (DDSPo & DDSPe);
 assign PALD = (PALDVIDo & PALDVIDe) | (PALDRAMo & PALDRAMe);
 assign DD = (DDDSPo & DDDSPe) | (DDRAMo & DDRAMe) | (DDROMo & DDROMe);
 assign PD = (PDDSPo & PDDSPe) | (PDRAMo & PDRAMe);
-  
+always @(posedge FCLK)
+begin
+ //A <= (AVIDo & AVIDe) | (ABLITo & ABLITe) | (ADSPo & ADSPe);
+ //D <= (DVIDo & DVIDe) | (DBLITo & DBLITe) | (DDSPo & DDSPe);
+ //PALD <= (PALDVIDo & PALDVIDe) | (PALDRAMo & PALDRAMe);
+ //DD <= (DDDSPo & DDDSPe) | (DDRAMo & DDRAMe) | (DDROMo & DDROMe);
+ //PD <= (PDDSPo & PDDSPe) | (PDRAMo & PDRAMe);
+// XOEL <= OEL;
+end
 endmodule

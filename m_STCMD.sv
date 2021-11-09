@@ -14,6 +14,7 @@ Note - that irc[4] is brought out as the command read cycle request, comcrq
 module m_STCMD                                                                  //[STCMD.NET:00014] MODULE STCMD;
 (                                                                               //[STCMD.NET:00014] MODULE STCMD;
 
+    input    MasterClock,
     input    CCLK,                                                              //[STCMD.NET:00016] INPUTS	CCLK,CYCEND,ICYCEND,RDCMD,RESET,RUN,SRESET;
     input    CYCEND,                                                            //[STCMD.NET:00016] INPUTS	CCLK,CYCEND,ICYCEND,RDCMD,RESET,RUN,SRESET;
     input    ICYCEND,                                                           //[STCMD.NET:00016] INPUTS	CCLK,CYCEND,ICYCEND,RDCMD,RESET,RUN,SRESET;

@@ -1,6 +1,7 @@
 module m_SYNDCNTC0                                                              //[LEGO.NET:00207] MODULE SYNDCNTC0;
 (                                                                               //[LEGO.NET:00207] MODULE SYNDCNTC0;
 
+    input    MasterClock,
     input    CLK,                                                               //[LEGO.NET:00209] INPUTS	CLK,CLL;
     input    CLL,                                                               //[LEGO.NET:00209] INPUTS	CLK,CLL;
     output    Q,                                                                //[LEGO.NET:00210] OUTPUTS	Q,QB;

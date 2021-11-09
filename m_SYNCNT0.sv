@@ -1,6 +1,7 @@
 module m_SYNCNT0                                                                //[LEGO.NET:00049] MODULE SYNCNT0;
 (                                                                               //[LEGO.NET:00049] MODULE SYNCNT0;
 
+    input    MasterClock,
     input    D,                                                                 //[LEGO.NET:00051] INPUTS	D,CLK,CLR,LDL;
     input    CLK,                                                               //[LEGO.NET:00051] INPUTS	D,CLK,CLR,LDL;
     input    CLR,                                                               //[LEGO.NET:00051] INPUTS	D,CLK,CLR,LDL;

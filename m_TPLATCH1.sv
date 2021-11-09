@@ -1,6 +1,7 @@
 module m_TPLATCH1                                                               //[MACROS.NET:00201] MODULE TPLATCH1;
 (                                                                               //[MACROS.NET:00201] MODULE TPLATCH1;
 
+    input    MasterClock,
     input    D,                                                                 //[MACROS.NET:00203] INPUTS	D,EB;
     input    EB,                                                                //[MACROS.NET:00203] INPUTS	D,EB;
     output    Q                                                                 //[MACROS.NET:00204] OUTPUTS	Q;

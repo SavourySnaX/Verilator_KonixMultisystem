@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Sun Oct  3 11:49:20 2021
+[*] Wed Oct 13 11:31:31 2021
 [*]
-[dumpfile] "/home/snax/fpga/verilator/slipstream1/trace.vcd"
-[dumpfile_mtime] "Sun Oct  3 09:27:08 2021"
-[dumpfile_size] 163928092
+[dumpfile] "/home/snax/fpga/verilator/slipstream1/m_SS.vcd"
+[dumpfile_mtime] "Wed Oct 13 08:20:05 2021"
+[dumpfile_size] 705190013
 [savefile] "/home/snax/fpga/verilator/slipstream1/SS_Debug_BlitterFetch.gtkw"
-[timestart] 18574939
-[size] 5048 1376
-[pos] -101 -101
-*-9.953541 18584983 18577800 18578275 18579223 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[timestart] 3540041
+[size] 2359 1361
+[pos] -59 -58
+*-7.953541 3540865 18577800 18578275 18579223 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
 [treeopen] TOP.m_SS.
 [treeopen] TOP.m_SS.BLIT_.
@@ -24,7 +24,7 @@
 [sst_width] 233
 [signals_width] 261
 [sst_expanded] 1
-[sst_vpaned_height] 876
+[sst_vpaned_height] 864
 @200
 -From Main Board
 @28
@@ -84,6 +84,9 @@ TOP.XRESET
 TOP.XIOM
 TOP.XALE
 TOP.XINTA
+@29
+TOP.XINTR
+@28
 TOP.XHLDA
 TOP.XRDL
 TOP.XWRL
@@ -1846,9 +1849,8 @@ TOP.m_SS.BLIT_.ADDR_.ADDRADD_.ADDER5__inst.SUM[4:0]
 TOP.m_SS.BLIT_.ADDR_.ADDRADD_.ADDER5__inst.CO
 @200
 -
-@29
-TOP.m_SS.BLIT_.STATE_.STMEM_.INCRQ
 @28
+TOP.m_SS.BLIT_.STATE_.STMEM_.INCRQ
 TOP.m_SS.BLIT_.STATE_.STMEM_.CYCST
 TOP.m_SS.BLIT_.STATE_.STMEM_.BWORD
 TOP.m_SS.BLIT_.STATE_.STINNER_.SRCRD
@@ -1870,7 +1872,7 @@ TOP.m_SS.BLIT_.STATE_.STMEM_.IMI_3
 @28
 TOP.m_SS.BLIT_.STATE_.STMEM_.MI_0
 TOP.m_SS.BLIT_.STATE_.STMEM_.MI_1
-@1401202
+@1401200
 -group_end
 [pattern_trace] 1
 [pattern_trace] 0

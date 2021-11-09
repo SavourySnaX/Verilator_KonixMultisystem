@@ -3,19 +3,19 @@ module m_top
     input FCLK,             // Ultimately will need to be all clocks rather than deriving the clocks internally from slipstream
     input RESET,
 
-    output [19:0] ABus,         // For hooking up ram
-    output Write,
-    output Word,
+    output reg [19:0] ABus,         // For hooking up ram
+    output reg Write,
+    output reg Word,
+    output reg Read,
     input [15:0] inRamData,
-    output [15:0] outRamData,
+    output reg [15:0] outRamData,
 
-    output Chroma,              // Video
-    output VSyncL,
-    output HSyncL,
-    output [3:0] Red,
-    output [3:0] Green,
-    output [3:0] Blue
-
+    output reg Chroma,              // Video
+    output reg VSyncL,
+    output reg HSyncL,
+    output reg [3:0] Red,
+    output reg [3:0] Green,
+    output reg [3:0] Blue
 );
 
 wire [7:0] XAD, SS_outXAD, SS_enXAD;
@@ -28,9 +28,11 @@ wire [17:16] latchedUpperXA;
 wire [2:0] joy, enjoy;
 wire io,enio;
 
+wire blanking;
+
 wire enVSyncL,enHSyncL;
 
-wire IOM,ALE,INTA,HLDA,XTAL,RDL,WRL,INTR,PCLK,HOLD;
+wire IOM,ALE,INTA,HLDA,XTAL,RDL,WRL,PCLK,HOLD,INTR;
 wire INTAL;
 wire [1:0] ScreenChipEnableL, ChipSelectLow;
 wire SlipStreamWriteL;
@@ -50,16 +52,22 @@ wire [19:0] cpuA;
 wire [7:0] cpuDOut;
 wire [7:0] cpuDIn;
 
-assign XAD = (inRamData[7:0] & HLDA) | (((cpuA[7:0] & {8{ALE}}) | (cpuDOut & {8{~ALE}})) & (~HLDA));
+wire [19:0] slipAddress;
+wire [19:0] slipAddressVideo;
+
+assign slipAddressVideo = {2'b00,latchedUpperXA,SS_outXA[15:8],latchedLowXA};
+
+assign XAD = (inRamData[7:0] & {8{HLDA}}) | (((cpuA[7:0] & {8{ALE}} & ({8{~HLDA}})) | (cpuDOut & {8{~ALE}})) & ({8{~HLDA}}));
 assign XA = cpuA[19:8];
-assign XD = (inRamData[15:8] & HLDA);
-assign ABus = (cpuA & (~HLDA)) | ({~ChipSelectLow[0],~ChipSelectLow[1],latchedUpperXA,SS_outXA[15:8],latchedLowXA} & HLDA);
-assign Word = 0;
-assign Write = 0;
+assign XD = inRamData[15:8];
+assign ABus = (cpuA & {20{~HLDA}}) | ({20{HLDA}} & (slipAddress & {20{~Word}}) | (slipAddressVideo & {20{Word}}));
+assign Word = ScreenChipEnableL==2'b00;
+assign Write = (~SlipStreamWriteL) | (~WRL & ~IOM);
+assign Read = (~oeL) | (~RDL & ~IOM);
 
-assign cpuDIn = inRamData[7:0];
+assign cpuDIn = (inRamData[7:0] & (~SS_enXAD)) | (SS_outXAD & SS_enXAD);
 
-assign outRamData = ({SS_outXD,SS_outXAD} & HLDA) | (cpuDOut & (~HLDA));
+assign outRamData = ({SS_outXD,SS_outXAD} & {16{HLDA}}) | (cpuDOut & ({16{~HLDA}}));
 
 reg [1:0] cnt;
 reg DCLK;
@@ -76,7 +84,10 @@ end
 
 assign XTAL = DCLK; // TODO pick a divisor
 
+/* verilator lint_off UNOPTFLAT */
+
 m_SS SlipStream(
+    .MasterClock(FCLK),
     .inXAD_0(XAD[0]),.inXAD_1(XAD[1]),.inXAD_2(XAD[2]),.inXAD_3(XAD[3]),.inXAD_4(XAD[4]),.inXAD_5(XAD[5]),.inXAD_6(XAD[6]),.inXAD_7(XAD[7]),
     .inXA_8(XA[8]),.inXA_9(XA[9]),.inXA_10(XA[10]),.inXA_11(XA[11]),.inXA_12(XA[12]),.inXA_13(XA[13]),.inXA_14(XA[14]),.inXA_15(XA[15]),
     .inXD_8(XD[8]),.inXD_9(XD[9]),.inXD_10(XD[10]),.inXD_11(XD[11]),.inXD_12(XD[12]),.inXD_13(XD[13]),.inXD_14(XD[14]),.inXD_15(XD[15]),
@@ -107,8 +118,13 @@ m_SS SlipStream(
     .XB_0(Blue[0]),.XB_1(Blue[1]),.XB_2(Blue[2]),.XB_3(Blue[3]),
     .XCHROMA(Chroma),.XLEFTL(leftL),.XLEFTH(leftH),.XRIGHTL(rightL),.XRIGHTH(rightH),
     .XINC(inc),.XAISEL(aiSel),.XOEL(oeL),.XCASL(casL),.XXTALO(xtalo),.XGPIOL_0(gpioL[0]),.XGPIOL_1(gpioL[1]),
-    .DQCLK(qclk),.LEFTDAC(leftDAC),.RIGHTDAC(rightDAC)
+    .DQCLK(qclk),.LEFTDAC(leftDAC),.RIGHTDAC(rightDAC),
+    .FCLK(FCLK),
+    .SLIPADDRESS(slipAddress),
+    .BLANKING(blanking)
     );
+
+/* verilator lint_on UNOPTFLAT */
 
 m8088 Processor(
     .CORE_CLK(FCLK),

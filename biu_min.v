@@ -618,14 +618,21 @@ else
       // 1 Wait for the rising edge of CLK to start the bus cycle; then assert IOM and DTR
       8'h01 : 
               begin                   
-                if (clk_d4==1'b0 && clk_d3==1'b0 && clk_d2==1'b1) // Wait until next CLK rising edge
+                if (held)
                   begin
-                    IOM <= ~s_bits[2]; // Memory cycles
-                    DTR <=  s_bits[1]; // Read cycles
+                    biu_state <= 8'hC9;
                   end
                 else
                   begin
-                    biu_state <= 8'h01;
+                    if (clk_d4==1'b0 && clk_d3==1'b0 && clk_d2==1'b1) // Wait until next CLK rising edge
+                     begin
+                       IOM <= ~s_bits[2]; // Memory cycles
+                       DTR <=  s_bits[1]; // Read cycles
+                     end
+                    else
+                      begin
+                        biu_state <= 8'h01;
+                      end
                   end
               end
         
@@ -739,7 +746,7 @@ else
 
                 held <= HOLD;
                 HOLDA <= HOLD;
-                
+
                  addr_out_temp[15:0] <=  addr_out_temp[15:0] + 1;
                  if (word_cycle==1'b1 && byte_num==1'b0)
                    begin        
@@ -775,7 +782,12 @@ else
                 HOLDA<= HOLD;
                 biu_state <= 8'h00;
               end
-                 
+
+      8'hCF : begin
+                held <= HOLD;
+                HOLDA<= HOLD;
+                biu_state <= 8'h01;
+              end
       default : ;             
     endcase
 

@@ -12,6 +12,7 @@ Address update step value register
 module m_STEPREG                                                                //[STEPREG.NET:00012] MODULE STEPREG;
 (                                                                               //[STEPREG.NET:00012] MODULE STEPREG;
 
+    input    MasterClock,
     input    ID_0,                                                              //[STEPREG.NET:00014] INPUTS	ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,ID_7,LDMODL,LDSTPL;
     input    ID_1,                                                              //[STEPREG.NET:00014] INPUTS	ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,ID_7,LDMODL,LDSTPL;
     input    ID_2,                                                              //[STEPREG.NET:00014] INPUTS	ID_0,ID_1,ID_2,ID_3,ID_4,ID_5,ID_6,ID_7,LDMODL,LDSTPL;

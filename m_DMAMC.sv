@@ -1,6 +1,7 @@
 module m_DMAMC                                                                  //[DMA.NET:00256] MODULE DMAMC;
 (                                                                               //[DMA.NET:00256] MODULE DMAMC;
 
+    input    MasterClock,
     input    DMA0WRL,                                                           //[DMA.NET:00258] INPUTS	DMA0WRL,DSPBAK,DSPBAKL,WAIT,CLK,RESETL;
     input    DSPBAK,                                                            //[DMA.NET:00258] INPUTS	DMA0WRL,DSPBAK,DSPBAKL,WAIT,CLK,RESETL;
     input    DSPBAKL,                                                           //[DMA.NET:00258] INPUTS	DMA0WRL,DSPBAK,DSPBAKL,WAIT,CLK,RESETL;

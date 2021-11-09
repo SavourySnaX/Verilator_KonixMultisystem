@@ -1,6 +1,7 @@
 module m_CTNR                                                                   //[COUNTERS.NET:00035] MODULE CTNR;
 (                                                                               //[COUNTERS.NET:00035] MODULE CTNR;
 
+    input    MasterClock,
     input    D,                                                                 //[COUNTERS.NET:00037] INPUTS	D,LD,LDL,ENAB,CK;
     input    LD,                                                                //[COUNTERS.NET:00037] INPUTS	D,LD,LDL,ENAB,CK;
     input    LDL,                                                               //[COUNTERS.NET:00037] INPUTS	D,LD,LDL,ENAB,CK;

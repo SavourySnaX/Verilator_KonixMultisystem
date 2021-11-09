@@ -1,6 +1,7 @@
 module m_SYNDCNTP                                                               //[LEGO.NET:00159] MODULE SYNDCNTP;
 (                                                                               //[LEGO.NET:00159] MODULE SYNDCNTP;
 
+    input    MasterClock,
     input    CLK,                                                               //[LEGO.NET:00161] INPUTS	CLK,PRL,CI;
     input    PRL,                                                               //[LEGO.NET:00161] INPUTS	CLK,PRL,CI;
     input    CI,                                                                //[LEGO.NET:00161] INPUTS	CLK,PRL,CI;

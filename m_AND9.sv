@@ -1,6 +1,7 @@
 module m_AND9                                                                   //[LEGO.NET:00144] MODULE AND9;
 (                                                                               //[LEGO.NET:00144] MODULE AND9;
 
+    input    MasterClock,
     input    A_1,                                                               //[LEGO.NET:00146] INPUTS	A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9;
     input    A_2,                                                               //[LEGO.NET:00146] INPUTS	A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9;
     input    A_3,                                                               //[LEGO.NET:00146] INPUTS	A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9;

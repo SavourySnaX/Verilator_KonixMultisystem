@@ -14,6 +14,7 @@ This is a synchronous down counter, loaded as part fo the blitter program.
 module m_OUTERCNT                                                               //[OUTERCNT.NET:00014] MODULE OUTERCNT;
 (                                                                               //[OUTERCNT.NET:00014] MODULE OUTERCNT;
 
+    input    MasterClock,
     input    inD_0,                                                             //[OUTERCNT.NET:00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
     input    inD_1,                                                             //[OUTERCNT.NET:00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
     input    inD_2,                                                             //[OUTERCNT.NET:00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,CCLK,ICNT_0,ICNT_1,ICNT_2,ICNT_3,ICNT_4,
@@ -134,21 +135,21 @@ assign OCLKL = OTCLKL & LDOCLKL;                                                
 /* The outer counter */
 
 assign LDOUT = ~LDOUTL;                                                         //[OUTERCNT.NET:00042] LDOUTINV_(LDOUT) = N1A(LDOUTL);
-m_LSCNTEL OCNT_0_ (.D(ID_0),.LD(LDOUT),.LDL(LDOUTL),.CLK(OCLKL),.CI(RESET),.RSTL(RESETL),.Q(OCNT_0),.QL(OCNTL_0),.CO(CARRY_0));//[OUTERCNT.NET:00043] OCNT_0_(OCNT_0,OCNTL_0,CARRY_0) = LSCNTEL(ID_0,LDOUT,LDOUTL,OCLKL,RESET,
+m_LSCNTEL OCNT_0_ (.MasterClock(MasterClock),.D(ID_0),.LD(LDOUT),.LDL(LDOUTL),.CLK(OCLKL),.CI(RESET),.RSTL(RESETL),.Q(OCNT_0),.QL(OCNTL_0),.CO(CARRY_0));//[OUTERCNT.NET:00043] OCNT_0_(OCNT_0,OCNTL_0,CARRY_0) = LSCNTEL(ID_0,LDOUT,LDOUTL,OCLKL,RESET,
                                                                                 //[OUTERCNT.NET:00044]    RESETL);
-m_LSCNTEL OCNT_1_ (.D(ID_1),.LD(LDOUT),.LDL(LDOUTL),.CLK(OCLKL),.CI(CARRY_0),.RSTL(RESETL),.Q(OCNT_1),.QL(OCNTL_1),.CO(CARRY_1));//[OUTERCNT.NET:00045] OCNT_1_(OCNT_1,OCNTL_1,CARRY_1) = LSCNTEL(ID_1,LDOUT,LDOUTL,OCLKL,CARRY_0,
+m_LSCNTEL OCNT_1_ (.MasterClock(MasterClock),.D(ID_1),.LD(LDOUT),.LDL(LDOUTL),.CLK(OCLKL),.CI(CARRY_0),.RSTL(RESETL),.Q(OCNT_1),.QL(OCNTL_1),.CO(CARRY_1));//[OUTERCNT.NET:00045] OCNT_1_(OCNT_1,OCNTL_1,CARRY_1) = LSCNTEL(ID_1,LDOUT,LDOUTL,OCLKL,CARRY_0,
                                                                                 //[OUTERCNT.NET:00046]    RESETL);
-m_LSCNTEL OCNT_2_ (.D(ID_2),.LD(LDOUT),.LDL(LDOUTL),.CLK(OCLKL),.CI(CARRY_1),.RSTL(RESETL),.Q(OCNT_2),.QL(OCNTL_2),.CO(CARRY_2));//[OUTERCNT.NET:00047] OCNT_2_(OCNT_2,OCNTL_2,CARRY_2) = LSCNTEL(ID_2,LDOUT,LDOUTL,OCLKL,CARRY_1,
+m_LSCNTEL OCNT_2_ (.MasterClock(MasterClock),.D(ID_2),.LD(LDOUT),.LDL(LDOUTL),.CLK(OCLKL),.CI(CARRY_1),.RSTL(RESETL),.Q(OCNT_2),.QL(OCNTL_2),.CO(CARRY_2));//[OUTERCNT.NET:00047] OCNT_2_(OCNT_2,OCNTL_2,CARRY_2) = LSCNTEL(ID_2,LDOUT,LDOUTL,OCLKL,CARRY_1,
                                                                                 //[OUTERCNT.NET:00048]    RESETL);
-m_LSCNTEL OCNT_3_ (.D(ID_3),.LD(LDOUT),.LDL(LDOUTL),.CLK(OCLKL),.CI(CARRY_2),.RSTL(RESETL),.Q(OCNT_3),.QL(OCNTL_3),.CO(CARRY_3));//[OUTERCNT.NET:00049] OCNT_3_(OCNT_3,OCNTL_3,CARRY_3) = LSCNTEL(ID_3,LDOUT,LDOUTL,OCLKL,CARRY_2,
+m_LSCNTEL OCNT_3_ (.MasterClock(MasterClock),.D(ID_3),.LD(LDOUT),.LDL(LDOUTL),.CLK(OCLKL),.CI(CARRY_2),.RSTL(RESETL),.Q(OCNT_3),.QL(OCNTL_3),.CO(CARRY_3));//[OUTERCNT.NET:00049] OCNT_3_(OCNT_3,OCNTL_3,CARRY_3) = LSCNTEL(ID_3,LDOUT,LDOUTL,OCLKL,CARRY_2,
                                                                                 //[OUTERCNT.NET:00050]    RESETL);
-m_LSCNTEL OCNT_4_ (.D(ID_4),.LD(LDOUT),.LDL(LDOUTL),.CLK(OCLKL),.CI(CARRY_3),.RSTL(RESETL),.Q(OCNT_4),.QL(OCNTL_4),.CO(CARRY_4));//[OUTERCNT.NET:00051] OCNT_4_(OCNT_4,OCNTL_4,CARRY_4) = LSCNTEL(ID_4,LDOUT,LDOUTL,OCLKL,CARRY_3,
+m_LSCNTEL OCNT_4_ (.MasterClock(MasterClock),.D(ID_4),.LD(LDOUT),.LDL(LDOUTL),.CLK(OCLKL),.CI(CARRY_3),.RSTL(RESETL),.Q(OCNT_4),.QL(OCNTL_4),.CO(CARRY_4));//[OUTERCNT.NET:00051] OCNT_4_(OCNT_4,OCNTL_4,CARRY_4) = LSCNTEL(ID_4,LDOUT,LDOUTL,OCLKL,CARRY_3,
                                                                                 //[OUTERCNT.NET:00052]    RESETL);
-m_LSCNTEL OCNT_5_ (.D(ID_5),.LD(LDOUT),.LDL(LDOUTL),.CLK(OCLKL),.CI(CARRY_4),.RSTL(RESETL),.Q(OCNT_5),.QL(OCNTL_5),.CO(CARRY_5));//[OUTERCNT.NET:00053] OCNT_5_(OCNT_5,OCNTL_5,CARRY_5) = LSCNTEL(ID_5,LDOUT,LDOUTL,OCLKL,CARRY_4,
+m_LSCNTEL OCNT_5_ (.MasterClock(MasterClock),.D(ID_5),.LD(LDOUT),.LDL(LDOUTL),.CLK(OCLKL),.CI(CARRY_4),.RSTL(RESETL),.Q(OCNT_5),.QL(OCNTL_5),.CO(CARRY_5));//[OUTERCNT.NET:00053] OCNT_5_(OCNT_5,OCNTL_5,CARRY_5) = LSCNTEL(ID_5,LDOUT,LDOUTL,OCLKL,CARRY_4,
                                                                                 //[OUTERCNT.NET:00054]    RESETL);
-m_LSCNTEL OCNT_6_ (.D(ID_6),.LD(LDOUT),.LDL(LDOUTL),.CLK(OCLKL),.CI(CARRY_5),.RSTL(RESETL),.Q(OCNT_6),.QL(OCNTL_6),.CO(CARRY_6));//[OUTERCNT.NET:00055] OCNT_6_(OCNT_6,OCNTL_6,CARRY_6) = LSCNTEL(ID_6,LDOUT,LDOUTL,OCLKL,CARRY_5,
+m_LSCNTEL OCNT_6_ (.MasterClock(MasterClock),.D(ID_6),.LD(LDOUT),.LDL(LDOUTL),.CLK(OCLKL),.CI(CARRY_5),.RSTL(RESETL),.Q(OCNT_6),.QL(OCNTL_6),.CO(CARRY_6));//[OUTERCNT.NET:00055] OCNT_6_(OCNT_6,OCNTL_6,CARRY_6) = LSCNTEL(ID_6,LDOUT,LDOUTL,OCLKL,CARRY_5,
                                                                                 //[OUTERCNT.NET:00056]    RESETL);
-m_LSCNTEL OCNT_7_ (.D(ID_7),.LD(LDOUT),.LDL(LDOUTL),.CLK(OCLKL),.CI(CARRY_6),.RSTL(RESETL),.Q(OCNT_7),.QL(OCNTL_7),.CO(CARRY_7));//[OUTERCNT.NET:00057] OCNT_7_(OCNT_7,OCNTL_7,CARRY_7) = LSCNTEL(ID_7,LDOUT,LDOUTL,OCLKL,CARRY_6,
+m_LSCNTEL OCNT_7_ (.MasterClock(MasterClock),.D(ID_7),.LD(LDOUT),.LDL(LDOUTL),.CLK(OCLKL),.CI(CARRY_6),.RSTL(RESETL),.Q(OCNT_7),.QL(OCNTL_7),.CO(CARRY_7));//[OUTERCNT.NET:00057] OCNT_7_(OCNT_7,OCNTL_7,CARRY_7) = LSCNTEL(ID_7,LDOUT,LDOUTL,OCLKL,CARRY_6,
                                                                                 //[OUTERCNT.NET:00058]    RESETL);
 
 /* Generate outer0 */

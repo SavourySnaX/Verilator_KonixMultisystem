@@ -4,6 +4,7 @@
 module m_DMA                                                                    //[DMA.NET:00004] MODULE DMA;
 (                                                                               //[DMA.NET:00004] MODULE DMA;
 
+    input    MasterClock,
     input    inA_0,                                                             //[DMA.NET:00006] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
     input    inA_1,                                                             //[DMA.NET:00006] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
     input    inA_2,                                                             //[DMA.NET:00006] INPUTS	A_0,A_1,A_2,A_3,A_4,A_5,A_6,A_7,A_8,A_9,A_10,A_11,A_12,A_13,A_14,A_15,
@@ -463,22 +464,22 @@ assign DMLD_1 = ~(DMHILDL | DQCLK);                                             
 
 /* The mux preceding the data register */
 
-m_MUX DIN_0_ (.A(inD_0),.B(DSELL_0),.C(DDB_0),.D(DSEL_0),.Z(DIN_0));            //[DMA.NET:00056] DIN_0_(DIN_0) = MUX(D_0,DSELL_0,DDB_0,DSEL_0);
-m_MUX DIN_1_ (.A(inD_1),.B(DSELL_0),.C(DDB_1),.D(DSEL_0),.Z(DIN_1));            //[DMA.NET:00057] DIN_1_(DIN_1) = MUX(D_1,DSELL_0,DDB_1,DSEL_0);
-m_MUX DIN_2_ (.A(inD_2),.B(DSELL_0),.C(DDB_2),.D(DSEL_0),.Z(DIN_2));            //[DMA.NET:00058] DIN_2_(DIN_2) = MUX(D_2,DSELL_0,DDB_2,DSEL_0);
-m_MUX DIN_3_ (.A(inD_3),.B(DSELL_0),.C(DDB_3),.D(DSEL_0),.Z(DIN_3));            //[DMA.NET:00059] DIN_3_(DIN_3) = MUX(D_3,DSELL_0,DDB_3,DSEL_0);
-m_MUX DIN_4_ (.A(inD_4),.B(DSELL_0),.C(DDB_4),.D(DSEL_0),.Z(DIN_4));            //[DMA.NET:00060] DIN_4_(DIN_4) = MUX(D_4,DSELL_0,DDB_4,DSEL_0);
-m_MUX DIN_5_ (.A(inD_5),.B(DSELL_0),.C(DDB_5),.D(DSEL_0),.Z(DIN_5));            //[DMA.NET:00061] DIN_5_(DIN_5) = MUX(D_5,DSELL_0,DDB_5,DSEL_0);
-m_MUX DIN_6_ (.A(inD_6),.B(DSELL_0),.C(DDB_6),.D(DSEL_0),.Z(DIN_6));            //[DMA.NET:00062] DIN_6_(DIN_6) = MUX(D_6,DSELL_0,DDB_6,DSEL_0);
-m_MUX DIN_7_ (.A(inD_7),.B(DSELL_0),.C(DDB_7),.D(DSEL_0),.Z(DIN_7));            //[DMA.NET:00063] DIN_7_(DIN_7) = MUX(D_7,DSELL_0,DDB_7,DSEL_0);
-m_MUX3 DIN_8_ (.A(inD_8),.B(DDB_8),.C(inD_0),.SEL_0(DSEL_0),.SEL_1(DSEL_1),.Z_3(DIN_8));//[DMA.NET:00064] DIN_8_(DIN_8) = MUX3(D_8,DDB_8,D_0,DSEL_0,DSEL_1);
-m_MUX3 DIN_9_ (.A(inD_9),.B(DDB_9),.C(inD_1),.SEL_0(DSEL_0),.SEL_1(DSEL_1),.Z_3(DIN_9));//[DMA.NET:00065] DIN_9_(DIN_9) = MUX3(D_9,DDB_9,D_1,DSEL_0,DSEL_1);
-m_MUX3 DIN_10_ (.A(inD_10),.B(DDB_10),.C(inD_2),.SEL_0(DSEL_0),.SEL_1(DSEL_1),.Z_3(DIN_10));//[DMA.NET:00066] DIN_10_(DIN_10) = MUX3(D_10,DDB_10,D_2,DSEL_0,DSEL_1);
-m_MUX3 DIN_11_ (.A(inD_11),.B(DDB_11),.C(inD_3),.SEL_0(DSEL_0),.SEL_1(DSEL_1),.Z_3(DIN_11));//[DMA.NET:00067] DIN_11_(DIN_11) = MUX3(D_11,DDB_11,D_3,DSEL_0,DSEL_1);
-m_MUX3 DIN_12_ (.A(inD_12),.B(DDB_12),.C(inD_4),.SEL_0(DSEL_0),.SEL_1(DSEL_1),.Z_3(DIN_12));//[DMA.NET:00068] DIN_12_(DIN_12) = MUX3(D_12,DDB_12,D_4,DSEL_0,DSEL_1);
-m_MUX3 DIN_13_ (.A(inD_13),.B(DDB_13),.C(inD_5),.SEL_0(DSEL_0),.SEL_1(DSEL_1),.Z_3(DIN_13));//[DMA.NET:00069] DIN_13_(DIN_13) = MUX3(D_13,DDB_13,D_5,DSEL_0,DSEL_1);
-m_MUX3 DIN_14_ (.A(inD_14),.B(DDB_14),.C(inD_6),.SEL_0(DSEL_0),.SEL_1(DSEL_1),.Z_3(DIN_14));//[DMA.NET:00070] DIN_14_(DIN_14) = MUX3(D_14,DDB_14,D_6,DSEL_0,DSEL_1);
-m_MUX3 DIN_15_ (.A(inD_15),.B(DDB_15),.C(inD_7),.SEL_0(DSEL_0),.SEL_1(DSEL_1),.Z_3(DIN_15));//[DMA.NET:00071] DIN_15_(DIN_15) = MUX3(D_15,DDB_15,D_7,DSEL_0,DSEL_1);
+m_MUX DIN_0_ (.MasterClock(MasterClock),.A(inD_0),.B(DSELL_0),.C(DDB_0),.D(DSEL_0),.Z(DIN_0));//[DMA.NET:00056] DIN_0_(DIN_0) = MUX(D_0,DSELL_0,DDB_0,DSEL_0);
+m_MUX DIN_1_ (.MasterClock(MasterClock),.A(inD_1),.B(DSELL_0),.C(DDB_1),.D(DSEL_0),.Z(DIN_1));//[DMA.NET:00057] DIN_1_(DIN_1) = MUX(D_1,DSELL_0,DDB_1,DSEL_0);
+m_MUX DIN_2_ (.MasterClock(MasterClock),.A(inD_2),.B(DSELL_0),.C(DDB_2),.D(DSEL_0),.Z(DIN_2));//[DMA.NET:00058] DIN_2_(DIN_2) = MUX(D_2,DSELL_0,DDB_2,DSEL_0);
+m_MUX DIN_3_ (.MasterClock(MasterClock),.A(inD_3),.B(DSELL_0),.C(DDB_3),.D(DSEL_0),.Z(DIN_3));//[DMA.NET:00059] DIN_3_(DIN_3) = MUX(D_3,DSELL_0,DDB_3,DSEL_0);
+m_MUX DIN_4_ (.MasterClock(MasterClock),.A(inD_4),.B(DSELL_0),.C(DDB_4),.D(DSEL_0),.Z(DIN_4));//[DMA.NET:00060] DIN_4_(DIN_4) = MUX(D_4,DSELL_0,DDB_4,DSEL_0);
+m_MUX DIN_5_ (.MasterClock(MasterClock),.A(inD_5),.B(DSELL_0),.C(DDB_5),.D(DSEL_0),.Z(DIN_5));//[DMA.NET:00061] DIN_5_(DIN_5) = MUX(D_5,DSELL_0,DDB_5,DSEL_0);
+m_MUX DIN_6_ (.MasterClock(MasterClock),.A(inD_6),.B(DSELL_0),.C(DDB_6),.D(DSEL_0),.Z(DIN_6));//[DMA.NET:00062] DIN_6_(DIN_6) = MUX(D_6,DSELL_0,DDB_6,DSEL_0);
+m_MUX DIN_7_ (.MasterClock(MasterClock),.A(inD_7),.B(DSELL_0),.C(DDB_7),.D(DSEL_0),.Z(DIN_7));//[DMA.NET:00063] DIN_7_(DIN_7) = MUX(D_7,DSELL_0,DDB_7,DSEL_0);
+m_MUX3 DIN_8_ (.MasterClock(MasterClock),.A(inD_8),.B(DDB_8),.C(inD_0),.SEL_0(DSEL_0),.SEL_1(DSEL_1),.Z_3(DIN_8));//[DMA.NET:00064] DIN_8_(DIN_8) = MUX3(D_8,DDB_8,D_0,DSEL_0,DSEL_1);
+m_MUX3 DIN_9_ (.MasterClock(MasterClock),.A(inD_9),.B(DDB_9),.C(inD_1),.SEL_0(DSEL_0),.SEL_1(DSEL_1),.Z_3(DIN_9));//[DMA.NET:00065] DIN_9_(DIN_9) = MUX3(D_9,DDB_9,D_1,DSEL_0,DSEL_1);
+m_MUX3 DIN_10_ (.MasterClock(MasterClock),.A(inD_10),.B(DDB_10),.C(inD_2),.SEL_0(DSEL_0),.SEL_1(DSEL_1),.Z_3(DIN_10));//[DMA.NET:00066] DIN_10_(DIN_10) = MUX3(D_10,DDB_10,D_2,DSEL_0,DSEL_1);
+m_MUX3 DIN_11_ (.MasterClock(MasterClock),.A(inD_11),.B(DDB_11),.C(inD_3),.SEL_0(DSEL_0),.SEL_1(DSEL_1),.Z_3(DIN_11));//[DMA.NET:00067] DIN_11_(DIN_11) = MUX3(D_11,DDB_11,D_3,DSEL_0,DSEL_1);
+m_MUX3 DIN_12_ (.MasterClock(MasterClock),.A(inD_12),.B(DDB_12),.C(inD_4),.SEL_0(DSEL_0),.SEL_1(DSEL_1),.Z_3(DIN_12));//[DMA.NET:00068] DIN_12_(DIN_12) = MUX3(D_12,DDB_12,D_4,DSEL_0,DSEL_1);
+m_MUX3 DIN_13_ (.MasterClock(MasterClock),.A(inD_13),.B(DDB_13),.C(inD_5),.SEL_0(DSEL_0),.SEL_1(DSEL_1),.Z_3(DIN_13));//[DMA.NET:00069] DIN_13_(DIN_13) = MUX3(D_13,DDB_13,D_5,DSEL_0,DSEL_1);
+m_MUX3 DIN_14_ (.MasterClock(MasterClock),.A(inD_14),.B(DDB_14),.C(inD_6),.SEL_0(DSEL_0),.SEL_1(DSEL_1),.Z_3(DIN_14));//[DMA.NET:00070] DIN_14_(DIN_14) = MUX3(D_14,DDB_14,D_6,DSEL_0,DSEL_1);
+m_MUX3 DIN_15_ (.MasterClock(MasterClock),.A(inD_15),.B(DDB_15),.C(inD_7),.SEL_0(DSEL_0),.SEL_1(DSEL_1),.Z_3(DIN_15));//[DMA.NET:00071] DIN_15_(DIN_15) = MUX3(D_15,DDB_15,D_7,DSEL_0,DSEL_1);
 /* Selection for this input is made by the state machine, dmdwrL, lohi and byte:
 
 	state m/c  dmdwrL  lohi  byte  rdwr     dsel[0..1]
@@ -657,7 +658,7 @@ assign MREQ = ~(MREQL | DSPBAKL);                                               
 assign RD = ~(WRRD | ST23L | DSPBAKL);                                          //[DMA.NET:00247] RD_(RD) = NR3B(WRRD,ST23L,DSPBAKL);
 assign WR = ~(RDWR | ST23L | DSPBAKL);                                          //[DMA.NET:00248] WR_(WR) = NR3B(RDWR,ST23L,DSPBAKL);
 assign WORD = ~(BYTE | ST23L | DSPBAKL);                                        //[DMA.NET:00249] WORD_(WORD) = NR3B(BYTE,ST23L,DSPBAKL);
-m_DMAMC MACHINE_ (.DMA0WRL(DMA0WRL),.DSPBAK(DSPBAK),.DSPBAKL(DSPBAKL),.WAIT(WAIT),.CLK(CLK),.RESETL(RESETL),.DMC_0(DMC_0),.DMC_1(DMC_1),.DMCL_0(DMCL_0),.DMCL_1(DMCL_1),.ST23L(ST23L),.MREQL(MREQL));//[DMA.NET:00250] MACHINE_(DMC_0,DMC_1,DMCL_0,DMCL_1,ST23L,MREQL) = DMAMC(DMA0WRL,DSPBAK,DSPBAKL,
+m_DMAMC MACHINE_ (.MasterClock(MasterClock),.DMA0WRL(DMA0WRL),.DSPBAK(DSPBAK),.DSPBAKL(DSPBAKL),.WAIT(WAIT),.CLK(CLK),.RESETL(RESETL),.DMC_0(DMC_0),.DMC_1(DMC_1),.DMCL_0(DMCL_0),.DMCL_1(DMCL_1),.ST23L(ST23L),.MREQL(MREQL));//[DMA.NET:00250] MACHINE_(DMC_0,DMC_1,DMCL_0,DMCL_1,ST23L,MREQL) = DMAMC(DMA0WRL,DSPBAK,DSPBAKL,
                                                                                 //[DMA.NET:00251]    WAIT,CLK,RESETL);
 
 

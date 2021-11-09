@@ -1,6 +1,7 @@
 module m_RUDMC                                                                  //[INTRUDE.NET:00174] MODULE RUDMC;
 (                                                                               //[INTRUDE.NET:00174] MODULE RUDMC;
 
+    input    MasterClock,
     input    WR,                                                                //[INTRUDE.NET:00176] INPUTS	WR,CLK,RESETL,RD,TRUDY;
     input    CLK,                                                               //[INTRUDE.NET:00176] INPUTS	WR,CLK,RESETL,RD,TRUDY;
     input    RESETL,                                                            //[INTRUDE.NET:00176] INPUTS	WR,CLK,RESETL,RD,TRUDY;

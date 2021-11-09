@@ -1,6 +1,7 @@
 module m_MUX4                                                                   //[LEGO.NET:00222] MODULE MUX4;
 (                                                                               //[LEGO.NET:00222] MODULE MUX4;
 
+    input    MasterClock,
     input    A,                                                                 //[LEGO.NET:00224] INPUTS	A,B,D_0,D_1,D_2,D_3;
     input    B,                                                                 //[LEGO.NET:00224] INPUTS	A,B,D_0,D_1,D_2,D_3;
     input    D_0,                                                               //[LEGO.NET:00224] INPUTS	A,B,D_0,D_1,D_2,D_3;

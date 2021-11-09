@@ -321,7 +321,7 @@ int main(int argc, char** argv)
 	VerilatedVcdC *trace = new VerilatedVcdC;
 
 	tb->trace(trace, 99);
-	trace->open("trace.vcd");
+	trace->open(TRACE_FILE);
 
     tb->RESETL_0=0;
 

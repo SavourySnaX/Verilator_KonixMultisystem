@@ -1,6 +1,7 @@
 module m_MACNAND7                                                               //[QMACROS.NET:00094] MODULE MACNAND7;
 (                                                                               //[QMACROS.NET:00094] MODULE MACNAND7;
 
+    input    MasterClock,
     input    A,                                                                 //[QMACROS.NET:00096] INPUTS A,B,C,D,E,F,G;
     input    B,                                                                 //[QMACROS.NET:00096] INPUTS A,B,C,D,E,F,G;
     input    C,                                                                 //[QMACROS.NET:00096] INPUTS A,B,C,D,E,F,G;

@@ -16,6 +16,7 @@ run.
 module m_PCAREG                                                                 //[PCAREG.NET:00016] MODULE PCAREG;
 (                                                                               //[PCAREG.NET:00016] MODULE PCAREG;
 
+    input    MasterClock,
     input    ADDQ_0,                                                            //[PCAREG.NET:00018] INPUTS	ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,ADDQ_5,ADDQ_6,ADDQ_7,ADDQ_8,ADDQ_9,
     input    ADDQ_1,                                                            //[PCAREG.NET:00018] INPUTS	ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,ADDQ_5,ADDQ_6,ADDQ_7,ADDQ_8,ADDQ_9,
     input    ADDQ_2,                                                            //[PCAREG.NET:00018] INPUTS	ADDQ_0,ADDQ_1,ADDQ_2,ADDQ_3,ADDQ_4,ADDQ_5,ADDQ_6,ADDQ_7,ADDQ_8,ADDQ_9,

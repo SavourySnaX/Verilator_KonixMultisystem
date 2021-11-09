@@ -14,6 +14,7 @@ This module is the interupt manager in the SLIPSTREAM chip on the ACW
 module m_INT                                                                    //[INT.NET:00014] MODULE INT;
 (                                                                               //[INT.NET:00014] MODULE INT;
 
+    input    MasterClock,
     input    inD_0,                                                             //[INT.NET:00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
     input    inD_1,                                                             //[INT.NET:00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
     input    inD_2,                                                             //[INT.NET:00016] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,RESETL_0,CLK,VINT,AIL_0,AIL_1,AIL_2,
@@ -158,10 +159,10 @@ assign RES = ~RESETL_0;                                                         
 assign RESL = ~RES;                                                             //[INT.NET:00048] RESL_(RESL) = N1A(RES);
 
 assign J = VINT & DISL_0;                                                       //[INT.NET:00050] J_(J) = AND2A(VINT,DISL_0);
-m_JK I_0_ (.J(J),.K(ACK_0),.R(RES),.CLK(CLK),.Q(I_0),.QB(IL_0));                //[INT.NET:00051] I_0_(I_0,IL_0) = JK(J,ACK_0,RES,CLK);
-m_JK I_1_ (.J(AID_0),.K(ACK_1),.R(RES),.CLK(CLK),.Q(I_1),.QB(IL_1));            //[INT.NET:00052] I_1_(I_1,IL_1) = JK(AID_0,ACK_1,RES,CLK);
-m_JK I_2_ (.J(AID_1),.K(ACK_2),.R(RES),.CLK(CLK),.Q(I_2),.QB(IL_2));            //[INT.NET:00053] I_2_(I_2,IL_2) = JK(AID_1,ACK_2,RES,CLK);
-m_JK I_3_ (.J(AID_2),.K(ACK_3),.R(RES),.CLK(CLK),.Q(I_3),.QB(IL_3));            //[INT.NET:00054] I_3_(I_3,IL_3) = JK(AID_2,ACK_3,RES,CLK);
+m_JK I_0_ (.MasterClock(MasterClock),.J(J),.K(ACK_0),.R(RES),.CLK(CLK),.Q(I_0),.QB(IL_0));//[INT.NET:00051] I_0_(I_0,IL_0) = JK(J,ACK_0,RES,CLK);
+m_JK I_1_ (.MasterClock(MasterClock),.J(AID_0),.K(ACK_1),.R(RES),.CLK(CLK),.Q(I_1),.QB(IL_1));//[INT.NET:00052] I_1_(I_1,IL_1) = JK(AID_0,ACK_1,RES,CLK);
+m_JK I_2_ (.MasterClock(MasterClock),.J(AID_1),.K(ACK_2),.R(RES),.CLK(CLK),.Q(I_2),.QB(IL_2));//[INT.NET:00053] I_2_(I_2,IL_2) = JK(AID_1,ACK_2,RES,CLK);
+m_JK I_3_ (.MasterClock(MasterClock),.J(AID_2),.K(ACK_3),.R(RES),.CLK(CLK),.Q(I_3),.QB(IL_3));//[INT.NET:00054] I_3_(I_3,IL_3) = JK(AID_2,ACK_3,RES,CLK);
 
 /* latch this using INTAL so that the interupt vector does
 not change during the acknowledge cycle */

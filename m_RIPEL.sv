@@ -1,6 +1,7 @@
 module m_RIPEL                                                                  //[OUTERCNT.NET:00092] MODULE RIPEL;
 (                                                                               //[OUTERCNT.NET:00092] MODULE RIPEL;
 
+    input    MasterClock,
     input    D,                                                                 //[OUTERCNT.NET:00094] INPUTS	D,LD,LDL,CLK;
     input    LD,                                                                //[OUTERCNT.NET:00094] INPUTS	D,LD,LDL,CLK;
     input    LDL,                                                               //[OUTERCNT.NET:00094] INPUTS	D,LD,LDL,CLK;

@@ -4,6 +4,7 @@
 module m_PRAM                                                                   //[PRAM.NET:00004] MODULE PRAM;
 (                                                                               //[PRAM.NET:00004] MODULE PRAM;
 
+    input    MasterClock,
     input    inPD_0,                                                            //[PRAM.NET:00006] INPUTS	PD_0,PD_1,PD_2,PD_3,PD_4,PD_5,PD_6,PD_7,PD_8,PD_9,PD_10,PD_11,PD_12,
     input    inPD_1,                                                            //[PRAM.NET:00006] INPUTS	PD_0,PD_1,PD_2,PD_3,PD_4,PD_5,PD_6,PD_7,PD_8,PD_9,PD_10,PD_11,PD_12,
     input    inPD_2,                                                            //[PRAM.NET:00006] INPUTS	PD_0,PD_1,PD_2,PD_3,PD_4,PD_5,PD_6,PD_7,PD_8,PD_9,PD_10,PD_11,PD_12,

@@ -1,6 +1,7 @@
 module m_ADDNC4                                                                 //[COUNTERS.NET:00153] MODULE ADDNC4;
 (                                                                               //[COUNTERS.NET:00153] MODULE ADDNC4;
 
+    input    MasterClock,
     input    X_0,                                                               //[COUNTERS.NET:00155] INPUTS	X_0,X_1,X_2,X_3,Y_0,Y_1,Y_2,Y_3,CIN;
     input    X_1,                                                               //[COUNTERS.NET:00155] INPUTS	X_0,X_1,X_2,X_3,Y_0,Y_1,Y_2,Y_3,CIN;
     input    X_2,                                                               //[COUNTERS.NET:00155] INPUTS	X_0,X_1,X_2,X_3,Y_0,Y_1,Y_2,Y_3,CIN;

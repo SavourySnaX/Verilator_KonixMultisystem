@@ -16,6 +16,7 @@ This module is the pixel generator in the SLIPSTREAM chip on the ACW
 module m_PIX                                                                    //[PIX.NET:00016] MODULE PIX;
 (                                                                               //[PIX.NET:00016] MODULE PIX;
 
+    input    MasterClock,
     input    inD_0,                                                             //[PIX.NET:00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
     input    inD_1,                                                             //[PIX.NET:00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
     input    inD_2,                                                             //[PIX.NET:00018] INPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,P7L_0,P7L_1,P7L_2,P7L_3,P7L_4,P7L_5,
@@ -569,14 +570,14 @@ FD2A PIX3_7__inst (.q(PIX3B_7),.qL(PIX3_7),.d(IDL_15),.clk(PIXLD_1),.rL(RESL)); 
 
 /* select one of four bytes */
 
-m_MUX4 P0_0_ (.A(PIXAD_0),.B(PIXAD_1),.D_0(PIX0_0),.D_1(PIX1_0),.D_2(PIX2_0),.D_3(PIX3_0),.Q(P0_0));//[PIX.NET:00071] P0_0_(P0_0) = MUX4(PIXAD_0,PIXAD_1,PIX0_0,PIX1_0,PIX2_0,PIX3_0);
-m_MUX4 P0_1_ (.A(PIXAD_0),.B(PIXAD_1),.D_0(PIX0_1),.D_1(PIX1_1),.D_2(PIX2_1),.D_3(PIX3_1),.Q(P0_1));//[PIX.NET:00072] P0_1_(P0_1) = MUX4(PIXAD_0,PIXAD_1,PIX0_1,PIX1_1,PIX2_1,PIX3_1);
-m_MUX4 P0_2_ (.A(PIXAD_0),.B(PIXAD_1),.D_0(PIX0_2),.D_1(PIX1_2),.D_2(PIX2_2),.D_3(PIX3_2),.Q(P0_2));//[PIX.NET:00073] P0_2_(P0_2) = MUX4(PIXAD_0,PIXAD_1,PIX0_2,PIX1_2,PIX2_2,PIX3_2);
-m_MUX4 P0_3_ (.A(PIXAD_0),.B(PIXAD_1),.D_0(PIX0_3),.D_1(PIX1_3),.D_2(PIX2_3),.D_3(PIX3_3),.Q(P0_3));//[PIX.NET:00074] P0_3_(P0_3) = MUX4(PIXAD_0,PIXAD_1,PIX0_3,PIX1_3,PIX2_3,PIX3_3);
-m_MUX4 P0_4_ (.A(PIXAD_0),.B(PIXAD_1),.D_0(PIX0_4),.D_1(PIX1_4),.D_2(PIX2_4),.D_3(PIX3_4),.Q(P0_4));//[PIX.NET:00075] P0_4_(P0_4) = MUX4(PIXAD_0,PIXAD_1,PIX0_4,PIX1_4,PIX2_4,PIX3_4);
-m_MUX4 P0_5_ (.A(PIXAD_0),.B(PIXAD_1),.D_0(PIX0_5),.D_1(PIX1_5),.D_2(PIX2_5),.D_3(PIX3_5),.Q(P0_5));//[PIX.NET:00076] P0_5_(P0_5) = MUX4(PIXAD_0,PIXAD_1,PIX0_5,PIX1_5,PIX2_5,PIX3_5);
-m_MUX4 P0_6_ (.A(PIXAD_0),.B(PIXAD_1),.D_0(PIX0_6),.D_1(PIX1_6),.D_2(PIX2_6),.D_3(PIX3_6),.Q(P0_6));//[PIX.NET:00077] P0_6_(P0_6) = MUX4(PIXAD_0,PIXAD_1,PIX0_6,PIX1_6,PIX2_6,PIX3_6);
-m_MUX4 P0_7_ (.A(PIXAD_0),.B(PIXAD_1),.D_0(PIX0_7),.D_1(PIX1_7),.D_2(PIX2_7),.D_3(PIX3_7),.Q(P0_7));//[PIX.NET:00078] P0_7_(P0_7) = MUX4(PIXAD_0,PIXAD_1,PIX0_7,PIX1_7,PIX2_7,PIX3_7);
+m_MUX4 P0_0_ (.MasterClock(MasterClock),.A(PIXAD_0),.B(PIXAD_1),.D_0(PIX0_0),.D_1(PIX1_0),.D_2(PIX2_0),.D_3(PIX3_0),.Q(P0_0));//[PIX.NET:00071] P0_0_(P0_0) = MUX4(PIXAD_0,PIXAD_1,PIX0_0,PIX1_0,PIX2_0,PIX3_0);
+m_MUX4 P0_1_ (.MasterClock(MasterClock),.A(PIXAD_0),.B(PIXAD_1),.D_0(PIX0_1),.D_1(PIX1_1),.D_2(PIX2_1),.D_3(PIX3_1),.Q(P0_1));//[PIX.NET:00072] P0_1_(P0_1) = MUX4(PIXAD_0,PIXAD_1,PIX0_1,PIX1_1,PIX2_1,PIX3_1);
+m_MUX4 P0_2_ (.MasterClock(MasterClock),.A(PIXAD_0),.B(PIXAD_1),.D_0(PIX0_2),.D_1(PIX1_2),.D_2(PIX2_2),.D_3(PIX3_2),.Q(P0_2));//[PIX.NET:00073] P0_2_(P0_2) = MUX4(PIXAD_0,PIXAD_1,PIX0_2,PIX1_2,PIX2_2,PIX3_2);
+m_MUX4 P0_3_ (.MasterClock(MasterClock),.A(PIXAD_0),.B(PIXAD_1),.D_0(PIX0_3),.D_1(PIX1_3),.D_2(PIX2_3),.D_3(PIX3_3),.Q(P0_3));//[PIX.NET:00074] P0_3_(P0_3) = MUX4(PIXAD_0,PIXAD_1,PIX0_3,PIX1_3,PIX2_3,PIX3_3);
+m_MUX4 P0_4_ (.MasterClock(MasterClock),.A(PIXAD_0),.B(PIXAD_1),.D_0(PIX0_4),.D_1(PIX1_4),.D_2(PIX2_4),.D_3(PIX3_4),.Q(P0_4));//[PIX.NET:00075] P0_4_(P0_4) = MUX4(PIXAD_0,PIXAD_1,PIX0_4,PIX1_4,PIX2_4,PIX3_4);
+m_MUX4 P0_5_ (.MasterClock(MasterClock),.A(PIXAD_0),.B(PIXAD_1),.D_0(PIX0_5),.D_1(PIX1_5),.D_2(PIX2_5),.D_3(PIX3_5),.Q(P0_5));//[PIX.NET:00076] P0_5_(P0_5) = MUX4(PIXAD_0,PIXAD_1,PIX0_5,PIX1_5,PIX2_5,PIX3_5);
+m_MUX4 P0_6_ (.MasterClock(MasterClock),.A(PIXAD_0),.B(PIXAD_1),.D_0(PIX0_6),.D_1(PIX1_6),.D_2(PIX2_6),.D_3(PIX3_6),.Q(P0_6));//[PIX.NET:00077] P0_6_(P0_6) = MUX4(PIXAD_0,PIXAD_1,PIX0_6,PIX1_6,PIX2_6,PIX3_6);
+m_MUX4 P0_7_ (.MasterClock(MasterClock),.A(PIXAD_0),.B(PIXAD_1),.D_0(PIX0_7),.D_1(PIX1_7),.D_2(PIX2_7),.D_3(PIX3_7),.Q(P0_7));//[PIX.NET:00078] P0_7_(P0_7) = MUX4(PIXAD_0,PIXAD_1,PIX0_7,PIX1_7,PIX2_7,PIX3_7);
 
 /* select low or high nibble */
 
@@ -635,7 +636,7 @@ LD1A HOLD4__inst (.q(HOLD4),.qL(HOLD4L),.d(WD_0),.en(TRANS));                   
 /* compare colour with zero */
 
 assign ZERO4 = P2L_0 & P2L_1 & P2L_2 & P2L_3;                                   //[PIX.NET:00136] ZERO4_(ZERO4) = AND4A(P2L_0,P2L_1,P2L_2,P2L_3);
-m_MACAND8 ZERO8_ (.A(P2L_0),.B(P2L_1),.C(P2L_2),.D(P2L_3),.E(P2L_4),.F(P2L_5),.G(P2L_6),.H(P2L_7),.Q(ZERO8));//[PIX.NET:00137] ZERO8_(ZERO8) = MACAND8(P2L_0,P2L_1,P2L_2,P2L_3,P2L_4,P2L_5,P2L_6,P2L_7);
+m_MACAND8 ZERO8_ (.MasterClock(MasterClock),.A(P2L_0),.B(P2L_1),.C(P2L_2),.D(P2L_3),.E(P2L_4),.F(P2L_5),.G(P2L_6),.H(P2L_7),.Q(ZERO8));//[PIX.NET:00137] ZERO8_(ZERO8) = MACAND8(P2L_0,P2L_1,P2L_2,P2L_3,P2L_4,P2L_5,P2L_6,P2L_7);
 
 /* use previous byte or nibble if zero and mode demands */
 

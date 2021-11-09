@@ -12,6 +12,7 @@ Address Adder
 module m_ADDRADD                                                                //[ADDRADD.NET:00012] MODULE ADDRADD;
 (                                                                               //[ADDRADD.NET:00012] MODULE ADDRADD;
 
+    input    MasterClock,
     input    ADDAM1,                                                            //[ADDRADD.NET:00014] INPUTS	ADDAM1,ADDA_0,ADDA_1,ADDA_2,ADDA_3,ADDA_4,ADDA_5,ADDA_6,ADDA_7,ADDA_8,
     input    ADDA_0,                                                            //[ADDRADD.NET:00014] INPUTS	ADDAM1,ADDA_0,ADDA_1,ADDA_2,ADDA_3,ADDA_4,ADDA_5,ADDA_6,ADDA_7,ADDA_8,
     input    ADDA_1,                                                            //[ADDRADD.NET:00014] INPUTS	ADDAM1,ADDA_0,ADDA_1,ADDA_2,ADDA_3,ADDA_4,ADDA_5,ADDA_6,ADDA_7,ADDA_8,
@@ -116,7 +117,7 @@ assign CRY_2 = ~CRYL_2;                                                         
    The carry output from this stage is used to generate the borrow term
    for line draw computattion. */
 
-m_FULLADD ADDER2_ (.A(ADDA_7),.B(ADDB_7),.CI(CRY_2),.Q(ADDQ_7),.CO(CARRYOUT));  //[ADDRADD.NET:00051] ADDER2_(ADDQ_7,CARRYOUT) = FULLADD(ADDA_7,ADDB_7,CRY_2);
+m_FULLADD ADDER2_ (.MasterClock(MasterClock),.A(ADDA_7),.B(ADDB_7),.CI(CRY_2),.Q(ADDQ_7),.CO(CARRYOUT));//[ADDRADD.NET:00051] ADDER2_(ADDQ_7,CARRYOUT) = FULLADD(ADDA_7,ADDB_7,CRY_2);
 
 /* Inhibit carry and inject carry if required from 7-8. */
 
