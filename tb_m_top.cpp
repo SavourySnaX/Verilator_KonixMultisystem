@@ -73,7 +73,6 @@ int lastChroma=2;
 
 int waitingForFrameStart=1;
 
-int VCnt=0;
 
 int HCnt=0;
 int lineNum=0;
@@ -91,20 +90,16 @@ int ProcessVideo(Vm_top *tb)
         {
             if ((videoLastVSync==0) && (tb->VSyncL==1))
             {
-                VCnt++;
-                if (VCnt==4)
-                {
-                    waitingForFrameStart=0;
-                    virtFrameNum++;
-                    printf("Found Frame Start %d\n", virtFrameNum);
-                    if (virtFrameNum==FRAME_START)
-                        gTrace=true;
+                waitingForFrameStart=0;
+                virtFrameNum++;
+                printf("Found Frame Start %d\n", virtFrameNum);
+                if (virtFrameNum==FRAME_START)
+                    gTrace=true;
 
-                    if (virtFrameNum==FRAME_STOP)
-                        return 1;
-                    sprintf(filename, "pics/PIXELS%03d.data", virtFrameNum);
-                    remove(filename);
-                }
+                if (virtFrameNum==FRAME_STOP)
+                    return 1;
+                sprintf(filename, "pics/PIXELS%03d.data", virtFrameNum);
+                remove(filename);
             }
         }
         else
@@ -113,7 +108,6 @@ int ProcessVideo(Vm_top *tb)
             {
                 printf("Resetting for new frame\n");
                 waitingForFrameStart=1;
-                VCnt=0;
                 HCnt=0;
                 lineNum=0;
             }
