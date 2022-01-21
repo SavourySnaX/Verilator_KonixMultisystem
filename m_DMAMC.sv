@@ -28,8 +28,8 @@ wire MREQ;                                                                      
 wire ST23U;                                                                     //[DMA.NET:00281] ST23U_(ST23U) = OR2A(D_0,D_1);
 wire ST23;                                                                      //[DMA.NET:00282] ST23_(ST23,ST23L) = FD2A(ST23U,CLK,RESETL);
 
-FD2A DMC_0__inst (.q(DMC_0),.qL(DMCL_0),.d(D_0),.clk(CLK),.rL(RESETL));         //[DMA.NET:00263] DMC_0_(DMC_0,DMCL_0) = FD2A(D_0,CLK,RESETL);
-FD2A DMC_1__inst (.q(DMC_1),.qL(DMCL_1),.d(D_1),.clk(CLK),.rL(RESETL));         //[DMA.NET:00264] DMC_1_(DMC_1,DMCL_1) = FD2A(D_1,CLK,RESETL);
+FD2A DMC_0__inst (.MasterClock(MasterClock),.q(DMC_0),.qL(DMCL_0),.d(D_0),.clk(CLK),.rL(RESETL));//[DMA.NET:00263] DMC_0_(DMC_0,DMCL_0) = FD2A(D_0,CLK,RESETL);
+FD2A DMC_1__inst (.MasterClock(MasterClock),.q(DMC_1),.qL(DMCL_1),.d(D_1),.clk(CLK),.rL(RESETL));//[DMA.NET:00264] DMC_1_(DMC_1,DMCL_1) = FD2A(D_1,CLK,RESETL);
 
 assign D_0 = ~(DMCL_1 | DMC_0 | DSPBAKL | WAIT);                                //[DMA.NET:00266] D_0_(D_0) = NR4A(DMCL_1,DMC_0,DSPBAKL,WAIT);
 assign D_1 = ~(D_2 & D_3 & D_4);                                                //[DMA.NET:00267] D_1_(D_1) = ND3A(D_2,D_3,D_4);
@@ -42,10 +42,10 @@ assign DL_1 = ~D_1;                                                             
 /* Decode state 2 during which MREQ must be active */
 
 assign MRQU = ~(DL_1 | D_0);                                                    //[DMA.NET:00276] MRQU_(MRQU) = NR2A(DL_1,D_0);
-FD2A MREQL__inst (.q(MREQ),.qL(MREQL),.d(MRQU),.clk(CLK),.rL(RESETL));          //[DMA.NET:00277] MREQL_(MREQ,MREQL) = FD2A(MRQU,CLK,RESETL);
+FD2A MREQL__inst (.MasterClock(MasterClock),.q(MREQ),.qL(MREQL),.d(MRQU),.clk(CLK),.rL(RESETL));//[DMA.NET:00277] MREQL_(MREQ,MREQL) = FD2A(MRQU,CLK,RESETL);
 
 /* The other signals must be active during states 2 AND 3 */
 
 assign ST23U = D_0 | D_1;                                                       //[DMA.NET:00281] ST23U_(ST23U) = OR2A(D_0,D_1);
-FD2A ST23__inst (.q(ST23),.qL(ST23L),.d(ST23U),.clk(CLK),.rL(RESETL));          //[DMA.NET:00282] ST23_(ST23,ST23L) = FD2A(ST23U,CLK,RESETL);
+FD2A ST23__inst (.MasterClock(MasterClock),.q(ST23),.qL(ST23L),.d(ST23U),.clk(CLK),.rL(RESETL));//[DMA.NET:00282] ST23_(ST23,ST23L) = FD2A(ST23U,CLK,RESETL);
 endmodule                                                                       //[DMA.NET:00283] END MODULE;

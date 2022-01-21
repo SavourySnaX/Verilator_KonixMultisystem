@@ -191,8 +191,8 @@ assign RESETL = ~RESET;                                                         
 
 /* latch the high bits of the horizontal count */
 
-LD1A HCNT_8__inst (.q(HCNT_8),.qL(HCNTB_8),.d(WD_0),.en(HCNTH));                //[HCNT.NET:00031] HCNT_8_(HCNT_8,HCNTB_8) = LD1A(WD_0,HCNTH);
-LD1A HCNT_9__inst (.q(HCNT_9),.qL(HCNTB_9),.d(WD_1),.en(HCNTH));                //[HCNT.NET:00032] HCNT_9_(HCNT_9,HCNTB_9) = LD1A(WD_1,HCNTH);
+LD1A HCNT_8__inst (.MasterClock(MasterClock),.q(HCNT_8),.qL(HCNTB_8),.d(WD_0),.en(HCNTH));//[HCNT.NET:00031] HCNT_8_(HCNT_8,HCNTB_8) = LD1A(WD_0,HCNTH);
+LD1A HCNT_9__inst (.MasterClock(MasterClock),.q(HCNT_9),.qL(HCNTB_9),.d(WD_1),.en(HCNTH));//[HCNT.NET:00032] HCNT_9_(HCNT_9,HCNTB_9) = LD1A(WD_1,HCNTH);
 
 /* Now the line counter */
 
@@ -236,7 +236,7 @@ be read */
 /* sample the signal */
 
 assign RES = ~RESETL;                                                           //[HCNT.NET:00075] RES_(RES) = N1A(RESETL);
-FD1A LPD__inst (.q(LPD),.qL(LPDB),.d(LP),.clk(CLK));                            //[HCNT.NET:00076] LPD_(LPD,LPDB) = FD1A(LP,CLK);
+FD1A LPD__inst (.MasterClock(MasterClock),.q(LPD),.qL(LPDB),.d(LP),.clk(CLK));  //[HCNT.NET:00076] LPD_(LPD,LPDB) = FD1A(LP,CLK);
 
 /* lpj sets the latch */
 
@@ -248,16 +248,16 @@ m_JK LPSET_ (.MasterClock(MasterClock),.J(LPJ),.K(NEXTV),.R(RES),.CLK(CLK),.Q(LP
 assign LPIL = ~(LPJ | OPEN);                                                    //[HCNT.NET:00085] LPIL_(LPIL) = NR2A(LPJ,OPEN);
 assign LPCLK = ~LPIL;                                                           //[HCNT.NET:00086] LPCLK_(LPCLK) = N1C(LPIL);
 
-wire DL_0__drv0_outD_0,DL_0__drv0_outD_0L; LD1A DL_0__inst (.q(DL_0__drv0_outD_0),.qL(DL_0__drv0_outD_0L),.d(HCB_0),.en(LPCLK)); assign drv0_outD_0 = ~DL_0__drv0_outD_0; assign drv0_enD_0 = ~LPL_0; //[HCNT.NET:00088] DL_0_(D_0) = ZTLATCH1(D_0,HCB_0,LPCLK,LPL_0);
-wire DL_1__drv0_outD_1,DL_1__drv0_outD_1L; LD1A DL_1__inst (.q(DL_1__drv0_outD_1),.qL(DL_1__drv0_outD_1L),.d(HCB_1),.en(LPCLK)); assign drv0_outD_1 = ~DL_1__drv0_outD_1; assign drv0_enD_1 = ~LPL_0; //[HCNT.NET:00089] DL_1_(D_1) = ZTLATCH1(D_1,HCB_1,LPCLK,LPL_0);
-wire DL_2__drv0_outD_2,DL_2__drv0_outD_2L; LD1A DL_2__inst (.q(DL_2__drv0_outD_2),.qL(DL_2__drv0_outD_2L),.d(HCB_2),.en(LPCLK)); assign drv0_outD_2 = ~DL_2__drv0_outD_2; assign drv0_enD_2 = ~LPL_0; //[HCNT.NET:00090] DL_2_(D_2) = ZTLATCH1(D_2,HCB_2,LPCLK,LPL_0);
-wire DL_3__drv0_outD_3,DL_3__drv0_outD_3L; LD1A DL_3__inst (.q(DL_3__drv0_outD_3),.qL(DL_3__drv0_outD_3L),.d(HCB_3),.en(LPCLK)); assign drv0_outD_3 = ~DL_3__drv0_outD_3; assign drv0_enD_3 = ~LPL_0; //[HCNT.NET:00091] DL_3_(D_3) = ZTLATCH1(D_3,HCB_3,LPCLK,LPL_0);
-wire DL_4__drv0_outD_4,DL_4__drv0_outD_4L; LD1A DL_4__inst (.q(DL_4__drv0_outD_4),.qL(DL_4__drv0_outD_4L),.d(HCB_4),.en(LPCLK)); assign drv0_outD_4 = ~DL_4__drv0_outD_4; assign drv0_enD_4 = ~LPL_0; //[HCNT.NET:00092] DL_4_(D_4) = ZTLATCH1(D_4,HCB_4,LPCLK,LPL_0);
-wire DL_5__drv0_outD_5,DL_5__drv0_outD_5L; LD1A DL_5__inst (.q(DL_5__drv0_outD_5),.qL(DL_5__drv0_outD_5L),.d(HCB_5),.en(LPCLK)); assign drv0_outD_5 = ~DL_5__drv0_outD_5; assign drv0_enD_5 = ~LPL_0; //[HCNT.NET:00093] DL_5_(D_5) = ZTLATCH1(D_5,HCB_5,LPCLK,LPL_0);
-wire DL_6__drv0_outD_6,DL_6__drv0_outD_6L; LD1A DL_6__inst (.q(DL_6__drv0_outD_6),.qL(DL_6__drv0_outD_6L),.d(HCB_6),.en(LPCLK)); assign drv0_outD_6 = ~DL_6__drv0_outD_6; assign drv0_enD_6 = ~LPL_0; //[HCNT.NET:00094] DL_6_(D_6) = ZTLATCH1(D_6,HCB_6,LPCLK,LPL_0);
-wire DL_7__drv0_outD_7,DL_7__drv0_outD_7L; LD1A DL_7__inst (.q(DL_7__drv0_outD_7),.qL(DL_7__drv0_outD_7L),.d(HCB_7),.en(LPCLK)); assign drv0_outD_7 = ~DL_7__drv0_outD_7; assign drv0_enD_7 = ~LPL_0; //[HCNT.NET:00095] DL_7_(D_7) = ZTLATCH1(D_7,HCB_7,LPCLK,LPL_0);
-wire DH_0__drv1_outD_0,DH_0__drv1_outD_0L; LD1A DH_0__inst (.q(DH_0__drv1_outD_0),.qL(DH_0__drv1_outD_0L),.d(HCB_8),.en(LPCLK)); assign drv1_outD_0 = ~DH_0__drv1_outD_0; assign drv1_enD_0 = ~LPL_1; //[HCNT.NET:00096] DH_0_(D_0) = ZTLATCH1(D_0,HCB_8,LPCLK,LPL_1);
-wire DH_1__drv1_outD_1,DH_1__drv1_outD_1L; LD1A DH_1__inst (.q(DH_1__drv1_outD_1),.qL(DH_1__drv1_outD_1L),.d(HCB_9),.en(LPCLK)); assign drv1_outD_1 = ~DH_1__drv1_outD_1; assign drv1_enD_1 = ~LPL_1; //[HCNT.NET:00097] DH_1_(D_1) = ZTLATCH1(D_1,HCB_9,LPCLK,LPL_1);
+wire DL_0__drv0_outD_0,DL_0__drv0_outD_0L; LD1A DL_0__inst (.MasterClock(MasterClock), .q(DL_0__drv0_outD_0),.qL(DL_0__drv0_outD_0L),.d(HCB_0),.en(LPCLK)); assign drv0_outD_0 = ~DL_0__drv0_outD_0; assign drv0_enD_0 = ~LPL_0; //[HCNT.NET:00088] DL_0_(D_0) = ZTLATCH1(D_0,HCB_0,LPCLK,LPL_0);
+wire DL_1__drv0_outD_1,DL_1__drv0_outD_1L; LD1A DL_1__inst (.MasterClock(MasterClock), .q(DL_1__drv0_outD_1),.qL(DL_1__drv0_outD_1L),.d(HCB_1),.en(LPCLK)); assign drv0_outD_1 = ~DL_1__drv0_outD_1; assign drv0_enD_1 = ~LPL_0; //[HCNT.NET:00089] DL_1_(D_1) = ZTLATCH1(D_1,HCB_1,LPCLK,LPL_0);
+wire DL_2__drv0_outD_2,DL_2__drv0_outD_2L; LD1A DL_2__inst (.MasterClock(MasterClock), .q(DL_2__drv0_outD_2),.qL(DL_2__drv0_outD_2L),.d(HCB_2),.en(LPCLK)); assign drv0_outD_2 = ~DL_2__drv0_outD_2; assign drv0_enD_2 = ~LPL_0; //[HCNT.NET:00090] DL_2_(D_2) = ZTLATCH1(D_2,HCB_2,LPCLK,LPL_0);
+wire DL_3__drv0_outD_3,DL_3__drv0_outD_3L; LD1A DL_3__inst (.MasterClock(MasterClock), .q(DL_3__drv0_outD_3),.qL(DL_3__drv0_outD_3L),.d(HCB_3),.en(LPCLK)); assign drv0_outD_3 = ~DL_3__drv0_outD_3; assign drv0_enD_3 = ~LPL_0; //[HCNT.NET:00091] DL_3_(D_3) = ZTLATCH1(D_3,HCB_3,LPCLK,LPL_0);
+wire DL_4__drv0_outD_4,DL_4__drv0_outD_4L; LD1A DL_4__inst (.MasterClock(MasterClock), .q(DL_4__drv0_outD_4),.qL(DL_4__drv0_outD_4L),.d(HCB_4),.en(LPCLK)); assign drv0_outD_4 = ~DL_4__drv0_outD_4; assign drv0_enD_4 = ~LPL_0; //[HCNT.NET:00092] DL_4_(D_4) = ZTLATCH1(D_4,HCB_4,LPCLK,LPL_0);
+wire DL_5__drv0_outD_5,DL_5__drv0_outD_5L; LD1A DL_5__inst (.MasterClock(MasterClock), .q(DL_5__drv0_outD_5),.qL(DL_5__drv0_outD_5L),.d(HCB_5),.en(LPCLK)); assign drv0_outD_5 = ~DL_5__drv0_outD_5; assign drv0_enD_5 = ~LPL_0; //[HCNT.NET:00093] DL_5_(D_5) = ZTLATCH1(D_5,HCB_5,LPCLK,LPL_0);
+wire DL_6__drv0_outD_6,DL_6__drv0_outD_6L; LD1A DL_6__inst (.MasterClock(MasterClock), .q(DL_6__drv0_outD_6),.qL(DL_6__drv0_outD_6L),.d(HCB_6),.en(LPCLK)); assign drv0_outD_6 = ~DL_6__drv0_outD_6; assign drv0_enD_6 = ~LPL_0; //[HCNT.NET:00094] DL_6_(D_6) = ZTLATCH1(D_6,HCB_6,LPCLK,LPL_0);
+wire DL_7__drv0_outD_7,DL_7__drv0_outD_7L; LD1A DL_7__inst (.MasterClock(MasterClock), .q(DL_7__drv0_outD_7),.qL(DL_7__drv0_outD_7L),.d(HCB_7),.en(LPCLK)); assign drv0_outD_7 = ~DL_7__drv0_outD_7; assign drv0_enD_7 = ~LPL_0; //[HCNT.NET:00095] DL_7_(D_7) = ZTLATCH1(D_7,HCB_7,LPCLK,LPL_0);
+wire DH_0__drv1_outD_0,DH_0__drv1_outD_0L; LD1A DH_0__inst (.MasterClock(MasterClock), .q(DH_0__drv1_outD_0),.qL(DH_0__drv1_outD_0L),.d(HCB_8),.en(LPCLK)); assign drv1_outD_0 = ~DH_0__drv1_outD_0; assign drv1_enD_0 = ~LPL_1; //[HCNT.NET:00096] DH_0_(D_0) = ZTLATCH1(D_0,HCB_8,LPCLK,LPL_1);
+wire DH_1__drv1_outD_1,DH_1__drv1_outD_1L; LD1A DH_1__inst (.MasterClock(MasterClock), .q(DH_1__drv1_outD_1),.qL(DH_1__drv1_outD_1L),.d(HCB_9),.en(LPCLK)); assign drv1_outD_1 = ~DH_1__drv1_outD_1; assign drv1_enD_1 = ~LPL_1; //[HCNT.NET:00097] DH_1_(D_1) = ZTLATCH1(D_1,HCB_9,LPCLK,LPL_1);
 assign drv1_outD_2 = ~RESETL; assign drv1_enD_2 = ~LPL_1;                       //[HCNT.NET:00098] DH_2_(D_2) = MACZINVB1(RESETL,LPL_1);
 assign drv1_outD_3 = ~RESETL; assign drv1_enD_3 = ~LPL_1;                       //[HCNT.NET:00099] DH_3_(D_3) = MACZINVB1(RESETL,LPL_1);
 assign drv1_outD_4 = ~RESETL; assign drv1_enD_4 = ~LPL_1;                       //[HCNT.NET:00100] DH_4_(D_4) = MACZINVB1(RESETL,LPL_1);
@@ -312,7 +312,7 @@ assign BIT0 = ~((PAL & HC_0)|(NTSC & HCB_0));                                   
 have an equivalent effect */
 
 assign HD756L = ~HD756;                                                         //[HCNT.NET:00151] HD756L_(HD756L) = N1A(HD756);
-FD2A HLOCKD__inst (.q(HLOCKD),.qL(HLOCKDL),.d(HLOCK),.clk(CLK),.rL(RESETL));    //[HCNT.NET:00152] HLOCKD_(HLOCKD,HLOCKDL) = FD2A(HLOCK,CLK,RESETL);
+FD2A HLOCKD__inst (.MasterClock(MasterClock),.q(HLOCKD),.qL(HLOCKDL),.d(HLOCK),.clk(CLK),.rL(RESETL));//[HCNT.NET:00152] HLOCKD_(HLOCKD,HLOCKDL) = FD2A(HLOCK,CLK,RESETL);
 assign HLOCKL = ~(GENLOCK & HLOCKD);                                            //[HCNT.NET:00153] HLOCKL_(HLOCKL) = ND2A(GENLOCK,HLOCKD);
 assign NEXTH = ~(HLOCKL & HD756L);                                              //[HCNT.NET:00154] NEXTH_(NEXTH) = ND2C(HLOCKL,HD756L);
 
@@ -329,7 +329,7 @@ m_JK HBLANKING_ (.MasterClock(MasterClock),.J(HD682),.K(HD68),.R(RES),.CLK(CLK),
 
 /* hvactive leads border by eight ticks */
 
-FJK2A HVACTIVE__inst (.q(HVACTIVE),.qL(HVACTIVEL),.j(HD111),.k(HD623),.clk(CLK),.rL(RESETL));//[HCNT.NET:00169] HVACTIVE_(HVACTIVE,HVACTIVEL) = FJK2A(HD111,HD623,CLK,RESETL);
+FJK2A HVACTIVE__inst (.MasterClock(MasterClock),.q(HVACTIVE),.qL(HVACTIVEL),.j(HD111),.k(HD623),.clk(CLK),.rL(RESETL));//[HCNT.NET:00169] HVACTIVE_(HVACTIVE,HVACTIVEL) = FJK2A(HD111,HD623,CLK,RESETL);
 
 /* hvhold is asserted 6 microprocessor clocks before the first video cycle */
 

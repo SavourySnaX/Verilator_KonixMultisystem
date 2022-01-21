@@ -469,18 +469,18 @@ wire drv1_enD_15;                                                               
 /* Latch the processors address */
 
 assign ALE = ~ALEL;                                                             //[BM.NET:00052] ALE_(ALE) = N1C(ALEL);
-LD1A PA_0__inst (.q(PAL_0),.qL(PA_0),.d(VADL_0),.en(ALE));                      //[BM.NET:00053] PA_0_(PAL_0,PA_0) = LD1A(VADL_0,ALE);
-LD1A PA_1__inst (.q(PAL_1),.qL(PA_1),.d(VADL_1),.en(ALE));                      //[BM.NET:00054] PA_1_(PAL_1,PA_1) = LD1A(VADL_1,ALE);
-LD1A PA_2__inst (.q(PAL_2),.qL(PA_2),.d(VADL_2),.en(ALE));                      //[BM.NET:00055] PA_2_(PAL_2,PA_2) = LD1A(VADL_2,ALE);
-LD1A PA_3__inst (.q(PAL_3),.qL(PA_3),.d(VADL_3),.en(ALE));                      //[BM.NET:00056] PA_3_(PAL_3,PA_3) = LD1A(VADL_3,ALE);
-LD1A PA_4__inst (.q(PAL_4),.qL(PA_4),.d(VADL_4),.en(ALE));                      //[BM.NET:00057] PA_4_(PAL_4,PA_4) = LD1A(VADL_4,ALE);
-LD1A PA_5__inst (.q(PAL_5),.qL(PA_5),.d(VADL_5),.en(ALE));                      //[BM.NET:00058] PA_5_(PAL_5,PA_5) = LD1A(VADL_5,ALE);
-LD1A PA_6__inst (.q(PAL_6),.qL(PA_6),.d(VADL_6),.en(ALE));                      //[BM.NET:00059] PA_6_(PAL_6,PA_6) = LD1A(VADL_6,ALE);
-LD1A PA_7__inst (.q(PAL_7),.qL(PA_7),.d(VADL_7),.en(ALE));                      //[BM.NET:00060] PA_7_(PAL_7,PA_7) = LD1A(VADL_7,ALE);
-LD1A PA_16__inst (.q(PAL_16),.qL(PA_16),.d(ASL_16),.en(ALE));                   //[BM.NET:00061] PA_16_(PAL_16,PA_16) = LD1A(ASL_16,ALE);
-LD1A PA_17__inst (.q(PAL_17),.qL(PA_17),.d(ASL_17),.en(ALE));                   //[BM.NET:00062] PA_17_(PAL_17,PA_17) = LD1A(ASL_17,ALE);
-LD1A PA_18__inst (.q(PAL_18),.qL(PA_18),.d(ASL_18),.en(ALE));                   //[BM.NET:00063] PA_18_(PAL_18,PA_18) = LD1A(ASL_18,ALE);
-LD1A PA_19__inst (.q(PAL_19),.qL(PA_19),.d(ASL_19),.en(ALE));                   //[BM.NET:00064] PA_19_(PAL_19,PA_19) = LD1A(ASL_19,ALE);
+LD1A PA_0__inst (.MasterClock(MasterClock),.q(PAL_0),.qL(PA_0),.d(VADL_0),.en(ALE));//[BM.NET:00053] PA_0_(PAL_0,PA_0) = LD1A(VADL_0,ALE);
+LD1A PA_1__inst (.MasterClock(MasterClock),.q(PAL_1),.qL(PA_1),.d(VADL_1),.en(ALE));//[BM.NET:00054] PA_1_(PAL_1,PA_1) = LD1A(VADL_1,ALE);
+LD1A PA_2__inst (.MasterClock(MasterClock),.q(PAL_2),.qL(PA_2),.d(VADL_2),.en(ALE));//[BM.NET:00055] PA_2_(PAL_2,PA_2) = LD1A(VADL_2,ALE);
+LD1A PA_3__inst (.MasterClock(MasterClock),.q(PAL_3),.qL(PA_3),.d(VADL_3),.en(ALE));//[BM.NET:00056] PA_3_(PAL_3,PA_3) = LD1A(VADL_3,ALE);
+LD1A PA_4__inst (.MasterClock(MasterClock),.q(PAL_4),.qL(PA_4),.d(VADL_4),.en(ALE));//[BM.NET:00057] PA_4_(PAL_4,PA_4) = LD1A(VADL_4,ALE);
+LD1A PA_5__inst (.MasterClock(MasterClock),.q(PAL_5),.qL(PA_5),.d(VADL_5),.en(ALE));//[BM.NET:00058] PA_5_(PAL_5,PA_5) = LD1A(VADL_5,ALE);
+LD1A PA_6__inst (.MasterClock(MasterClock),.q(PAL_6),.qL(PA_6),.d(VADL_6),.en(ALE));//[BM.NET:00059] PA_6_(PAL_6,PA_6) = LD1A(VADL_6,ALE);
+LD1A PA_7__inst (.MasterClock(MasterClock),.q(PAL_7),.qL(PA_7),.d(VADL_7),.en(ALE));//[BM.NET:00060] PA_7_(PAL_7,PA_7) = LD1A(VADL_7,ALE);
+LD1A PA_16__inst (.MasterClock(MasterClock),.q(PAL_16),.qL(PA_16),.d(ASL_16),.en(ALE));//[BM.NET:00061] PA_16_(PAL_16,PA_16) = LD1A(ASL_16,ALE);
+LD1A PA_17__inst (.MasterClock(MasterClock),.q(PAL_17),.qL(PA_17),.d(ASL_17),.en(ALE));//[BM.NET:00062] PA_17_(PAL_17,PA_17) = LD1A(ASL_17,ALE);
+LD1A PA_18__inst (.MasterClock(MasterClock),.q(PAL_18),.qL(PA_18),.d(ASL_18),.en(ALE));//[BM.NET:00063] PA_18_(PAL_18,PA_18) = LD1A(ASL_18,ALE);
+LD1A PA_19__inst (.MasterClock(MasterClock),.q(PAL_19),.qL(PA_19),.d(ASL_19),.en(ALE));//[BM.NET:00064] PA_19_(PAL_19,PA_19) = LD1A(ASL_19,ALE);
 
 /* enable onto the internal address bus */
 /* the microprocessors address is enabled except when hlda is asserted */

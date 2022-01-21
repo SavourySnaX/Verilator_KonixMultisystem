@@ -235,7 +235,7 @@ assign RES = ~RESETL;                                                           
 
 /* latch the msb of the vertical count */
 
-LD1A VCNT_8__inst (.q(VCNT_8),.qL(VCNTL_8),.d(WD_0),.en(VCNTH));                //[VCNT.NET:00034] VCNT_8_(VCNT_8,VCNTL_8) = LD1A(WD_0,VCNTH);
+LD1A VCNT_8__inst (.MasterClock(MasterClock),.q(VCNT_8),.qL(VCNTL_8),.d(WD_0),.en(VCNTH));//[VCNT.NET:00034] VCNT_8_(VCNT_8,VCNTL_8) = LD1A(WD_0,VCNTH);
 
 /* the vertical counter usually increments when the horizontal
 count is one (hd1). For test purposes the counter may count every clock
@@ -260,15 +260,15 @@ m_SYNCNT Q_8_ (.MasterClock(MasterClock),.D(VCNT_8),.CLK(CLK),.CLR(NEXTV),.LDL(V
 
 /* the light pen register */
 
-wire DL_0__drv0_outD_0,DL_0__drv0_outD_0L; LD1A DL_0__inst (.q(DL_0__drv0_outD_0),.qL(DL_0__drv0_outD_0L),.d(VCB_0),.en(LPCLK)); assign drv0_outD_0 = ~DL_0__drv0_outD_0; assign drv0_enD_0 = ~LPL_2; //[VCNT.NET:00059] DL_0_(D_0) = ZTLATCH1(D_0,VCB_0,LPCLK,LPL_2);
-wire DL_1__drv0_outD_1,DL_1__drv0_outD_1L; LD1A DL_1__inst (.q(DL_1__drv0_outD_1),.qL(DL_1__drv0_outD_1L),.d(VCB_1),.en(LPCLK)); assign drv0_outD_1 = ~DL_1__drv0_outD_1; assign drv0_enD_1 = ~LPL_2; //[VCNT.NET:00060] DL_1_(D_1) = ZTLATCH1(D_1,VCB_1,LPCLK,LPL_2);
-wire DL_2__drv0_outD_2,DL_2__drv0_outD_2L; LD1A DL_2__inst (.q(DL_2__drv0_outD_2),.qL(DL_2__drv0_outD_2L),.d(VCB_2),.en(LPCLK)); assign drv0_outD_2 = ~DL_2__drv0_outD_2; assign drv0_enD_2 = ~LPL_2; //[VCNT.NET:00061] DL_2_(D_2) = ZTLATCH1(D_2,VCB_2,LPCLK,LPL_2);
-wire DL_3__drv0_outD_3,DL_3__drv0_outD_3L; LD1A DL_3__inst (.q(DL_3__drv0_outD_3),.qL(DL_3__drv0_outD_3L),.d(VCB_3),.en(LPCLK)); assign drv0_outD_3 = ~DL_3__drv0_outD_3; assign drv0_enD_3 = ~LPL_2; //[VCNT.NET:00062] DL_3_(D_3) = ZTLATCH1(D_3,VCB_3,LPCLK,LPL_2);
-wire DL_4__drv0_outD_4,DL_4__drv0_outD_4L; LD1A DL_4__inst (.q(DL_4__drv0_outD_4),.qL(DL_4__drv0_outD_4L),.d(VCB_4),.en(LPCLK)); assign drv0_outD_4 = ~DL_4__drv0_outD_4; assign drv0_enD_4 = ~LPL_2; //[VCNT.NET:00063] DL_4_(D_4) = ZTLATCH1(D_4,VCB_4,LPCLK,LPL_2);
-wire DL_5__drv0_outD_5,DL_5__drv0_outD_5L; LD1A DL_5__inst (.q(DL_5__drv0_outD_5),.qL(DL_5__drv0_outD_5L),.d(VCB_5),.en(LPCLK)); assign drv0_outD_5 = ~DL_5__drv0_outD_5; assign drv0_enD_5 = ~LPL_2; //[VCNT.NET:00064] DL_5_(D_5) = ZTLATCH1(D_5,VCB_5,LPCLK,LPL_2);
-wire DL_6__drv0_outD_6,DL_6__drv0_outD_6L; LD1A DL_6__inst (.q(DL_6__drv0_outD_6),.qL(DL_6__drv0_outD_6L),.d(VCB_6),.en(LPCLK)); assign drv0_outD_6 = ~DL_6__drv0_outD_6; assign drv0_enD_6 = ~LPL_2; //[VCNT.NET:00065] DL_6_(D_6) = ZTLATCH1(D_6,VCB_6,LPCLK,LPL_2);
-wire DL_7__drv0_outD_7,DL_7__drv0_outD_7L; LD1A DL_7__inst (.q(DL_7__drv0_outD_7),.qL(DL_7__drv0_outD_7L),.d(VCB_7),.en(LPCLK)); assign drv0_outD_7 = ~DL_7__drv0_outD_7; assign drv0_enD_7 = ~LPL_2; //[VCNT.NET:00066] DL_7_(D_7) = ZTLATCH1(D_7,VCB_7,LPCLK,LPL_2);
-wire DH_0__drv1_outD_0,DH_0__drv1_outD_0L; LD1A DH_0__inst (.q(DH_0__drv1_outD_0),.qL(DH_0__drv1_outD_0L),.d(VCB_8),.en(LPCLK)); assign drv1_outD_0 = ~DH_0__drv1_outD_0; assign drv1_enD_0 = ~LPL_3; //[VCNT.NET:00067] DH_0_(D_0) = ZTLATCH1(D_0,VCB_8,LPCLK,LPL_3);
+wire DL_0__drv0_outD_0,DL_0__drv0_outD_0L; LD1A DL_0__inst (.MasterClock(MasterClock), .q(DL_0__drv0_outD_0),.qL(DL_0__drv0_outD_0L),.d(VCB_0),.en(LPCLK)); assign drv0_outD_0 = ~DL_0__drv0_outD_0; assign drv0_enD_0 = ~LPL_2; //[VCNT.NET:00059] DL_0_(D_0) = ZTLATCH1(D_0,VCB_0,LPCLK,LPL_2);
+wire DL_1__drv0_outD_1,DL_1__drv0_outD_1L; LD1A DL_1__inst (.MasterClock(MasterClock), .q(DL_1__drv0_outD_1),.qL(DL_1__drv0_outD_1L),.d(VCB_1),.en(LPCLK)); assign drv0_outD_1 = ~DL_1__drv0_outD_1; assign drv0_enD_1 = ~LPL_2; //[VCNT.NET:00060] DL_1_(D_1) = ZTLATCH1(D_1,VCB_1,LPCLK,LPL_2);
+wire DL_2__drv0_outD_2,DL_2__drv0_outD_2L; LD1A DL_2__inst (.MasterClock(MasterClock), .q(DL_2__drv0_outD_2),.qL(DL_2__drv0_outD_2L),.d(VCB_2),.en(LPCLK)); assign drv0_outD_2 = ~DL_2__drv0_outD_2; assign drv0_enD_2 = ~LPL_2; //[VCNT.NET:00061] DL_2_(D_2) = ZTLATCH1(D_2,VCB_2,LPCLK,LPL_2);
+wire DL_3__drv0_outD_3,DL_3__drv0_outD_3L; LD1A DL_3__inst (.MasterClock(MasterClock), .q(DL_3__drv0_outD_3),.qL(DL_3__drv0_outD_3L),.d(VCB_3),.en(LPCLK)); assign drv0_outD_3 = ~DL_3__drv0_outD_3; assign drv0_enD_3 = ~LPL_2; //[VCNT.NET:00062] DL_3_(D_3) = ZTLATCH1(D_3,VCB_3,LPCLK,LPL_2);
+wire DL_4__drv0_outD_4,DL_4__drv0_outD_4L; LD1A DL_4__inst (.MasterClock(MasterClock), .q(DL_4__drv0_outD_4),.qL(DL_4__drv0_outD_4L),.d(VCB_4),.en(LPCLK)); assign drv0_outD_4 = ~DL_4__drv0_outD_4; assign drv0_enD_4 = ~LPL_2; //[VCNT.NET:00063] DL_4_(D_4) = ZTLATCH1(D_4,VCB_4,LPCLK,LPL_2);
+wire DL_5__drv0_outD_5,DL_5__drv0_outD_5L; LD1A DL_5__inst (.MasterClock(MasterClock), .q(DL_5__drv0_outD_5),.qL(DL_5__drv0_outD_5L),.d(VCB_5),.en(LPCLK)); assign drv0_outD_5 = ~DL_5__drv0_outD_5; assign drv0_enD_5 = ~LPL_2; //[VCNT.NET:00064] DL_5_(D_5) = ZTLATCH1(D_5,VCB_5,LPCLK,LPL_2);
+wire DL_6__drv0_outD_6,DL_6__drv0_outD_6L; LD1A DL_6__inst (.MasterClock(MasterClock), .q(DL_6__drv0_outD_6),.qL(DL_6__drv0_outD_6L),.d(VCB_6),.en(LPCLK)); assign drv0_outD_6 = ~DL_6__drv0_outD_6; assign drv0_enD_6 = ~LPL_2; //[VCNT.NET:00065] DL_6_(D_6) = ZTLATCH1(D_6,VCB_6,LPCLK,LPL_2);
+wire DL_7__drv0_outD_7,DL_7__drv0_outD_7L; LD1A DL_7__inst (.MasterClock(MasterClock), .q(DL_7__drv0_outD_7),.qL(DL_7__drv0_outD_7L),.d(VCB_7),.en(LPCLK)); assign drv0_outD_7 = ~DL_7__drv0_outD_7; assign drv0_enD_7 = ~LPL_2; //[VCNT.NET:00066] DL_7_(D_7) = ZTLATCH1(D_7,VCB_7,LPCLK,LPL_2);
+wire DH_0__drv1_outD_0,DH_0__drv1_outD_0L; LD1A DH_0__inst (.MasterClock(MasterClock), .q(DH_0__drv1_outD_0),.qL(DH_0__drv1_outD_0L),.d(VCB_8),.en(LPCLK)); assign drv1_outD_0 = ~DH_0__drv1_outD_0; assign drv1_enD_0 = ~LPL_3; //[VCNT.NET:00067] DH_0_(D_0) = ZTLATCH1(D_0,VCB_8,LPCLK,LPL_3);
 assign drv1_outD_1 = ~RESETL; assign drv1_enD_1 = ~LPL_3;                       //[VCNT.NET:00068] DH_1_(D_1) = MACZINVB1(RESETL,LPL_3);
 assign drv1_outD_2 = ~RESETL; assign drv1_enD_2 = ~LPL_3;                       //[VCNT.NET:00069] DH_2_(D_2) = MACZINVB1(RESETL,LPL_3);
 assign drv1_outD_3 = ~RESETL; assign drv1_enD_3 = ~LPL_3;                       //[VCNT.NET:00070] DH_3_(D_3) = MACZINVB1(RESETL,LPL_3);
@@ -279,15 +279,15 @@ assign drv1_outD_7 = ~RESETL; assign drv1_enD_7 = ~LPL_3;                       
 
 /* the interupt register */
 
-LD1A INT_0__inst (.q(INT_0),.qL(INTB_0),.d(WD_0),.en(INTL));                    //[VCNT.NET:00078] INT_0_(INT_0,INTB_0) = LD1A(WD_0,INTL);
-LD1A INT_1__inst (.q(INT_1),.qL(INTB_1),.d(WD_1),.en(INTL));                    //[VCNT.NET:00079] INT_1_(INT_1,INTB_1) = LD1A(WD_1,INTL);
-LD1A INT_2__inst (.q(INT_2),.qL(INTB_2),.d(WD_2),.en(INTL));                    //[VCNT.NET:00080] INT_2_(INT_2,INTB_2) = LD1A(WD_2,INTL);
-LD1A INT_3__inst (.q(INT_3),.qL(INTB_3),.d(WD_3),.en(INTL));                    //[VCNT.NET:00081] INT_3_(INT_3,INTB_3) = LD1A(WD_3,INTL);
-LD1A INT_4__inst (.q(INT_4),.qL(INTB_4),.d(WD_4),.en(INTL));                    //[VCNT.NET:00082] INT_4_(INT_4,INTB_4) = LD1A(WD_4,INTL);
-LD1A INT_5__inst (.q(INT_5),.qL(INTB_5),.d(WD_5),.en(INTL));                    //[VCNT.NET:00083] INT_5_(INT_5,INTB_5) = LD1A(WD_5,INTL);
-LD1A INT_6__inst (.q(INT_6),.qL(INTB_6),.d(WD_6),.en(INTL));                    //[VCNT.NET:00084] INT_6_(INT_6,INTB_6) = LD1A(WD_6,INTL);
-LD1A INT_7__inst (.q(INT_7),.qL(INTB_7),.d(WD_7),.en(INTL));                    //[VCNT.NET:00085] INT_7_(INT_7,INTB_7) = LD1A(WD_7,INTL);
-LD1A INT_8__inst (.q(INT_8),.qL(INTB_8),.d(WD_0),.en(INTH));                    //[VCNT.NET:00086] INT_8_(INT_8,INTB_8) = LD1A(WD_0,INTH);
+LD1A INT_0__inst (.MasterClock(MasterClock),.q(INT_0),.qL(INTB_0),.d(WD_0),.en(INTL));//[VCNT.NET:00078] INT_0_(INT_0,INTB_0) = LD1A(WD_0,INTL);
+LD1A INT_1__inst (.MasterClock(MasterClock),.q(INT_1),.qL(INTB_1),.d(WD_1),.en(INTL));//[VCNT.NET:00079] INT_1_(INT_1,INTB_1) = LD1A(WD_1,INTL);
+LD1A INT_2__inst (.MasterClock(MasterClock),.q(INT_2),.qL(INTB_2),.d(WD_2),.en(INTL));//[VCNT.NET:00080] INT_2_(INT_2,INTB_2) = LD1A(WD_2,INTL);
+LD1A INT_3__inst (.MasterClock(MasterClock),.q(INT_3),.qL(INTB_3),.d(WD_3),.en(INTL));//[VCNT.NET:00081] INT_3_(INT_3,INTB_3) = LD1A(WD_3,INTL);
+LD1A INT_4__inst (.MasterClock(MasterClock),.q(INT_4),.qL(INTB_4),.d(WD_4),.en(INTL));//[VCNT.NET:00082] INT_4_(INT_4,INTB_4) = LD1A(WD_4,INTL);
+LD1A INT_5__inst (.MasterClock(MasterClock),.q(INT_5),.qL(INTB_5),.d(WD_5),.en(INTL));//[VCNT.NET:00083] INT_5_(INT_5,INTB_5) = LD1A(WD_5,INTL);
+LD1A INT_6__inst (.MasterClock(MasterClock),.q(INT_6),.qL(INTB_6),.d(WD_6),.en(INTL));//[VCNT.NET:00084] INT_6_(INT_6,INTB_6) = LD1A(WD_6,INTL);
+LD1A INT_7__inst (.MasterClock(MasterClock),.q(INT_7),.qL(INTB_7),.d(WD_7),.en(INTL));//[VCNT.NET:00085] INT_7_(INT_7,INTB_7) = LD1A(WD_7,INTL);
+LD1A INT_8__inst (.MasterClock(MasterClock),.q(INT_8),.qL(INTB_8),.d(WD_0),.en(INTH));//[VCNT.NET:00086] INT_8_(INT_8,INTB_8) = LD1A(WD_0,INTH);
 
 m_EQU9 VINT_ (.MasterClock(MasterClock),.A_0(INT_0),.A_1(INT_1),.A_2(INT_2),.A_3(INT_3),.A_4(INT_4),.A_5(INT_5),.A_6(INT_6),.A_7(INT_7),.A_8(INT_8),.B_0(VC_0),.B_1(VC_1),.B_2(VC_2),.B_3(VC_3),.B_4(VC_4),.B_5(VC_5),.B_6(VC_6),.B_7(VC_7),.B_8(VC_8),.EN(HINT),.EQ(VINT));//[VCNT.NET:00088] VINT_(VINT) = EQU9(INT_0,INT_1,INT_2,INT_3,INT_4,INT_5,INT_6,INT_7,INT_8,VC_0,
                                                                                 //[VCNT.NET:00089]    VC_1,VC_2,VC_3,VC_4,VC_5,VC_6,VC_7,VC_8,HINT);
@@ -328,7 +328,7 @@ assign VSENDL = ~((PAL & VD311)|(NTSC & VD261));                                
 /* The last decode is combined with the vertical lock input so they
 have an equivalent effect */         
 
-FD2A VLOCKD__inst (.q(VLOCKD),.qL(VLOCKDL),.d(VLOCK),.clk(CLK),.rL(RESETL));    //[VCNT.NET:00127] VLOCKD_(VLOCKD,VLOCKDL) = FD2A(VLOCK,CLK,RESETL);
+FD2A VLOCKD__inst (.MasterClock(MasterClock),.q(VLOCKD),.qL(VLOCKDL),.d(VLOCK),.clk(CLK),.rL(RESETL));//[VCNT.NET:00127] VLOCKD_(VLOCKD,VLOCKDL) = FD2A(VLOCK,CLK,RESETL);
 assign VLOCKL = ~(GENLOCK & VLOCKD);                                            //[VCNT.NET:00128] VLOCKL_(VLOCKL) = ND2A(GENLOCK,VLOCKD);
 assign NEXTV = ~(VLOCKL & VSENDL);                                              //[VCNT.NET:00129] NEXTV_(NEXTV) = ND2A(VLOCKL,VSENDL);
 
@@ -346,27 +346,27 @@ assign BLANKING = HBLANKING | VBLANKING;                                        
 
 /* start and end registers */
 
-LD1A START_0__inst (.q(START_0),.qL(STARTB_0),.d(WD_0),.en(STARTL));            //[VCNT.NET:00145] START_0_(START_0,STARTB_0) = LD1A(WD_0,STARTL);
-LD1A START_1__inst (.q(START_1),.qL(STARTB_1),.d(WD_1),.en(STARTL));            //[VCNT.NET:00146] START_1_(START_1,STARTB_1) = LD1A(WD_1,STARTL);
-LD1A START_2__inst (.q(START_2),.qL(STARTB_2),.d(WD_2),.en(STARTL));            //[VCNT.NET:00147] START_2_(START_2,STARTB_2) = LD1A(WD_2,STARTL);
-LD1A START_3__inst (.q(START_3),.qL(STARTB_3),.d(WD_3),.en(STARTL));            //[VCNT.NET:00148] START_3_(START_3,STARTB_3) = LD1A(WD_3,STARTL);
-LD1A START_4__inst (.q(START_4),.qL(STARTB_4),.d(WD_4),.en(STARTL));            //[VCNT.NET:00149] START_4_(START_4,STARTB_4) = LD1A(WD_4,STARTL);
-LD1A START_5__inst (.q(START_5),.qL(STARTB_5),.d(WD_5),.en(STARTL));            //[VCNT.NET:00150] START_5_(START_5,STARTB_5) = LD1A(WD_5,STARTL);
-LD1A START_6__inst (.q(START_6),.qL(STARTB_6),.d(WD_6),.en(STARTL));            //[VCNT.NET:00151] START_6_(START_6,STARTB_6) = LD1A(WD_6,STARTL);
-LD1A START_7__inst (.q(START_7),.qL(STARTB_7),.d(WD_7),.en(STARTL));            //[VCNT.NET:00152] START_7_(START_7,STARTB_7) = LD1A(WD_7,STARTL);
-LD1A STARTH_8__inst (.q(START_8),.qL(STARTB_8),.d(WD_0),.en(STARTH));           //[VCNT.NET:00153] STARTH_8_(START_8,STARTB_8) = LD1A(WD_0,STARTH);
+LD1A START_0__inst (.MasterClock(MasterClock),.q(START_0),.qL(STARTB_0),.d(WD_0),.en(STARTL));//[VCNT.NET:00145] START_0_(START_0,STARTB_0) = LD1A(WD_0,STARTL);
+LD1A START_1__inst (.MasterClock(MasterClock),.q(START_1),.qL(STARTB_1),.d(WD_1),.en(STARTL));//[VCNT.NET:00146] START_1_(START_1,STARTB_1) = LD1A(WD_1,STARTL);
+LD1A START_2__inst (.MasterClock(MasterClock),.q(START_2),.qL(STARTB_2),.d(WD_2),.en(STARTL));//[VCNT.NET:00147] START_2_(START_2,STARTB_2) = LD1A(WD_2,STARTL);
+LD1A START_3__inst (.MasterClock(MasterClock),.q(START_3),.qL(STARTB_3),.d(WD_3),.en(STARTL));//[VCNT.NET:00148] START_3_(START_3,STARTB_3) = LD1A(WD_3,STARTL);
+LD1A START_4__inst (.MasterClock(MasterClock),.q(START_4),.qL(STARTB_4),.d(WD_4),.en(STARTL));//[VCNT.NET:00149] START_4_(START_4,STARTB_4) = LD1A(WD_4,STARTL);
+LD1A START_5__inst (.MasterClock(MasterClock),.q(START_5),.qL(STARTB_5),.d(WD_5),.en(STARTL));//[VCNT.NET:00150] START_5_(START_5,STARTB_5) = LD1A(WD_5,STARTL);
+LD1A START_6__inst (.MasterClock(MasterClock),.q(START_6),.qL(STARTB_6),.d(WD_6),.en(STARTL));//[VCNT.NET:00151] START_6_(START_6,STARTB_6) = LD1A(WD_6,STARTL);
+LD1A START_7__inst (.MasterClock(MasterClock),.q(START_7),.qL(STARTB_7),.d(WD_7),.en(STARTL));//[VCNT.NET:00152] START_7_(START_7,STARTB_7) = LD1A(WD_7,STARTL);
+LD1A STARTH_8__inst (.MasterClock(MasterClock),.q(START_8),.qL(STARTB_8),.d(WD_0),.en(STARTH));//[VCNT.NET:00153] STARTH_8_(START_8,STARTB_8) = LD1A(WD_0,STARTH);
 m_EQU9 STARTD_ (.MasterClock(MasterClock),.A_0(START_0),.A_1(START_1),.A_2(START_2),.A_3(START_3),.A_4(START_4),.A_5(START_5),.A_6(START_6),.A_7(START_7),.A_8(START_8),.B_0(VC_0),.B_1(VC_1),.B_2(VC_2),.B_3(VC_3),.B_4(VC_4),.B_5(VC_5),.B_6(VC_6),.B_7(VC_7),.B_8(VC_8),.EN(HD1D),.EQ(STARTD));//[VCNT.NET:00154] STARTD_(STARTD) = EQU9(START_0,START_1,START_2,START_3,START_4,START_5,START_6,
                                                                                 //[VCNT.NET:00155]    START_7,START_8,VC_0,VC_1,VC_2,VC_3,VC_4,VC_5,VC_6,VC_7,VC_8,HD1D);
 
-LD1A END_0__inst (.q(END_0),.qL(ENDB_0),.d(WD_0),.en(ENDL));                    //[VCNT.NET:00157] END_0_(END_0,ENDB_0) = LD1A(WD_0,ENDL);
-LD1A END_1__inst (.q(END_1),.qL(ENDB_1),.d(WD_1),.en(ENDL));                    //[VCNT.NET:00158] END_1_(END_1,ENDB_1) = LD1A(WD_1,ENDL);
-LD1A END_2__inst (.q(END_2),.qL(ENDB_2),.d(WD_2),.en(ENDL));                    //[VCNT.NET:00159] END_2_(END_2,ENDB_2) = LD1A(WD_2,ENDL);
-LD1A END_3__inst (.q(END_3),.qL(ENDB_3),.d(WD_3),.en(ENDL));                    //[VCNT.NET:00160] END_3_(END_3,ENDB_3) = LD1A(WD_3,ENDL);
-LD1A END_4__inst (.q(END_4),.qL(ENDB_4),.d(WD_4),.en(ENDL));                    //[VCNT.NET:00161] END_4_(END_4,ENDB_4) = LD1A(WD_4,ENDL);
-LD1A END_5__inst (.q(END_5),.qL(ENDB_5),.d(WD_5),.en(ENDL));                    //[VCNT.NET:00162] END_5_(END_5,ENDB_5) = LD1A(WD_5,ENDL);
-LD1A END_6__inst (.q(END_6),.qL(ENDB_6),.d(WD_6),.en(ENDL));                    //[VCNT.NET:00163] END_6_(END_6,ENDB_6) = LD1A(WD_6,ENDL);
-LD1A END_7__inst (.q(END_7),.qL(ENDB_7),.d(WD_7),.en(ENDL));                    //[VCNT.NET:00164] END_7_(END_7,ENDB_7) = LD1A(WD_7,ENDL);
-LD1A ENDH_8__inst (.q(END_8),.qL(ENDB_8),.d(WD_0),.en(ENDH));                   //[VCNT.NET:00165] ENDH_8_(END_8,ENDB_8) = LD1A(WD_0,ENDH);
+LD1A END_0__inst (.MasterClock(MasterClock),.q(END_0),.qL(ENDB_0),.d(WD_0),.en(ENDL));//[VCNT.NET:00157] END_0_(END_0,ENDB_0) = LD1A(WD_0,ENDL);
+LD1A END_1__inst (.MasterClock(MasterClock),.q(END_1),.qL(ENDB_1),.d(WD_1),.en(ENDL));//[VCNT.NET:00158] END_1_(END_1,ENDB_1) = LD1A(WD_1,ENDL);
+LD1A END_2__inst (.MasterClock(MasterClock),.q(END_2),.qL(ENDB_2),.d(WD_2),.en(ENDL));//[VCNT.NET:00159] END_2_(END_2,ENDB_2) = LD1A(WD_2,ENDL);
+LD1A END_3__inst (.MasterClock(MasterClock),.q(END_3),.qL(ENDB_3),.d(WD_3),.en(ENDL));//[VCNT.NET:00160] END_3_(END_3,ENDB_3) = LD1A(WD_3,ENDL);
+LD1A END_4__inst (.MasterClock(MasterClock),.q(END_4),.qL(ENDB_4),.d(WD_4),.en(ENDL));//[VCNT.NET:00161] END_4_(END_4,ENDB_4) = LD1A(WD_4,ENDL);
+LD1A END_5__inst (.MasterClock(MasterClock),.q(END_5),.qL(ENDB_5),.d(WD_5),.en(ENDL));//[VCNT.NET:00162] END_5_(END_5,ENDB_5) = LD1A(WD_5,ENDL);
+LD1A END_6__inst (.MasterClock(MasterClock),.q(END_6),.qL(ENDB_6),.d(WD_6),.en(ENDL));//[VCNT.NET:00163] END_6_(END_6,ENDB_6) = LD1A(WD_6,ENDL);
+LD1A END_7__inst (.MasterClock(MasterClock),.q(END_7),.qL(ENDB_7),.d(WD_7),.en(ENDL));//[VCNT.NET:00164] END_7_(END_7,ENDB_7) = LD1A(WD_7,ENDL);
+LD1A ENDH_8__inst (.MasterClock(MasterClock),.q(END_8),.qL(ENDB_8),.d(WD_0),.en(ENDH));//[VCNT.NET:00165] ENDH_8_(END_8,ENDB_8) = LD1A(WD_0,ENDH);
 m_EQU9 ENDD_ (.MasterClock(MasterClock),.A_0(END_0),.A_1(END_1),.A_2(END_2),.A_3(END_3),.A_4(END_4),.A_5(END_5),.A_6(END_6),.A_7(END_7),.A_8(END_8),.B_0(VC_0),.B_1(VC_1),.B_2(VC_2),.B_3(VC_3),.B_4(VC_4),.B_5(VC_5),.B_6(VC_6),.B_7(VC_7),.B_8(VC_8),.EN(HD1D),.EQ(ENDD));//[VCNT.NET:00166] ENDD_(ENDD) = EQU9(END_0,END_1,END_2,END_3,END_4,END_5,END_6,END_7,END_8,VC_0,
                                                                                 //[VCNT.NET:00167]    VC_1,VC_2,VC_3,VC_4,VC_5,VC_6,VC_7,VC_8,HD1D);
 

@@ -22,7 +22,7 @@ assign DIL = ~((CI & QB)|(CIL & Q));                                            
 assign DI = ~(DIL & PRL);                                                       //[LEGO.NET:00171] DI_(DI) = ND2A(DIL,PRL);		/* preset/count */
 
 
-FD1A Q__inst (.q(Q),.qL(QB),.d(DI),.clk(CLK));                                  //[LEGO.NET:00174] Q_(Q,QB) = FD1A(DI,CLK);
+FD1A Q__inst (.MasterClock(MasterClock),.q(Q),.qL(QB),.d(DI),.clk(CLK));        //[LEGO.NET:00174] Q_(Q,QB) = FD1A(DI,CLK);
 
 assign CO = ~(CIL | Q);                                                         //[LEGO.NET:00176] CO_(CO) = NR2A(CIL,Q);
 

@@ -211,7 +211,7 @@ assign drv0_outD_7 = ~STRD; assign drv0_enD_7 = STRD;                           
 /* The blitter control register.  The remainder of this register lies 
 within the state block */
 
-LD2A IMASK__inst (.q(IMASK),.qL(IMASKL),.d(ID_0),.en(CONWRL));                  //[BUSCON.NET:00130] IMASK_(IMASK,IMASKL) = LD2A(ID_0,CONWRL);
+LD2A IMASK__inst (.MasterClock(MasterClock),.q(IMASK),.qL(IMASKL),.d(ID_0),.en(CONWRL));//[BUSCON.NET:00130] IMASK_(IMASK,IMASKL) = LD2A(ID_0,CONWRL);
 
 assign outD_0 = (drv0_outD_0 & drv0_enD_0);
 assign enD_0 = drv0_enD_0;

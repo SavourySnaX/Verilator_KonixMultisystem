@@ -12,6 +12,6 @@ wire DIL;                                                                       
 
 assign DIL = ~(QB & CLL);                                                       //[LEGO.NET:00214] DIL_(DIL) = ND2A(QB,CLL);		/* clear/count */
 
-FD1A Q__inst (.q(QB),.qL(Q),.d(DIL),.clk(CLK));                                 //[LEGO.NET:00216] Q_(QB,Q) = FD1A(DIL,CLK);
+FD1A Q__inst (.MasterClock(MasterClock),.q(QB),.qL(Q),.d(DIL),.clk(CLK));       //[LEGO.NET:00216] Q_(QB,Q) = FD1A(DIL,CLK);
 
 endmodule                                                                       //[LEGO.NET:00218] END MODULE;

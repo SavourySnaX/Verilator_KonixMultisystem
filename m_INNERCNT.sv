@@ -94,15 +94,15 @@ assign RESETL = ~RESET;                                                         
 
 /* The Inner count value register */
 
-LD2A ICNTR_0__inst (.q(ICVAL_0),.qL(ICVALL_0),.d(ID_0),.en(LDINRL));            //[INNERCNT.NET:00028] ICNTR_0_(ICVAL_0,ICVALL_0) = LD2A(ID_0,LDINRL);
-LD2A ICNTR_1__inst (.q(ICVAL_1),.qL(ICVALL_1),.d(ID_1),.en(LDINRL));            //[INNERCNT.NET:00029] ICNTR_1_(ICVAL_1,ICVALL_1) = LD2A(ID_1,LDINRL);
-LD2A ICNTR_2__inst (.q(ICVAL_2),.qL(ICVALL_2),.d(ID_2),.en(LDINRL));            //[INNERCNT.NET:00030] ICNTR_2_(ICVAL_2,ICVALL_2) = LD2A(ID_2,LDINRL);
-LD2A ICNTR_3__inst (.q(ICVAL_3),.qL(ICVALL_3),.d(ID_3),.en(LDINRL));            //[INNERCNT.NET:00031] ICNTR_3_(ICVAL_3,ICVALL_3) = LD2A(ID_3,LDINRL);
-LD2A ICNTR_4__inst (.q(ICVAL_4),.qL(ICVALL_4),.d(ID_4),.en(LDINRL));            //[INNERCNT.NET:00032] ICNTR_4_(ICVAL_4,ICVALL_4) = LD2A(ID_4,LDINRL);
-LD2A ICNTR_5__inst (.q(ICVAL_5),.qL(ICVALL_5),.d(ID_5),.en(LDINRL));            //[INNERCNT.NET:00033] ICNTR_5_(ICVAL_5,ICVALL_5) = LD2A(ID_5,LDINRL);
-LD2A ICNTR_6__inst (.q(ICVAL_6),.qL(ICVALL_6),.d(ID_6),.en(LDINRL));            //[INNERCNT.NET:00034] ICNTR_6_(ICVAL_6,ICVALL_6) = LD2A(ID_6,LDINRL);
-LD2A ICNTR_7__inst (.q(ICVAL_7),.qL(ICVALL_7),.d(ID_7),.en(LDINRL));            //[INNERCNT.NET:00035] ICNTR_7_(ICVAL_7,ICVALL_7) = LD2A(ID_7,LDINRL);
-LD2A ICNTR_8__inst (.q(ICVAL_8),.qL(ICVALL_8),.d(ID_1),.en(LDMODL));            //[INNERCNT.NET:00036] ICNTR_8_(ICVAL_8,ICVALL_8) = LD2A(ID_1,LDMODL);
+LD2A ICNTR_0__inst (.MasterClock(MasterClock),.q(ICVAL_0),.qL(ICVALL_0),.d(ID_0),.en(LDINRL));//[INNERCNT.NET:00028] ICNTR_0_(ICVAL_0,ICVALL_0) = LD2A(ID_0,LDINRL);
+LD2A ICNTR_1__inst (.MasterClock(MasterClock),.q(ICVAL_1),.qL(ICVALL_1),.d(ID_1),.en(LDINRL));//[INNERCNT.NET:00029] ICNTR_1_(ICVAL_1,ICVALL_1) = LD2A(ID_1,LDINRL);
+LD2A ICNTR_2__inst (.MasterClock(MasterClock),.q(ICVAL_2),.qL(ICVALL_2),.d(ID_2),.en(LDINRL));//[INNERCNT.NET:00030] ICNTR_2_(ICVAL_2,ICVALL_2) = LD2A(ID_2,LDINRL);
+LD2A ICNTR_3__inst (.MasterClock(MasterClock),.q(ICVAL_3),.qL(ICVALL_3),.d(ID_3),.en(LDINRL));//[INNERCNT.NET:00031] ICNTR_3_(ICVAL_3,ICVALL_3) = LD2A(ID_3,LDINRL);
+LD2A ICNTR_4__inst (.MasterClock(MasterClock),.q(ICVAL_4),.qL(ICVALL_4),.d(ID_4),.en(LDINRL));//[INNERCNT.NET:00032] ICNTR_4_(ICVAL_4,ICVALL_4) = LD2A(ID_4,LDINRL);
+LD2A ICNTR_5__inst (.MasterClock(MasterClock),.q(ICVAL_5),.qL(ICVALL_5),.d(ID_5),.en(LDINRL));//[INNERCNT.NET:00033] ICNTR_5_(ICVAL_5,ICVALL_5) = LD2A(ID_5,LDINRL);
+LD2A ICNTR_6__inst (.MasterClock(MasterClock),.q(ICVAL_6),.qL(ICVALL_6),.d(ID_6),.en(LDINRL));//[INNERCNT.NET:00034] ICNTR_6_(ICVAL_6,ICVALL_6) = LD2A(ID_6,LDINRL);
+LD2A ICNTR_7__inst (.MasterClock(MasterClock),.q(ICVAL_7),.qL(ICVALL_7),.d(ID_7),.en(LDINRL));//[INNERCNT.NET:00035] ICNTR_7_(ICVAL_7,ICVALL_7) = LD2A(ID_7,LDINRL);
+LD2A ICNTR_8__inst (.MasterClock(MasterClock),.q(ICVAL_8),.qL(ICVALL_8),.d(ID_1),.en(LDMODL));//[INNERCNT.NET:00036] ICNTR_8_(ICVAL_8,ICVALL_8) = LD2A(ID_1,LDMODL);
 
 /* Inner counter load - as the inner counter is a synchronous counter
 loaded in one tick it is necessary to synthesize a load clock which will
@@ -110,7 +110,7 @@ have a suitable rising edge within the load signal.  This is given by
 producing a delayed version off the back edge of the clock and making
 the clock active (low) only during the first half of the cycle */
 
-FD1A LDICNTD__inst (.q(LDICNTDL),.qL(LDICNTD),.d(LDICNTL),.clk(CCLKL));         //[INNERCNT.NET:00044] LDICNTD_(LDICNTDL,LDICNTD) = FD1A(LDICNTL,CCLKL);
+FD1A LDICNTD__inst (.MasterClock(MasterClock),.q(LDICNTDL),.qL(LDICNTD),.d(LDICNTL),.clk(CCLKL));//[INNERCNT.NET:00044] LDICNTD_(LDICNTDL,LDICNTD) = FD1A(LDICNTL,CCLKL);
 assign LDICLKL = LDICNTL | LDICNTD;                                             //[INNERCNT.NET:00045] LDICLK_(LDICLKL) = OR2A(LDICNTL,LDICNTD);
 
 /* From this, the counter clock */

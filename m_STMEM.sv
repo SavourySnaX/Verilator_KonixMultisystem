@@ -95,8 +95,8 @@ assign IMI_3 = ~IMI_2;                                                          
 
 /* The state latches */
 
-FD2A MILATCH_0__inst (.q(MI_0),.qL(MIL_0),.d(IMI_2),.clk(CCLK),.rL(RESETL));    //[STMEM.NET:00040] MILATCH_0_(MI_0,MIL_0) = FD2A(IMI_2,CCLK,RESETL);
-FD2A MILATCH_1__inst (.q(MI_1),.qL(MIL_1),.d(MI_0),.clk(CCLK),.rL(RESETL));     //[STMEM.NET:00041] MILATCH_1_(MI_1,MIL_1) = FD2A(MI_0,CCLK,RESETL);
+FD2A MILATCH_0__inst (.MasterClock(MasterClock),.q(MI_0),.qL(MIL_0),.d(IMI_2),.clk(CCLK),.rL(RESETL));//[STMEM.NET:00040] MILATCH_0_(MI_0,MIL_0) = FD2A(IMI_2,CCLK,RESETL);
+FD2A MILATCH_1__inst (.MasterClock(MasterClock),.q(MI_1),.qL(MIL_1),.d(MI_0),.clk(CCLK),.rL(RESETL));//[STMEM.NET:00041] MILATCH_1_(MI_1,MIL_1) = FD2A(MI_0,CCLK,RESETL);
 
 /* Decodes from state */
 
@@ -108,7 +108,7 @@ writes to update addresses
 
 assign MREQT_0 = ~(IDSTWR & INHIB);                                             //[STMEM.NET:00051] MREQT_0_(MREQT_0) = ND2A(IDSTWR,INHIB);
 assign MREQT_1 = ~(IMI_2 & MREQT_0);                                            //[STMEM.NET:00052] MREQT_1_(MREQT_1) = ND2A(IMI_2,MREQT_0);
-FD1A MREQT_2__inst (.q(BMREQL),.qL(BMREQ),.d(MREQT_1),.clk(CCLK));              //[STMEM.NET:00053] MREQT_2_(BMREQL,BMREQ) = FD1A(MREQT_1,CCLK);
+FD1A MREQT_2__inst (.MasterClock(MasterClock),.q(BMREQL),.qL(BMREQ),.d(MREQT_1),.clk(CCLK));//[STMEM.NET:00053] MREQT_2_(BMREQL,BMREQ) = FD1A(MREQT_1,CCLK);
 
 /* rd and wr are active in T1, TW and T2.  Do these by synchronous decode
    rd = (mi[0] + mi[1]) . /idstwr
@@ -116,8 +116,8 @@ FD1A MREQT_2__inst (.q(BMREQL),.qL(BMREQ),.d(MREQT_1),.clk(CCLK));              
 assign RWT_0 = ~(IMI_2 | MI_0);                                                 //[STMEM.NET:00058] RWT_0_(RWT_0) = NR2A(IMI_2,MI_0);
 assign RWT_1 = ~(RWT_0 | IDSTWR);                                               //[STMEM.NET:00059] RWT_1_(RWT_1) = NR2A(RWT_0,IDSTWR);
 assign RWT_2 = ~(RWT_0 | IDSTWRL | INHIB);                                      //[STMEM.NET:00060] RWT_2_(RWT_2) = NR3A(RWT_0,IDSTWRL,INHIB);
-FD1A RDFF__inst (.q(BRD),.qL(BRDL),.d(RWT_1),.clk(CCLK));                       //[STMEM.NET:00061] RDFF_(BRD,BRDL) = FD1A(RWT_1,CCLK);
-FD1A WRFF__inst (.q(BWR),.qL(BWRL),.d(RWT_2),.clk(CCLK));                       //[STMEM.NET:00062] WRFF_(BWR,BWRL) = FD1A(RWT_2,CCLK);
+FD1A RDFF__inst (.MasterClock(MasterClock),.q(BRD),.qL(BRDL),.d(RWT_1),.clk(CCLK));//[STMEM.NET:00061] RDFF_(BRD,BRDL) = FD1A(RWT_1,CCLK);
+FD1A WRFF__inst (.MasterClock(MasterClock),.q(BWR),.qL(BWRL),.d(RWT_2),.clk(CCLK));//[STMEM.NET:00062] WRFF_(BWR,BWRL) = FD1A(RWT_2,CCLK);
 
 /* word is active throughout the cycle for an inner loop generated memory
 cycle when word resolution is set
@@ -127,7 +127,7 @@ cycle when word resolution is set
 assign WRDT_0 = ~(BWORD & CYCENDL);                                             //[STMEM.NET:00069] WRDT_0_(WRDT_0) = ND2A(BWORD,CYCENDL);
 assign WRDT_1 = ~(ICYCST & INCRQ & RES_0 & RES_1);                              //[STMEM.NET:00070] WRDT_1_(WRDT_1) = ND4A(ICYCST,INCRQ,RES_0,RES_1);
 assign WRDT_2 = ~(WRDT_0 & WRDT_1);                                             //[STMEM.NET:00071] WRDT_2_(WRDT_2) = ND2A(WRDT_0,WRDT_1);
-FD2A WRDT_3__inst (.q(BWORD),.qL(BWORDL),.d(WRDT_2),.clk(CCLK),.rL(RESETL));    //[STMEM.NET:00072] WRDT_3_(BWORD,BWORDL) = FD2A(WRDT_2,CCLK,RESETL);
+FD2A WRDT_3__inst (.MasterClock(MasterClock),.q(BWORD),.qL(BWORDL),.d(WRDT_2),.clk(CCLK),.rL(RESETL));//[STMEM.NET:00072] WRDT_3_(BWORD,BWORDL) = FD2A(WRDT_2,CCLK,RESETL);
 
 /* Cycle positions */
 
@@ -142,7 +142,7 @@ assign INCYCL = ~(MI_0 | MI_1);                                                 
 /* Internal data output enable is given by wr, however data is not enabled
 for the first half tick of a write cycle  */
 
-FD1A IWRD__inst (.q(IWRD),.qL(IWRDL),.d(BWR),.clk(CCLKL));                      //[STMEM.NET:00087] IWRD_(IWRD,IWRDL) = FD1A(BWR,CCLKL);
+FD1A IWRD__inst (.MasterClock(MasterClock),.q(IWRD),.qL(IWRDL),.d(BWR),.clk(CCLKL));//[STMEM.NET:00087] IWRD_(IWRD,IWRDL) = FD1A(BWR,CCLKL);
 assign DATOEL = ~(BWR & IWRD);                                                  //[STMEM.NET:00088] DATOEL_(DATOEL) = ND2A(BWR,IWRD);
 
 /* Blitter program address is enabled for a cycle requiested by comcrq or
@@ -155,9 +155,9 @@ assign PCNT_0 = COMCRQ | PARCRQ;                                                
 assign PCNT_1 = ~(ICYCST & PCNT_0);                                             //[STMEM.NET:00097] PCNT_1_(PCNT_1) = ND2A(ICYCST,PCNT_0);
 assign PCNT_2 = ~(PCEN & CYCENDL);                                              //[STMEM.NET:00098] PCNT_2_(PCNT_2) = ND2A(PCEN,CYCENDL);
 assign PCNT_3 = ~(PCNT_1 & PCNT_2);                                             //[STMEM.NET:00099] PCNT_3_(PCNT_3) = ND2A(PCNT_1,PCNT_2);
-FD2A PCEN__inst (.q(PCEN),.qL(PCENL),.d(PCNT_3),.clk(CCLK),.rL(RESETL));        //[STMEM.NET:00100] PCEN_(PCEN,PCENL) = FD2A(PCNT_3,CCLK,RESETL);
+FD2A PCEN__inst (.MasterClock(MasterClock),.q(PCEN),.qL(PCENL),.d(PCNT_3),.clk(CCLK),.rL(RESETL));//[STMEM.NET:00100] PCEN_(PCEN,PCENL) = FD2A(PCNT_3,CCLK,RESETL);
 
 assign PCNT_4 = ~(PCEN & ICYCEND);                                              //[STMEM.NET:00102] PCNT_4_(PCNT_4) = ND2A(PCEN,ICYCEND);
-FD1A UPDPC__inst (.q(UPDPCL),.qL(UPDPC),.d(PCNT_4),.clk(CCLK));                 //[STMEM.NET:00103] UPDPC_(UPDPCL,UPDPC) = FD1A(PCNT_4,CCLK);
+FD1A UPDPC__inst (.MasterClock(MasterClock),.q(UPDPCL),.qL(UPDPC),.d(PCNT_4),.clk(CCLK));//[STMEM.NET:00103] UPDPC_(UPDPCL,UPDPC) = FD1A(PCNT_4,CCLK);
 
 endmodule                                                                       //[STMEM.NET:00105] END MODULE;

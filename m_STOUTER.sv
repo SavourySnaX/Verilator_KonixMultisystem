@@ -118,9 +118,9 @@ assign ITL_2 = ~(ITL2T_0 & ITL2T_1 & ITL2T_2 & TRM1);                           
 
 /* The state latches */
 
-FD2A TLLATCH_0__inst (.q(TL_0),.qL(TLL_0),.d(ITL_0),.clk(CCLK),.rL(SRESETL));   //[STOUTER.NET:00067] TLLATCH_0_(TL_0,TLL_0) = FD2A(ITL_0,CCLK,SRESETL);
-FD2A TLLATCH_1__inst (.q(TL_1),.qL(TLL_1),.d(ITL_1),.clk(CCLK),.rL(SRESETL));   //[STOUTER.NET:00068] TLLATCH_1_(TL_1,TLL_1) = FD2A(ITL_1,CCLK,SRESETL);
-FD2A TLLATCH_2__inst (.q(TL_2),.qL(TLL_2),.d(ITL_2),.clk(CCLK),.rL(SRESETL));   //[STOUTER.NET:00069] TLLATCH_2_(TL_2,TLL_2) = FD2A(ITL_2,CCLK,SRESETL);
+FD2A TLLATCH_0__inst (.MasterClock(MasterClock),.q(TL_0),.qL(TLL_0),.d(ITL_0),.clk(CCLK),.rL(SRESETL));//[STOUTER.NET:00067] TLLATCH_0_(TL_0,TLL_0) = FD2A(ITL_0,CCLK,SRESETL);
+FD2A TLLATCH_1__inst (.MasterClock(MasterClock),.q(TL_1),.qL(TLL_1),.d(ITL_1),.clk(CCLK),.rL(SRESETL));//[STOUTER.NET:00068] TLLATCH_1_(TL_1,TLL_1) = FD2A(ITL_1,CCLK,SRESETL);
+FD2A TLLATCH_2__inst (.MasterClock(MasterClock),.q(TL_2),.qL(TLL_2),.d(ITL_2),.clk(CCLK),.rL(SRESETL));//[STOUTER.NET:00069] TLLATCH_2_(TL_2,TLL_2) = FD2A(ITL_2,CCLK,SRESETL);
 
 /* Decodes from state */
 
@@ -138,7 +138,7 @@ assign IUPDSRCL = ~(ITL_2 & ITL_1 & ITLL_0);                                    
 
 /* make LDICNT a synchronous decode */
 assign LDICNTTL = ~(ITLL_2 & ITL_1 & ITLL_0);                                   //[STOUTER.NET:00086] LDICTRM_(LDICNTTL) = ND3A(ITLL_2,ITL_1,ITLL_0);
-FD2A LDICFF__inst (.q(LDICNTL),.qL(LDICNT),.d(LDICNTTL),.clk(CCLK),.rL(SRESETL));//[STOUTER.NET:00087] LDICFF_(LDICNTL, LDICNT) = FD2A(LDICNTTL, CCLK, SRESETL);
+FD2A LDICFF__inst (.MasterClock(MasterClock),.q(LDICNTL),.qL(LDICNT),.d(LDICNTTL),.clk(CCLK),.rL(SRESETL));//[STOUTER.NET:00087] LDICFF_(LDICNTL, LDICNT) = FD2A(LDICNTTL, CCLK, SRESETL);
 
 assign ADSTP = ~(TLL_1 | TLL_2);                                                //[STOUTER.NET:00089] ADSTPGEN_(ADSTP) = NR2A(TLL_1,TLL_2);
 assign SDASEL = ~(TLL_0 & TLL_1 & TLL_2);                                       //[STOUTER.NET:00090] SDAGEN_(SDASEL) = ND3C(TLL_0,TLL_1,TLL_2);
@@ -146,6 +146,6 @@ assign SDASEL = ~(TLL_0 & TLL_1 & TLL_2);                                       
 /* The outer counter is clocked on exit from the inner loop.  This is
 given by an active low pulse decoded as the inner loop. */
 
-FD1A OTCLK__inst (.q(OTCLK),.qL(OTCLKL),.d(INLP),.clk(CCLK));                   //[STOUTER.NET:00095] OTCLK_(OTCLK,OTCLKL) = FD1A(INLP,CCLK);
+FD1A OTCLK__inst (.MasterClock(MasterClock),.q(OTCLK),.qL(OTCLKL),.d(INLP),.clk(CCLK));//[STOUTER.NET:00095] OTCLK_(OTCLK,OTCLKL) = FD1A(INLP,CCLK);
 
 endmodule                                                                       //[STOUTER.NET:00097] END MODULE;

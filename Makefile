@@ -74,10 +74,11 @@
 #MODULE=m_SS
 
 #----- top (includes cpu) ----#
-MODULE=m_top
+#MODULE=m_top
 
 #----- Mister ------#
-#MODULE=m_konix
+MODULE=m_konix
+
 
 #VL_DEBUG=--prof-cfuncs -CFLAGS -DVL_DEBUG
 VL_DEBUG=

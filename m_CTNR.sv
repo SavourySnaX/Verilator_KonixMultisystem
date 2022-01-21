@@ -15,7 +15,7 @@ wire X;                                                                         
 wire DIN;                                                                       //[COUNTERS.NET:00042] DIN_(DIN) = AO2A(D,LD,LDL,X);
 
 assign DIN = ~((D & LD)|(LDL & X));                                             //[COUNTERS.NET:00042] DIN_(DIN) = AO2A(D,LD,LDL,X);
-FD1A Q__inst (.q(QL),.qL(Q),.d(DIN),.clk(CK));                                  //[COUNTERS.NET:00043] Q_(QL,Q) = FD1A(DIN,CK);
+FD1A Q__inst (.MasterClock(MasterClock),.q(QL),.qL(Q),.d(DIN),.clk(CK));        //[COUNTERS.NET:00043] Q_(QL,Q) = FD1A(DIN,CK);
 assign X = Q ^ ENAB;                                                            //[COUNTERS.NET:00044] X_(X) = EOA(Q,ENAB);
 
 endmodule                                                                       //[COUNTERS.NET:00046] END MODULE;

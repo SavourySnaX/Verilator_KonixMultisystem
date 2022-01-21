@@ -3,13 +3,13 @@
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 
-#define TEST_VIDEO  0
-#define AUDIO_OUT   1
+#define TEST_VIDEO  1
+#define AUDIO_OUT   0
 #define VIDEO_OUT   1
 #define TRACE_ON    1
 
 #define FRAME_START 0
-#define FRAME_STOP  3
+#define FRAME_STOP  2
 
 int lastPCLK = 2;
 bool gTrace=false;
@@ -306,17 +306,19 @@ void BusProcessorEmulation(Vm_SS *tb)
     //}
 }
 
+int xtalCnt=0;
+int xtal=0;
 
 void tick(Vm_SS *tb, VerilatedVcdC* trace, int ticks)
 {
-    tb->XXTAL=1;
+    tb->MasterClock=1;
 #if TRACE_ON
     if (gTrace)
     {
         trace->dump(ticks*10-2);
     }
 #endif
-    BusProcessorEmulation(tb);
+//    BusProcessorEmulation(tb);
     tb->eval();
 #if TRACE_ON
     if (gTrace)
@@ -324,8 +326,7 @@ void tick(Vm_SS *tb, VerilatedVcdC* trace, int ticks)
         trace->dump(ticks*10);
     }
 #endif
-    tb->XXTAL=0;
-    BusProcessorEmulation(tb);
+    tb->MasterClock=0;
     tb->eval();
 
 #if TRACE_ON
@@ -335,6 +336,13 @@ void tick(Vm_SS *tb, VerilatedVcdC* trace, int ticks)
         trace->flush();
     }
 #endif
+    xtalCnt++;
+    if (xtalCnt>5)
+    {
+        tb->XXTAL = (~tb->XXTAL)&1;
+        BusProcessorEmulation(tb);
+        xtalCnt=0;
+    }
 }
 
 int doNTicks(Vm_SS *tb, VerilatedVcdC* trace, int ticks, int n)
@@ -486,20 +494,16 @@ int ProcessVideo(Vm_SS *tb)
         {
             if ((videoLastVSync==0) && (tb->outXVSYNCL==1))
             {
-                VCnt++;
-                if (VCnt==4)
-                {
-                    waitingForFrameStart=0;
-                    virtFrameNum++;
-                    printf("Found Frame Start %d\n", virtFrameNum);
-                    if (virtFrameNum==FRAME_START)
-                        gTrace=true;
+                waitingForFrameStart=0;
+                virtFrameNum++;
+                printf("Found Frame Start %d\n", virtFrameNum);
+                if (virtFrameNum==FRAME_START)
+                    gTrace=true;
 
-                    if (virtFrameNum==FRAME_STOP)
-                        return 1;
-                    sprintf(filename, "pics/PIXELS%03d.data", virtFrameNum);
-                    remove(filename);
-                }
+                if (virtFrameNum==FRAME_STOP)
+                    return 1;
+                sprintf(filename, "sspics/PIXELS%03d.data", virtFrameNum);
+                remove(filename);
             }
         }
         else
@@ -770,6 +774,7 @@ int main(int argc, char** argv)
     remove("rightl.raw");
     remove("righth.raw");
 
+    int frameNum = -1;
 #if TEST_VIDEO
     LoadRAM();
     LoadPAL();
@@ -796,7 +801,6 @@ int main(int argc, char** argv)
 
     FILE* hw = fopen("/home/snax/LINES.DAT","r"); 
 
-    int frameNum = -1;
     int address=0;
     int data=0;
     char dest='R';

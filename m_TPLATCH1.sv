@@ -8,5 +8,5 @@ module m_TPLATCH1                                                               
 );                                                                              //[MACROS.NET:00201] MODULE TPLATCH1;
                                                                                 //[MACROS.NET:00205] LEVEL FUNCTION;
 wire QL;                                                                        //[MACROS.NET:00207] ONE (Q,QL) = LD1A (D,EB);
-LD1A ONE_inst (.q(Q),.qL(QL),.d(D),.en(EB));                                    //[MACROS.NET:00207] ONE (Q,QL) = LD1A (D,EB);
+LD1A ONE_inst (.MasterClock(MasterClock),.q(Q),.qL(QL),.d(D),.en(EB));          //[MACROS.NET:00207] ONE (Q,QL) = LD1A (D,EB);
 endmodule                                                                       //[MACROS.NET:00208] END MODULE;

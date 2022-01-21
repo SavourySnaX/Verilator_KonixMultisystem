@@ -12,5 +12,5 @@ module m_MACJKBART                                                              
                                                                                 //[QMACROS.NET:00059] LEVEL FUNCTION;
 wire K;                                                                         //[QMACROS.NET:00061] ONE_(K)=N1A(KL);
 assign K = ~KL;                                                                 //[QMACROS.NET:00061] ONE_(K)=N1A(KL);
-FJK1A TWO__inst (.q(Q),.qL(QL),.j(J),.k(K),.clk(CLK));                          //[QMACROS.NET:00062] TWO_(Q,QL)=FJK1A(J,K,CLK);
+FJK1A TWO__inst (.MasterClock(MasterClock),.q(Q),.qL(QL),.j(J),.k(K),.clk(CLK));//[QMACROS.NET:00062] TWO_(Q,QL)=FJK1A(J,K,CLK);
 endmodule                                                                       //[QMACROS.NET:00063] END MODULE;

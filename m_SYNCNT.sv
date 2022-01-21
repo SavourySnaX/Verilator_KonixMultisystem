@@ -50,7 +50,7 @@ assign DI_1 = ~((D & LD)|(DI_0 & LDL));                                         
 assign DI = ~(DI_1 | CLR);                                                      //[LEGO.NET:00037] DI_(DI) = NR2A(DI_1,CLR);		/* clear */
 
 
-FD1A Q__inst (.q(Q),.qL(QB),.d(DI),.clk(CLK));                                  //[LEGO.NET:00040] Q_(Q,QB) = FD1A(DI,CLK);
+FD1A Q__inst (.MasterClock(MasterClock),.q(Q),.qL(QB),.d(DI),.clk(CLK));        //[LEGO.NET:00040] Q_(Q,QB) = FD1A(DI,CLK);
 
 assign CO = ~(CIL | QB);                                                        //[LEGO.NET:00042] CO_(CO) = NR2A(CIL,QB);
 

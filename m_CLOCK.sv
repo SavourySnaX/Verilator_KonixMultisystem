@@ -97,12 +97,12 @@ assign MCKL = ~MCK;                                                             
 /* divide by three shift register */
 
 assign CAT = ~(CA & CB);                                                        //[CLOCK.NET:00047] CAT_(CAT) = ND2A(CA,CB);
-FD2A CA__inst (.q(CA),.qL(CAL),.d(CAT),.clk(MCK),.rL(CKRSTL));                  //[CLOCK.NET:00048] CA_(CA,CAL) = FD2A (CAT, MCK, CKRSTL);
-FD2A CB__inst (.q(CB),.qL(CBL),.d(CA),.clk(MCK),.rL(CKRSTL));                   //[CLOCK.NET:00049] CB_(CB,CBL) = FD2A (CA, MCK, CKRSTL);
+FD2A CA__inst (.MasterClock(MasterClock),.q(CA),.qL(CAL),.d(CAT),.clk(MCK),.rL(CKRSTL));//[CLOCK.NET:00048] CA_(CA,CAL) = FD2A (CAT, MCK, CKRSTL);
+FD2A CB__inst (.MasterClock(MasterClock),.q(CB),.qL(CBL),.d(CA),.clk(MCK),.rL(CKRSTL));//[CLOCK.NET:00049] CB_(CB,CBL) = FD2A (CA, MCK, CKRSTL);
 
 /* delayed version of CA for cclk generation */
 
-FD2A CAD__inst (.q(CAD),.qL(CADL),.d(CA),.clk(MCKL),.rL(CKRSTL));               //[CLOCK.NET:00053] CAD_(CAD,CADL) = FD2A (CA, MCKL, CKRSTL);
+FD2A CAD__inst (.MasterClock(MasterClock),.q(CAD),.qL(CADL),.d(CA),.clk(MCKL),.rL(CKRSTL));//[CLOCK.NET:00053] CAD_(CAD,CADL) = FD2A (CA, MCKL, CKRSTL);
 
 /* from this comes non-test cclk */
 
@@ -117,7 +117,7 @@ assign CCLKD = ~CCLK1L;                                                         
 
 /* DSP pervy clock requires a delayed version of B */
 
-FD2A CBD__inst (.q(CBD),.qL(CBDL),.d(CB),.clk(MCKL),.rL(CKRSTL));               //[CLOCK.NET:00068] CBD_(CBD,CBDL) = FD2A (CB, MCKL, CKRSTL);
+FD2A CBD__inst (.MasterClock(MasterClock),.q(CBD),.qL(CBDL),.d(CB),.clk(MCKL),.rL(CKRSTL));//[CLOCK.NET:00068] CBD_(CBD,CBDL) = FD2A (CB, MCKL, CKRSTL);
 assign TCA = ~CAL;                                                              //[CLOCK.NET:00069] TCA_(TCA) = N1C (CAL);
 assign DCLKD = ~(CBD & TCA);                                                    //[CLOCK.NET:00070] DCLD_(DCLKD) = ND2C (CBD, TCA);
 
@@ -149,19 +149,19 @@ assign PCLKL = ~((FAST & X)|(SLOW & CLK6));                                     
 /* The colour subcarrier is either mck/4 for PAL or mck/5 for NTSC */
 /* divide by four */
 
-FD2A X__inst (.q(X),.qL(XL),.d(XL),.clk(MCKL),.rL(CKRSTL));                     //[CLOCK.NET:00100] X_(X,XL) = FD2A(XL,MCKL,CKRSTL);
-FD2A Y__inst (.q(Y),.qL(YL),.d(YL),.clk(XL),.rL(CKRSTL));                       //[CLOCK.NET:00101] Y_(Y,YL) = FD2A(YL,XL,CKRSTL);
+FD2A X__inst (.MasterClock(MasterClock),.q(X),.qL(XL),.d(XL),.clk(MCKL),.rL(CKRSTL));//[CLOCK.NET:00100] X_(X,XL) = FD2A(XL,MCKL,CKRSTL);
+FD2A Y__inst (.MasterClock(MasterClock),.q(Y),.qL(YL),.d(YL),.clk(XL),.rL(CKRSTL));//[CLOCK.NET:00101] Y_(Y,YL) = FD2A(YL,XL,CKRSTL);
 
 /* divide by five */
 
-FD4A SHIFT1__inst (.q(AL),.qL(A),.d(D),.clk(MCKL),.sL(CKRSTL));                 //[CLOCK.NET:00105] SHIFT1_(AL,A) = FD4A(D,MCKL,CKRSTL);
-FD2A SHIFT2__inst (.q(B),.qL(BL),.d(A),.clk(MCKL),.rL(CKRSTL));                 //[CLOCK.NET:00106] SHIFT2_(B,BL) = FD2A(A,MCKL,CKRSTL);
-FD2A SHIFT3__inst (.q(C),.qL(CL),.d(B),.clk(MCKL),.rL(CKRSTL));                 //[CLOCK.NET:00107] SHIFT3_(C,CL) = FD2A(B,MCKL,CKRSTL);
+FD4A SHIFT1__inst (.MasterClock(MasterClock),.q(AL),.qL(A),.d(D),.clk(MCKL),.sL(CKRSTL));//[CLOCK.NET:00105] SHIFT1_(AL,A) = FD4A(D,MCKL,CKRSTL);
+FD2A SHIFT2__inst (.MasterClock(MasterClock),.q(B),.qL(BL),.d(A),.clk(MCKL),.rL(CKRSTL));//[CLOCK.NET:00106] SHIFT2_(B,BL) = FD2A(A,MCKL,CKRSTL);
+FD2A SHIFT3__inst (.MasterClock(MasterClock),.q(C),.qL(CL),.d(B),.clk(MCKL),.rL(CKRSTL));//[CLOCK.NET:00107] SHIFT3_(C,CL) = FD2A(B,MCKL,CKRSTL);
 assign D = ~((A & CL)|(AL & BL));                                               //[CLOCK.NET:00108] SHFDEC_(D) = AO2A(A,CL,AL,BL);
 
 /* sample 'a' with other edge of mck to get 50% duty cycle */
 
-FD2A AD__inst (.q(AD),.qL(ADL),.d(A),.clk(MCK),.rL(CKRSTL));                    //[CLOCK.NET:00112] AD_(AD,ADL) = FD2A(A,MCK,CKRSTL);
+FD2A AD__inst (.MasterClock(MasterClock),.q(AD),.qL(ADL),.d(A),.clk(MCK),.rL(CKRSTL));//[CLOCK.NET:00112] AD_(AD,ADL) = FD2A(A,MCK,CKRSTL);
 assign Z = ~(A & AD);                                                           //[CLOCK.NET:00113] Z_(Z) = ND2A(A,AD);
 
 /* select appropriate carrier */

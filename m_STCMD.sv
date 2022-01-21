@@ -160,12 +160,12 @@ assign IRC_3 = ~(CNTCLR | CNTINL_3);                                            
 
 /* The state latches */
 
-FD2A RCLATCH_0__inst (.q(RC_0),.qL(RCL_0),.d(IRC_0),.clk(CCLK),.rL(SRESETL));   //[STCMD.NET:00073] RCLATCH_0_(RC_0,RCL_0) = FD2A(IRC_0,CCLK,SRESETL);
-FD2A RCLATCH_1__inst (.q(RC_1),.qL(RCL_1),.d(IRC_1),.clk(CCLK),.rL(SRESETL));   //[STCMD.NET:00074] RCLATCH_1_(RC_1,RCL_1) = FD2A(IRC_1,CCLK,SRESETL);
-FD2A RCLATCH_2__inst (.q(RC_2),.qL(RCL_2),.d(IRC_2),.clk(CCLK),.rL(SRESETL));   //[STCMD.NET:00075] RCLATCH_2_(RC_2,RCL_2) = FD2A(IRC_2,CCLK,SRESETL);
-FD2A RCLATCH_3__inst (.q(RC_3),.qL(RCL_3),.d(IRC_3),.clk(CCLK),.rL(SRESETL));   //[STCMD.NET:00076] RCLATCH_3_(RC_3,RCL_3) = FD2A(IRC_3,CCLK,SRESETL);
-FD2A RCLATCH_4__inst (.q(RC_4),.qL(RCL_4),.d(IRC_4),.clk(CCLK),.rL(SRESETL));   //[STCMD.NET:00077] RCLATCH_4_(RC_4,RCL_4) = FD2A(IRC_4,CCLK,SRESETL);
-FD2A RCLATCH_5__inst (.q(RC_5),.qL(RCL_5),.d(IRC_5),.clk(CCLK),.rL(SRESETL));   //[STCMD.NET:00078] RCLATCH_5_(RC_5,RCL_5) = FD2A(IRC_5,CCLK,SRESETL);
+FD2A RCLATCH_0__inst (.MasterClock(MasterClock),.q(RC_0),.qL(RCL_0),.d(IRC_0),.clk(CCLK),.rL(SRESETL));//[STCMD.NET:00073] RCLATCH_0_(RC_0,RCL_0) = FD2A(IRC_0,CCLK,SRESETL);
+FD2A RCLATCH_1__inst (.MasterClock(MasterClock),.q(RC_1),.qL(RCL_1),.d(IRC_1),.clk(CCLK),.rL(SRESETL));//[STCMD.NET:00074] RCLATCH_1_(RC_1,RCL_1) = FD2A(IRC_1,CCLK,SRESETL);
+FD2A RCLATCH_2__inst (.MasterClock(MasterClock),.q(RC_2),.qL(RCL_2),.d(IRC_2),.clk(CCLK),.rL(SRESETL));//[STCMD.NET:00075] RCLATCH_2_(RC_2,RCL_2) = FD2A(IRC_2,CCLK,SRESETL);
+FD2A RCLATCH_3__inst (.MasterClock(MasterClock),.q(RC_3),.qL(RCL_3),.d(IRC_3),.clk(CCLK),.rL(SRESETL));//[STCMD.NET:00076] RCLATCH_3_(RC_3,RCL_3) = FD2A(IRC_3,CCLK,SRESETL);
+FD2A RCLATCH_4__inst (.MasterClock(MasterClock),.q(RC_4),.qL(RCL_4),.d(IRC_4),.clk(CCLK),.rL(SRESETL));//[STCMD.NET:00077] RCLATCH_4_(RC_4,RCL_4) = FD2A(IRC_4,CCLK,SRESETL);
+FD2A RCLATCH_5__inst (.MasterClock(MasterClock),.q(RC_5),.qL(RCL_5),.d(IRC_5),.clk(CCLK),.rL(SRESETL));//[STCMD.NET:00078] RCLATCH_5_(RC_5,RCL_5) = FD2A(IRC_5,CCLK,SRESETL);
 
 /* Decodes from the state */
 
@@ -176,9 +176,9 @@ assign COMDN = ~(CMDENDL | CYCENDL);                                            
 assign ILDSAL_0 = ~(RCL_0 & RCL_1 & RCL_2 & RCL_3 & RC_4 & ICYCEND);            //[STCMD.NET:00086] LDSA0T_(ILDSAL_0) = ND6A(RCL_0,RCL_1,RCL_2,RCL_3,RC_4,ICYCEND);
 assign ILDSAL_1 = ~(RC_0 & RCL_1 & RCL_2 & RCL_3 & ICYCEND);                    //[STCMD.NET:00087] LDSA1T_(ILDSAL_1) = ND5A(RC_0,RCL_1,RCL_2,RCL_3,ICYCEND);
 assign ILDSAL_2 = ~(RCL_0 & RC_1 & RCL_2 & RCL_3 & ICYCEND);                    //[STCMD.NET:00088] LDSA2T_(ILDSAL_2) = ND5A(RCL_0,RC_1,RCL_2,RCL_3,ICYCEND);
-FD4A LDSALT_0__inst (.q(LDSATL_0),.qL(LDSAT_0),.d(ILDSAL_0),.clk(CCLK),.sL(RESETL));//[STCMD.NET:00089] LDSALT_0_(LDSATL_0,LDSAT_0) = FD4A(ILDSAL_0,CCLK,RESETL);
-FD4A LDSALT_1__inst (.q(LDSATL_1),.qL(LDSAT_1),.d(ILDSAL_1),.clk(CCLK),.sL(RESETL));//[STCMD.NET:00090] LDSALT_1_(LDSATL_1,LDSAT_1) = FD4A(ILDSAL_1,CCLK,RESETL);
-FD4A LDSALT_2__inst (.q(LDSATL_2),.qL(LDSAT_2),.d(ILDSAL_2),.clk(CCLK),.sL(RESETL));//[STCMD.NET:00091] LDSALT_2_(LDSATL_2,LDSAT_2) = FD4A(ILDSAL_2,CCLK,RESETL);
+FD4A LDSALT_0__inst (.MasterClock(MasterClock),.q(LDSATL_0),.qL(LDSAT_0),.d(ILDSAL_0),.clk(CCLK),.sL(RESETL));//[STCMD.NET:00089] LDSALT_0_(LDSATL_0,LDSAT_0) = FD4A(ILDSAL_0,CCLK,RESETL);
+FD4A LDSALT_1__inst (.MasterClock(MasterClock),.q(LDSATL_1),.qL(LDSAT_1),.d(ILDSAL_1),.clk(CCLK),.sL(RESETL));//[STCMD.NET:00090] LDSALT_1_(LDSATL_1,LDSAT_1) = FD4A(ILDSAL_1,CCLK,RESETL);
+FD4A LDSALT_2__inst (.MasterClock(MasterClock),.q(LDSATL_2),.qL(LDSAT_2),.d(ILDSAL_2),.clk(CCLK),.sL(RESETL));//[STCMD.NET:00091] LDSALT_2_(LDSATL_2,LDSAT_2) = FD4A(ILDSAL_2,CCLK,RESETL);
 assign LDSAL_0 = ~(LDSAT_0 | RESET);                                            //[STCMD.NET:00092] LDSA_0_(LDSAL_0) = NR2A(LDSAT_0,RESET);
 assign LDSAL_1 = ~(LDSAT_1 | RESET);                                            //[STCMD.NET:00093] LDSA_1_(LDSAL_1) = NR2A(LDSAT_1,RESET);
 assign LDSAL_2 = ~(LDSAT_2 | RESET);                                            //[STCMD.NET:00094] LDSA_2_(LDSAL_2) = NR2A(LDSAT_2,RESET);
@@ -188,9 +188,9 @@ assign LDSAL_2 = ~(LDSAT_2 | RESET);                                            
 assign ILDDAL_0 = ~(RC_0 & RC_1 & RCL_2 & RCL_3 & ICYCEND);                     //[STCMD.NET:00098] LDDA0T_(ILDDAL_0) = ND5A(RC_0,RC_1,RCL_2,RCL_3,ICYCEND);
 assign ILDDAL_1 = ~(RCL_0 & RCL_1 & RC_2 & ICYCEND);                            //[STCMD.NET:00099] LDDA1T_(ILDDAL_1) = ND4A(RCL_0,RCL_1,RC_2,ICYCEND);
 assign ILDDAL_2 = ~(RC_0 & RCL_1 & RC_2 & ICYCEND);                             //[STCMD.NET:00100] LDDA2T_(ILDDAL_2) = ND4A(RC_0,RCL_1,RC_2,ICYCEND);
-FD4A LDDAL_0__inst (.q(LDDATL_0),.qL(LDDAT_0),.d(ILDDAL_0),.clk(CCLK),.sL(RESETL));//[STCMD.NET:00101] LDDAL_0_(LDDATL_0,LDDAT_0) = FD4A(ILDDAL_0,CCLK,RESETL);
-FD4A LDDAL_1__inst (.q(LDDATL_1),.qL(LDDAT_1),.d(ILDDAL_1),.clk(CCLK),.sL(RESETL));//[STCMD.NET:00102] LDDAL_1_(LDDATL_1,LDDAT_1) = FD4A(ILDDAL_1,CCLK,RESETL);
-FD4A LDDAL_2__inst (.q(LDDATL_2),.qL(LDDAT_2),.d(ILDDAL_2),.clk(CCLK),.sL(RESETL));//[STCMD.NET:00103] LDDAL_2_(LDDATL_2,LDDAT_2) = FD4A(ILDDAL_2,CCLK,RESETL);
+FD4A LDDAL_0__inst (.MasterClock(MasterClock),.q(LDDATL_0),.qL(LDDAT_0),.d(ILDDAL_0),.clk(CCLK),.sL(RESETL));//[STCMD.NET:00101] LDDAL_0_(LDDATL_0,LDDAT_0) = FD4A(ILDDAL_0,CCLK,RESETL);
+FD4A LDDAL_1__inst (.MasterClock(MasterClock),.q(LDDATL_1),.qL(LDDAT_1),.d(ILDDAL_1),.clk(CCLK),.sL(RESETL));//[STCMD.NET:00102] LDDAL_1_(LDDATL_1,LDDAT_1) = FD4A(ILDDAL_1,CCLK,RESETL);
+FD4A LDDAL_2__inst (.MasterClock(MasterClock),.q(LDDATL_2),.qL(LDDAT_2),.d(ILDDAL_2),.clk(CCLK),.sL(RESETL));//[STCMD.NET:00103] LDDAL_2_(LDDATL_2,LDDAT_2) = FD4A(ILDDAL_2,CCLK,RESETL);
 assign LDDAL_0 = ~(LDDAT_0 | RESET);                                            //[STCMD.NET:00104] LDDA_0_(LDDAL_0) = NR2A(LDDAT_0,RESET);
 assign LDDAL_1 = ~(LDDAT_1 | RESET);                                            //[STCMD.NET:00105] LDDA_1_(LDDAL_1) = NR2A(LDDAT_1,RESET);
 assign LDDAL_2 = ~(LDDAT_2 | RESET);                                            //[STCMD.NET:00106] LDDA_2_(LDDAL_2) = NR2A(LDDAT_2,RESET);
@@ -198,19 +198,19 @@ assign LDDAL_2 = ~(LDDAT_2 | RESET);                                            
 /* Other load signals */
 
 assign ILDCMDL = ~(RC_4 & RC_5 & ICYCEND);                                      //[STCMD.NET:00110] LDCMDGEN_(ILDCMDL) = ND3A(RC_4,RC_5,ICYCEND);
-FD4A LDCMDL__inst (.q(LDCMDTL),.qL(LDCMDT),.d(ILDCMDL),.clk(CCLK),.sL(RESETL)); //[STCMD.NET:00111] LDCMDL_(LDCMDTL,LDCMDT) = FD4A(ILDCMDL,CCLK,RESETL);
+FD4A LDCMDL__inst (.MasterClock(MasterClock),.q(LDCMDTL),.qL(LDCMDT),.d(ILDCMDL),.clk(CCLK),.sL(RESETL));//[STCMD.NET:00111] LDCMDL_(LDCMDTL,LDCMDT) = FD4A(ILDCMDL,CCLK,RESETL);
 assign LDCMDL = ~(RESET | LDCMDT);                                              //[STCMD.NET:00112] LDCMDG_(LDCMDL) = NR2A(RESET,LDCMDT);
 
 assign ILDMODL = ~(RCL_0 & RC_1 & RC_2 & ICYCEND);                              //[STCMD.NET:00114] LDMODGEN_(ILDMODL) = ND4A(RCL_0,RC_1,RC_2,ICYCEND);
-FD4A LDMODL__inst (.q(LDMODTL),.qL(LDMODT),.d(ILDMODL),.clk(CCLK),.sL(RESETL)); //[STCMD.NET:00115] LDMODL_(LDMODTL,LDMODT) = FD4A(ILDMODL,CCLK,RESETL);
+FD4A LDMODL__inst (.MasterClock(MasterClock),.q(LDMODTL),.qL(LDMODT),.d(ILDMODL),.clk(CCLK),.sL(RESETL));//[STCMD.NET:00115] LDMODL_(LDMODTL,LDMODT) = FD4A(ILDMODL,CCLK,RESETL);
 assign LDMODL = ~(LDMODT | RESET);                                              //[STCMD.NET:00116] LDMODG_(LDMODL) = NR2A(LDMODT,RESET);
 
 assign ILDCMPL = ~(RC_0 & RC_1 & RC_2 & ICYCEND);                               //[STCMD.NET:00118] LDCMPGEN_(ILDCMPL) = ND4A(RC_0,RC_1,RC_2,ICYCEND);
-FD4A LDCMPL__inst (.q(LDCMPTL),.qL(LDCMPT),.d(ILDCMPL),.clk(CCLK),.sL(RESETL)); //[STCMD.NET:00119] LDCMPL_(LDCMPTL,LDCMPT) = FD4A(ILDCMPL,CCLK,RESETL);
+FD4A LDCMPL__inst (.MasterClock(MasterClock),.q(LDCMPTL),.qL(LDCMPT),.d(ILDCMPL),.clk(CCLK),.sL(RESETL));//[STCMD.NET:00119] LDCMPL_(LDCMPTL,LDCMPT) = FD4A(ILDCMPL,CCLK,RESETL);
 assign LDCMPL = ~(RESET | LDCMPT);                                              //[STCMD.NET:00120] LDCMPG_(LDCMPL) = NR2A(RESET,LDCMPT);
 
 assign ILDOUTL = ~(RCL_0 & RC_3 & ICYCEND);                                     //[STCMD.NET:00122] LDOUTGEN_(ILDOUTL) = ND3A(RCL_0,RC_3,ICYCEND);
-FD4A LDOUTL__inst (.q(LDOUTTL),.qL(LDOUTT),.d(ILDOUTL),.clk(CCLK),.sL(RESETL)); //[STCMD.NET:00123] LDOUTL_(LDOUTTL,LDOUTT) = FD4A(ILDOUTL,CCLK,RESETL);
+FD4A LDOUTL__inst (.MasterClock(MasterClock),.q(LDOUTTL),.qL(LDOUTT),.d(ILDOUTL),.clk(CCLK),.sL(RESETL));//[STCMD.NET:00123] LDOUTL_(LDOUTTL,LDOUTT) = FD4A(ILDOUTL,CCLK,RESETL);
 assign LDOUTL = ~(RESET | LDOUTT);                                              //[STCMD.NET:00124] LDOUTG_(LDOUTL) = NR2A(RESET,LDOUTT);
 
 endmodule                                                                       //[STCMD.NET:00126] END MODULE;

@@ -132,20 +132,20 @@ wire drv0_enD_7;                                                                
 
 /* latch the disable bits */
 
-LD1A DIS_0__inst (.q(DIS_0),.qL(DISL_0),.d(WD_0),.en(DIS));                     //[INT.NET:00024] DIS_0_(DIS_0,DISL_0) = LD1A(WD_0,DIS);
-LD1A DIS_1__inst (.q(DIS_1),.qL(DISL_1),.d(WD_1),.en(DIS));                     //[INT.NET:00025] DIS_1_(DIS_1,DISL_1) = LD1A(WD_1,DIS);
-LD1A DIS_2__inst (.q(DIS_2),.qL(DISL_2),.d(WD_2),.en(DIS));                     //[INT.NET:00026] DIS_2_(DIS_2,DISL_2) = LD1A(WD_2,DIS);
-LD1A DIS_3__inst (.q(DIS_3),.qL(DISL_3),.d(WD_3),.en(DIS));                     //[INT.NET:00027] DIS_3_(DIS_3,DISL_3) = LD1A(WD_3,DIS);
+LD1A DIS_0__inst (.MasterClock(MasterClock),.q(DIS_0),.qL(DISL_0),.d(WD_0),.en(DIS));//[INT.NET:00024] DIS_0_(DIS_0,DISL_0) = LD1A(WD_0,DIS);
+LD1A DIS_1__inst (.MasterClock(MasterClock),.q(DIS_1),.qL(DISL_1),.d(WD_1),.en(DIS));//[INT.NET:00025] DIS_1_(DIS_1,DISL_1) = LD1A(WD_1,DIS);
+LD1A DIS_2__inst (.MasterClock(MasterClock),.q(DIS_2),.qL(DISL_2),.d(WD_2),.en(DIS));//[INT.NET:00026] DIS_2_(DIS_2,DISL_2) = LD1A(WD_2,DIS);
+LD1A DIS_3__inst (.MasterClock(MasterClock),.q(DIS_3),.qL(DISL_3),.d(WD_3),.en(DIS));//[INT.NET:00027] DIS_3_(DIS_3,DISL_3) = LD1A(WD_3,DIS);
 
 
 /* sample the analogue inputs */
 
-FD2A AI1_0__inst (.q(AI1L_0),.qL(AI1_0),.d(AIL_0),.clk(CLK),.rL(RESL));         //[INT.NET:00032] AI1_0_(AI1L_0,AI1_0) = FD2A(AIL_0,CLK,RESL);
-FD2A AI1_1__inst (.q(AI1L_1),.qL(AI1_1),.d(AIL_1),.clk(CLK),.rL(RESL));         //[INT.NET:00033] AI1_1_(AI1L_1,AI1_1) = FD2A(AIL_1,CLK,RESL);
-FD2A AI1_2__inst (.q(AI1L_2),.qL(AI1_2),.d(AIL_2),.clk(CLK),.rL(RESL));         //[INT.NET:00034] AI1_2_(AI1L_2,AI1_2) = FD2A(AIL_2,CLK,RESL);
-FD2A AI2_0__inst (.q(AI2_0),.qL(AI2L_0),.d(AI1_0),.clk(CLK),.rL(RESL));         //[INT.NET:00035] AI2_0_(AI2_0,AI2L_0) = FD2A(AI1_0,CLK,RESL);
-FD2A AI2_1__inst (.q(AI2_1),.qL(AI2L_1),.d(AI1_1),.clk(CLK),.rL(RESL));         //[INT.NET:00036] AI2_1_(AI2_1,AI2L_1) = FD2A(AI1_1,CLK,RESL);
-FD2A AI2_2__inst (.q(AI2_2),.qL(AI2L_2),.d(AI1_2),.clk(CLK),.rL(RESL));         //[INT.NET:00037] AI2_2_(AI2_2,AI2L_2) = FD2A(AI1_2,CLK,RESL);
+FD2A AI1_0__inst (.MasterClock(MasterClock),.q(AI1L_0),.qL(AI1_0),.d(AIL_0),.clk(CLK),.rL(RESL));//[INT.NET:00032] AI1_0_(AI1L_0,AI1_0) = FD2A(AIL_0,CLK,RESL);
+FD2A AI1_1__inst (.MasterClock(MasterClock),.q(AI1L_1),.qL(AI1_1),.d(AIL_1),.clk(CLK),.rL(RESL));//[INT.NET:00033] AI1_1_(AI1L_1,AI1_1) = FD2A(AIL_1,CLK,RESL);
+FD2A AI1_2__inst (.MasterClock(MasterClock),.q(AI1L_2),.qL(AI1_2),.d(AIL_2),.clk(CLK),.rL(RESL));//[INT.NET:00034] AI1_2_(AI1L_2,AI1_2) = FD2A(AIL_2,CLK,RESL);
+FD2A AI2_0__inst (.MasterClock(MasterClock),.q(AI2_0),.qL(AI2L_0),.d(AI1_0),.clk(CLK),.rL(RESL));//[INT.NET:00035] AI2_0_(AI2_0,AI2L_0) = FD2A(AI1_0,CLK,RESL);
+FD2A AI2_1__inst (.MasterClock(MasterClock),.q(AI2_1),.qL(AI2L_1),.d(AI1_1),.clk(CLK),.rL(RESL));//[INT.NET:00036] AI2_1_(AI2_1,AI2L_1) = FD2A(AI1_1,CLK,RESL);
+FD2A AI2_2__inst (.MasterClock(MasterClock),.q(AI2_2),.qL(AI2L_2),.d(AI1_2),.clk(CLK),.rL(RESL));//[INT.NET:00037] AI2_2_(AI2_2,AI2L_2) = FD2A(AI1_2,CLK,RESL);
 
 /* generate a pulse off the leading edge (negative going at pin) */
 
@@ -169,19 +169,19 @@ not change during the acknowledge cycle */
 
 assign INTA = ~INTAL;                                                           //[INT.NET:00059] INTA_(INTA) = N1A(INTAL);
 assign INTA1L = ~INTA;                                                          //[INT.NET:00060] INTA1L_(INTA1L) = N1A(INTA);
-LD1A I1_0__inst (.q(I1_0),.qL(I1L_0),.d(I_0),.en(INTA1L));                      //[INT.NET:00061] I1_0_(I1_0,I1L_0) = LD1A(I_0,INTA1L);
-LD1A I1_1__inst (.q(I1_1),.qL(I1L_1),.d(I_1),.en(INTA1L));                      //[INT.NET:00062] I1_1_(I1_1,I1L_1) = LD1A(I_1,INTA1L);
-LD1A I1_2__inst (.q(I1_2),.qL(I1L_2),.d(I_2),.en(INTA1L));                      //[INT.NET:00063] I1_2_(I1_2,I1L_2) = LD1A(I_2,INTA1L);
-LD1A I1_3__inst (.q(I1_3),.qL(I1L_3),.d(I_3),.en(INTA1L));                      //[INT.NET:00064] I1_3_(I1_3,I1L_3) = LD1A(I_3,INTA1L);
+LD1A I1_0__inst (.MasterClock(MasterClock),.q(I1_0),.qL(I1L_0),.d(I_0),.en(INTA1L));//[INT.NET:00061] I1_0_(I1_0,I1L_0) = LD1A(I_0,INTA1L);
+LD1A I1_1__inst (.MasterClock(MasterClock),.q(I1_1),.qL(I1L_1),.d(I_1),.en(INTA1L));//[INT.NET:00062] I1_1_(I1_1,I1L_1) = LD1A(I_1,INTA1L);
+LD1A I1_2__inst (.MasterClock(MasterClock),.q(I1_2),.qL(I1L_2),.d(I_2),.en(INTA1L));//[INT.NET:00063] I1_2_(I1_2,I1L_2) = LD1A(I_2,INTA1L);
+LD1A I1_3__inst (.MasterClock(MasterClock),.q(I1_3),.qL(I1L_3),.d(I_3),.en(INTA1L));//[INT.NET:00064] I1_3_(I1_3,I1L_3) = LD1A(I_3,INTA1L);
 
 /* latch this with INTA so that the appropriate interupt is cleared
 by the OUT (ACK),AL instruction nb. the INTA cannot be used to clear
 the interupt because there are two INTA pulses per acknowledge */
 
-LD1A I2_0__inst (.q(I2_0),.qL(I2L_0),.d(I1_0),.en(INTA));                       //[INT.NET:00070] I2_0_(I2_0,I2L_0) = LD1A(I1_0,INTA);
-LD1A I2_1__inst (.q(I2_1),.qL(I2L_1),.d(I1_1),.en(INTA));                       //[INT.NET:00071] I2_1_(I2_1,I2L_1) = LD1A(I1_1,INTA);
-LD1A I2_2__inst (.q(I2_2),.qL(I2L_2),.d(I1_2),.en(INTA));                       //[INT.NET:00072] I2_2_(I2_2,I2L_2) = LD1A(I1_2,INTA);
-LD1A I2_3__inst (.q(I2_3),.qL(I2L_3),.d(I1_3),.en(INTA));                       //[INT.NET:00073] I2_3_(I2_3,I2L_3) = LD1A(I1_3,INTA);
+LD1A I2_0__inst (.MasterClock(MasterClock),.q(I2_0),.qL(I2L_0),.d(I1_0),.en(INTA));//[INT.NET:00070] I2_0_(I2_0,I2L_0) = LD1A(I1_0,INTA);
+LD1A I2_1__inst (.MasterClock(MasterClock),.q(I2_1),.qL(I2L_1),.d(I1_1),.en(INTA));//[INT.NET:00071] I2_1_(I2_1,I2L_1) = LD1A(I1_1,INTA);
+LD1A I2_2__inst (.MasterClock(MasterClock),.q(I2_2),.qL(I2L_2),.d(I1_2),.en(INTA));//[INT.NET:00072] I2_2_(I2_2,I2L_2) = LD1A(I1_2,INTA);
+LD1A I2_3__inst (.MasterClock(MasterClock),.q(I2_3),.qL(I2L_3),.d(I1_3),.en(INTA));//[INT.NET:00073] I2_3_(I2_3,I2L_3) = LD1A(I1_3,INTA);
 
 /* Now prioritize the interupts..interupt with a lower index disable
 those with a higher */

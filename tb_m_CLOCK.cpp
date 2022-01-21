@@ -14,7 +14,7 @@ int main(int argc, char** argv)
 	VerilatedVcdC *trace = new VerilatedVcdC;
 
 	tb->trace(trace, 99);
-	trace->open("trace.vcd");
+	trace->open(TRACE_FILE);
 
 	tb->VRD=1;
 	tb->VWR=1;
@@ -25,13 +25,19 @@ int main(int argc, char** argv)
 
 	int aFewClocks = 2000;
 	int ticks=1;
+	int mclk=0;
 	while (!Verilated::gotFinish() && aFewClocks>0)
 	{
-		tb->MCK=1;
+		tb->MasterClock=1;
+		if (ticks%8==0)
+		{
+			mclk=mclk?0:1;
+			tb->MCK=mclk;
+		}
 		trace->dump(ticks*10-2);
 		tb->eval();
 		trace->dump(ticks*10);
-		tb->MCK=0;
+		tb->MasterClock=0;
 		tb->eval();
 		trace->dump(ticks*10+5);
 		trace->flush();

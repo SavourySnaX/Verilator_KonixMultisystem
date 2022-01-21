@@ -1,5 +1,6 @@
 .stamp.verilate
-trace.vcd
+*.vcd
 
-obj_dir/**
+pics/**
+m_*.obj_dir/**
 .vscode/**

@@ -46,16 +46,16 @@ wire STEPL_7;                                                                   
 wire STEPM1L;                                                                   //[STEPREG.NET:00027] STPM1L_(STEPM1,STEPM1L) = LD2A(ID_0,LDMODL);
 wire YFRACL;                                                                    //[STEPREG.NET:00029] YFRL_(YFRAC,YFRACL) = LD2A(ID_4,LDMODL);
 
-LD2A STPDL_0__inst (.q(STEP_0),.qL(STEPL_0),.d(ID_0),.en(LDSTPL));              //[STEPREG.NET:00019] STPDL_0_(STEP_0,STEPL_0) = LD2A(ID_0,LDSTPL);
-LD2A STPDL_1__inst (.q(STEP_1),.qL(STEPL_1),.d(ID_1),.en(LDSTPL));              //[STEPREG.NET:00020] STPDL_1_(STEP_1,STEPL_1) = LD2A(ID_1,LDSTPL);
-LD2A STPDL_2__inst (.q(STEP_2),.qL(STEPL_2),.d(ID_2),.en(LDSTPL));              //[STEPREG.NET:00021] STPDL_2_(STEP_2,STEPL_2) = LD2A(ID_2,LDSTPL);
-LD2A STPDL_3__inst (.q(STEP_3),.qL(STEPL_3),.d(ID_3),.en(LDSTPL));              //[STEPREG.NET:00022] STPDL_3_(STEP_3,STEPL_3) = LD2A(ID_3,LDSTPL);
-LD2A STPDL_4__inst (.q(STEP_4),.qL(STEPL_4),.d(ID_4),.en(LDSTPL));              //[STEPREG.NET:00023] STPDL_4_(STEP_4,STEPL_4) = LD2A(ID_4,LDSTPL);
-LD2A STPDL_5__inst (.q(STEP_5),.qL(STEPL_5),.d(ID_5),.en(LDSTPL));              //[STEPREG.NET:00024] STPDL_5_(STEP_5,STEPL_5) = LD2A(ID_5,LDSTPL);
-LD2A STPDL_6__inst (.q(STEP_6),.qL(STEPL_6),.d(ID_6),.en(LDSTPL));              //[STEPREG.NET:00025] STPDL_6_(STEP_6,STEPL_6) = LD2A(ID_6,LDSTPL);
-LD2A STPDL_7__inst (.q(STEP_7),.qL(STEPL_7),.d(ID_7),.en(LDSTPL));              //[STEPREG.NET:00026] STPDL_7_(STEP_7,STEPL_7) = LD2A(ID_7,LDSTPL);
-LD2A STPM1L__inst (.q(STEPM1),.qL(STEPM1L),.d(ID_0),.en(LDMODL));               //[STEPREG.NET:00027] STPM1L_(STEPM1,STEPM1L) = LD2A(ID_0,LDMODL);
+LD2A STPDL_0__inst (.MasterClock(MasterClock),.q(STEP_0),.qL(STEPL_0),.d(ID_0),.en(LDSTPL));//[STEPREG.NET:00019] STPDL_0_(STEP_0,STEPL_0) = LD2A(ID_0,LDSTPL);
+LD2A STPDL_1__inst (.MasterClock(MasterClock),.q(STEP_1),.qL(STEPL_1),.d(ID_1),.en(LDSTPL));//[STEPREG.NET:00020] STPDL_1_(STEP_1,STEPL_1) = LD2A(ID_1,LDSTPL);
+LD2A STPDL_2__inst (.MasterClock(MasterClock),.q(STEP_2),.qL(STEPL_2),.d(ID_2),.en(LDSTPL));//[STEPREG.NET:00021] STPDL_2_(STEP_2,STEPL_2) = LD2A(ID_2,LDSTPL);
+LD2A STPDL_3__inst (.MasterClock(MasterClock),.q(STEP_3),.qL(STEPL_3),.d(ID_3),.en(LDSTPL));//[STEPREG.NET:00022] STPDL_3_(STEP_3,STEPL_3) = LD2A(ID_3,LDSTPL);
+LD2A STPDL_4__inst (.MasterClock(MasterClock),.q(STEP_4),.qL(STEPL_4),.d(ID_4),.en(LDSTPL));//[STEPREG.NET:00023] STPDL_4_(STEP_4,STEPL_4) = LD2A(ID_4,LDSTPL);
+LD2A STPDL_5__inst (.MasterClock(MasterClock),.q(STEP_5),.qL(STEPL_5),.d(ID_5),.en(LDSTPL));//[STEPREG.NET:00024] STPDL_5_(STEP_5,STEPL_5) = LD2A(ID_5,LDSTPL);
+LD2A STPDL_6__inst (.MasterClock(MasterClock),.q(STEP_6),.qL(STEPL_6),.d(ID_6),.en(LDSTPL));//[STEPREG.NET:00025] STPDL_6_(STEP_6,STEPL_6) = LD2A(ID_6,LDSTPL);
+LD2A STPDL_7__inst (.MasterClock(MasterClock),.q(STEP_7),.qL(STEPL_7),.d(ID_7),.en(LDSTPL));//[STEPREG.NET:00026] STPDL_7_(STEP_7,STEPL_7) = LD2A(ID_7,LDSTPL);
+LD2A STPM1L__inst (.MasterClock(MasterClock),.q(STEPM1),.qL(STEPM1L),.d(ID_0),.en(LDMODL));//[STEPREG.NET:00027] STPM1L_(STEPM1,STEPM1L) = LD2A(ID_0,LDMODL);
 
-LD2A YFRL__inst (.q(YFRAC),.qL(YFRACL),.d(ID_4),.en(LDMODL));                   //[STEPREG.NET:00029] YFRL_(YFRAC,YFRACL) = LD2A(ID_4,LDMODL);
+LD2A YFRL__inst (.MasterClock(MasterClock),.q(YFRAC),.qL(YFRACL),.d(ID_4),.en(LDMODL));//[STEPREG.NET:00029] YFRL_(YFRAC,YFRACL) = LD2A(ID_4,LDMODL);
 
 endmodule                                                                       //[STEPREG.NET:00031] END MODULE;

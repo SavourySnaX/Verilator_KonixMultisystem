@@ -42,10 +42,10 @@ wire TER_14;                                                                    
 wire TER_15;                                                                    //[INTRUDE.NET:00204] TER_15_(TER_15) = ND4A(IL_2,IL_1,IL_0,WR);
 wire TER_16;                                                                    //[INTRUDE.NET:00205] TER_16_(TER_16) = ND2A(I_3,IL_2);
 
-FD2A I_0__inst (.q(I_0),.qL(IL_0),.d(X_0),.clk(CLK),.rL(RESETL));               //[INTRUDE.NET:00181] I_0_(I_0,IL_0) = FD2A(X_0,CLK,RESETL);
-FD2A I_1__inst (.q(I_1),.qL(IL_1),.d(X_1),.clk(CLK),.rL(RESETL));               //[INTRUDE.NET:00182] I_1_(I_1,IL_1) = FD2A(X_1,CLK,RESETL);
-FD2A I_2__inst (.q(I_2),.qL(IL_2),.d(X_2),.clk(CLK),.rL(RESETL));               //[INTRUDE.NET:00183] I_2_(I_2,IL_2) = FD2A(X_2,CLK,RESETL);
-FD2A I_3__inst (.q(I_3),.qL(IL_3),.d(X_3),.clk(CLK),.rL(RESETL));               //[INTRUDE.NET:00184] I_3_(I_3,IL_3) = FD2A(X_3,CLK,RESETL);
+FD2A I_0__inst (.MasterClock(MasterClock),.q(I_0),.qL(IL_0),.d(X_0),.clk(CLK),.rL(RESETL));//[INTRUDE.NET:00181] I_0_(I_0,IL_0) = FD2A(X_0,CLK,RESETL);
+FD2A I_1__inst (.MasterClock(MasterClock),.q(I_1),.qL(IL_1),.d(X_1),.clk(CLK),.rL(RESETL));//[INTRUDE.NET:00182] I_1_(I_1,IL_1) = FD2A(X_1,CLK,RESETL);
+FD2A I_2__inst (.MasterClock(MasterClock),.q(I_2),.qL(IL_2),.d(X_2),.clk(CLK),.rL(RESETL));//[INTRUDE.NET:00183] I_2_(I_2,IL_2) = FD2A(X_2,CLK,RESETL);
+FD2A I_3__inst (.MasterClock(MasterClock),.q(I_3),.qL(IL_3),.d(X_3),.clk(CLK),.rL(RESETL));//[INTRUDE.NET:00184] I_3_(I_3,IL_3) = FD2A(X_3,CLK,RESETL);
 
 assign TER_1 = ~(IL_3 & IL_1 & IL_0 & RD);                                      //[INTRUDE.NET:00186] TER_1_(TER_1) = ND4A(IL_3,IL_1,IL_0,RD);
 assign TER_2 = ~(IL_3 & I_2 & IL_0 & RD);                                       //[INTRUDE.NET:00187] TER_2_(TER_2) = ND4A(IL_3,I_2,IL_0,RD);

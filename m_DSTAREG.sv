@@ -223,33 +223,33 @@ assign DI_19 = ~((SDASELL & ID_3)|(SDASEL & ADDQ_19));                          
 
 /* The address latches */
 
-FD1A DA_0__inst (.q(DAL_0),.qL(DA_0),.d(DI_0),.clk(DLDL_0));                    //[DSTAREG.NET:00066] DA_0_(DAL_0,DA_0) = FD1A(DI_0,DLDL_0);
-FD1A DA_1__inst (.q(DAL_1),.qL(DA_1),.d(DI_1),.clk(DLDL_0));                    //[DSTAREG.NET:00067] DA_1_(DAL_1,DA_1) = FD1A(DI_1,DLDL_0);
-FD1A DA_2__inst (.q(DAL_2),.qL(DA_2),.d(DI_2),.clk(DLDL_0));                    //[DSTAREG.NET:00068] DA_2_(DAL_2,DA_2) = FD1A(DI_2,DLDL_0);
-FD1A DA_3__inst (.q(DAL_3),.qL(DA_3),.d(DI_3),.clk(DLDL_0));                    //[DSTAREG.NET:00069] DA_3_(DAL_3,DA_3) = FD1A(DI_3,DLDL_0);
-FD1A DA_4__inst (.q(DAL_4),.qL(DA_4),.d(DI_4),.clk(DLDL_0));                    //[DSTAREG.NET:00070] DA_4_(DAL_4,DA_4) = FD1A(DI_4,DLDL_0);
-FD1A DA_5__inst (.q(DAL_5),.qL(DA_5),.d(DI_5),.clk(DLDL_0));                    //[DSTAREG.NET:00071] DA_5_(DAL_5,DA_5) = FD1A(DI_5,DLDL_0);
-FD1A DA_6__inst (.q(DAL_6),.qL(DA_6),.d(DI_6),.clk(DLDL_0));                    //[DSTAREG.NET:00072] DA_6_(DAL_6,DA_6) = FD1A(DI_6,DLDL_0);
-FD1A DA_7__inst (.q(DAL_7),.qL(DA_7),.d(DI_7),.clk(DLDL_0));                    //[DSTAREG.NET:00073] DA_7_(DAL_7,DA_7) = FD1A(DI_7,DLDL_0);
-FD1A DA_8__inst (.q(DAL_8),.qL(DA_8),.d(DI_8),.clk(DLDL_1));                    //[DSTAREG.NET:00074] DA_8_(DAL_8,DA_8) = FD1A(DI_8,DLDL_1);
-FD1A DA_9__inst (.q(DAL_9),.qL(DA_9),.d(DI_9),.clk(DLDL_1));                    //[DSTAREG.NET:00075] DA_9_(DAL_9,DA_9) = FD1A(DI_9,DLDL_1);
-FD1A DA_10__inst (.q(DAL_10),.qL(DA_10),.d(DI_10),.clk(DLDL_1));                //[DSTAREG.NET:00076] DA_10_(DAL_10,DA_10) = FD1A(DI_10,DLDL_1);
-FD1A DA_11__inst (.q(DAL_11),.qL(DA_11),.d(DI_11),.clk(DLDL_1));                //[DSTAREG.NET:00077] DA_11_(DAL_11,DA_11) = FD1A(DI_11,DLDL_1);
-FD1A DA_12__inst (.q(DAL_12),.qL(DA_12),.d(DI_12),.clk(DLDL_1));                //[DSTAREG.NET:00078] DA_12_(DAL_12,DA_12) = FD1A(DI_12,DLDL_1);
-FD1A DA_13__inst (.q(DAL_13),.qL(DA_13),.d(DI_13),.clk(DLDL_1));                //[DSTAREG.NET:00079] DA_13_(DAL_13,DA_13) = FD1A(DI_13,DLDL_1);
-FD1A DA_14__inst (.q(DAL_14),.qL(DA_14),.d(DI_14),.clk(DLDL_1));                //[DSTAREG.NET:00080] DA_14_(DAL_14,DA_14) = FD1A(DI_14,DLDL_1);
-FD1A DA_15__inst (.q(DAL_15),.qL(DA_15),.d(DI_15),.clk(DLDL_1));                //[DSTAREG.NET:00081] DA_15_(DAL_15,DA_15) = FD1A(DI_15,DLDL_1);
-FD1A DA_16__inst (.q(DAL_16),.qL(DA_16),.d(DI_16),.clk(DLDL_2));                //[DSTAREG.NET:00082] DA_16_(DAL_16,DA_16) = FD1A(DI_16,DLDL_2);
-FD1A DA_17__inst (.q(DAL_17),.qL(DA_17),.d(DI_17),.clk(DLDL_2));                //[DSTAREG.NET:00083] DA_17_(DAL_17,DA_17) = FD1A(DI_17,DLDL_2);
-FD1A DA_18__inst (.q(DAL_18),.qL(DA_18),.d(DI_18),.clk(DLDL_2));                //[DSTAREG.NET:00084] DA_18_(DAL_18,DA_18) = FD1A(DI_18,DLDL_2);
-FD1A DA_19__inst (.q(DAL_19),.qL(DA_19),.d(DI_19),.clk(DLDL_2));                //[DSTAREG.NET:00085] DA_19_(DAL_19,DA_19) = FD1A(DI_19,DLDL_2);
-FD1A DAM1__inst (.q(DAM1L),.qL(DAM1),.d(DIM1),.clk(DLDL_2));                    //[DSTAREG.NET:00086] DAM1_(DAM1L,DAM1) = FD1A(DIM1,DLDL_2);
+FD1A DA_0__inst (.MasterClock(MasterClock),.q(DAL_0),.qL(DA_0),.d(DI_0),.clk(DLDL_0));//[DSTAREG.NET:00066] DA_0_(DAL_0,DA_0) = FD1A(DI_0,DLDL_0);
+FD1A DA_1__inst (.MasterClock(MasterClock),.q(DAL_1),.qL(DA_1),.d(DI_1),.clk(DLDL_0));//[DSTAREG.NET:00067] DA_1_(DAL_1,DA_1) = FD1A(DI_1,DLDL_0);
+FD1A DA_2__inst (.MasterClock(MasterClock),.q(DAL_2),.qL(DA_2),.d(DI_2),.clk(DLDL_0));//[DSTAREG.NET:00068] DA_2_(DAL_2,DA_2) = FD1A(DI_2,DLDL_0);
+FD1A DA_3__inst (.MasterClock(MasterClock),.q(DAL_3),.qL(DA_3),.d(DI_3),.clk(DLDL_0));//[DSTAREG.NET:00069] DA_3_(DAL_3,DA_3) = FD1A(DI_3,DLDL_0);
+FD1A DA_4__inst (.MasterClock(MasterClock),.q(DAL_4),.qL(DA_4),.d(DI_4),.clk(DLDL_0));//[DSTAREG.NET:00070] DA_4_(DAL_4,DA_4) = FD1A(DI_4,DLDL_0);
+FD1A DA_5__inst (.MasterClock(MasterClock),.q(DAL_5),.qL(DA_5),.d(DI_5),.clk(DLDL_0));//[DSTAREG.NET:00071] DA_5_(DAL_5,DA_5) = FD1A(DI_5,DLDL_0);
+FD1A DA_6__inst (.MasterClock(MasterClock),.q(DAL_6),.qL(DA_6),.d(DI_6),.clk(DLDL_0));//[DSTAREG.NET:00072] DA_6_(DAL_6,DA_6) = FD1A(DI_6,DLDL_0);
+FD1A DA_7__inst (.MasterClock(MasterClock),.q(DAL_7),.qL(DA_7),.d(DI_7),.clk(DLDL_0));//[DSTAREG.NET:00073] DA_7_(DAL_7,DA_7) = FD1A(DI_7,DLDL_0);
+FD1A DA_8__inst (.MasterClock(MasterClock),.q(DAL_8),.qL(DA_8),.d(DI_8),.clk(DLDL_1));//[DSTAREG.NET:00074] DA_8_(DAL_8,DA_8) = FD1A(DI_8,DLDL_1);
+FD1A DA_9__inst (.MasterClock(MasterClock),.q(DAL_9),.qL(DA_9),.d(DI_9),.clk(DLDL_1));//[DSTAREG.NET:00075] DA_9_(DAL_9,DA_9) = FD1A(DI_9,DLDL_1);
+FD1A DA_10__inst (.MasterClock(MasterClock),.q(DAL_10),.qL(DA_10),.d(DI_10),.clk(DLDL_1));//[DSTAREG.NET:00076] DA_10_(DAL_10,DA_10) = FD1A(DI_10,DLDL_1);
+FD1A DA_11__inst (.MasterClock(MasterClock),.q(DAL_11),.qL(DA_11),.d(DI_11),.clk(DLDL_1));//[DSTAREG.NET:00077] DA_11_(DAL_11,DA_11) = FD1A(DI_11,DLDL_1);
+FD1A DA_12__inst (.MasterClock(MasterClock),.q(DAL_12),.qL(DA_12),.d(DI_12),.clk(DLDL_1));//[DSTAREG.NET:00078] DA_12_(DAL_12,DA_12) = FD1A(DI_12,DLDL_1);
+FD1A DA_13__inst (.MasterClock(MasterClock),.q(DAL_13),.qL(DA_13),.d(DI_13),.clk(DLDL_1));//[DSTAREG.NET:00079] DA_13_(DAL_13,DA_13) = FD1A(DI_13,DLDL_1);
+FD1A DA_14__inst (.MasterClock(MasterClock),.q(DAL_14),.qL(DA_14),.d(DI_14),.clk(DLDL_1));//[DSTAREG.NET:00080] DA_14_(DAL_14,DA_14) = FD1A(DI_14,DLDL_1);
+FD1A DA_15__inst (.MasterClock(MasterClock),.q(DAL_15),.qL(DA_15),.d(DI_15),.clk(DLDL_1));//[DSTAREG.NET:00081] DA_15_(DAL_15,DA_15) = FD1A(DI_15,DLDL_1);
+FD1A DA_16__inst (.MasterClock(MasterClock),.q(DAL_16),.qL(DA_16),.d(DI_16),.clk(DLDL_2));//[DSTAREG.NET:00082] DA_16_(DAL_16,DA_16) = FD1A(DI_16,DLDL_2);
+FD1A DA_17__inst (.MasterClock(MasterClock),.q(DAL_17),.qL(DA_17),.d(DI_17),.clk(DLDL_2));//[DSTAREG.NET:00083] DA_17_(DAL_17,DA_17) = FD1A(DI_17,DLDL_2);
+FD1A DA_18__inst (.MasterClock(MasterClock),.q(DAL_18),.qL(DA_18),.d(DI_18),.clk(DLDL_2));//[DSTAREG.NET:00084] DA_18_(DAL_18,DA_18) = FD1A(DI_18,DLDL_2);
+FD1A DA_19__inst (.MasterClock(MasterClock),.q(DAL_19),.qL(DA_19),.d(DI_19),.clk(DLDL_2));//[DSTAREG.NET:00085] DA_19_(DAL_19,DA_19) = FD1A(DI_19,DLDL_2);
+FD1A DAM1__inst (.MasterClock(MasterClock),.q(DAM1L),.qL(DAM1),.d(DIM1),.clk(DLDL_2));//[DSTAREG.NET:00086] DAM1_(DAM1L,DAM1) = FD1A(DIM1,DLDL_2);
 
 /* The destination address update sign bit, and wrap control */
 
-LD2A DSTCMP__inst (.q(DSTCMP),.qL(DSTCMPL),.d(ID_4),.en(LDDAL_2));              //[DSTAREG.NET:00090] DSTCMP_(DSTCMP,DSTCMPL) = LD2A(ID_4,LDDAL_2);
-LD2A DWRAP__inst (.q(DWRAP),.qL(DWRAPL),.d(ID_5),.en(LDDAL_2));                 //[DSTAREG.NET:00091] DWRAP_(DWRAP,DWRAPL) = LD2A(ID_5,LDDAL_2);
-LD2A DSIGN__inst (.q(DSIGN),.qL(DSIGNL),.d(ID_6),.en(LDDAL_2));                 //[DSTAREG.NET:00092] DSIGN_(DSIGN,DSIGNL) = LD2A(ID_6,LDDAL_2);
+LD2A DSTCMP__inst (.MasterClock(MasterClock),.q(DSTCMP),.qL(DSTCMPL),.d(ID_4),.en(LDDAL_2));//[DSTAREG.NET:00090] DSTCMP_(DSTCMP,DSTCMPL) = LD2A(ID_4,LDDAL_2);
+LD2A DWRAP__inst (.MasterClock(MasterClock),.q(DWRAP),.qL(DWRAPL),.d(ID_5),.en(LDDAL_2));//[DSTAREG.NET:00091] DWRAP_(DWRAP,DWRAPL) = LD2A(ID_5,LDDAL_2);
+LD2A DSIGN__inst (.MasterClock(MasterClock),.q(DSIGN),.qL(DSIGNL),.d(ID_6),.en(LDDAL_2));//[DSTAREG.NET:00092] DSIGN_(DSIGN,DSIGNL) = LD2A(ID_6,LDDAL_2);
 
 /* Make it readable by the CPU */
 

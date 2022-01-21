@@ -203,23 +203,23 @@ wire VRASL;                                                                     
 /* the scroll registers */
 
 
-LD1A SCR_1__inst (.q(SCR_1),.qL(SCRB_1),.d(WD_1),.en(SCRL_0));                  //[VTIM.NET:00029] SCR_1_(SCR_1,SCRB_1) = LD1A(WD_1,SCRL_0);
-LD1A SCR_2__inst (.q(SCR_2),.qL(SCRB_2),.d(WD_2),.en(SCRL_0));                  //[VTIM.NET:00030] SCR_2_(SCR_2,SCRB_2) = LD1A(WD_2,SCRL_0);
-LD1A SCR_3__inst (.q(SCR_3),.qL(SCRB_3),.d(WD_3),.en(SCRL_0));                  //[VTIM.NET:00031] SCR_3_(SCR_3,SCRB_3) = LD1A(WD_3,SCRL_0);
-LD1A SCR_4__inst (.q(SCR_4),.qL(SCRB_4),.d(WD_4),.en(SCRL_0));                  //[VTIM.NET:00032] SCR_4_(SCR_4,SCRB_4) = LD1A(WD_4,SCRL_0);
-LD1A SCR_5__inst (.q(SCR_5),.qL(SCRB_5),.d(WD_5),.en(SCRL_0));                  //[VTIM.NET:00033] SCR_5_(SCR_5,SCRB_5) = LD1A(WD_5,SCRL_0);
-LD1A SCR_6__inst (.q(SCR_6),.qL(SCRB_6),.d(WD_6),.en(SCRL_0));                  //[VTIM.NET:00034] SCR_6_(SCR_6,SCRB_6) = LD1A(WD_6,SCRL_0);
-LD1A SCR_7__inst (.q(SCR_7),.qL(SCRB_7),.d(WD_7),.en(SCRL_0));                  //[VTIM.NET:00035] SCR_7_(SCR_7,SCRB_7) = LD1A(WD_7,SCRL_0);
-LD1A SCR_8__inst (.q(SCR_8),.qL(SCRB_8),.d(WD_0),.en(SCRL_1));                  //[VTIM.NET:00036] SCR_8_(SCR_8,SCRB_8) = LD1A(WD_0,SCRL_1);
-LD1A SCR_9__inst (.q(SCR_9),.qL(SCRB_9),.d(WD_1),.en(SCRL_1));                  //[VTIM.NET:00037] SCR_9_(SCR_9,SCRB_9) = LD1A(WD_1,SCRL_1);
-LD1A SCR_10__inst (.q(SCR_10),.qL(SCRB_10),.d(WD_2),.en(SCRL_1));               //[VTIM.NET:00038] SCR_10_(SCR_10,SCRB_10) = LD1A(WD_2,SCRL_1);
-LD1A SCR_11__inst (.q(SCR_11),.qL(SCRB_11),.d(WD_3),.en(SCRL_1));               //[VTIM.NET:00039] SCR_11_(SCR_11,SCRB_11) = LD1A(WD_3,SCRL_1);
-LD1A SCR_12__inst (.q(SCR_12),.qL(SCRB_12),.d(WD_4),.en(SCRL_1));               //[VTIM.NET:00040] SCR_12_(SCR_12,SCRB_12) = LD1A(WD_4,SCRL_1);
-LD1A SCR_13__inst (.q(SCR_13),.qL(SCRB_13),.d(WD_5),.en(SCRL_1));               //[VTIM.NET:00041] SCR_13_(SCR_13,SCRB_13) = LD1A(WD_5,SCRL_1);
-LD1A SCR_14__inst (.q(SCR_14),.qL(SCRB_14),.d(WD_6),.en(SCRL_1));               //[VTIM.NET:00042] SCR_14_(SCR_14,SCRB_14) = LD1A(WD_6,SCRL_1);
-LD1A SCR_15__inst (.q(SCR_15),.qL(SCRB_15),.d(WD_7),.en(SCRL_1));               //[VTIM.NET:00043] SCR_15_(SCR_15,SCRB_15) = LD1A(WD_7,SCRL_1);
-LD1A SCR_16__inst (.q(SCR_16),.qL(SCRB_16),.d(WD_0),.en(SCRL_2));               //[VTIM.NET:00044] SCR_16_(SCR_16,SCRB_16) = LD1A(WD_0,SCRL_2);
-LD1A SCR_17__inst (.q(SCR_17),.qL(SCRB_17),.d(WD_1),.en(SCRL_2));               //[VTIM.NET:00045] SCR_17_(SCR_17,SCRB_17) = LD1A(WD_1,SCRL_2);
+LD1A SCR_1__inst (.MasterClock(MasterClock),.q(SCR_1),.qL(SCRB_1),.d(WD_1),.en(SCRL_0));//[VTIM.NET:00029] SCR_1_(SCR_1,SCRB_1) = LD1A(WD_1,SCRL_0);
+LD1A SCR_2__inst (.MasterClock(MasterClock),.q(SCR_2),.qL(SCRB_2),.d(WD_2),.en(SCRL_0));//[VTIM.NET:00030] SCR_2_(SCR_2,SCRB_2) = LD1A(WD_2,SCRL_0);
+LD1A SCR_3__inst (.MasterClock(MasterClock),.q(SCR_3),.qL(SCRB_3),.d(WD_3),.en(SCRL_0));//[VTIM.NET:00031] SCR_3_(SCR_3,SCRB_3) = LD1A(WD_3,SCRL_0);
+LD1A SCR_4__inst (.MasterClock(MasterClock),.q(SCR_4),.qL(SCRB_4),.d(WD_4),.en(SCRL_0));//[VTIM.NET:00032] SCR_4_(SCR_4,SCRB_4) = LD1A(WD_4,SCRL_0);
+LD1A SCR_5__inst (.MasterClock(MasterClock),.q(SCR_5),.qL(SCRB_5),.d(WD_5),.en(SCRL_0));//[VTIM.NET:00033] SCR_5_(SCR_5,SCRB_5) = LD1A(WD_5,SCRL_0);
+LD1A SCR_6__inst (.MasterClock(MasterClock),.q(SCR_6),.qL(SCRB_6),.d(WD_6),.en(SCRL_0));//[VTIM.NET:00034] SCR_6_(SCR_6,SCRB_6) = LD1A(WD_6,SCRL_0);
+LD1A SCR_7__inst (.MasterClock(MasterClock),.q(SCR_7),.qL(SCRB_7),.d(WD_7),.en(SCRL_0));//[VTIM.NET:00035] SCR_7_(SCR_7,SCRB_7) = LD1A(WD_7,SCRL_0);
+LD1A SCR_8__inst (.MasterClock(MasterClock),.q(SCR_8),.qL(SCRB_8),.d(WD_0),.en(SCRL_1));//[VTIM.NET:00036] SCR_8_(SCR_8,SCRB_8) = LD1A(WD_0,SCRL_1);
+LD1A SCR_9__inst (.MasterClock(MasterClock),.q(SCR_9),.qL(SCRB_9),.d(WD_1),.en(SCRL_1));//[VTIM.NET:00037] SCR_9_(SCR_9,SCRB_9) = LD1A(WD_1,SCRL_1);
+LD1A SCR_10__inst (.MasterClock(MasterClock),.q(SCR_10),.qL(SCRB_10),.d(WD_2),.en(SCRL_1));//[VTIM.NET:00038] SCR_10_(SCR_10,SCRB_10) = LD1A(WD_2,SCRL_1);
+LD1A SCR_11__inst (.MasterClock(MasterClock),.q(SCR_11),.qL(SCRB_11),.d(WD_3),.en(SCRL_1));//[VTIM.NET:00039] SCR_11_(SCR_11,SCRB_11) = LD1A(WD_3,SCRL_1);
+LD1A SCR_12__inst (.MasterClock(MasterClock),.q(SCR_12),.qL(SCRB_12),.d(WD_4),.en(SCRL_1));//[VTIM.NET:00040] SCR_12_(SCR_12,SCRB_12) = LD1A(WD_4,SCRL_1);
+LD1A SCR_13__inst (.MasterClock(MasterClock),.q(SCR_13),.qL(SCRB_13),.d(WD_5),.en(SCRL_1));//[VTIM.NET:00041] SCR_13_(SCR_13,SCRB_13) = LD1A(WD_5,SCRL_1);
+LD1A SCR_14__inst (.MasterClock(MasterClock),.q(SCR_14),.qL(SCRB_14),.d(WD_6),.en(SCRL_1));//[VTIM.NET:00042] SCR_14_(SCR_14,SCRB_14) = LD1A(WD_6,SCRL_1);
+LD1A SCR_15__inst (.MasterClock(MasterClock),.q(SCR_15),.qL(SCRB_15),.d(WD_7),.en(SCRL_1));//[VTIM.NET:00043] SCR_15_(SCR_15,SCRB_15) = LD1A(WD_7,SCRL_1);
+LD1A SCR_16__inst (.MasterClock(MasterClock),.q(SCR_16),.qL(SCRB_16),.d(WD_0),.en(SCRL_2));//[VTIM.NET:00044] SCR_16_(SCR_16,SCRB_16) = LD1A(WD_0,SCRL_2);
+LD1A SCR_17__inst (.MasterClock(MasterClock),.q(SCR_17),.qL(SCRB_17),.d(WD_1),.en(SCRL_2));//[VTIM.NET:00045] SCR_17_(SCR_17,SCRB_17) = LD1A(WD_1,SCRL_2);
 
 /* the pixel address counters */
 /* the counter is organised as either:- 6 + 11 or 7 + 10 bits depending on
@@ -314,10 +314,10 @@ assign VBUSYL_1 = ~(DEC37 & ACTIVE);                                            
 
 assign DEC34L = ~(THREE | FOUR);                                                //[VTIM.NET:00138] DEC34L_(DEC34L) = NR2A(THREE,FOUR);
 assign PIXLDD_0 = DEC34L | ACTIVEL;                                             //[VTIM.NET:00139] PIXLDD_0_(PIXLDD_0) = OR2A(DEC34L,ACTIVEL);
-FD2A PIXLD_0__inst (.q(PIXLD_0),.qL(PIXLDL_0),.d(PIXLDD_0),.clk(CLK),.rL(RESL));//[VTIM.NET:00140] PIXLD_0_(PIXLD_0,PIXLDL_0) = FD2A(PIXLDD_0,CLK,RESL);
+FD2A PIXLD_0__inst (.MasterClock(MasterClock),.q(PIXLD_0),.qL(PIXLDL_0),.d(PIXLDD_0),.clk(CLK),.rL(RESL));//[VTIM.NET:00140] PIXLD_0_(PIXLD_0,PIXLDL_0) = FD2A(PIXLDD_0,CLK,RESL);
 assign DEC56L = ~(FIVE | SIX);                                                  //[VTIM.NET:00141] DEC56L_(DEC56L) = NR2A(FIVE,SIX);
 assign PIXLDD_1 = DEC56L | ACTIVEL;                                             //[VTIM.NET:00142] PIXLDD_1_(PIXLDD_1) = OR2A(DEC56L,ACTIVEL);
-FD2A PIXLD_1__inst (.q(PIXLD_1),.qL(PIXLDL_1),.d(PIXLDD_1),.clk(CLK),.rL(RESL));//[VTIM.NET:00143] PIXLD_1_(PIXLD_1,PIXLDL_1) = FD2A(PIXLDD_1,CLK,RESL);
+FD2A PIXLD_1__inst (.MasterClock(MasterClock),.q(PIXLD_1),.qL(PIXLDL_1),.d(PIXLDD_1),.clk(CLK),.rL(RESL));//[VTIM.NET:00143] PIXLD_1_(PIXLD_1,PIXLDL_1) = FD2A(PIXLDD_1,CLK,RESL);
 
 
 /* the screen address is enabled during counts 4 to 7 */
@@ -339,8 +339,8 @@ assign DEC46L = ~(FOUR | SIX);                                                  
 /* sample decode with two phases of the clock to get a pulse of 1.66 ticks */
 
 assign CLKL = ~CLK;                                                             //[VTIM.NET:00164] CLKL_(CLKL) = N1C(CLK);
-FD2A VCS_0__inst (.q(VCSL_0),.qL(VCS_0),.d(DEC46L),.clk(CLKL),.rL(RESL));       //[VTIM.NET:00165] VCS_0_(VCSL_0,VCS_0) = FD2A(DEC46L,CLKL,RESL);
-FD2A VCS_1__inst (.q(VCSL_1),.qL(VCS_1),.d(DEC46L),.clk(CLK),.rL(RESL));        //[VTIM.NET:00166] VCS_1_(VCSL_1,VCS_1) = FD2A(DEC46L,CLK,RESL);
+FD2A VCS_0__inst (.MasterClock(MasterClock),.q(VCSL_0),.qL(VCS_0),.d(DEC46L),.clk(CLKL),.rL(RESL));//[VTIM.NET:00165] VCS_0_(VCSL_0,VCS_0) = FD2A(DEC46L,CLKL,RESL);
+FD2A VCS_1__inst (.MasterClock(MasterClock),.q(VCSL_1),.qL(VCS_1),.d(DEC46L),.clk(CLK),.rL(RESL));//[VTIM.NET:00166] VCS_1_(VCSL_1,VCS_1) = FD2A(DEC46L,CLK,RESL);
 
 /* the type of screen ram determines the timing */
 
@@ -360,8 +360,8 @@ assign VHOLDL = ~(HVHOLD & VVACTIVE);                                           
 
 assign DEC45L = ~(FOUR | FIVE);                                                 //[VTIM.NET:00184] DEC45L_(DEC45L) = NR2A(FOUR,FIVE);
 assign DEC45A = ~(DEC45L | ACTIVEL);                                            //[VTIM.NET:00185] DEC45A_(DEC45A) = NR2A(DEC45L,ACTIVEL);
-FD2A VCAS__inst (.q(VCAS),.qL(VCASL),.d(DEC45A),.clk(CLKL),.rL(RESL));          //[VTIM.NET:00186] VCAS_(VCAS,VCASL) = FD2A(DEC45A,CLKL,RESL);
-FD2A VRAS__inst (.q(VRAS),.qL(VRASL),.d(VCAS),.clk(CLKL),.rL(RESL));            //[VTIM.NET:00187] VRAS_(VRAS,VRASL) = FD2A(VCAS,CLKL,RESL);
+FD2A VCAS__inst (.MasterClock(MasterClock),.q(VCAS),.qL(VCASL),.d(DEC45A),.clk(CLKL),.rL(RESL));//[VTIM.NET:00186] VCAS_(VCAS,VCASL) = FD2A(DEC45A,CLKL,RESL);
+FD2A VRAS__inst (.MasterClock(MasterClock),.q(VRAS),.qL(VRASL),.d(VCAS),.clk(CLKL),.rL(RESL));//[VTIM.NET:00187] VRAS_(VRAS,VRASL) = FD2A(VCAS,CLKL,RESL);
 
 
 endmodule                                                                       //[VTIM.NET:00190] END MODULE;

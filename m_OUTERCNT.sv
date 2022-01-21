@@ -125,7 +125,7 @@ have a suitable rising edge within the load signal.  This is given by
 producing a delayed version off the back edge of the clock and making
 the clock active (low) only during the first half of the cycle */
 
-FD1A LDOCNTD__inst (.q(LDOUTDL),.qL(LDOUTD),.d(LDOUTL),.clk(CCLKL));            //[OUTERCNT.NET:00033] LDOCNTD_(LDOUTDL,LDOUTD) = FD1A(LDOUTL,CCLKL);
+FD1A LDOCNTD__inst (.MasterClock(MasterClock),.q(LDOUTDL),.qL(LDOUTD),.d(LDOUTL),.clk(CCLKL));//[OUTERCNT.NET:00033] LDOCNTD_(LDOUTDL,LDOUTD) = FD1A(LDOUTL,CCLKL);
 assign LDOCLKL = LDOUTL | LDOUTD;                                               //[OUTERCNT.NET:00034] LDOCLK_(LDOCLKL) = OR2A(LDOUTL,LDOUTD);
 
 /* From this, the counter clock */

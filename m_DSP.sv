@@ -763,7 +763,7 @@ m_INTRUDE INTRUDE_ (.MasterClock(MasterClock),.inHD_0(inD_0),.inHD_1(inD_1),.inH
 
 /* Synchronise reset to keep defined coming out of reset */
 
-FD2A RESETK__inst (.q(RESETKL),.qL(RESETK),.d(RESETL),.clk(CCLK),.rL(RESETL));  //[DSP.NET:00103] RESETK_(RESETKL,RESETK) = FD2A(RESETL,CCLK,RESETL);
+FD2A RESETK__inst (.MasterClock(MasterClock),.q(RESETKL),.qL(RESETK),.d(RESETL),.clk(CCLK),.rL(RESETL));//[DSP.NET:00103] RESETK_(RESETKL,RESETK) = FD2A(RESETL,CCLK,RESETL);
 
 
 

@@ -157,10 +157,10 @@ assign MREQL = ~(BMREQ | DMREQ);                                                
 
 /* latch the memory type */
 
-LD1A MEM_0__inst (.q(MEM_0),.qL(MEML_0),.d(WD_0),.en(MEMLD));                   //[MEM.NET:00029] MEM_0_(MEM_0,MEML_0) = LD1A(WD_0,MEMLD);
-LD1A MEM_1__inst (.q(MEM_1),.qL(MEML_1),.d(WD_1),.en(MEMLD));                   //[MEM.NET:00030] MEM_1_(MEM_1,MEML_1) = LD1A(WD_1,MEMLD);
-LD1A MEM_2__inst (.q(MEM_2),.qL(MEML_2),.d(WD_2),.en(MEMLD));                   //[MEM.NET:00031] MEM_2_(MEM_2,MEML_2) = LD1A(WD_2,MEMLD);
-LD1A MEM_3__inst (.q(MEM_3),.qL(MEML_3),.d(WD_3),.en(MEMLD));                   //[MEM.NET:00032] MEM_3_(MEM_3,MEML_3) = LD1A(WD_3,MEMLD);
+LD1A MEM_0__inst (.MasterClock(MasterClock),.q(MEM_0),.qL(MEML_0),.d(WD_0),.en(MEMLD));//[MEM.NET:00029] MEM_0_(MEM_0,MEML_0) = LD1A(WD_0,MEMLD);
+LD1A MEM_1__inst (.MasterClock(MasterClock),.q(MEM_1),.qL(MEML_1),.d(WD_1),.en(MEMLD));//[MEM.NET:00030] MEM_1_(MEM_1,MEML_1) = LD1A(WD_1,MEMLD);
+LD1A MEM_2__inst (.MasterClock(MasterClock),.q(MEM_2),.qL(MEML_2),.d(WD_2),.en(MEMLD));//[MEM.NET:00031] MEM_2_(MEM_2,MEML_2) = LD1A(WD_2,MEMLD);
+LD1A MEM_3__inst (.MasterClock(MasterClock),.q(MEM_3),.qL(MEML_3),.d(WD_3),.en(MEMLD));//[MEM.NET:00032] MEM_3_(MEM_3,MEML_3) = LD1A(WD_3,MEMLD);
 
 /* Using the top two bits of the address, the memory type register, and
 the psuedo signal from the status register generate the current memory type.
@@ -241,8 +241,8 @@ assign RESETL = RESETL_0;                                                       
 assign VBUSY_0 = ~VBUSYL_0;                                                     //[MEM.NET:00110] VBUSYL_0_(VBUSY_0) = N1C(VBUSYL_0);
 assign VBUSY_1 = ~VBUSYL_1;                                                     //[MEM.NET:00111] VBUSYL_1_(VBUSY_1) = N1C(VBUSYL_1);
 
-FD2A Q_0__inst (.q(Q_0),.qL(QB_0),.d(D_0),.clk(CLK),.rL(RESETL));               //[MEM.NET:00113] Q_0_(Q_0,QB_0) = FD2A(D_0,CLK,RESETL);
-FD2A Q_1__inst (.q(Q_1),.qL(QB_1),.d(D_1),.clk(CLK),.rL(RESETL));               //[MEM.NET:00114] Q_1_(Q_1,QB_1) = FD2A(D_1,CLK,RESETL);
+FD2A Q_0__inst (.MasterClock(MasterClock),.q(Q_0),.qL(QB_0),.d(D_0),.clk(CLK),.rL(RESETL));//[MEM.NET:00113] Q_0_(Q_0,QB_0) = FD2A(D_0,CLK,RESETL);
+FD2A Q_1__inst (.MasterClock(MasterClock),.q(Q_1),.qL(QB_1),.d(D_1),.clk(CLK),.rL(RESETL));//[MEM.NET:00114] Q_1_(Q_1,QB_1) = FD2A(D_1,CLK,RESETL);
 
 assign MT_0 = ~(RESETL & QB_0 & QB_1 & MEMREQ & TYPEL_1 & VBUSYL_0);            //[MEM.NET:00116] MT_0_(MT_0) = ND6A(RESETL,QB_0,QB_1,MEMREQ,TYPEL_1,VBUSYL_0);
 assign MT_1 = ~(RESETL & QB_0 & QB_1 & MEMREQ & TYPE_1 & VBUSYL_1);             //[MEM.NET:00117] MT_1_(MT_1) = ND6A(RESETL,QB_0,QB_1,MEMREQ,TYPE_1,VBUSYL_1);
@@ -263,9 +263,9 @@ assign SREQL_0 = ~(RDWR & A_19 & AL_18 & MEML_1 & REQ & VBUSYL_0);              
 assign SREQL_1 = ~(RDWR & A_19 & A_18 & MEML_3 & REQ & VBUSYL_0);               //[MEM.NET:00132] SREQL_1_(SREQL_1) = ND6A(RDWR,A_19,A_18,MEML_3,REQ,VBUSYL_0);
 assign REQ_0 = ~(QREQL_0 & QREQL_1 & QREQL_2 & SREQL_0 & SREQL_1);              //[MEM.NET:00133] REQ_0_(REQ_0) = ND5A(QREQL_0,QREQL_1,QREQL_2,SREQL_0,SREQL_1);
 
-FD2A REQ_1__inst (.q(REQ_1),.qL(REQL_1),.d(REQ_0),.clk(CLKL),.rL(RESETL));      //[MEM.NET:00135] REQ_1_(REQ_1,REQL_1) = FD2A(REQ_0,CLKL,RESETL);
+FD2A REQ_1__inst (.MasterClock(MasterClock),.q(REQ_1),.qL(REQL_1),.d(REQ_0),.clk(CLKL),.rL(RESETL));//[MEM.NET:00135] REQ_1_(REQ_1,REQL_1) = FD2A(REQ_0,CLKL,RESETL);
 
-FD2A REQ_2__inst (.q(REQ_2),.qL(REQL_2),.d(REQ_1),.clk(CLKL),.rL(RESETL));      //[MEM.NET:00137] REQ_2_(REQ_2,REQL_2) = FD2A(REQ_1,CLKL,RESETL);
+FD2A REQ_2__inst (.MasterClock(MasterClock),.q(REQ_2),.qL(REQL_2),.d(REQ_1),.clk(CLKL),.rL(RESETL));//[MEM.NET:00137] REQ_2_(REQ_2,REQL_2) = FD2A(REQ_1,CLKL,RESETL);
 
 
 assign START1L = ~(REQ_1 & REQL_2);                                             //[MEM.NET:00140] START1L_(START1L) = ND2C(REQ_1,REQL_2);
@@ -287,11 +287,11 @@ we is as ras
 */
 
 assign DQCLKL = ~DQCLK;                                                         //[MEM.NET:00158] DQCLKL_(DQCLKL) = N1A(DQCLK);
-FD4A MUXD__inst (.q(MUXDL),.qL(MUXD),.d(START1L),.clk(DQCLKL),.sL(RESETL));     //[MEM.NET:00159] MUXD_(MUXDL,MUXD) = FD4A(START1L,DQCLKL,RESETL);
+FD4A MUXD__inst (.MasterClock(MasterClock),.q(MUXDL),.qL(MUXD),.d(START1L),.clk(DQCLKL),.sL(RESETL));//[MEM.NET:00159] MUXD_(MUXDL,MUXD) = FD4A(START1L,DQCLKL,RESETL);
 
 assign RASD = ~(START1L & MUXDL);                                               //[MEM.NET:00161] RASD_(RASD) = ND2C(START1L,MUXDL);
 assign CASD = ~(REQL_1 & MT_2 & MT_3);                                          //[MEM.NET:00162] CASD_(CASD) = ND3A(REQL_1,MT_2,MT_3);
-FD2A CAST__inst (.q(CAST),.qL(CASTL),.d(CASD),.clk(CLK),.rL(RESETL));           //[MEM.NET:00163] CAST_(CAST,CASTL) = FD2A(CASD,CLK,RESETL);
+FD2A CAST__inst (.MasterClock(MasterClock),.q(CAST),.qL(CASTL),.d(CASD),.clk(CLK),.rL(RESETL));//[MEM.NET:00163] CAST_(CAST,CASTL) = FD2A(CASD,CLK,RESETL);
 
 assign CASTL_0 = ~(AL_18 & A_19 & MEM_0 & MEML_1 & CAST);                       //[MEM.NET:00165] CASTL_0_(CASTL_0) = ND5A(AL_18,A_19,MEM_0,MEML_1,CAST);
 assign CASTL_1 = ~(A_18 & A_19 & MEM_2 & MEML_3 & CAST);                        //[MEM.NET:00166] CASTL_1_(CASTL_1) = ND5A(A_18,A_19,MEM_2,MEML_3,CAST);
@@ -360,9 +360,9 @@ assign WAITL = WAITL_0 & WAITL_1 & MT_0;                                        
 
 /* generate a synchronous write strobe for the dsp */
 
-FD2A WR_1__inst (.q(WRL_1),.qL(WR_1),.d(WRL),.clk(CLK),.rL(RESETL));            //[MEM.NET:00232] WR_1_(WRL_1,WR_1) = FD2A(WRL,CLK,RESETL);
+FD2A WR_1__inst (.MasterClock(MasterClock),.q(WRL_1),.qL(WR_1),.d(WRL),.clk(CLK),.rL(RESETL));//[MEM.NET:00232] WR_1_(WRL_1,WR_1) = FD2A(WRL,CLK,RESETL);
 
-FD2A WR_2__inst (.q(WR_2),.qL(WRL_2),.d(WR_1),.clk(CLK),.rL(RESETL));           //[MEM.NET:00234] WR_2_(WR_2,WRL_2) = FD2A(WR_1,CLK,RESETL);
+FD2A WR_2__inst (.MasterClock(MasterClock),.q(WR_2),.qL(WRL_2),.d(WR_1),.clk(CLK),.rL(RESETL));//[MEM.NET:00234] WR_2_(WR_2,WRL_2) = FD2A(WR_1,CLK,RESETL);
 
 assign DWE = ~(WRL_1 | WR_2);                                                   //[MEM.NET:00236] DWE_(DWE) = NR2A(WRL_1,WR_2);
 

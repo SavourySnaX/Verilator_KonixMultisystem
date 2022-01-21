@@ -152,25 +152,25 @@ assign PCI_19 = ~((RUN & ADDQ_19)|(RUNL & ID_3));                               
 
 /* The address register */
 
-FD1A PCLATCH_0__inst (.q(PCL_0),.qL(PC_0),.d(PCI_0),.clk(PCLDL_0));             //[PCAREG.NET:00059] PCLATCH_0_(PCL_0,PC_0) = FD1A(PCI_0,PCLDL_0);
-FD1A PCLATCH_1__inst (.q(PCL_1),.qL(PC_1),.d(PCI_1),.clk(PCLDL_0));             //[PCAREG.NET:00060] PCLATCH_1_(PCL_1,PC_1) = FD1A(PCI_1,PCLDL_0);
-FD1A PCLATCH_2__inst (.q(PCL_2),.qL(PC_2),.d(PCI_2),.clk(PCLDL_0));             //[PCAREG.NET:00061] PCLATCH_2_(PCL_2,PC_2) = FD1A(PCI_2,PCLDL_0);
-FD1A PCLATCH_3__inst (.q(PCL_3),.qL(PC_3),.d(PCI_3),.clk(PCLDL_0));             //[PCAREG.NET:00062] PCLATCH_3_(PCL_3,PC_3) = FD1A(PCI_3,PCLDL_0);
-FD1A PCLATCH_4__inst (.q(PCL_4),.qL(PC_4),.d(PCI_4),.clk(PCLDL_0));             //[PCAREG.NET:00063] PCLATCH_4_(PCL_4,PC_4) = FD1A(PCI_4,PCLDL_0);
-FD1A PCLATCH_5__inst (.q(PCL_5),.qL(PC_5),.d(PCI_5),.clk(PCLDL_0));             //[PCAREG.NET:00064] PCLATCH_5_(PCL_5,PC_5) = FD1A(PCI_5,PCLDL_0);
-FD1A PCLATCH_6__inst (.q(PCL_6),.qL(PC_6),.d(PCI_6),.clk(PCLDL_0));             //[PCAREG.NET:00065] PCLATCH_6_(PCL_6,PC_6) = FD1A(PCI_6,PCLDL_0);
-FD1A PCLATCH_7__inst (.q(PCL_7),.qL(PC_7),.d(PCI_7),.clk(PCLDL_0));             //[PCAREG.NET:00066] PCLATCH_7_(PCL_7,PC_7) = FD1A(PCI_7,PCLDL_0);
-FD1A PCLATCH_8__inst (.q(PCL_8),.qL(PC_8),.d(PCI_8),.clk(PCLDL_1));             //[PCAREG.NET:00067] PCLATCH_8_(PCL_8,PC_8) = FD1A(PCI_8,PCLDL_1);
-FD1A PCLATCH_9__inst (.q(PCL_9),.qL(PC_9),.d(PCI_9),.clk(PCLDL_1));             //[PCAREG.NET:00068] PCLATCH_9_(PCL_9,PC_9) = FD1A(PCI_9,PCLDL_1);
-FD1A PCLATCH_10__inst (.q(PCL_10),.qL(PC_10),.d(PCI_10),.clk(PCLDL_1));         //[PCAREG.NET:00069] PCLATCH_10_(PCL_10,PC_10) = FD1A(PCI_10,PCLDL_1);
-FD1A PCLATCH_11__inst (.q(PCL_11),.qL(PC_11),.d(PCI_11),.clk(PCLDL_1));         //[PCAREG.NET:00070] PCLATCH_11_(PCL_11,PC_11) = FD1A(PCI_11,PCLDL_1);
-FD1A PCLATCH_12__inst (.q(PCL_12),.qL(PC_12),.d(PCI_12),.clk(PCLDL_1));         //[PCAREG.NET:00071] PCLATCH_12_(PCL_12,PC_12) = FD1A(PCI_12,PCLDL_1);
-FD1A PCLATCH_13__inst (.q(PCL_13),.qL(PC_13),.d(PCI_13),.clk(PCLDL_1));         //[PCAREG.NET:00072] PCLATCH_13_(PCL_13,PC_13) = FD1A(PCI_13,PCLDL_1);
-FD1A PCLATCH_14__inst (.q(PCL_14),.qL(PC_14),.d(PCI_14),.clk(PCLDL_1));         //[PCAREG.NET:00073] PCLATCH_14_(PCL_14,PC_14) = FD1A(PCI_14,PCLDL_1);
-FD1A PCLATCH_15__inst (.q(PCL_15),.qL(PC_15),.d(PCI_15),.clk(PCLDL_1));         //[PCAREG.NET:00074] PCLATCH_15_(PCL_15,PC_15) = FD1A(PCI_15,PCLDL_1);
-FD1A PCLATCH_16__inst (.q(PCL_16),.qL(PC_16),.d(PCI_16),.clk(PCLDL_2));         //[PCAREG.NET:00075] PCLATCH_16_(PCL_16,PC_16) = FD1A(PCI_16,PCLDL_2);
-FD1A PCLATCH_17__inst (.q(PCL_17),.qL(PC_17),.d(PCI_17),.clk(PCLDL_2));         //[PCAREG.NET:00076] PCLATCH_17_(PCL_17,PC_17) = FD1A(PCI_17,PCLDL_2);
-FD1A PCLATCH_18__inst (.q(PCL_18),.qL(PC_18),.d(PCI_18),.clk(PCLDL_2));         //[PCAREG.NET:00077] PCLATCH_18_(PCL_18,PC_18) = FD1A(PCI_18,PCLDL_2);
-FD1A PCLATCH_19__inst (.q(PCL_19),.qL(PC_19),.d(PCI_19),.clk(PCLDL_2));         //[PCAREG.NET:00078] PCLATCH_19_(PCL_19,PC_19) = FD1A(PCI_19,PCLDL_2);
+FD1A PCLATCH_0__inst (.MasterClock(MasterClock),.q(PCL_0),.qL(PC_0),.d(PCI_0),.clk(PCLDL_0));//[PCAREG.NET:00059] PCLATCH_0_(PCL_0,PC_0) = FD1A(PCI_0,PCLDL_0);
+FD1A PCLATCH_1__inst (.MasterClock(MasterClock),.q(PCL_1),.qL(PC_1),.d(PCI_1),.clk(PCLDL_0));//[PCAREG.NET:00060] PCLATCH_1_(PCL_1,PC_1) = FD1A(PCI_1,PCLDL_0);
+FD1A PCLATCH_2__inst (.MasterClock(MasterClock),.q(PCL_2),.qL(PC_2),.d(PCI_2),.clk(PCLDL_0));//[PCAREG.NET:00061] PCLATCH_2_(PCL_2,PC_2) = FD1A(PCI_2,PCLDL_0);
+FD1A PCLATCH_3__inst (.MasterClock(MasterClock),.q(PCL_3),.qL(PC_3),.d(PCI_3),.clk(PCLDL_0));//[PCAREG.NET:00062] PCLATCH_3_(PCL_3,PC_3) = FD1A(PCI_3,PCLDL_0);
+FD1A PCLATCH_4__inst (.MasterClock(MasterClock),.q(PCL_4),.qL(PC_4),.d(PCI_4),.clk(PCLDL_0));//[PCAREG.NET:00063] PCLATCH_4_(PCL_4,PC_4) = FD1A(PCI_4,PCLDL_0);
+FD1A PCLATCH_5__inst (.MasterClock(MasterClock),.q(PCL_5),.qL(PC_5),.d(PCI_5),.clk(PCLDL_0));//[PCAREG.NET:00064] PCLATCH_5_(PCL_5,PC_5) = FD1A(PCI_5,PCLDL_0);
+FD1A PCLATCH_6__inst (.MasterClock(MasterClock),.q(PCL_6),.qL(PC_6),.d(PCI_6),.clk(PCLDL_0));//[PCAREG.NET:00065] PCLATCH_6_(PCL_6,PC_6) = FD1A(PCI_6,PCLDL_0);
+FD1A PCLATCH_7__inst (.MasterClock(MasterClock),.q(PCL_7),.qL(PC_7),.d(PCI_7),.clk(PCLDL_0));//[PCAREG.NET:00066] PCLATCH_7_(PCL_7,PC_7) = FD1A(PCI_7,PCLDL_0);
+FD1A PCLATCH_8__inst (.MasterClock(MasterClock),.q(PCL_8),.qL(PC_8),.d(PCI_8),.clk(PCLDL_1));//[PCAREG.NET:00067] PCLATCH_8_(PCL_8,PC_8) = FD1A(PCI_8,PCLDL_1);
+FD1A PCLATCH_9__inst (.MasterClock(MasterClock),.q(PCL_9),.qL(PC_9),.d(PCI_9),.clk(PCLDL_1));//[PCAREG.NET:00068] PCLATCH_9_(PCL_9,PC_9) = FD1A(PCI_9,PCLDL_1);
+FD1A PCLATCH_10__inst (.MasterClock(MasterClock),.q(PCL_10),.qL(PC_10),.d(PCI_10),.clk(PCLDL_1));//[PCAREG.NET:00069] PCLATCH_10_(PCL_10,PC_10) = FD1A(PCI_10,PCLDL_1);
+FD1A PCLATCH_11__inst (.MasterClock(MasterClock),.q(PCL_11),.qL(PC_11),.d(PCI_11),.clk(PCLDL_1));//[PCAREG.NET:00070] PCLATCH_11_(PCL_11,PC_11) = FD1A(PCI_11,PCLDL_1);
+FD1A PCLATCH_12__inst (.MasterClock(MasterClock),.q(PCL_12),.qL(PC_12),.d(PCI_12),.clk(PCLDL_1));//[PCAREG.NET:00071] PCLATCH_12_(PCL_12,PC_12) = FD1A(PCI_12,PCLDL_1);
+FD1A PCLATCH_13__inst (.MasterClock(MasterClock),.q(PCL_13),.qL(PC_13),.d(PCI_13),.clk(PCLDL_1));//[PCAREG.NET:00072] PCLATCH_13_(PCL_13,PC_13) = FD1A(PCI_13,PCLDL_1);
+FD1A PCLATCH_14__inst (.MasterClock(MasterClock),.q(PCL_14),.qL(PC_14),.d(PCI_14),.clk(PCLDL_1));//[PCAREG.NET:00073] PCLATCH_14_(PCL_14,PC_14) = FD1A(PCI_14,PCLDL_1);
+FD1A PCLATCH_15__inst (.MasterClock(MasterClock),.q(PCL_15),.qL(PC_15),.d(PCI_15),.clk(PCLDL_1));//[PCAREG.NET:00074] PCLATCH_15_(PCL_15,PC_15) = FD1A(PCI_15,PCLDL_1);
+FD1A PCLATCH_16__inst (.MasterClock(MasterClock),.q(PCL_16),.qL(PC_16),.d(PCI_16),.clk(PCLDL_2));//[PCAREG.NET:00075] PCLATCH_16_(PCL_16,PC_16) = FD1A(PCI_16,PCLDL_2);
+FD1A PCLATCH_17__inst (.MasterClock(MasterClock),.q(PCL_17),.qL(PC_17),.d(PCI_17),.clk(PCLDL_2));//[PCAREG.NET:00076] PCLATCH_17_(PCL_17,PC_17) = FD1A(PCI_17,PCLDL_2);
+FD1A PCLATCH_18__inst (.MasterClock(MasterClock),.q(PCL_18),.qL(PC_18),.d(PCI_18),.clk(PCLDL_2));//[PCAREG.NET:00077] PCLATCH_18_(PCL_18,PC_18) = FD1A(PCI_18,PCLDL_2);
+FD1A PCLATCH_19__inst (.MasterClock(MasterClock),.q(PCL_19),.qL(PC_19),.d(PCI_19),.clk(PCLDL_2));//[PCAREG.NET:00078] PCLATCH_19_(PCL_19,PC_19) = FD1A(PCI_19,PCLDL_2);
 
 endmodule                                                                       //[PCAREG.NET:00080] END MODULE;

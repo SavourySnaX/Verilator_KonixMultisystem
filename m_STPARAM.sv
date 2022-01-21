@@ -70,21 +70,21 @@ assign IRP_1 = ~(RP1T_0 & RP1T_1 & RP1T_2);                                     
 
 /* The state latches */
 
-FD2A RPLATCH_0__inst (.q(RP_0),.qL(RPL_0),.d(IRP_0),.clk(CCLK),.rL(SRESETL));   //[STPARAM.NET:00041] RPLATCH_0_(RP_0,RPL_0) = FD2A(IRP_0,CCLK,SRESETL);
-FD2A RPLATCH_1__inst (.q(RP_1),.qL(RPL_1),.d(IRP_1),.clk(CCLK),.rL(SRESETL));   //[STPARAM.NET:00042] RPLATCH_1_(RP_1,RPL_1) = FD2A(IRP_1,CCLK,SRESETL);
+FD2A RPLATCH_0__inst (.MasterClock(MasterClock),.q(RP_0),.qL(RPL_0),.d(IRP_0),.clk(CCLK),.rL(SRESETL));//[STPARAM.NET:00041] RPLATCH_0_(RP_0,RPL_0) = FD2A(IRP_0,CCLK,SRESETL);
+FD2A RPLATCH_1__inst (.MasterClock(MasterClock),.q(RP_1),.qL(RPL_1),.d(IRP_1),.clk(CCLK),.rL(SRESETL));//[STPARAM.NET:00042] RPLATCH_1_(RP_1,RPL_1) = FD2A(IRP_1,CCLK,SRESETL);
 
 /* Decode from the state */
 
 assign ILDINRL = ~(RPL_1 & RP_0 & ICYCEND);                                     //[STPARAM.NET:00046] LDIDEC_(ILDINRL) = ND3A(RPL_1,RP_0,ICYCEND);
-FD1A LDIGEN__inst (.q(LDINRL),.qL(LDINR),.d(ILDINRL),.clk(CCLK));               //[STPARAM.NET:00047] LDIGEN_(LDINRL,LDINR) = FD1A(ILDINRL,CCLK);
+FD1A LDIGEN__inst (.MasterClock(MasterClock),.q(LDINRL),.qL(LDINR),.d(ILDINRL),.clk(CCLK));//[STPARAM.NET:00047] LDIGEN_(LDINRL,LDINR) = FD1A(ILDINRL,CCLK);
 assign ILDSTPL = ~(RP_1 & RPL_0 & ICYCEND);                                     //[STPARAM.NET:00048] LDSDEC_(ILDSTPL) = ND3A(RP_1,RPL_0,ICYCEND);
-FD1A LDSGEN__inst (.q(LDSTPL),.qL(LDSTP),.d(ILDSTPL),.clk(CCLK));               //[STPARAM.NET:00049] LDSGEN_(LDSTPL,LDSTP) = FD1A(ILDSTPL,CCLK);
+FD1A LDSGEN__inst (.MasterClock(MasterClock),.q(LDSTPL),.qL(LDSTP),.d(ILDSTPL),.clk(CCLK));//[STPARAM.NET:00049] LDSGEN_(LDSTPL,LDSTP) = FD1A(ILDSTPL,CCLK);
 assign ILDPATL = ~(RP_1 & RP_0 & ICYCEND);                                      //[STPARAM.NET:00050] LDPDEC_(ILDPATL) = ND3C(RP_1,RP_0,ICYCEND);
-FD1A LDPGEN__inst (.q(LDPATL),.qL(LDPAT),.d(ILDPATL),.clk(CCLK));               //[STPARAM.NET:00051] LDPGEN_(LDPATL,LDPAT) = FD1A(ILDPATL,CCLK);
+FD1A LDPGEN__inst (.MasterClock(MasterClock),.q(LDPATL),.qL(LDPAT),.d(ILDPATL),.clk(CCLK));//[STPARAM.NET:00051] LDPGEN_(LDPATL,LDPAT) = FD1A(ILDPATL,CCLK);
 
 /* Pardn is generated synchronously to remove an asynchronous loop */
 assign PARDNT = ~(RP_0 & RP_1 & ICYCEND);                                       //[STPARAM.NET:00054] PARDGEN_(PARDNT) = ND3A(RP_0,RP_1,ICYCEND);
-FD1A PARDN__inst (.q(PARDNL),.qL(PARDN),.d(PARDNT),.clk(CCLK));                 //[STPARAM.NET:00055] PARDN_(PARDNL,PARDN) = FD1A(PARDNT,CCLK);
+FD1A PARDN__inst (.MasterClock(MasterClock),.q(PARDNL),.qL(PARDN),.d(PARDNT),.clk(CCLK));//[STPARAM.NET:00055] PARDN_(PARDNL,PARDN) = FD1A(PARDNT,CCLK);
 
 /* Parcrq is active while the state machine is active.  This is a
 look-ahead signal */

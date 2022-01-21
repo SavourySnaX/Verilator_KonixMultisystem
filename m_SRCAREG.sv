@@ -267,34 +267,34 @@ assign SI_19 = ~((SDASEL & ADDQ_19)|(SDASELL & ID_3));                          
 
 /* The address register */
 
-FD1A SALATCHM1__inst (.q(SAM1L),.qL(SAM1),.d(SIM1),.clk(SLDM1L));               //[SRCAREG.NET:00086] SALATCHM1_(SAM1L,SAM1) = FD1A(SIM1,SLDM1L);
-FD1A SALATCH_0__inst (.q(SAL_0),.qL(SA_0),.d(SI_0),.clk(SLDL_0));               //[SRCAREG.NET:00087] SALATCH_0_(SAL_0,SA_0) = FD1A(SI_0,SLDL_0);
-FD1A SALATCH_1__inst (.q(SAL_1),.qL(SA_1),.d(SI_1),.clk(SLDL_0));               //[SRCAREG.NET:00088] SALATCH_1_(SAL_1,SA_1) = FD1A(SI_1,SLDL_0);
-FD1A SALATCH_2__inst (.q(SAL_2),.qL(SA_2),.d(SI_2),.clk(SLDL_0));               //[SRCAREG.NET:00089] SALATCH_2_(SAL_2,SA_2) = FD1A(SI_2,SLDL_0);
-FD1A SALATCH_3__inst (.q(SAL_3),.qL(SA_3),.d(SI_3),.clk(SLDL_0));               //[SRCAREG.NET:00090] SALATCH_3_(SAL_3,SA_3) = FD1A(SI_3,SLDL_0);
-FD1A SALATCH_4__inst (.q(SAL_4),.qL(SA_4),.d(SI_4),.clk(SLDL_0));               //[SRCAREG.NET:00091] SALATCH_4_(SAL_4,SA_4) = FD1A(SI_4,SLDL_0);
-FD1A SALATCH_5__inst (.q(SAL_5),.qL(SA_5),.d(SI_5),.clk(SLDL_0));               //[SRCAREG.NET:00092] SALATCH_5_(SAL_5,SA_5) = FD1A(SI_5,SLDL_0);
-FD1A SALATCH_6__inst (.q(SAL_6),.qL(SA_6),.d(SI_6),.clk(SLDL_0));               //[SRCAREG.NET:00093] SALATCH_6_(SAL_6,SA_6) = FD1A(SI_6,SLDL_0);
-FD1A SALATCH_7__inst (.q(SAL_7),.qL(SA_7),.d(SI_7),.clk(SLDL_0));               //[SRCAREG.NET:00094] SALATCH_7_(SAL_7,SA_7) = FD1A(SI_7,SLDL_0);
-FD1A SALATCH_8__inst (.q(SAL_8),.qL(SA_8),.d(SI_8),.clk(SLDL_1));               //[SRCAREG.NET:00095] SALATCH_8_(SAL_8,SA_8) = FD1A(SI_8,SLDL_1);
-FD1A SALATCH_9__inst (.q(SAL_9),.qL(SA_9),.d(SI_9),.clk(SLDL_1));               //[SRCAREG.NET:00096] SALATCH_9_(SAL_9,SA_9) = FD1A(SI_9,SLDL_1);
-FD1A SALATCH_10__inst (.q(SAL_10),.qL(SA_10),.d(SI_10),.clk(SLDL_1));           //[SRCAREG.NET:00097] SALATCH_10_(SAL_10,SA_10) = FD1A(SI_10,SLDL_1);
-FD1A SALATCH_11__inst (.q(SAL_11),.qL(SA_11),.d(SI_11),.clk(SLDL_1));           //[SRCAREG.NET:00098] SALATCH_11_(SAL_11,SA_11) = FD1A(SI_11,SLDL_1);
-FD1A SALATCH_12__inst (.q(SAL_12),.qL(SA_12),.d(SI_12),.clk(SLDL_1));           //[SRCAREG.NET:00099] SALATCH_12_(SAL_12,SA_12) = FD1A(SI_12,SLDL_1);
-FD1A SALATCH_13__inst (.q(SAL_13),.qL(SA_13),.d(SI_13),.clk(SLDL_1));           //[SRCAREG.NET:00100] SALATCH_13_(SAL_13,SA_13) = FD1A(SI_13,SLDL_1);
-FD1A SALATCH_14__inst (.q(SAL_14),.qL(SA_14),.d(SI_14),.clk(SLDL_1));           //[SRCAREG.NET:00101] SALATCH_14_(SAL_14,SA_14) = FD1A(SI_14,SLDL_1);
-FD1A SALATCH_15__inst (.q(SAL_15),.qL(SA_15),.d(SI_15),.clk(SLDL_1));           //[SRCAREG.NET:00102] SALATCH_15_(SAL_15,SA_15) = FD1A(SI_15,SLDL_1);
-FD1A SALATCH_16__inst (.q(SAL_16),.qL(SA_16),.d(SI_16),.clk(SLDL_2));           //[SRCAREG.NET:00103] SALATCH_16_(SAL_16,SA_16) = FD1A(SI_16,SLDL_2);
-FD1A SALATCH_17__inst (.q(SAL_17),.qL(SA_17),.d(SI_17),.clk(SLDL_2));           //[SRCAREG.NET:00104] SALATCH_17_(SAL_17,SA_17) = FD1A(SI_17,SLDL_2);
-FD1A SALATCH_18__inst (.q(SAL_18),.qL(SA_18),.d(SI_18),.clk(SLDL_2));           //[SRCAREG.NET:00105] SALATCH_18_(SAL_18,SA_18) = FD1A(SI_18,SLDL_2);
-FD1A SALATCH_19__inst (.q(SAL_19),.qL(SA_19),.d(SI_19),.clk(SLDL_2));           //[SRCAREG.NET:00106] SALATCH_19_(SAL_19,SA_19) = FD1A(SI_19,SLDL_2);
+FD1A SALATCHM1__inst (.MasterClock(MasterClock),.q(SAM1L),.qL(SAM1),.d(SIM1),.clk(SLDM1L));//[SRCAREG.NET:00086] SALATCHM1_(SAM1L,SAM1) = FD1A(SIM1,SLDM1L);
+FD1A SALATCH_0__inst (.MasterClock(MasterClock),.q(SAL_0),.qL(SA_0),.d(SI_0),.clk(SLDL_0));//[SRCAREG.NET:00087] SALATCH_0_(SAL_0,SA_0) = FD1A(SI_0,SLDL_0);
+FD1A SALATCH_1__inst (.MasterClock(MasterClock),.q(SAL_1),.qL(SA_1),.d(SI_1),.clk(SLDL_0));//[SRCAREG.NET:00088] SALATCH_1_(SAL_1,SA_1) = FD1A(SI_1,SLDL_0);
+FD1A SALATCH_2__inst (.MasterClock(MasterClock),.q(SAL_2),.qL(SA_2),.d(SI_2),.clk(SLDL_0));//[SRCAREG.NET:00089] SALATCH_2_(SAL_2,SA_2) = FD1A(SI_2,SLDL_0);
+FD1A SALATCH_3__inst (.MasterClock(MasterClock),.q(SAL_3),.qL(SA_3),.d(SI_3),.clk(SLDL_0));//[SRCAREG.NET:00090] SALATCH_3_(SAL_3,SA_3) = FD1A(SI_3,SLDL_0);
+FD1A SALATCH_4__inst (.MasterClock(MasterClock),.q(SAL_4),.qL(SA_4),.d(SI_4),.clk(SLDL_0));//[SRCAREG.NET:00091] SALATCH_4_(SAL_4,SA_4) = FD1A(SI_4,SLDL_0);
+FD1A SALATCH_5__inst (.MasterClock(MasterClock),.q(SAL_5),.qL(SA_5),.d(SI_5),.clk(SLDL_0));//[SRCAREG.NET:00092] SALATCH_5_(SAL_5,SA_5) = FD1A(SI_5,SLDL_0);
+FD1A SALATCH_6__inst (.MasterClock(MasterClock),.q(SAL_6),.qL(SA_6),.d(SI_6),.clk(SLDL_0));//[SRCAREG.NET:00093] SALATCH_6_(SAL_6,SA_6) = FD1A(SI_6,SLDL_0);
+FD1A SALATCH_7__inst (.MasterClock(MasterClock),.q(SAL_7),.qL(SA_7),.d(SI_7),.clk(SLDL_0));//[SRCAREG.NET:00094] SALATCH_7_(SAL_7,SA_7) = FD1A(SI_7,SLDL_0);
+FD1A SALATCH_8__inst (.MasterClock(MasterClock),.q(SAL_8),.qL(SA_8),.d(SI_8),.clk(SLDL_1));//[SRCAREG.NET:00095] SALATCH_8_(SAL_8,SA_8) = FD1A(SI_8,SLDL_1);
+FD1A SALATCH_9__inst (.MasterClock(MasterClock),.q(SAL_9),.qL(SA_9),.d(SI_9),.clk(SLDL_1));//[SRCAREG.NET:00096] SALATCH_9_(SAL_9,SA_9) = FD1A(SI_9,SLDL_1);
+FD1A SALATCH_10__inst (.MasterClock(MasterClock),.q(SAL_10),.qL(SA_10),.d(SI_10),.clk(SLDL_1));//[SRCAREG.NET:00097] SALATCH_10_(SAL_10,SA_10) = FD1A(SI_10,SLDL_1);
+FD1A SALATCH_11__inst (.MasterClock(MasterClock),.q(SAL_11),.qL(SA_11),.d(SI_11),.clk(SLDL_1));//[SRCAREG.NET:00098] SALATCH_11_(SAL_11,SA_11) = FD1A(SI_11,SLDL_1);
+FD1A SALATCH_12__inst (.MasterClock(MasterClock),.q(SAL_12),.qL(SA_12),.d(SI_12),.clk(SLDL_1));//[SRCAREG.NET:00099] SALATCH_12_(SAL_12,SA_12) = FD1A(SI_12,SLDL_1);
+FD1A SALATCH_13__inst (.MasterClock(MasterClock),.q(SAL_13),.qL(SA_13),.d(SI_13),.clk(SLDL_1));//[SRCAREG.NET:00100] SALATCH_13_(SAL_13,SA_13) = FD1A(SI_13,SLDL_1);
+FD1A SALATCH_14__inst (.MasterClock(MasterClock),.q(SAL_14),.qL(SA_14),.d(SI_14),.clk(SLDL_1));//[SRCAREG.NET:00101] SALATCH_14_(SAL_14,SA_14) = FD1A(SI_14,SLDL_1);
+FD1A SALATCH_15__inst (.MasterClock(MasterClock),.q(SAL_15),.qL(SA_15),.d(SI_15),.clk(SLDL_1));//[SRCAREG.NET:00102] SALATCH_15_(SAL_15,SA_15) = FD1A(SI_15,SLDL_1);
+FD1A SALATCH_16__inst (.MasterClock(MasterClock),.q(SAL_16),.qL(SA_16),.d(SI_16),.clk(SLDL_2));//[SRCAREG.NET:00103] SALATCH_16_(SAL_16,SA_16) = FD1A(SI_16,SLDL_2);
+FD1A SALATCH_17__inst (.MasterClock(MasterClock),.q(SAL_17),.qL(SA_17),.d(SI_17),.clk(SLDL_2));//[SRCAREG.NET:00104] SALATCH_17_(SAL_17,SA_17) = FD1A(SI_17,SLDL_2);
+FD1A SALATCH_18__inst (.MasterClock(MasterClock),.q(SAL_18),.qL(SA_18),.d(SI_18),.clk(SLDL_2));//[SRCAREG.NET:00105] SALATCH_18_(SAL_18,SA_18) = FD1A(SI_18,SLDL_2);
+FD1A SALATCH_19__inst (.MasterClock(MasterClock),.q(SAL_19),.qL(SA_19),.d(SI_19),.clk(SLDL_2));//[SRCAREG.NET:00106] SALATCH_19_(SAL_19,SA_19) = FD1A(SI_19,SLDL_2);
 
 /* The source data comparator select, source address update sign bit, and '
 wrap control */
 
-LD2A SRCCMP__inst (.q(SRCCMP),.qL(SRCCMPL),.d(ID_4),.en(LDSAL_2));              //[SRCAREG.NET:00111] SRCCMP_(SRCCMP,SRCCMPL) = LD2A(ID_4,LDSAL_2);
-LD2A SWRAP__inst (.q(SWRAP),.qL(SWRAPL),.d(ID_5),.en(LDSAL_2));                 //[SRCAREG.NET:00112] SWRAP_(SWRAP,SWRAPL) = LD2A(ID_5,LDSAL_2);
-LD2A SSIGN__inst (.q(SSIGN),.qL(SSIGNL),.d(ID_6),.en(LDSAL_2));                 //[SRCAREG.NET:00113] SSIGN_(SSIGN,SSIGNL) = LD2A(ID_6,LDSAL_2);
+LD2A SRCCMP__inst (.MasterClock(MasterClock),.q(SRCCMP),.qL(SRCCMPL),.d(ID_4),.en(LDSAL_2));//[SRCAREG.NET:00111] SRCCMP_(SRCCMP,SRCCMPL) = LD2A(ID_4,LDSAL_2);
+LD2A SWRAP__inst (.MasterClock(MasterClock),.q(SWRAP),.qL(SWRAPL),.d(ID_5),.en(LDSAL_2));//[SRCAREG.NET:00112] SWRAP_(SWRAP,SWRAPL) = LD2A(ID_5,LDSAL_2);
+LD2A SSIGN__inst (.MasterClock(MasterClock),.q(SSIGN),.qL(SSIGNL),.d(ID_6),.en(LDSAL_2));//[SRCAREG.NET:00113] SSIGN_(SSIGN,SSIGNL) = LD2A(ID_6,LDSAL_2);
 
 /* Make it readable by the CPU */
 

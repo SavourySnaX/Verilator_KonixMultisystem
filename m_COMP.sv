@@ -158,11 +158,11 @@ assign RESL_0 = ~RES_0;                                                         
 
 /* The comparator control register */
 
-LD2A LFUCL0__inst (.q(CMPEQ),.qL(CMPEQL),.d(ID_0),.en(LDCMPL));                 //[COMP.NET:00026] LFUCL0_(CMPEQ,CMPEQL) = LD2A(ID_0,LDCMPL);
-LD2A LFUCL1__inst (.q(CMPNE),.qL(CMPNEL),.d(ID_1),.en(LDCMPL));                 //[COMP.NET:00027] LFUCL1_(CMPNE,CMPNEL) = LD2A(ID_1,LDCMPL);
-LD2A LFUCL2__inst (.q(CMPGT),.qL(CMPGTL),.d(ID_2),.en(LDCMPL));                 //[COMP.NET:00028] LFUCL2_(CMPGT,CMPGTL) = LD2A(ID_2,LDCMPL);
-LD2A LFUCL4__inst (.q(CMPPLN),.qL(CMPPLNL),.d(ID_3),.en(LDCMPL));               //[COMP.NET:00029] LFUCL4_(CMPPLN,CMPPLNL) = LD2A(ID_3,LDCMPL);
-LD2A LFUCL5__inst (.q(CMPBIT),.qL(CMPBITL),.d(ID_2),.en(LDMODL));               //[COMP.NET:00030] LFUCL5_(CMPBIT,CMPBITL) = LD2A(ID_2,LDMODL);
+LD2A LFUCL0__inst (.MasterClock(MasterClock),.q(CMPEQ),.qL(CMPEQL),.d(ID_0),.en(LDCMPL));//[COMP.NET:00026] LFUCL0_(CMPEQ,CMPEQL) = LD2A(ID_0,LDCMPL);
+LD2A LFUCL1__inst (.MasterClock(MasterClock),.q(CMPNE),.qL(CMPNEL),.d(ID_1),.en(LDCMPL));//[COMP.NET:00027] LFUCL1_(CMPNE,CMPNEL) = LD2A(ID_1,LDCMPL);
+LD2A LFUCL2__inst (.MasterClock(MasterClock),.q(CMPGT),.qL(CMPGTL),.d(ID_2),.en(LDCMPL));//[COMP.NET:00028] LFUCL2_(CMPGT,CMPGTL) = LD2A(ID_2,LDCMPL);
+LD2A LFUCL4__inst (.MasterClock(MasterClock),.q(CMPPLN),.qL(CMPPLNL),.d(ID_3),.en(LDCMPL));//[COMP.NET:00029] LFUCL4_(CMPPLN,CMPPLNL) = LD2A(ID_3,LDCMPL);
+LD2A LFUCL5__inst (.MasterClock(MasterClock),.q(CMPBIT),.qL(CMPBITL),.d(ID_2),.en(LDMODL));//[COMP.NET:00030] LFUCL5_(CMPBIT,CMPBITL) = LD2A(ID_2,LDMODL);
 
 /* Select between source/pattern and destination/pattern data according to
 the srccmp and dstcmp control bits */

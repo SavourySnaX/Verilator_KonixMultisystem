@@ -189,7 +189,7 @@ assign LORES = ~(RES_0 | RES_1);                                                
 assign LORESL = ~LORES;                                                         //[ADDBSEL.NET:00091] LORESL_(LORESL) = N1A(LORES);
 
 /* Borrow is given by latching carryout on the end of updsrc */
-LD2A BORROW__inst (.q(BORROWL),.qL(BORROW),.d(CARRYOUT),.en(UPDSRCL));          //[ADDBSEL.NET:00094] BORROW_(BORROWL,BORROW) = LD2A(CARRYOUT,UPDSRCL);
+LD2A BORROW__inst (.MasterClock(MasterClock),.q(BORROWL),.qL(BORROW),.d(CARRYOUT),.en(UPDSRCL));//[ADDBSEL.NET:00094] BORROW_(BORROWL,BORROW) = LD2A(CARRYOUT,UPDSRCL);
 
 /* Outside line draw, one is added except when adstp is true.  The bit
    position is normally given by the screen mode, but is overriden

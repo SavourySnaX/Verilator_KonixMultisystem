@@ -171,7 +171,7 @@ assign RESET = ~RESETL;                                                         
 assign GPWR = ~(GPWRL | DQCLK);                                                 //[DRAM.NET:00046] GPWR_(GPWR) = NR2A(GPWRL,DQCLK);
 assign GPRD = ~GPRDL;                                                           //[DRAM.NET:00047] GPRD_(GPRD) = N1A(GPRDL);
 assign drv2_outDD_0 = INPUT; assign drv2_enDD_0 = GPRD;                         //[DRAM.NET:00048] INPUT_(DD_0) = BTS4B(INPUT,GPRD);
-LD1A OUTPUT__inst (.q(OUTPUT),.qL(OUTPUTL),.d(inDD_0),.en(GPWR));               //[DRAM.NET:00049] OUTPUT_(OUTPUT,OUTPUTL) = LD1A(DD_0,GPWR);
+LD1A OUTPUT__inst (.MasterClock(MasterClock),.q(OUTPUT),.qL(OUTPUTL),.d(inDD_0),.en(GPWR));//[DRAM.NET:00049] OUTPUT_(OUTPUT,OUTPUTL) = LD1A(DD_0,GPWR);
 assign outDD_0 = (drv0_outDD_0 & drv0_enDD_0) | (drv1_outDD_0 & drv1_enDD_0) | (drv2_outDD_0 & drv2_enDD_0);
 assign enDD_0 = drv0_enDD_0 | drv1_enDD_0 | drv2_enDD_0;
 assign outDD_1 = (drv0_outDD_1 & drv0_enDD_1) | (drv1_outDD_1 & drv1_enDD_1);

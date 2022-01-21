@@ -428,22 +428,22 @@ wire drv1_enDD_15;                                                              
 
  /* The data register */
 
-LD1A DMD_0__inst (.q(DMD_0),.qL(DMDL_0),.d(DIN_0),.en(DMLD_0));                 //[DMA.NET:00020] DMD_0_(DMD_0,DMDL_0) = LD1A(DIN_0,DMLD_0);
-LD1A DMD_1__inst (.q(DMD_1),.qL(DMDL_1),.d(DIN_1),.en(DMLD_0));                 //[DMA.NET:00021] DMD_1_(DMD_1,DMDL_1) = LD1A(DIN_1,DMLD_0);
-LD1A DMD_2__inst (.q(DMD_2),.qL(DMDL_2),.d(DIN_2),.en(DMLD_0));                 //[DMA.NET:00022] DMD_2_(DMD_2,DMDL_2) = LD1A(DIN_2,DMLD_0);
-LD1A DMD_3__inst (.q(DMD_3),.qL(DMDL_3),.d(DIN_3),.en(DMLD_0));                 //[DMA.NET:00023] DMD_3_(DMD_3,DMDL_3) = LD1A(DIN_3,DMLD_0);
-LD1A DMD_4__inst (.q(DMD_4),.qL(DMDL_4),.d(DIN_4),.en(DMLD_0));                 //[DMA.NET:00024] DMD_4_(DMD_4,DMDL_4) = LD1A(DIN_4,DMLD_0);
-LD1A DMD_5__inst (.q(DMD_5),.qL(DMDL_5),.d(DIN_5),.en(DMLD_0));                 //[DMA.NET:00025] DMD_5_(DMD_5,DMDL_5) = LD1A(DIN_5,DMLD_0);
-LD1A DMD_6__inst (.q(DMD_6),.qL(DMDL_6),.d(DIN_6),.en(DMLD_0));                 //[DMA.NET:00026] DMD_6_(DMD_6,DMDL_6) = LD1A(DIN_6,DMLD_0);
-LD1A DMD_7__inst (.q(DMD_7),.qL(DMDL_7),.d(DIN_7),.en(DMLD_0));                 //[DMA.NET:00027] DMD_7_(DMD_7,DMDL_7) = LD1A(DIN_7,DMLD_0);
-LD1A DMD_8__inst (.q(DMD_8),.qL(DMDL_8),.d(DIN_8),.en(DMLD_1));                 //[DMA.NET:00028] DMD_8_(DMD_8,DMDL_8) = LD1A(DIN_8,DMLD_1);
-LD1A DMD_9__inst (.q(DMD_9),.qL(DMDL_9),.d(DIN_9),.en(DMLD_1));                 //[DMA.NET:00029] DMD_9_(DMD_9,DMDL_9) = LD1A(DIN_9,DMLD_1);
-LD1A DMD_10__inst (.q(DMD_10),.qL(DMDL_10),.d(DIN_10),.en(DMLD_1));             //[DMA.NET:00030] DMD_10_(DMD_10,DMDL_10) = LD1A(DIN_10,DMLD_1);
-LD1A DMD_11__inst (.q(DMD_11),.qL(DMDL_11),.d(DIN_11),.en(DMLD_1));             //[DMA.NET:00031] DMD_11_(DMD_11,DMDL_11) = LD1A(DIN_11,DMLD_1);
-LD1A DMD_12__inst (.q(DMD_12),.qL(DMDL_12),.d(DIN_12),.en(DMLD_1));             //[DMA.NET:00032] DMD_12_(DMD_12,DMDL_12) = LD1A(DIN_12,DMLD_1);
-LD1A DMD_13__inst (.q(DMD_13),.qL(DMDL_13),.d(DIN_13),.en(DMLD_1));             //[DMA.NET:00033] DMD_13_(DMD_13,DMDL_13) = LD1A(DIN_13,DMLD_1);
-LD1A DMD_14__inst (.q(DMD_14),.qL(DMDL_14),.d(DIN_14),.en(DMLD_1));             //[DMA.NET:00034] DMD_14_(DMD_14,DMDL_14) = LD1A(DIN_14,DMLD_1);
-LD1A DMD_15__inst (.q(DMD_15),.qL(DMDL_15),.d(DIN_15),.en(DMLD_1));             //[DMA.NET:00035] DMD_15_(DMD_15,DMDL_15) = LD1A(DIN_15,DMLD_1);
+LD1A DMD_0__inst (.MasterClock(MasterClock),.q(DMD_0),.qL(DMDL_0),.d(DIN_0),.en(DMLD_0));//[DMA.NET:00020] DMD_0_(DMD_0,DMDL_0) = LD1A(DIN_0,DMLD_0);
+LD1A DMD_1__inst (.MasterClock(MasterClock),.q(DMD_1),.qL(DMDL_1),.d(DIN_1),.en(DMLD_0));//[DMA.NET:00021] DMD_1_(DMD_1,DMDL_1) = LD1A(DIN_1,DMLD_0);
+LD1A DMD_2__inst (.MasterClock(MasterClock),.q(DMD_2),.qL(DMDL_2),.d(DIN_2),.en(DMLD_0));//[DMA.NET:00022] DMD_2_(DMD_2,DMDL_2) = LD1A(DIN_2,DMLD_0);
+LD1A DMD_3__inst (.MasterClock(MasterClock),.q(DMD_3),.qL(DMDL_3),.d(DIN_3),.en(DMLD_0));//[DMA.NET:00023] DMD_3_(DMD_3,DMDL_3) = LD1A(DIN_3,DMLD_0);
+LD1A DMD_4__inst (.MasterClock(MasterClock),.q(DMD_4),.qL(DMDL_4),.d(DIN_4),.en(DMLD_0));//[DMA.NET:00024] DMD_4_(DMD_4,DMDL_4) = LD1A(DIN_4,DMLD_0);
+LD1A DMD_5__inst (.MasterClock(MasterClock),.q(DMD_5),.qL(DMDL_5),.d(DIN_5),.en(DMLD_0));//[DMA.NET:00025] DMD_5_(DMD_5,DMDL_5) = LD1A(DIN_5,DMLD_0);
+LD1A DMD_6__inst (.MasterClock(MasterClock),.q(DMD_6),.qL(DMDL_6),.d(DIN_6),.en(DMLD_0));//[DMA.NET:00026] DMD_6_(DMD_6,DMDL_6) = LD1A(DIN_6,DMLD_0);
+LD1A DMD_7__inst (.MasterClock(MasterClock),.q(DMD_7),.qL(DMDL_7),.d(DIN_7),.en(DMLD_0));//[DMA.NET:00027] DMD_7_(DMD_7,DMDL_7) = LD1A(DIN_7,DMLD_0);
+LD1A DMD_8__inst (.MasterClock(MasterClock),.q(DMD_8),.qL(DMDL_8),.d(DIN_8),.en(DMLD_1));//[DMA.NET:00028] DMD_8_(DMD_8,DMDL_8) = LD1A(DIN_8,DMLD_1);
+LD1A DMD_9__inst (.MasterClock(MasterClock),.q(DMD_9),.qL(DMDL_9),.d(DIN_9),.en(DMLD_1));//[DMA.NET:00029] DMD_9_(DMD_9,DMDL_9) = LD1A(DIN_9,DMLD_1);
+LD1A DMD_10__inst (.MasterClock(MasterClock),.q(DMD_10),.qL(DMDL_10),.d(DIN_10),.en(DMLD_1));//[DMA.NET:00030] DMD_10_(DMD_10,DMDL_10) = LD1A(DIN_10,DMLD_1);
+LD1A DMD_11__inst (.MasterClock(MasterClock),.q(DMD_11),.qL(DMDL_11),.d(DIN_11),.en(DMLD_1));//[DMA.NET:00031] DMD_11_(DMD_11,DMDL_11) = LD1A(DIN_11,DMLD_1);
+LD1A DMD_12__inst (.MasterClock(MasterClock),.q(DMD_12),.qL(DMDL_12),.d(DIN_12),.en(DMLD_1));//[DMA.NET:00032] DMD_12_(DMD_12,DMDL_12) = LD1A(DIN_12,DMLD_1);
+LD1A DMD_13__inst (.MasterClock(MasterClock),.q(DMD_13),.qL(DMDL_13),.d(DIN_13),.en(DMLD_1));//[DMA.NET:00033] DMD_13_(DMD_13,DMDL_13) = LD1A(DIN_13,DMLD_1);
+LD1A DMD_14__inst (.MasterClock(MasterClock),.q(DMD_14),.qL(DMDL_14),.d(DIN_14),.en(DMLD_1));//[DMA.NET:00034] DMD_14_(DMD_14,DMDL_14) = LD1A(DIN_14,DMLD_1);
+LD1A DMD_15__inst (.MasterClock(MasterClock),.q(DMD_15),.qL(DMDL_15),.d(DIN_15),.en(DMLD_1));//[DMA.NET:00035] DMD_15_(DMD_15,DMDL_15) = LD1A(DIN_15,DMLD_1);
 
 /* Loading of this register is defined as follows:
    From the DSP side dmdwrL 
@@ -568,33 +568,33 @@ assign DH_2 = DSPBAK & WR & LOHI & BYTE;                                        
 /* The address registers */
 
 
-LD1A DMA0_0__inst (.q(DMA_0),.qL(DMAL_0),.d(DDB_0),.en(DMA0WR));                //[DMA.NET:00160] DMA0_0_(DMA_0,DMAL_0) = LD1A(DDB_0,DMA0WR);
-LD1A DMA0_1__inst (.q(DMA_1),.qL(DMAL_1),.d(DDB_1),.en(DMA0WR));                //[DMA.NET:00161] DMA0_1_(DMA_1,DMAL_1) = LD1A(DDB_1,DMA0WR);
-LD1A DMA0_2__inst (.q(DMA_2),.qL(DMAL_2),.d(DDB_2),.en(DMA0WR));                //[DMA.NET:00162] DMA0_2_(DMA_2,DMAL_2) = LD1A(DDB_2,DMA0WR);
-LD1A DMA0_3__inst (.q(DMA_3),.qL(DMAL_3),.d(DDB_3),.en(DMA0WR));                //[DMA.NET:00163] DMA0_3_(DMA_3,DMAL_3) = LD1A(DDB_3,DMA0WR);
-LD1A DMA0_4__inst (.q(DMA_4),.qL(DMAL_4),.d(DDB_4),.en(DMA0WR));                //[DMA.NET:00164] DMA0_4_(DMA_4,DMAL_4) = LD1A(DDB_4,DMA0WR);
-LD1A DMA0_5__inst (.q(DMA_5),.qL(DMAL_5),.d(DDB_5),.en(DMA0WR));                //[DMA.NET:00165] DMA0_5_(DMA_5,DMAL_5) = LD1A(DDB_5,DMA0WR);
-LD1A DMA0_6__inst (.q(DMA_6),.qL(DMAL_6),.d(DDB_6),.en(DMA0WR));                //[DMA.NET:00166] DMA0_6_(DMA_6,DMAL_6) = LD1A(DDB_6,DMA0WR);
-LD1A DMA0_7__inst (.q(DMA_7),.qL(DMAL_7),.d(DDB_7),.en(DMA0WR));                //[DMA.NET:00167] DMA0_7_(DMA_7,DMAL_7) = LD1A(DDB_7,DMA0WR);
-LD1A DMA0_8__inst (.q(DMA_8),.qL(DMAL_8),.d(DDB_8),.en(DMA0WR));                //[DMA.NET:00168] DMA0_8_(DMA_8,DMAL_8) = LD1A(DDB_8,DMA0WR);
-LD1A DMA0_9__inst (.q(DMA_9),.qL(DMAL_9),.d(DDB_9),.en(DMA0WR));                //[DMA.NET:00169] DMA0_9_(DMA_9,DMAL_9) = LD1A(DDB_9,DMA0WR);
-LD1A DMA0_10__inst (.q(DMA_10),.qL(DMAL_10),.d(DDB_10),.en(DMA0WR));            //[DMA.NET:00170] DMA0_10_(DMA_10,DMAL_10) = LD1A(DDB_10,DMA0WR);
-LD1A DMA0_11__inst (.q(DMA_11),.qL(DMAL_11),.d(DDB_11),.en(DMA0WR));            //[DMA.NET:00171] DMA0_11_(DMA_11,DMAL_11) = LD1A(DDB_11,DMA0WR);
-LD1A DMA0_12__inst (.q(DMA_12),.qL(DMAL_12),.d(DDB_12),.en(DMA0WR));            //[DMA.NET:00172] DMA0_12_(DMA_12,DMAL_12) = LD1A(DDB_12,DMA0WR);
-LD1A DMA0_13__inst (.q(DMA_13),.qL(DMAL_13),.d(DDB_13),.en(DMA0WR));            //[DMA.NET:00173] DMA0_13_(DMA_13,DMAL_13) = LD1A(DDB_13,DMA0WR);
-LD1A DMA0_14__inst (.q(DMA_14),.qL(DMAL_14),.d(DDB_14),.en(DMA0WR));            //[DMA.NET:00174] DMA0_14_(DMA_14,DMAL_14) = LD1A(DDB_14,DMA0WR);
-LD1A DMA0_15__inst (.q(DMA_15),.qL(DMAL_15),.d(DDB_15),.en(DMA0WR));            //[DMA.NET:00175] DMA0_15_(DMA_15,DMAL_15) = LD1A(DDB_15,DMA0WR);
+LD1A DMA0_0__inst (.MasterClock(MasterClock),.q(DMA_0),.qL(DMAL_0),.d(DDB_0),.en(DMA0WR));//[DMA.NET:00160] DMA0_0_(DMA_0,DMAL_0) = LD1A(DDB_0,DMA0WR);
+LD1A DMA0_1__inst (.MasterClock(MasterClock),.q(DMA_1),.qL(DMAL_1),.d(DDB_1),.en(DMA0WR));//[DMA.NET:00161] DMA0_1_(DMA_1,DMAL_1) = LD1A(DDB_1,DMA0WR);
+LD1A DMA0_2__inst (.MasterClock(MasterClock),.q(DMA_2),.qL(DMAL_2),.d(DDB_2),.en(DMA0WR));//[DMA.NET:00162] DMA0_2_(DMA_2,DMAL_2) = LD1A(DDB_2,DMA0WR);
+LD1A DMA0_3__inst (.MasterClock(MasterClock),.q(DMA_3),.qL(DMAL_3),.d(DDB_3),.en(DMA0WR));//[DMA.NET:00163] DMA0_3_(DMA_3,DMAL_3) = LD1A(DDB_3,DMA0WR);
+LD1A DMA0_4__inst (.MasterClock(MasterClock),.q(DMA_4),.qL(DMAL_4),.d(DDB_4),.en(DMA0WR));//[DMA.NET:00164] DMA0_4_(DMA_4,DMAL_4) = LD1A(DDB_4,DMA0WR);
+LD1A DMA0_5__inst (.MasterClock(MasterClock),.q(DMA_5),.qL(DMAL_5),.d(DDB_5),.en(DMA0WR));//[DMA.NET:00165] DMA0_5_(DMA_5,DMAL_5) = LD1A(DDB_5,DMA0WR);
+LD1A DMA0_6__inst (.MasterClock(MasterClock),.q(DMA_6),.qL(DMAL_6),.d(DDB_6),.en(DMA0WR));//[DMA.NET:00166] DMA0_6_(DMA_6,DMAL_6) = LD1A(DDB_6,DMA0WR);
+LD1A DMA0_7__inst (.MasterClock(MasterClock),.q(DMA_7),.qL(DMAL_7),.d(DDB_7),.en(DMA0WR));//[DMA.NET:00167] DMA0_7_(DMA_7,DMAL_7) = LD1A(DDB_7,DMA0WR);
+LD1A DMA0_8__inst (.MasterClock(MasterClock),.q(DMA_8),.qL(DMAL_8),.d(DDB_8),.en(DMA0WR));//[DMA.NET:00168] DMA0_8_(DMA_8,DMAL_8) = LD1A(DDB_8,DMA0WR);
+LD1A DMA0_9__inst (.MasterClock(MasterClock),.q(DMA_9),.qL(DMAL_9),.d(DDB_9),.en(DMA0WR));//[DMA.NET:00169] DMA0_9_(DMA_9,DMAL_9) = LD1A(DDB_9,DMA0WR);
+LD1A DMA0_10__inst (.MasterClock(MasterClock),.q(DMA_10),.qL(DMAL_10),.d(DDB_10),.en(DMA0WR));//[DMA.NET:00170] DMA0_10_(DMA_10,DMAL_10) = LD1A(DDB_10,DMA0WR);
+LD1A DMA0_11__inst (.MasterClock(MasterClock),.q(DMA_11),.qL(DMAL_11),.d(DDB_11),.en(DMA0WR));//[DMA.NET:00171] DMA0_11_(DMA_11,DMAL_11) = LD1A(DDB_11,DMA0WR);
+LD1A DMA0_12__inst (.MasterClock(MasterClock),.q(DMA_12),.qL(DMAL_12),.d(DDB_12),.en(DMA0WR));//[DMA.NET:00172] DMA0_12_(DMA_12,DMAL_12) = LD1A(DDB_12,DMA0WR);
+LD1A DMA0_13__inst (.MasterClock(MasterClock),.q(DMA_13),.qL(DMAL_13),.d(DDB_13),.en(DMA0WR));//[DMA.NET:00173] DMA0_13_(DMA_13,DMAL_13) = LD1A(DDB_13,DMA0WR);
+LD1A DMA0_14__inst (.MasterClock(MasterClock),.q(DMA_14),.qL(DMAL_14),.d(DDB_14),.en(DMA0WR));//[DMA.NET:00174] DMA0_14_(DMA_14,DMAL_14) = LD1A(DDB_14,DMA0WR);
+LD1A DMA0_15__inst (.MasterClock(MasterClock),.q(DMA_15),.qL(DMAL_15),.d(DDB_15),.en(DMA0WR));//[DMA.NET:00175] DMA0_15_(DMA_15,DMAL_15) = LD1A(DDB_15,DMA0WR);
 assign DMA0WR = ~(DMA0WRL | DQCLK);                                             //[DMA.NET:00176] DMA0WR_(DMA0WR) = NR2C(DMA0WRL,DQCLK);
-LD1A DMA1_0__inst (.q(DMA_16),.qL(DMAL_16),.d(DDB_0),.en(DMA1WR));              //[DMA.NET:00177] DMA1_0_(DMA_16,DMAL_16) = LD1A(DDB_0,DMA1WR);
-LD1A DMA1_1__inst (.q(DMA_17),.qL(DMAL_17),.d(DDB_1),.en(DMA1WR));              //[DMA.NET:00178] DMA1_1_(DMA_17,DMAL_17) = LD1A(DDB_1,DMA1WR);
-LD1A DMA1_2__inst (.q(DMA_18),.qL(DMAL_18),.d(DDB_2),.en(DMA1WR));              //[DMA.NET:00179] DMA1_2_(DMA_18,DMAL_18) = LD1A(DDB_2,DMA1WR);
-LD1A DMA1_3__inst (.q(DMA_19),.qL(DMAL_19),.d(DDB_3),.en(DMA1WR));              //[DMA.NET:00180] DMA1_3_(DMA_19,DMAL_19) = LD1A(DDB_3,DMA1WR);
+LD1A DMA1_0__inst (.MasterClock(MasterClock),.q(DMA_16),.qL(DMAL_16),.d(DDB_0),.en(DMA1WR));//[DMA.NET:00177] DMA1_0_(DMA_16,DMAL_16) = LD1A(DDB_0,DMA1WR);
+LD1A DMA1_1__inst (.MasterClock(MasterClock),.q(DMA_17),.qL(DMAL_17),.d(DDB_1),.en(DMA1WR));//[DMA.NET:00178] DMA1_1_(DMA_17,DMAL_17) = LD1A(DDB_1,DMA1WR);
+LD1A DMA1_2__inst (.MasterClock(MasterClock),.q(DMA_18),.qL(DMAL_18),.d(DDB_2),.en(DMA1WR));//[DMA.NET:00179] DMA1_2_(DMA_18,DMAL_18) = LD1A(DDB_2,DMA1WR);
+LD1A DMA1_3__inst (.MasterClock(MasterClock),.q(DMA_19),.qL(DMAL_19),.d(DDB_3),.en(DMA1WR));//[DMA.NET:00180] DMA1_3_(DMA_19,DMAL_19) = LD1A(DDB_3,DMA1WR);
 assign DMA1WR = ~(DMA1WRL | DQCLK);                                             //[DMA.NET:00181] DMA1WR_(DMA1WR) = NR2B(DMA1WRL,DQCLK);
 
-LD1A LOHI__inst (.q(LOHI),.qL(LOHIL),.d(DDB_8),.en(DMA1WR));                    //[DMA.NET:00183] LOHI_(LOHI,LOHIL) = LD1A(DDB_8,DMA1WR);
-LD1A BYTE__inst (.q(BYTE),.qL(BYTEL),.d(DDB_9),.en(DMA1WR));                    //[DMA.NET:00184] BYTE_(BYTE,BYTEL) = LD1A(DDB_9,DMA1WR);
-LD1A RDWR__inst (.q(RDWR),.qL(WRRD),.d(DDB_10),.en(DMA1WR));                    //[DMA.NET:00185] RDWR_(RDWR,WRRD) = LD1A(DDB_10,DMA1WR);
-LD1A HOLD__inst (.q(HOLD),.qL(HOLDL),.d(DDB_11),.en(DMA1WR));                   //[DMA.NET:00186] HOLD_(HOLD,HOLDL) = LD1A(DDB_11,DMA1WR);
+LD1A LOHI__inst (.MasterClock(MasterClock),.q(LOHI),.qL(LOHIL),.d(DDB_8),.en(DMA1WR));//[DMA.NET:00183] LOHI_(LOHI,LOHIL) = LD1A(DDB_8,DMA1WR);
+LD1A BYTE__inst (.MasterClock(MasterClock),.q(BYTE),.qL(BYTEL),.d(DDB_9),.en(DMA1WR));//[DMA.NET:00184] BYTE_(BYTE,BYTEL) = LD1A(DDB_9,DMA1WR);
+LD1A RDWR__inst (.MasterClock(MasterClock),.q(RDWR),.qL(WRRD),.d(DDB_10),.en(DMA1WR));//[DMA.NET:00185] RDWR_(RDWR,WRRD) = LD1A(DDB_10,DMA1WR);
+LD1A HOLD__inst (.MasterClock(MasterClock),.q(HOLD),.qL(HOLDL),.d(DDB_11),.en(DMA1WR));//[DMA.NET:00186] HOLD_(HOLD,HOLDL) = LD1A(DDB_11,DMA1WR);
 assign DSPBRQL = ~(HOLD & RUN);                                                 //[DMA.NET:00187] DSPBRQL_(DSPBRQL) = ND2A(HOLD,RUN);
 
 /* These may also be enabled onto the host or DSP buses */

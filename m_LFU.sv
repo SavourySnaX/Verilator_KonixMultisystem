@@ -174,11 +174,11 @@ assign RESL_0 = ~RES_0;                                                         
 
 /* LFU Control bits */
 
-LD2A LFUCL_0__inst (.q(LFUC_0),.qL(LFUCL_0),.d(ID_4),.en(LDCMPL));              //[LFU.NET:00031] LFUCL_0_(LFUC_0,LFUCL_0) = LD2A(ID_4,LDCMPL);
-LD2A LFUCL_1__inst (.q(LFUC_1),.qL(LFUCL_1),.d(ID_5),.en(LDCMPL));              //[LFU.NET:00032] LFUCL_1_(LFUC_1,LFUCL_1) = LD2A(ID_5,LDCMPL);
-LD2A LFUCL_2__inst (.q(LFUC_2),.qL(LFUCL_2),.d(ID_6),.en(LDCMPL));              //[LFU.NET:00033] LFUCL_2_(LFUC_2,LFUCL_2) = LD2A(ID_6,LDCMPL);
-LD2A LFUCL_3__inst (.q(LFUC_3),.qL(LFUCL_3),.d(ID_7),.en(LDCMPL));              //[LFU.NET:00034] LFUCL_3_(LFUC_3,LFUCL_3) = LD2A(ID_7,LDCMPL);
-LD2A PATSEL__inst (.q(PATSEL),.qL(PATSELL),.d(ID_7),.en(LDMODL));               //[LFU.NET:00035] PATSEL_(PATSEL,PATSELL) = LD2A(ID_7,LDMODL);
+LD2A LFUCL_0__inst (.MasterClock(MasterClock),.q(LFUC_0),.qL(LFUCL_0),.d(ID_4),.en(LDCMPL));//[LFU.NET:00031] LFUCL_0_(LFUC_0,LFUCL_0) = LD2A(ID_4,LDCMPL);
+LD2A LFUCL_1__inst (.MasterClock(MasterClock),.q(LFUC_1),.qL(LFUCL_1),.d(ID_5),.en(LDCMPL));//[LFU.NET:00032] LFUCL_1_(LFUC_1,LFUCL_1) = LD2A(ID_5,LDCMPL);
+LD2A LFUCL_2__inst (.MasterClock(MasterClock),.q(LFUC_2),.qL(LFUCL_2),.d(ID_6),.en(LDCMPL));//[LFU.NET:00033] LFUCL_2_(LFUC_2,LFUCL_2) = LD2A(ID_6,LDCMPL);
+LD2A LFUCL_3__inst (.MasterClock(MasterClock),.q(LFUC_3),.qL(LFUCL_3),.d(ID_7),.en(LDCMPL));//[LFU.NET:00034] LFUCL_3_(LFUC_3,LFUCL_3) = LD2A(ID_7,LDCMPL);
+LD2A PATSEL__inst (.MasterClock(MasterClock),.q(PATSEL),.qL(PATSELL),.d(ID_7),.en(LDMODL));//[LFU.NET:00035] PATSEL_(PATSEL,PATSELL) = LD2A(ID_7,LDMODL);
 
 /* Select between pattern data and source data */
 

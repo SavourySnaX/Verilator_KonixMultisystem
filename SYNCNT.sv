@@ -35,7 +35,6 @@ assign QB = ~value;
 assign CO = CI & QB;
 */
 
-/* verilator lint_off UNOPTFLAT */
 wire CIL,LD;
 assign CIL = ~CI;
 assign LD = ~LDL;

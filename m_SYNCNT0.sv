@@ -22,7 +22,7 @@ assign DI_1 = ~((D & LD)|(QB & LDL));                                           
 assign DI = ~(DI_1 | CLR);                                                      //[LEGO.NET:00061] DI_(DI) = NR2A(DI_1,CLR);		/* clear */
 
 
-FD1A Q__inst (.q(Q),.qL(QB),.d(DI),.clk(CLK));                                  //[LEGO.NET:00064] Q_(Q,QB) = FD1A(DI,CLK);
+FD1A Q__inst (.MasterClock(MasterClock),.q(Q),.qL(QB),.d(DI),.clk(CLK));        //[LEGO.NET:00064] Q_(Q,QB) = FD1A(DI,CLK);
 
 
 endmodule                                                                       //[LEGO.NET:00067] END MODULE;

@@ -267,14 +267,14 @@ assign PRAMEN = ~PRAMENL;                                                       
    the high byte is written. Programmers please
    note. */
 
-LD1A LOBUF_0__inst (.q(LOB_0),.qL(LOBL_0),.d(DL_0),.en(PWR0));                  //[PRAM.NET:00098] LOBUF_0_(LOB_0,LOBL_0) = LD1A(DL_0,PWR0);
-LD1A LOBUF_1__inst (.q(LOB_1),.qL(LOBL_1),.d(DL_1),.en(PWR0));                  //[PRAM.NET:00099] LOBUF_1_(LOB_1,LOBL_1) = LD1A(DL_1,PWR0);
-LD1A LOBUF_2__inst (.q(LOB_2),.qL(LOBL_2),.d(DL_2),.en(PWR0));                  //[PRAM.NET:00100] LOBUF_2_(LOB_2,LOBL_2) = LD1A(DL_2,PWR0);
-LD1A LOBUF_3__inst (.q(LOB_3),.qL(LOBL_3),.d(DL_3),.en(PWR0));                  //[PRAM.NET:00101] LOBUF_3_(LOB_3,LOBL_3) = LD1A(DL_3,PWR0);
-LD1A LOBUF_4__inst (.q(LOB_4),.qL(LOBL_4),.d(DL_4),.en(PWR0));                  //[PRAM.NET:00102] LOBUF_4_(LOB_4,LOBL_4) = LD1A(DL_4,PWR0);
-LD1A LOBUF_5__inst (.q(LOB_5),.qL(LOBL_5),.d(DL_5),.en(PWR0));                  //[PRAM.NET:00103] LOBUF_5_(LOB_5,LOBL_5) = LD1A(DL_5,PWR0);
-LD1A LOBUF_6__inst (.q(LOB_6),.qL(LOBL_6),.d(DL_6),.en(PWR0));                  //[PRAM.NET:00104] LOBUF_6_(LOB_6,LOBL_6) = LD1A(DL_6,PWR0);
-LD1A LOBUF_7__inst (.q(LOB_7),.qL(LOBL_7),.d(DL_7),.en(PWR0));                  //[PRAM.NET:00105] LOBUF_7_(LOB_7,LOBL_7) = LD1A(DL_7,PWR0);
+LD1A LOBUF_0__inst (.MasterClock(MasterClock),.q(LOB_0),.qL(LOBL_0),.d(DL_0),.en(PWR0));//[PRAM.NET:00098] LOBUF_0_(LOB_0,LOBL_0) = LD1A(DL_0,PWR0);
+LD1A LOBUF_1__inst (.MasterClock(MasterClock),.q(LOB_1),.qL(LOBL_1),.d(DL_1),.en(PWR0));//[PRAM.NET:00099] LOBUF_1_(LOB_1,LOBL_1) = LD1A(DL_1,PWR0);
+LD1A LOBUF_2__inst (.MasterClock(MasterClock),.q(LOB_2),.qL(LOBL_2),.d(DL_2),.en(PWR0));//[PRAM.NET:00100] LOBUF_2_(LOB_2,LOBL_2) = LD1A(DL_2,PWR0);
+LD1A LOBUF_3__inst (.MasterClock(MasterClock),.q(LOB_3),.qL(LOBL_3),.d(DL_3),.en(PWR0));//[PRAM.NET:00101] LOBUF_3_(LOB_3,LOBL_3) = LD1A(DL_3,PWR0);
+LD1A LOBUF_4__inst (.MasterClock(MasterClock),.q(LOB_4),.qL(LOBL_4),.d(DL_4),.en(PWR0));//[PRAM.NET:00102] LOBUF_4_(LOB_4,LOBL_4) = LD1A(DL_4,PWR0);
+LD1A LOBUF_5__inst (.MasterClock(MasterClock),.q(LOB_5),.qL(LOBL_5),.d(DL_5),.en(PWR0));//[PRAM.NET:00103] LOBUF_5_(LOB_5,LOBL_5) = LD1A(DL_5,PWR0);
+LD1A LOBUF_6__inst (.MasterClock(MasterClock),.q(LOB_6),.qL(LOBL_6),.d(DL_6),.en(PWR0));//[PRAM.NET:00104] LOBUF_6_(LOB_6,LOBL_6) = LD1A(DL_6,PWR0);
+LD1A LOBUF_7__inst (.MasterClock(MasterClock),.q(LOB_7),.qL(LOBL_7),.d(DL_7),.en(PWR0));//[PRAM.NET:00105] LOBUF_7_(LOB_7,LOBL_7) = LD1A(DL_7,PWR0);
 
 
 

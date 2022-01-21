@@ -98,32 +98,32 @@ wire drv0_enD_7;                                                                
 
 assign CLK = ~XTALL;                                                            //[STAT.NET:00026] CLK_(CLK) = N1A(XTALL);
 assign RESET_0 = ~RESETL_0;                                                     //[STAT.NET:00027] RESET_0_(RESET_0) = N1A(RESETL_0);
-FD4A RESETL_1__inst (.q(RESET_1),.qL(RESETL_1),.d(RESET_0),.clk(CLK),.sL(RESETL_0));//[STAT.NET:00028] RESETL_1_(RESET_1,RESETL_1) = FD4A(RESET_0,CLK,RESETL_0);
-FD4A TESTEN__inst (.q(TESTEN),.qL(TESTENL),.d(RESET_1),.clk(CLK),.sL(RESETL_0));//[STAT.NET:00029] TESTEN_(TESTEN,TESTENL) = FD4A(RESET_1,CLK,RESETL_0);
+FD4A RESETL_1__inst (.MasterClock(MasterClock),.q(RESET_1),.qL(RESETL_1),.d(RESET_0),.clk(CLK),.sL(RESETL_0));//[STAT.NET:00028] RESETL_1_(RESET_1,RESETL_1) = FD4A(RESET_0,CLK,RESETL_0);
+FD4A TESTEN__inst (.MasterClock(MasterClock),.q(TESTEN),.qL(TESTENL),.d(RESET_1),.clk(CLK),.sL(RESETL_0));//[STAT.NET:00029] TESTEN_(TESTEN,TESTENL) = FD4A(RESET_1,CLK,RESETL_0);
 
 /* latch the screen ram type and processor speed */
 
-LD1A PSUEDO__inst (.q(STATIC),.qL(PSUEDO),.d(PSRAML),.en(RESET_0));             //[STAT.NET:00033] PSUEDO_(STATIC,PSUEDO) = LD1A(PSRAML,RESET_0);
-LD1A FAST__inst (.q(SLOW),.qL(FAST),.d(FASTL),.en(RESET_0));                    //[STAT.NET:00034] FAST_(SLOW,FAST) = LD1A(FASTL,RESET_0);
+LD1A PSUEDO__inst (.MasterClock(MasterClock),.q(STATIC),.qL(PSUEDO),.d(PSRAML),.en(RESET_0));//[STAT.NET:00033] PSUEDO_(STATIC,PSUEDO) = LD1A(PSRAML,RESET_0);
+LD1A FAST__inst (.MasterClock(MasterClock),.q(SLOW),.qL(FAST),.d(FASTL),.en(RESET_0));//[STAT.NET:00034] FAST_(SLOW,FAST) = LD1A(FASTL,RESET_0);
 
 /* latch the television mode */
 /* NB this can also be written by the host */
 
 assign MODECLK = ~(RESETL_0 & DIAGL_0);                                         //[STAT.NET:00039] MODECLK_(MODECLK) = ND2A(RESETL_0,DIAGL_0);
 assign MODEL = ~((RESET_1 & PALL)|(TESTENL & WD_1));                            //[STAT.NET:00040] MODEL_(MODEL) = AO2A(RESET_1,PALL,TESTENL,WD_1);
-LD1A NTSC__inst (.q(PAL),.qL(NTSC),.d(MODEL),.en(MODECLK));                     //[STAT.NET:00041] NTSC_(PAL,NTSC) = LD1A(MODEL,MODECLK);
+LD1A NTSC__inst (.MasterClock(MasterClock),.q(PAL),.qL(NTSC),.d(MODEL),.en(MODECLK));//[STAT.NET:00041] NTSC_(PAL,NTSC) = LD1A(MODEL,MODECLK);
 
 /* the other bits of the diagnostics register */
 
-LD1A OPEN__inst (.q(OPEN),.qL(OPENL),.d(WD_0),.en(DIAG_1));                     //[STAT.NET:00045] OPEN_(OPEN,OPENL) = LD1A(WD_0,DIAG_1);
-LD1A VCEN__inst (.q(VCEN),.qL(VCENL),.d(WD_2),.en(DIAG_1));                     //[STAT.NET:00046] VCEN_(VCEN,VCENL) = LD1A(WD_2,DIAG_1);
-FD2A TSTCLK__inst (.q(TSTCLK),.qL(TSTCLKL),.d(WD_3),.clk(DIAGL_0),.rL(RESETL_0));//[STAT.NET:00047] TSTCLK_(TSTCLK,TSTCLKL) = FD2A(WD_3,DIAGL_0,RESETL_0);
-LD1A TMODE__inst (.q(TMODE),.qL(TMODEL),.d(WD_4),.en(DIAG_1));                  //[STAT.NET:00048] TMODE_(TMODE,TMODEL) = LD1A(WD_4,DIAG_1);
+LD1A OPEN__inst (.MasterClock(MasterClock),.q(OPEN),.qL(OPENL),.d(WD_0),.en(DIAG_1));//[STAT.NET:00045] OPEN_(OPEN,OPENL) = LD1A(WD_0,DIAG_1);
+LD1A VCEN__inst (.MasterClock(MasterClock),.q(VCEN),.qL(VCENL),.d(WD_2),.en(DIAG_1));//[STAT.NET:00046] VCEN_(VCEN,VCENL) = LD1A(WD_2,DIAG_1);
+FD2A TSTCLK__inst (.MasterClock(MasterClock),.q(TSTCLK),.qL(TSTCLKL),.d(WD_3),.clk(DIAGL_0),.rL(RESETL_0));//[STAT.NET:00047] TSTCLK_(TSTCLK,TSTCLKL) = FD2A(WD_3,DIAGL_0,RESETL_0);
+LD1A TMODE__inst (.MasterClock(MasterClock),.q(TMODE),.qL(TMODEL),.d(WD_4),.en(DIAG_1));//[STAT.NET:00048] TMODE_(TMODE,TMODEL) = LD1A(WD_4,DIAG_1);
 
 /* the 'LCD' register */
 
-LD1A LCDD__inst (.q(MO),.qL(MOL),.d(WD_0),.en(LCD));                            //[STAT.NET:00052] LCDD_(MO,MOL) = LD1A(WD_0,LCD);
-LD1A DOEN__inst (.q(DOEN),.qL(DOENL),.d(WD_1),.en(LCD));                        //[STAT.NET:00053] DOEN_(DOEN,DOENL) = LD1A(WD_1,LCD);
+LD1A LCDD__inst (.MasterClock(MasterClock),.q(MO),.qL(MOL),.d(WD_0),.en(LCD));  //[STAT.NET:00052] LCDD_(MO,MOL) = LD1A(WD_0,LCD);
+LD1A DOEN__inst (.MasterClock(MasterClock),.q(DOEN),.qL(DOENL),.d(WD_1),.en(LCD));//[STAT.NET:00053] DOEN_(DOEN,DOENL) = LD1A(WD_1,LCD);
 
 /* the status register */
 

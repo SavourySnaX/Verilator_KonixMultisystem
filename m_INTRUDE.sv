@@ -238,22 +238,22 @@ wire drv0_enD_15;                                                               
 
 /* The Intrude register */
 
-LD1A INTRU_0__inst (.q(OUP_0),.qL(OUPL_0),.d(INP_0),.en(WRLO));                 //[INTRUDE.NET:00017] INTRU_0_(OUP_0,OUPL_0) = LD1A(INP_0,WRLO);
-LD1A INTRU_1__inst (.q(OUP_1),.qL(OUPL_1),.d(INP_1),.en(WRLO));                 //[INTRUDE.NET:00018] INTRU_1_(OUP_1,OUPL_1) = LD1A(INP_1,WRLO);
-LD1A INTRU_2__inst (.q(OUP_2),.qL(OUPL_2),.d(INP_2),.en(WRLO));                 //[INTRUDE.NET:00019] INTRU_2_(OUP_2,OUPL_2) = LD1A(INP_2,WRLO);
-LD1A INTRU_3__inst (.q(OUP_3),.qL(OUPL_3),.d(INP_3),.en(WRLO));                 //[INTRUDE.NET:00020] INTRU_3_(OUP_3,OUPL_3) = LD1A(INP_3,WRLO);
-LD1A INTRU_4__inst (.q(OUP_4),.qL(OUPL_4),.d(INP_4),.en(WRLO));                 //[INTRUDE.NET:00021] INTRU_4_(OUP_4,OUPL_4) = LD1A(INP_4,WRLO);
-LD1A INTRU_5__inst (.q(OUP_5),.qL(OUPL_5),.d(INP_5),.en(WRLO));                 //[INTRUDE.NET:00022] INTRU_5_(OUP_5,OUPL_5) = LD1A(INP_5,WRLO);
-LD1A INTRU_6__inst (.q(OUP_6),.qL(OUPL_6),.d(INP_6),.en(WRLO));                 //[INTRUDE.NET:00023] INTRU_6_(OUP_6,OUPL_6) = LD1A(INP_6,WRLO);
-LD1A INTRU_7__inst (.q(OUP_7),.qL(OUPL_7),.d(INP_7),.en(WRLO));                 //[INTRUDE.NET:00024] INTRU_7_(OUP_7,OUPL_7) = LD1A(INP_7,WRLO);
-LD1A INTRU_8__inst (.q(OUP_8),.qL(OUPL_8),.d(INP_8),.en(WRHI));                 //[INTRUDE.NET:00025] INTRU_8_(OUP_8,OUPL_8) = LD1A(INP_8,WRHI);
-LD1A INTRU_9__inst (.q(OUP_9),.qL(OUPL_9),.d(INP_9),.en(WRHI));                 //[INTRUDE.NET:00026] INTRU_9_(OUP_9,OUPL_9) = LD1A(INP_9,WRHI);
-LD1A INTRU_10__inst (.q(OUP_10),.qL(OUPL_10),.d(INP_10),.en(WRHI));             //[INTRUDE.NET:00027] INTRU_10_(OUP_10,OUPL_10) = LD1A(INP_10,WRHI);
-LD1A INTRU_11__inst (.q(OUP_11),.qL(OUPL_11),.d(INP_11),.en(WRHI));             //[INTRUDE.NET:00028] INTRU_11_(OUP_11,OUPL_11) = LD1A(INP_11,WRHI);
-LD1A INTRU_12__inst (.q(OUP_12),.qL(OUPL_12),.d(INP_12),.en(WRHI));             //[INTRUDE.NET:00029] INTRU_12_(OUP_12,OUPL_12) = LD1A(INP_12,WRHI);
-LD1A INTRU_13__inst (.q(OUP_13),.qL(OUPL_13),.d(INP_13),.en(WRHI));             //[INTRUDE.NET:00030] INTRU_13_(OUP_13,OUPL_13) = LD1A(INP_13,WRHI);
-LD1A INTRU_14__inst (.q(OUP_14),.qL(OUPL_14),.d(INP_14),.en(WRHI));             //[INTRUDE.NET:00031] INTRU_14_(OUP_14,OUPL_14) = LD1A(INP_14,WRHI);
-LD1A INTRU_15__inst (.q(OUP_15),.qL(OUPL_15),.d(INP_15),.en(WRHI));             //[INTRUDE.NET:00032] INTRU_15_(OUP_15,OUPL_15) = LD1A(INP_15,WRHI);
+LD1A INTRU_0__inst (.MasterClock(MasterClock),.q(OUP_0),.qL(OUPL_0),.d(INP_0),.en(WRLO));//[INTRUDE.NET:00017] INTRU_0_(OUP_0,OUPL_0) = LD1A(INP_0,WRLO);
+LD1A INTRU_1__inst (.MasterClock(MasterClock),.q(OUP_1),.qL(OUPL_1),.d(INP_1),.en(WRLO));//[INTRUDE.NET:00018] INTRU_1_(OUP_1,OUPL_1) = LD1A(INP_1,WRLO);
+LD1A INTRU_2__inst (.MasterClock(MasterClock),.q(OUP_2),.qL(OUPL_2),.d(INP_2),.en(WRLO));//[INTRUDE.NET:00019] INTRU_2_(OUP_2,OUPL_2) = LD1A(INP_2,WRLO);
+LD1A INTRU_3__inst (.MasterClock(MasterClock),.q(OUP_3),.qL(OUPL_3),.d(INP_3),.en(WRLO));//[INTRUDE.NET:00020] INTRU_3_(OUP_3,OUPL_3) = LD1A(INP_3,WRLO);
+LD1A INTRU_4__inst (.MasterClock(MasterClock),.q(OUP_4),.qL(OUPL_4),.d(INP_4),.en(WRLO));//[INTRUDE.NET:00021] INTRU_4_(OUP_4,OUPL_4) = LD1A(INP_4,WRLO);
+LD1A INTRU_5__inst (.MasterClock(MasterClock),.q(OUP_5),.qL(OUPL_5),.d(INP_5),.en(WRLO));//[INTRUDE.NET:00022] INTRU_5_(OUP_5,OUPL_5) = LD1A(INP_5,WRLO);
+LD1A INTRU_6__inst (.MasterClock(MasterClock),.q(OUP_6),.qL(OUPL_6),.d(INP_6),.en(WRLO));//[INTRUDE.NET:00023] INTRU_6_(OUP_6,OUPL_6) = LD1A(INP_6,WRLO);
+LD1A INTRU_7__inst (.MasterClock(MasterClock),.q(OUP_7),.qL(OUPL_7),.d(INP_7),.en(WRLO));//[INTRUDE.NET:00024] INTRU_7_(OUP_7,OUPL_7) = LD1A(INP_7,WRLO);
+LD1A INTRU_8__inst (.MasterClock(MasterClock),.q(OUP_8),.qL(OUPL_8),.d(INP_8),.en(WRHI));//[INTRUDE.NET:00025] INTRU_8_(OUP_8,OUPL_8) = LD1A(INP_8,WRHI);
+LD1A INTRU_9__inst (.MasterClock(MasterClock),.q(OUP_9),.qL(OUPL_9),.d(INP_9),.en(WRHI));//[INTRUDE.NET:00026] INTRU_9_(OUP_9,OUPL_9) = LD1A(INP_9,WRHI);
+LD1A INTRU_10__inst (.MasterClock(MasterClock),.q(OUP_10),.qL(OUPL_10),.d(INP_10),.en(WRHI));//[INTRUDE.NET:00027] INTRU_10_(OUP_10,OUPL_10) = LD1A(INP_10,WRHI);
+LD1A INTRU_11__inst (.MasterClock(MasterClock),.q(OUP_11),.qL(OUPL_11),.d(INP_11),.en(WRHI));//[INTRUDE.NET:00028] INTRU_11_(OUP_11,OUPL_11) = LD1A(INP_11,WRHI);
+LD1A INTRU_12__inst (.MasterClock(MasterClock),.q(OUP_12),.qL(OUPL_12),.d(INP_12),.en(WRHI));//[INTRUDE.NET:00029] INTRU_12_(OUP_12,OUPL_12) = LD1A(INP_12,WRHI);
+LD1A INTRU_13__inst (.MasterClock(MasterClock),.q(OUP_13),.qL(OUPL_13),.d(INP_13),.en(WRHI));//[INTRUDE.NET:00030] INTRU_13_(OUP_13,OUPL_13) = LD1A(INP_13,WRHI);
+LD1A INTRU_14__inst (.MasterClock(MasterClock),.q(OUP_14),.qL(OUPL_14),.d(INP_14),.en(WRHI));//[INTRUDE.NET:00031] INTRU_14_(OUP_14,OUPL_14) = LD1A(INP_14,WRHI);
+LD1A INTRU_15__inst (.MasterClock(MasterClock),.q(OUP_15),.qL(OUPL_15),.d(INP_15),.en(WRHI));//[INTRUDE.NET:00032] INTRU_15_(OUP_15,OUPL_15) = LD1A(INP_15,WRHI);
 
 /* Decode the write signals .... */
 
@@ -370,7 +370,7 @@ assign TRURD = INTRUD_2 & INTRUD_3 & INTRUD;                                    
 assign RUNEN = HAL_10 | HAL_9 | DCSL | WRL;                                     //[INTRUDE.NET:00146] RUNEN_(RUNEN) = OR4A(HAL_10,HAL_9,DCSL,WRL);
 assign STATEN = ~(HAL_10 | HAL_9 | DCSL | RDL);                                 //[INTRUDE.NET:00147] STATEN_(STATEN) = NR4C(HAL_10,HAL_9,DCSL,RDL);
 
-FD2A RUNBIT__inst (.q(RUNBIT),.qL(RUNBITL),.d(inHD_4),.clk(RUNEN),.rL(RESETL)); //[INTRUDE.NET:00149] RUNBIT_(RUNBIT,RUNBITL) = FD2A(HD_4,RUNEN,RESETL);
+FD2A RUNBIT__inst (.MasterClock(MasterClock),.q(RUNBIT),.qL(RUNBITL),.d(inHD_4),.clk(RUNEN),.rL(RESETL));//[INTRUDE.NET:00149] RUNBIT_(RUNBIT,RUNBITL) = FD2A(HD_4,RUNEN,RESETL);
 
 /* The status bits are as follows */
 
@@ -384,15 +384,15 @@ assign drv2_outHD_6 = ~RESETL; assign drv2_enHD_6 = STATEN;                     
 assign drv2_outHD_7 = ~RESETL; assign drv2_enHD_7 = STATEN;                     //[INTRUDE.NET:00160] STATUS_7_(HD_7) = BTS5A(RESETL,STATEN);
 /* Run is also the cycle AFTER the RUN register has been written to */
 
-FD2A STEP_1__inst (.q(STEP_1),.qL(STEPL_1),.d(RUNEN),.clk(CLK),.rL(RESETL));    //[INTRUDE.NET:00163] STEP_1_(STEP_1,STEPL_1) = FD2A(RUNEN,CLK,RESETL);
-FD2A STEP_2__inst (.q(STEP_2),.qL(STEPL_2),.d(STEP_1),.clk(CLK),.rL(RESETL));   //[INTRUDE.NET:00164] STEP_2_(STEP_2,STEPL_2) = FD2A(STEP_1,CLK,RESETL);
+FD2A STEP_1__inst (.MasterClock(MasterClock),.q(STEP_1),.qL(STEPL_1),.d(RUNEN),.clk(CLK),.rL(RESETL));//[INTRUDE.NET:00163] STEP_1_(STEP_1,STEPL_1) = FD2A(RUNEN,CLK,RESETL);
+FD2A STEP_2__inst (.MasterClock(MasterClock),.q(STEP_2),.qL(STEPL_2),.d(STEP_1),.clk(CLK),.rL(RESETL));//[INTRUDE.NET:00164] STEP_2_(STEP_2,STEPL_2) = FD2A(STEP_1,CLK,RESETL);
 
 assign STEP_3 = ~(STEP_1 | STEPL_2);                                            //[INTRUDE.NET:00166] STEP_3_(STEP_3) = NR2A(STEP_1,STEPL_2);
 
 /* combine the two ..*/
 
 assign RUNANT = STEP_3 | RUNBIT;                                                //[INTRUDE.NET:00170] RUNANT_(RUNANT) = OR2A(STEP_3,RUNBIT);
-FD2A RUN__inst (.q(RUN),.qL(RUNL),.d(RUNANT),.clk(CLK),.rL(RESETL));            //[INTRUDE.NET:00171] RUN_(RUN,RUNL) = FD2A(RUNANT,CLK,RESETL);
+FD2A RUN__inst (.MasterClock(MasterClock),.q(RUN),.qL(RUNL),.d(RUNANT),.clk(CLK),.rL(RESETL));//[INTRUDE.NET:00171] RUN_(RUN,RUNL) = FD2A(RUNANT,CLK,RESETL);
 assign outHD_0 = (drv0_outHD_0 & drv0_enHD_0) | (drv1_outHD_0 & drv1_enHD_0) | (drv2_outHD_0 & drv2_enHD_0);
 assign enHD_0 = drv0_enHD_0 | drv1_enHD_0 | drv2_enHD_0;
 assign outHD_1 = (drv0_outHD_1 & drv0_enHD_1) | (drv1_outHD_1 & drv1_enHD_1) | (drv2_outHD_1 & drv2_enHD_1);

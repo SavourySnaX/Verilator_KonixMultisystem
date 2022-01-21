@@ -191,7 +191,7 @@ wire TRUD;                                                                      
 assign INTRUDAL = ~(PD_11 & PD_12 & PD_13 & PD_14 & PD_15);                     //[INSTRUCT.NET:00027] INTRUDAL_(INTRUDAL) = ND5A(PD_11,PD_12,PD_13,PD_14,PD_15);
 assign INTRUDL = INTRUDAL & RUNANT;                                             //[INSTRUCT.NET:00028] INTRUDL_(INTRUDL) = AND2A(INTRUDAL,RUNANT);
 
-FD2A INTRUDCK__inst (.q(INTRUDKL),.qL(INTRUD),.d(INTRUDL),.clk(XCK),.rL(RESETL));//[INSTRUCT.NET:00030] INTRUDCK_(INTRUDKL,INTRUD) = FD2A(INTRUDL,XCK,RESETL);
+FD2A INTRUDCK__inst (.MasterClock(MasterClock),.q(INTRUDKL),.qL(INTRUD),.d(INTRUDL),.clk(XCK),.rL(RESETL));//[INSTRUCT.NET:00030] INTRUDCK_(INTRUDKL,INTRUD) = FD2A(INTRUDL,XCK,RESETL);
 assign ASEL_0 = INTRUDL & PD_9;                                                 //[INSTRUCT.NET:00031] ASEL_0_(ASEL_0) = AND2B(INTRUDL,PD_9);
 assign ASEL_1 = ~INTRUDL;                                                       //[INSTRUCT.NET:00032] ASEL_1_(ASEL_1) = N1D(INTRUDL);
 assign RUNANTL = ~RUNANT;                                                       //[INSTRUCT.NET:00033] RUNANTL_(RUNANTL) = N1B(RUNANT);
@@ -204,12 +204,12 @@ assign PDD_12 = ~(PD_12 | RUNANTL);                                             
 assign PDD_13 = ~(PD_13 | RUNANTL);                                             //[INSTRUCT.NET:00040] PDD_13_(PDD_13) = NR2A(PD_13,RUNANTL);
 assign PDD_14 = ~(PD_14 | RUNANTL);                                             //[INSTRUCT.NET:00041] PDD_14_(PDD_14) = NR2A(PD_14,RUNANTL);
 assign PDD_15 = ~(PD_15 | RUNANTL);                                             //[INSTRUCT.NET:00042] PDD_15_(PDD_15) = NR2A(PD_15,RUNANTL);
-FD2A PDKU_10__inst (.q(PDKUL_10),.qL(PDKU_10),.d(PDD_10),.clk(XCK),.rL(RESETL));//[INSTRUCT.NET:00043] PDKU_10_(PDKUL_10,PDKU_10) = FD2A(PDD_10,XCK,RESETL);
-FD2A PDKU_11__inst (.q(PDKUL_11),.qL(PDKU_11),.d(PDD_11),.clk(XCK),.rL(RESETL));//[INSTRUCT.NET:00044] PDKU_11_(PDKUL_11,PDKU_11) = FD2A(PDD_11,XCK,RESETL);
-FD2A PDKU_12__inst (.q(PDKUL_12),.qL(PDKU_12),.d(PDD_12),.clk(XCK),.rL(RESETL));//[INSTRUCT.NET:00045] PDKU_12_(PDKUL_12,PDKU_12) = FD2A(PDD_12,XCK,RESETL);
-FD2A PDKU_13__inst (.q(PDKUL_13),.qL(PDKU_13),.d(PDD_13),.clk(XCK),.rL(RESETL));//[INSTRUCT.NET:00046] PDKU_13_(PDKUL_13,PDKU_13) = FD2A(PDD_13,XCK,RESETL);
-FD2A PDKU_14__inst (.q(PDKUL_14),.qL(PDKU_14),.d(PDD_14),.clk(XCK),.rL(RESETL));//[INSTRUCT.NET:00047] PDKU_14_(PDKUL_14,PDKU_14) = FD2A(PDD_14,XCK,RESETL);
-FD2A PDKU_15__inst (.q(PDKUL_15),.qL(PDKU_15),.d(PDD_15),.clk(XCK),.rL(RESETL));//[INSTRUCT.NET:00048] PDKU_15_(PDKUL_15,PDKU_15) = FD2A(PDD_15,XCK,RESETL);
+FD2A PDKU_10__inst (.MasterClock(MasterClock),.q(PDKUL_10),.qL(PDKU_10),.d(PDD_10),.clk(XCK),.rL(RESETL));//[INSTRUCT.NET:00043] PDKU_10_(PDKUL_10,PDKU_10) = FD2A(PDD_10,XCK,RESETL);
+FD2A PDKU_11__inst (.MasterClock(MasterClock),.q(PDKUL_11),.qL(PDKU_11),.d(PDD_11),.clk(XCK),.rL(RESETL));//[INSTRUCT.NET:00044] PDKU_11_(PDKUL_11,PDKU_11) = FD2A(PDD_11,XCK,RESETL);
+FD2A PDKU_12__inst (.MasterClock(MasterClock),.q(PDKUL_12),.qL(PDKU_12),.d(PDD_12),.clk(XCK),.rL(RESETL));//[INSTRUCT.NET:00045] PDKU_12_(PDKUL_12,PDKU_12) = FD2A(PDD_12,XCK,RESETL);
+FD2A PDKU_13__inst (.MasterClock(MasterClock),.q(PDKUL_13),.qL(PDKU_13),.d(PDD_13),.clk(XCK),.rL(RESETL));//[INSTRUCT.NET:00046] PDKU_13_(PDKUL_13,PDKU_13) = FD2A(PDD_13,XCK,RESETL);
+FD2A PDKU_14__inst (.MasterClock(MasterClock),.q(PDKUL_14),.qL(PDKU_14),.d(PDD_14),.clk(XCK),.rL(RESETL));//[INSTRUCT.NET:00047] PDKU_14_(PDKUL_14,PDKU_14) = FD2A(PDD_14,XCK,RESETL);
+FD2A PDKU_15__inst (.MasterClock(MasterClock),.q(PDKUL_15),.qL(PDKU_15),.d(PDD_15),.clk(XCK),.rL(RESETL));//[INSTRUCT.NET:00048] PDKU_15_(PDKUL_15,PDKU_15) = FD2A(PDD_15,XCK,RESETL);
 
 assign PDK_10 = ~PDKUL_10;                                                      //[INSTRUCT.NET:00050] PDK_10_(PDK_10) = B1A(PDKUL_10);
 assign PDK_11 = ~PDKUL_11;                                                      //[INSTRUCT.NET:00051] PDK_11_(PDK_11) = B1A(PDKUL_11);

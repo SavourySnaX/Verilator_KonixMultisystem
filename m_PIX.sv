@@ -535,38 +535,38 @@ assign RESL = ~RES;                                                             
 
 /* latch the 16 bit pixel data */
 
-FD2A PIX0_0__inst (.q(PIX0B_0),.qL(PIX0_0),.d(IDL_0),.clk(PIXLD_0),.rL(RESL));  //[PIX.NET:00036] PIX0_0_(PIX0B_0,PIX0_0) = FD2A(IDL_0,PIXLD_0,RESL);
-FD2A PIX0_1__inst (.q(PIX0B_1),.qL(PIX0_1),.d(IDL_1),.clk(PIXLD_0),.rL(RESL));  //[PIX.NET:00037] PIX0_1_(PIX0B_1,PIX0_1) = FD2A(IDL_1,PIXLD_0,RESL);
-FD2A PIX0_2__inst (.q(PIX0B_2),.qL(PIX0_2),.d(IDL_2),.clk(PIXLD_0),.rL(RESL));  //[PIX.NET:00038] PIX0_2_(PIX0B_2,PIX0_2) = FD2A(IDL_2,PIXLD_0,RESL);
-FD2A PIX0_3__inst (.q(PIX0B_3),.qL(PIX0_3),.d(IDL_3),.clk(PIXLD_0),.rL(RESL));  //[PIX.NET:00039] PIX0_3_(PIX0B_3,PIX0_3) = FD2A(IDL_3,PIXLD_0,RESL);
-FD2A PIX0_4__inst (.q(PIX0B_4),.qL(PIX0_4),.d(IDL_4),.clk(PIXLD_0),.rL(RESL));  //[PIX.NET:00040] PIX0_4_(PIX0B_4,PIX0_4) = FD2A(IDL_4,PIXLD_0,RESL);
-FD2A PIX0_5__inst (.q(PIX0B_5),.qL(PIX0_5),.d(IDL_5),.clk(PIXLD_0),.rL(RESL));  //[PIX.NET:00041] PIX0_5_(PIX0B_5,PIX0_5) = FD2A(IDL_5,PIXLD_0,RESL);
-FD2A PIX0_6__inst (.q(PIX0B_6),.qL(PIX0_6),.d(IDL_6),.clk(PIXLD_0),.rL(RESL));  //[PIX.NET:00042] PIX0_6_(PIX0B_6,PIX0_6) = FD2A(IDL_6,PIXLD_0,RESL);
-FD2A PIX0_7__inst (.q(PIX0B_7),.qL(PIX0_7),.d(IDL_7),.clk(PIXLD_0),.rL(RESL));  //[PIX.NET:00043] PIX0_7_(PIX0B_7,PIX0_7) = FD2A(IDL_7,PIXLD_0,RESL);
-FD2A PIX1_0__inst (.q(PIX1B_0),.qL(PIX1_0),.d(IDL_8),.clk(PIXLD_0),.rL(RESL));  //[PIX.NET:00044] PIX1_0_(PIX1B_0,PIX1_0) = FD2A(IDL_8,PIXLD_0,RESL);
-FD2A PIX1_1__inst (.q(PIX1B_1),.qL(PIX1_1),.d(IDL_9),.clk(PIXLD_0),.rL(RESL));  //[PIX.NET:00045] PIX1_1_(PIX1B_1,PIX1_1) = FD2A(IDL_9,PIXLD_0,RESL);
-FD2A PIX1_2__inst (.q(PIX1B_2),.qL(PIX1_2),.d(IDL_10),.clk(PIXLD_0),.rL(RESL)); //[PIX.NET:00046] PIX1_2_(PIX1B_2,PIX1_2) = FD2A(IDL_10,PIXLD_0,RESL);
-FD2A PIX1_3__inst (.q(PIX1B_3),.qL(PIX1_3),.d(IDL_11),.clk(PIXLD_0),.rL(RESL)); //[PIX.NET:00047] PIX1_3_(PIX1B_3,PIX1_3) = FD2A(IDL_11,PIXLD_0,RESL);
-FD2A PIX1_4__inst (.q(PIX1B_4),.qL(PIX1_4),.d(IDL_12),.clk(PIXLD_0),.rL(RESL)); //[PIX.NET:00048] PIX1_4_(PIX1B_4,PIX1_4) = FD2A(IDL_12,PIXLD_0,RESL);
-FD2A PIX1_5__inst (.q(PIX1B_5),.qL(PIX1_5),.d(IDL_13),.clk(PIXLD_0),.rL(RESL)); //[PIX.NET:00049] PIX1_5_(PIX1B_5,PIX1_5) = FD2A(IDL_13,PIXLD_0,RESL);
-FD2A PIX1_6__inst (.q(PIX1B_6),.qL(PIX1_6),.d(IDL_14),.clk(PIXLD_0),.rL(RESL)); //[PIX.NET:00050] PIX1_6_(PIX1B_6,PIX1_6) = FD2A(IDL_14,PIXLD_0,RESL);
-FD2A PIX1_7__inst (.q(PIX1B_7),.qL(PIX1_7),.d(IDL_15),.clk(PIXLD_0),.rL(RESL)); //[PIX.NET:00051] PIX1_7_(PIX1B_7,PIX1_7) = FD2A(IDL_15,PIXLD_0,RESL);
-FD2A PIX2_0__inst (.q(PIX2B_0),.qL(PIX2_0),.d(IDL_0),.clk(PIXLD_1),.rL(RESL));  //[PIX.NET:00052] PIX2_0_(PIX2B_0,PIX2_0) = FD2A(IDL_0,PIXLD_1,RESL);
-FD2A PIX2_1__inst (.q(PIX2B_1),.qL(PIX2_1),.d(IDL_1),.clk(PIXLD_1),.rL(RESL));  //[PIX.NET:00053] PIX2_1_(PIX2B_1,PIX2_1) = FD2A(IDL_1,PIXLD_1,RESL);
-FD2A PIX2_2__inst (.q(PIX2B_2),.qL(PIX2_2),.d(IDL_2),.clk(PIXLD_1),.rL(RESL));  //[PIX.NET:00054] PIX2_2_(PIX2B_2,PIX2_2) = FD2A(IDL_2,PIXLD_1,RESL);
-FD2A PIX2_3__inst (.q(PIX2B_3),.qL(PIX2_3),.d(IDL_3),.clk(PIXLD_1),.rL(RESL));  //[PIX.NET:00055] PIX2_3_(PIX2B_3,PIX2_3) = FD2A(IDL_3,PIXLD_1,RESL);
-FD2A PIX2_4__inst (.q(PIX2B_4),.qL(PIX2_4),.d(IDL_4),.clk(PIXLD_1),.rL(RESL));  //[PIX.NET:00056] PIX2_4_(PIX2B_4,PIX2_4) = FD2A(IDL_4,PIXLD_1,RESL);
-FD2A PIX2_5__inst (.q(PIX2B_5),.qL(PIX2_5),.d(IDL_5),.clk(PIXLD_1),.rL(RESL));  //[PIX.NET:00057] PIX2_5_(PIX2B_5,PIX2_5) = FD2A(IDL_5,PIXLD_1,RESL);
-FD2A PIX2_6__inst (.q(PIX2B_6),.qL(PIX2_6),.d(IDL_6),.clk(PIXLD_1),.rL(RESL));  //[PIX.NET:00058] PIX2_6_(PIX2B_6,PIX2_6) = FD2A(IDL_6,PIXLD_1,RESL);
-FD2A PIX2_7__inst (.q(PIX2B_7),.qL(PIX2_7),.d(IDL_7),.clk(PIXLD_1),.rL(RESL));  //[PIX.NET:00059] PIX2_7_(PIX2B_7,PIX2_7) = FD2A(IDL_7,PIXLD_1,RESL);
-FD2A PIX3_0__inst (.q(PIX3B_0),.qL(PIX3_0),.d(IDL_8),.clk(PIXLD_1),.rL(RESL));  //[PIX.NET:00060] PIX3_0_(PIX3B_0,PIX3_0) = FD2A(IDL_8,PIXLD_1,RESL);
-FD2A PIX3_1__inst (.q(PIX3B_1),.qL(PIX3_1),.d(IDL_9),.clk(PIXLD_1),.rL(RESL));  //[PIX.NET:00061] PIX3_1_(PIX3B_1,PIX3_1) = FD2A(IDL_9,PIXLD_1,RESL);
-FD2A PIX3_2__inst (.q(PIX3B_2),.qL(PIX3_2),.d(IDL_10),.clk(PIXLD_1),.rL(RESL)); //[PIX.NET:00062] PIX3_2_(PIX3B_2,PIX3_2) = FD2A(IDL_10,PIXLD_1,RESL);
-FD2A PIX3_3__inst (.q(PIX3B_3),.qL(PIX3_3),.d(IDL_11),.clk(PIXLD_1),.rL(RESL)); //[PIX.NET:00063] PIX3_3_(PIX3B_3,PIX3_3) = FD2A(IDL_11,PIXLD_1,RESL);
-FD2A PIX3_4__inst (.q(PIX3B_4),.qL(PIX3_4),.d(IDL_12),.clk(PIXLD_1),.rL(RESL)); //[PIX.NET:00064] PIX3_4_(PIX3B_4,PIX3_4) = FD2A(IDL_12,PIXLD_1,RESL);
-FD2A PIX3_5__inst (.q(PIX3B_5),.qL(PIX3_5),.d(IDL_13),.clk(PIXLD_1),.rL(RESL)); //[PIX.NET:00065] PIX3_5_(PIX3B_5,PIX3_5) = FD2A(IDL_13,PIXLD_1,RESL);
-FD2A PIX3_6__inst (.q(PIX3B_6),.qL(PIX3_6),.d(IDL_14),.clk(PIXLD_1),.rL(RESL)); //[PIX.NET:00066] PIX3_6_(PIX3B_6,PIX3_6) = FD2A(IDL_14,PIXLD_1,RESL);
-FD2A PIX3_7__inst (.q(PIX3B_7),.qL(PIX3_7),.d(IDL_15),.clk(PIXLD_1),.rL(RESL)); //[PIX.NET:00067] PIX3_7_(PIX3B_7,PIX3_7) = FD2A(IDL_15,PIXLD_1,RESL);
+FD2A PIX0_0__inst (.MasterClock(MasterClock),.q(PIX0B_0),.qL(PIX0_0),.d(IDL_0),.clk(PIXLD_0),.rL(RESL));//[PIX.NET:00036] PIX0_0_(PIX0B_0,PIX0_0) = FD2A(IDL_0,PIXLD_0,RESL);
+FD2A PIX0_1__inst (.MasterClock(MasterClock),.q(PIX0B_1),.qL(PIX0_1),.d(IDL_1),.clk(PIXLD_0),.rL(RESL));//[PIX.NET:00037] PIX0_1_(PIX0B_1,PIX0_1) = FD2A(IDL_1,PIXLD_0,RESL);
+FD2A PIX0_2__inst (.MasterClock(MasterClock),.q(PIX0B_2),.qL(PIX0_2),.d(IDL_2),.clk(PIXLD_0),.rL(RESL));//[PIX.NET:00038] PIX0_2_(PIX0B_2,PIX0_2) = FD2A(IDL_2,PIXLD_0,RESL);
+FD2A PIX0_3__inst (.MasterClock(MasterClock),.q(PIX0B_3),.qL(PIX0_3),.d(IDL_3),.clk(PIXLD_0),.rL(RESL));//[PIX.NET:00039] PIX0_3_(PIX0B_3,PIX0_3) = FD2A(IDL_3,PIXLD_0,RESL);
+FD2A PIX0_4__inst (.MasterClock(MasterClock),.q(PIX0B_4),.qL(PIX0_4),.d(IDL_4),.clk(PIXLD_0),.rL(RESL));//[PIX.NET:00040] PIX0_4_(PIX0B_4,PIX0_4) = FD2A(IDL_4,PIXLD_0,RESL);
+FD2A PIX0_5__inst (.MasterClock(MasterClock),.q(PIX0B_5),.qL(PIX0_5),.d(IDL_5),.clk(PIXLD_0),.rL(RESL));//[PIX.NET:00041] PIX0_5_(PIX0B_5,PIX0_5) = FD2A(IDL_5,PIXLD_0,RESL);
+FD2A PIX0_6__inst (.MasterClock(MasterClock),.q(PIX0B_6),.qL(PIX0_6),.d(IDL_6),.clk(PIXLD_0),.rL(RESL));//[PIX.NET:00042] PIX0_6_(PIX0B_6,PIX0_6) = FD2A(IDL_6,PIXLD_0,RESL);
+FD2A PIX0_7__inst (.MasterClock(MasterClock),.q(PIX0B_7),.qL(PIX0_7),.d(IDL_7),.clk(PIXLD_0),.rL(RESL));//[PIX.NET:00043] PIX0_7_(PIX0B_7,PIX0_7) = FD2A(IDL_7,PIXLD_0,RESL);
+FD2A PIX1_0__inst (.MasterClock(MasterClock),.q(PIX1B_0),.qL(PIX1_0),.d(IDL_8),.clk(PIXLD_0),.rL(RESL));//[PIX.NET:00044] PIX1_0_(PIX1B_0,PIX1_0) = FD2A(IDL_8,PIXLD_0,RESL);
+FD2A PIX1_1__inst (.MasterClock(MasterClock),.q(PIX1B_1),.qL(PIX1_1),.d(IDL_9),.clk(PIXLD_0),.rL(RESL));//[PIX.NET:00045] PIX1_1_(PIX1B_1,PIX1_1) = FD2A(IDL_9,PIXLD_0,RESL);
+FD2A PIX1_2__inst (.MasterClock(MasterClock),.q(PIX1B_2),.qL(PIX1_2),.d(IDL_10),.clk(PIXLD_0),.rL(RESL));//[PIX.NET:00046] PIX1_2_(PIX1B_2,PIX1_2) = FD2A(IDL_10,PIXLD_0,RESL);
+FD2A PIX1_3__inst (.MasterClock(MasterClock),.q(PIX1B_3),.qL(PIX1_3),.d(IDL_11),.clk(PIXLD_0),.rL(RESL));//[PIX.NET:00047] PIX1_3_(PIX1B_3,PIX1_3) = FD2A(IDL_11,PIXLD_0,RESL);
+FD2A PIX1_4__inst (.MasterClock(MasterClock),.q(PIX1B_4),.qL(PIX1_4),.d(IDL_12),.clk(PIXLD_0),.rL(RESL));//[PIX.NET:00048] PIX1_4_(PIX1B_4,PIX1_4) = FD2A(IDL_12,PIXLD_0,RESL);
+FD2A PIX1_5__inst (.MasterClock(MasterClock),.q(PIX1B_5),.qL(PIX1_5),.d(IDL_13),.clk(PIXLD_0),.rL(RESL));//[PIX.NET:00049] PIX1_5_(PIX1B_5,PIX1_5) = FD2A(IDL_13,PIXLD_0,RESL);
+FD2A PIX1_6__inst (.MasterClock(MasterClock),.q(PIX1B_6),.qL(PIX1_6),.d(IDL_14),.clk(PIXLD_0),.rL(RESL));//[PIX.NET:00050] PIX1_6_(PIX1B_6,PIX1_6) = FD2A(IDL_14,PIXLD_0,RESL);
+FD2A PIX1_7__inst (.MasterClock(MasterClock),.q(PIX1B_7),.qL(PIX1_7),.d(IDL_15),.clk(PIXLD_0),.rL(RESL));//[PIX.NET:00051] PIX1_7_(PIX1B_7,PIX1_7) = FD2A(IDL_15,PIXLD_0,RESL);
+FD2A PIX2_0__inst (.MasterClock(MasterClock),.q(PIX2B_0),.qL(PIX2_0),.d(IDL_0),.clk(PIXLD_1),.rL(RESL));//[PIX.NET:00052] PIX2_0_(PIX2B_0,PIX2_0) = FD2A(IDL_0,PIXLD_1,RESL);
+FD2A PIX2_1__inst (.MasterClock(MasterClock),.q(PIX2B_1),.qL(PIX2_1),.d(IDL_1),.clk(PIXLD_1),.rL(RESL));//[PIX.NET:00053] PIX2_1_(PIX2B_1,PIX2_1) = FD2A(IDL_1,PIXLD_1,RESL);
+FD2A PIX2_2__inst (.MasterClock(MasterClock),.q(PIX2B_2),.qL(PIX2_2),.d(IDL_2),.clk(PIXLD_1),.rL(RESL));//[PIX.NET:00054] PIX2_2_(PIX2B_2,PIX2_2) = FD2A(IDL_2,PIXLD_1,RESL);
+FD2A PIX2_3__inst (.MasterClock(MasterClock),.q(PIX2B_3),.qL(PIX2_3),.d(IDL_3),.clk(PIXLD_1),.rL(RESL));//[PIX.NET:00055] PIX2_3_(PIX2B_3,PIX2_3) = FD2A(IDL_3,PIXLD_1,RESL);
+FD2A PIX2_4__inst (.MasterClock(MasterClock),.q(PIX2B_4),.qL(PIX2_4),.d(IDL_4),.clk(PIXLD_1),.rL(RESL));//[PIX.NET:00056] PIX2_4_(PIX2B_4,PIX2_4) = FD2A(IDL_4,PIXLD_1,RESL);
+FD2A PIX2_5__inst (.MasterClock(MasterClock),.q(PIX2B_5),.qL(PIX2_5),.d(IDL_5),.clk(PIXLD_1),.rL(RESL));//[PIX.NET:00057] PIX2_5_(PIX2B_5,PIX2_5) = FD2A(IDL_5,PIXLD_1,RESL);
+FD2A PIX2_6__inst (.MasterClock(MasterClock),.q(PIX2B_6),.qL(PIX2_6),.d(IDL_6),.clk(PIXLD_1),.rL(RESL));//[PIX.NET:00058] PIX2_6_(PIX2B_6,PIX2_6) = FD2A(IDL_6,PIXLD_1,RESL);
+FD2A PIX2_7__inst (.MasterClock(MasterClock),.q(PIX2B_7),.qL(PIX2_7),.d(IDL_7),.clk(PIXLD_1),.rL(RESL));//[PIX.NET:00059] PIX2_7_(PIX2B_7,PIX2_7) = FD2A(IDL_7,PIXLD_1,RESL);
+FD2A PIX3_0__inst (.MasterClock(MasterClock),.q(PIX3B_0),.qL(PIX3_0),.d(IDL_8),.clk(PIXLD_1),.rL(RESL));//[PIX.NET:00060] PIX3_0_(PIX3B_0,PIX3_0) = FD2A(IDL_8,PIXLD_1,RESL);
+FD2A PIX3_1__inst (.MasterClock(MasterClock),.q(PIX3B_1),.qL(PIX3_1),.d(IDL_9),.clk(PIXLD_1),.rL(RESL));//[PIX.NET:00061] PIX3_1_(PIX3B_1,PIX3_1) = FD2A(IDL_9,PIXLD_1,RESL);
+FD2A PIX3_2__inst (.MasterClock(MasterClock),.q(PIX3B_2),.qL(PIX3_2),.d(IDL_10),.clk(PIXLD_1),.rL(RESL));//[PIX.NET:00062] PIX3_2_(PIX3B_2,PIX3_2) = FD2A(IDL_10,PIXLD_1,RESL);
+FD2A PIX3_3__inst (.MasterClock(MasterClock),.q(PIX3B_3),.qL(PIX3_3),.d(IDL_11),.clk(PIXLD_1),.rL(RESL));//[PIX.NET:00063] PIX3_3_(PIX3B_3,PIX3_3) = FD2A(IDL_11,PIXLD_1,RESL);
+FD2A PIX3_4__inst (.MasterClock(MasterClock),.q(PIX3B_4),.qL(PIX3_4),.d(IDL_12),.clk(PIXLD_1),.rL(RESL));//[PIX.NET:00064] PIX3_4_(PIX3B_4,PIX3_4) = FD2A(IDL_12,PIXLD_1,RESL);
+FD2A PIX3_5__inst (.MasterClock(MasterClock),.q(PIX3B_5),.qL(PIX3_5),.d(IDL_13),.clk(PIXLD_1),.rL(RESL));//[PIX.NET:00065] PIX3_5_(PIX3B_5,PIX3_5) = FD2A(IDL_13,PIXLD_1,RESL);
+FD2A PIX3_6__inst (.MasterClock(MasterClock),.q(PIX3B_6),.qL(PIX3_6),.d(IDL_14),.clk(PIXLD_1),.rL(RESL));//[PIX.NET:00066] PIX3_6_(PIX3B_6,PIX3_6) = FD2A(IDL_14,PIXLD_1,RESL);
+FD2A PIX3_7__inst (.MasterClock(MasterClock),.q(PIX3B_7),.qL(PIX3_7),.d(IDL_15),.clk(PIXLD_1),.rL(RESL));//[PIX.NET:00067] PIX3_7_(PIX3B_7,PIX3_7) = FD2A(IDL_15,PIXLD_1,RESL);
 
 /* select one of four bytes */
 
@@ -612,26 +612,26 @@ assign P2L_7 = ~((BYTE & P0_7)|(NIBBLE & RES));                                 
 
 /* latch the border colour */
 
-LD1A BC_0__inst (.q(BC_0),.qL(BCB_0),.d(WD_0),.en(BORDL));                      //[PIX.NET:00113] BC_0_(BC_0,BCB_0) = LD1A(WD_0,BORDL);
-LD1A BC_1__inst (.q(BC_1),.qL(BCB_1),.d(WD_1),.en(BORDL));                      //[PIX.NET:00114] BC_1_(BC_1,BCB_1) = LD1A(WD_1,BORDL);
-LD1A BC_2__inst (.q(BC_2),.qL(BCB_2),.d(WD_2),.en(BORDL));                      //[PIX.NET:00115] BC_2_(BC_2,BCB_2) = LD1A(WD_2,BORDL);
-LD1A BC_3__inst (.q(BC_3),.qL(BCB_3),.d(WD_3),.en(BORDL));                      //[PIX.NET:00116] BC_3_(BC_3,BCB_3) = LD1A(WD_3,BORDL);
-LD1A BC_4__inst (.q(BC_4),.qL(BCB_4),.d(WD_4),.en(BORDL));                      //[PIX.NET:00117] BC_4_(BC_4,BCB_4) = LD1A(WD_4,BORDL);
-LD1A BC_5__inst (.q(BC_5),.qL(BCB_5),.d(WD_5),.en(BORDL));                      //[PIX.NET:00118] BC_5_(BC_5,BCB_5) = LD1A(WD_5,BORDL);
-LD1A BC_6__inst (.q(BC_6),.qL(BCB_6),.d(WD_6),.en(BORDL));                      //[PIX.NET:00119] BC_6_(BC_6,BCB_6) = LD1A(WD_6,BORDL);
-LD1A BC_7__inst (.q(BC_7),.qL(BCB_7),.d(WD_7),.en(BORDL));                      //[PIX.NET:00120] BC_7_(BC_7,BCB_7) = LD1A(WD_7,BORDL);
-LD1A BC_8__inst (.q(BC_8),.qL(BCB_8),.d(WD_0),.en(BORDH));                      //[PIX.NET:00121] BC_8_(BC_8,BCB_8) = LD1A(WD_0,BORDH);
-LD1A BC_9__inst (.q(BC_9),.qL(BCB_9),.d(WD_1),.en(BORDH));                      //[PIX.NET:00122] BC_9_(BC_9,BCB_9) = LD1A(WD_1,BORDH);
-LD1A BC_10__inst (.q(BC_10),.qL(BCB_10),.d(WD_2),.en(BORDH));                   //[PIX.NET:00123] BC_10_(BC_10,BCB_10) = LD1A(WD_2,BORDH);
-LD1A BC_11__inst (.q(BC_11),.qL(BCB_11),.d(WD_3),.en(BORDH));                   //[PIX.NET:00124] BC_11_(BC_11,BCB_11) = LD1A(WD_3,BORDH);
-LD1A BC_12__inst (.q(BC_12),.qL(BCB_12),.d(WD_4),.en(BORDH));                   //[PIX.NET:00125] BC_12_(BC_12,BCB_12) = LD1A(WD_4,BORDH);
-LD1A BC_13__inst (.q(BC_13),.qL(BCB_13),.d(WD_5),.en(BORDH));                   //[PIX.NET:00126] BC_13_(BC_13,BCB_13) = LD1A(WD_5,BORDH);
-LD1A BC_14__inst (.q(BC_14),.qL(BCB_14),.d(WD_6),.en(BORDH));                   //[PIX.NET:00127] BC_14_(BC_14,BCB_14) = LD1A(WD_6,BORDH);
-LD1A BC_15__inst (.q(BC_15),.qL(BCB_15),.d(WD_7),.en(BORDH));                   //[PIX.NET:00128] BC_15_(BC_15,BCB_15) = LD1A(WD_7,BORDH);
+LD1A BC_0__inst (.MasterClock(MasterClock),.q(BC_0),.qL(BCB_0),.d(WD_0),.en(BORDL));//[PIX.NET:00113] BC_0_(BC_0,BCB_0) = LD1A(WD_0,BORDL);
+LD1A BC_1__inst (.MasterClock(MasterClock),.q(BC_1),.qL(BCB_1),.d(WD_1),.en(BORDL));//[PIX.NET:00114] BC_1_(BC_1,BCB_1) = LD1A(WD_1,BORDL);
+LD1A BC_2__inst (.MasterClock(MasterClock),.q(BC_2),.qL(BCB_2),.d(WD_2),.en(BORDL));//[PIX.NET:00115] BC_2_(BC_2,BCB_2) = LD1A(WD_2,BORDL);
+LD1A BC_3__inst (.MasterClock(MasterClock),.q(BC_3),.qL(BCB_3),.d(WD_3),.en(BORDL));//[PIX.NET:00116] BC_3_(BC_3,BCB_3) = LD1A(WD_3,BORDL);
+LD1A BC_4__inst (.MasterClock(MasterClock),.q(BC_4),.qL(BCB_4),.d(WD_4),.en(BORDL));//[PIX.NET:00117] BC_4_(BC_4,BCB_4) = LD1A(WD_4,BORDL);
+LD1A BC_5__inst (.MasterClock(MasterClock),.q(BC_5),.qL(BCB_5),.d(WD_5),.en(BORDL));//[PIX.NET:00118] BC_5_(BC_5,BCB_5) = LD1A(WD_5,BORDL);
+LD1A BC_6__inst (.MasterClock(MasterClock),.q(BC_6),.qL(BCB_6),.d(WD_6),.en(BORDL));//[PIX.NET:00119] BC_6_(BC_6,BCB_6) = LD1A(WD_6,BORDL);
+LD1A BC_7__inst (.MasterClock(MasterClock),.q(BC_7),.qL(BCB_7),.d(WD_7),.en(BORDL));//[PIX.NET:00120] BC_7_(BC_7,BCB_7) = LD1A(WD_7,BORDL);
+LD1A BC_8__inst (.MasterClock(MasterClock),.q(BC_8),.qL(BCB_8),.d(WD_0),.en(BORDH));//[PIX.NET:00121] BC_8_(BC_8,BCB_8) = LD1A(WD_0,BORDH);
+LD1A BC_9__inst (.MasterClock(MasterClock),.q(BC_9),.qL(BCB_9),.d(WD_1),.en(BORDH));//[PIX.NET:00122] BC_9_(BC_9,BCB_9) = LD1A(WD_1,BORDH);
+LD1A BC_10__inst (.MasterClock(MasterClock),.q(BC_10),.qL(BCB_10),.d(WD_2),.en(BORDH));//[PIX.NET:00123] BC_10_(BC_10,BCB_10) = LD1A(WD_2,BORDH);
+LD1A BC_11__inst (.MasterClock(MasterClock),.q(BC_11),.qL(BCB_11),.d(WD_3),.en(BORDH));//[PIX.NET:00124] BC_11_(BC_11,BCB_11) = LD1A(WD_3,BORDH);
+LD1A BC_12__inst (.MasterClock(MasterClock),.q(BC_12),.qL(BCB_12),.d(WD_4),.en(BORDH));//[PIX.NET:00125] BC_12_(BC_12,BCB_12) = LD1A(WD_4,BORDH);
+LD1A BC_13__inst (.MasterClock(MasterClock),.q(BC_13),.qL(BCB_13),.d(WD_5),.en(BORDH));//[PIX.NET:00126] BC_13_(BC_13,BCB_13) = LD1A(WD_5,BORDH);
+LD1A BC_14__inst (.MasterClock(MasterClock),.q(BC_14),.qL(BCB_14),.d(WD_6),.en(BORDH));//[PIX.NET:00127] BC_14_(BC_14,BCB_14) = LD1A(WD_6,BORDH);
+LD1A BC_15__inst (.MasterClock(MasterClock),.q(BC_15),.qL(BCB_15),.d(WD_7),.en(BORDH));//[PIX.NET:00128] BC_15_(BC_15,BCB_15) = LD1A(WD_7,BORDH);
 
 /* latch the nibble hold mode */
 
-LD1A HOLD4__inst (.q(HOLD4),.qL(HOLD4L),.d(WD_0),.en(TRANS));                   //[PIX.NET:00132] HOLD4_(HOLD4,HOLD4L) = LD1A(WD_0,TRANS);
+LD1A HOLD4__inst (.MasterClock(MasterClock),.q(HOLD4),.qL(HOLD4L),.d(WD_0),.en(TRANS));//[PIX.NET:00132] HOLD4_(HOLD4,HOLD4L) = LD1A(WD_0,TRANS);
 
 /* compare colour with zero */
 
@@ -656,36 +656,36 @@ assign P4_7 = ~((PREV8 & P5L_7)|(PREV8L & P2L_7));                              
 
 /* latch the pixel to store previous pixel and re-sync pixels */
 
-FD2A P5_0__inst (.q(P5_0),.qL(P5L_0),.d(P4_0),.clk(CLK),.rL(RESL));             //[PIX.NET:00157] P5_0_(P5_0,P5L_0) = FD2A(P4_0,CLK,RESL);
-FD2A P5_1__inst (.q(P5_1),.qL(P5L_1),.d(P4_1),.clk(CLK),.rL(RESL));             //[PIX.NET:00158] P5_1_(P5_1,P5L_1) = FD2A(P4_1,CLK,RESL);
-FD2A P5_2__inst (.q(P5_2),.qL(P5L_2),.d(P4_2),.clk(CLK),.rL(RESL));             //[PIX.NET:00159] P5_2_(P5_2,P5L_2) = FD2A(P4_2,CLK,RESL);
-FD2A P5_3__inst (.q(P5_3),.qL(P5L_3),.d(P4_3),.clk(CLK),.rL(RESL));             //[PIX.NET:00160] P5_3_(P5_3,P5L_3) = FD2A(P4_3,CLK,RESL);
-FD2A P5_4__inst (.q(P5_4),.qL(P5L_4),.d(P4_4),.clk(CLK),.rL(RESL));             //[PIX.NET:00161] P5_4_(P5_4,P5L_4) = FD2A(P4_4,CLK,RESL);
-FD2A P5_5__inst (.q(P5_5),.qL(P5L_5),.d(P4_5),.clk(CLK),.rL(RESL));             //[PIX.NET:00162] P5_5_(P5_5,P5L_5) = FD2A(P4_5,CLK,RESL);
-FD2A P5_6__inst (.q(P5_6),.qL(P5L_6),.d(P4_6),.clk(CLK),.rL(RESL));             //[PIX.NET:00163] P5_6_(P5_6,P5L_6) = FD2A(P4_6,CLK,RESL);
-FD2A P5_7__inst (.q(P5_7),.qL(P5L_7),.d(P4_7),.clk(CLK),.rL(RESL));             //[PIX.NET:00164] P5_7_(P5_7,P5L_7) = FD2A(P4_7,CLK,RESL);
+FD2A P5_0__inst (.MasterClock(MasterClock),.q(P5_0),.qL(P5L_0),.d(P4_0),.clk(CLK),.rL(RESL));//[PIX.NET:00157] P5_0_(P5_0,P5L_0) = FD2A(P4_0,CLK,RESL);
+FD2A P5_1__inst (.MasterClock(MasterClock),.q(P5_1),.qL(P5L_1),.d(P4_1),.clk(CLK),.rL(RESL));//[PIX.NET:00158] P5_1_(P5_1,P5L_1) = FD2A(P4_1,CLK,RESL);
+FD2A P5_2__inst (.MasterClock(MasterClock),.q(P5_2),.qL(P5L_2),.d(P4_2),.clk(CLK),.rL(RESL));//[PIX.NET:00159] P5_2_(P5_2,P5L_2) = FD2A(P4_2,CLK,RESL);
+FD2A P5_3__inst (.MasterClock(MasterClock),.q(P5_3),.qL(P5L_3),.d(P4_3),.clk(CLK),.rL(RESL));//[PIX.NET:00160] P5_3_(P5_3,P5L_3) = FD2A(P4_3,CLK,RESL);
+FD2A P5_4__inst (.MasterClock(MasterClock),.q(P5_4),.qL(P5L_4),.d(P4_4),.clk(CLK),.rL(RESL));//[PIX.NET:00161] P5_4_(P5_4,P5L_4) = FD2A(P4_4,CLK,RESL);
+FD2A P5_5__inst (.MasterClock(MasterClock),.q(P5_5),.qL(P5L_5),.d(P4_5),.clk(CLK),.rL(RESL));//[PIX.NET:00162] P5_5_(P5_5,P5L_5) = FD2A(P4_5,CLK,RESL);
+FD2A P5_6__inst (.MasterClock(MasterClock),.q(P5_6),.qL(P5L_6),.d(P4_6),.clk(CLK),.rL(RESL));//[PIX.NET:00163] P5_6_(P5_6,P5L_6) = FD2A(P4_6,CLK,RESL);
+FD2A P5_7__inst (.MasterClock(MasterClock),.q(P5_7),.qL(P5L_7),.d(P4_7),.clk(CLK),.rL(RESL));//[PIX.NET:00164] P5_7_(P5_7,P5L_7) = FD2A(P4_7,CLK,RESL);
 
 /* latch the colour mask */
 
-LD1A M_0__inst (.q(M_0),.qL(MB_0),.d(WD_0),.en(MASK));                          //[PIX.NET:00168] M_0_(M_0,MB_0) = LD1A(WD_0,MASK);
-LD1A M_1__inst (.q(M_1),.qL(MB_1),.d(WD_1),.en(MASK));                          //[PIX.NET:00169] M_1_(M_1,MB_1) = LD1A(WD_1,MASK);
-LD1A M_2__inst (.q(M_2),.qL(MB_2),.d(WD_2),.en(MASK));                          //[PIX.NET:00170] M_2_(M_2,MB_2) = LD1A(WD_2,MASK);
-LD1A M_3__inst (.q(M_3),.qL(MB_3),.d(WD_3),.en(MASK));                          //[PIX.NET:00171] M_3_(M_3,MB_3) = LD1A(WD_3,MASK);
-LD1A M_4__inst (.q(M_4),.qL(MB_4),.d(WD_4),.en(MASK));                          //[PIX.NET:00172] M_4_(M_4,MB_4) = LD1A(WD_4,MASK);
-LD1A M_5__inst (.q(M_5),.qL(MB_5),.d(WD_5),.en(MASK));                          //[PIX.NET:00173] M_5_(M_5,MB_5) = LD1A(WD_5,MASK);
-LD1A M_6__inst (.q(M_6),.qL(MB_6),.d(WD_6),.en(MASK));                          //[PIX.NET:00174] M_6_(M_6,MB_6) = LD1A(WD_6,MASK);
-LD1A M_7__inst (.q(M_7),.qL(MB_7),.d(WD_7),.en(MASK));                          //[PIX.NET:00175] M_7_(M_7,MB_7) = LD1A(WD_7,MASK);
+LD1A M_0__inst (.MasterClock(MasterClock),.q(M_0),.qL(MB_0),.d(WD_0),.en(MASK));//[PIX.NET:00168] M_0_(M_0,MB_0) = LD1A(WD_0,MASK);
+LD1A M_1__inst (.MasterClock(MasterClock),.q(M_1),.qL(MB_1),.d(WD_1),.en(MASK));//[PIX.NET:00169] M_1_(M_1,MB_1) = LD1A(WD_1,MASK);
+LD1A M_2__inst (.MasterClock(MasterClock),.q(M_2),.qL(MB_2),.d(WD_2),.en(MASK));//[PIX.NET:00170] M_2_(M_2,MB_2) = LD1A(WD_2,MASK);
+LD1A M_3__inst (.MasterClock(MasterClock),.q(M_3),.qL(MB_3),.d(WD_3),.en(MASK));//[PIX.NET:00171] M_3_(M_3,MB_3) = LD1A(WD_3,MASK);
+LD1A M_4__inst (.MasterClock(MasterClock),.q(M_4),.qL(MB_4),.d(WD_4),.en(MASK));//[PIX.NET:00172] M_4_(M_4,MB_4) = LD1A(WD_4,MASK);
+LD1A M_5__inst (.MasterClock(MasterClock),.q(M_5),.qL(MB_5),.d(WD_5),.en(MASK));//[PIX.NET:00173] M_5_(M_5,MB_5) = LD1A(WD_5,MASK);
+LD1A M_6__inst (.MasterClock(MasterClock),.q(M_6),.qL(MB_6),.d(WD_6),.en(MASK));//[PIX.NET:00174] M_6_(M_6,MB_6) = LD1A(WD_6,MASK);
+LD1A M_7__inst (.MasterClock(MasterClock),.q(M_7),.qL(MB_7),.d(WD_7),.en(MASK));//[PIX.NET:00175] M_7_(M_7,MB_7) = LD1A(WD_7,MASK);
 
 /* latch the colour index */
 
-LD1A I_0__inst (.q(I_0),.qL(IB_0),.d(WD_0),.en(INDEX));                         //[PIX.NET:00179] I_0_(I_0,IB_0) = LD1A(WD_0,INDEX);
-LD1A I_1__inst (.q(I_1),.qL(IB_1),.d(WD_1),.en(INDEX));                         //[PIX.NET:00180] I_1_(I_1,IB_1) = LD1A(WD_1,INDEX);
-LD1A I_2__inst (.q(I_2),.qL(IB_2),.d(WD_2),.en(INDEX));                         //[PIX.NET:00181] I_2_(I_2,IB_2) = LD1A(WD_2,INDEX);
-LD1A I_3__inst (.q(I_3),.qL(IB_3),.d(WD_3),.en(INDEX));                         //[PIX.NET:00182] I_3_(I_3,IB_3) = LD1A(WD_3,INDEX);
-LD1A I_4__inst (.q(I_4),.qL(IB_4),.d(WD_4),.en(INDEX));                         //[PIX.NET:00183] I_4_(I_4,IB_4) = LD1A(WD_4,INDEX);
-LD1A I_5__inst (.q(I_5),.qL(IB_5),.d(WD_5),.en(INDEX));                         //[PIX.NET:00184] I_5_(I_5,IB_5) = LD1A(WD_5,INDEX);
-LD1A I_6__inst (.q(I_6),.qL(IB_6),.d(WD_6),.en(INDEX));                         //[PIX.NET:00185] I_6_(I_6,IB_6) = LD1A(WD_6,INDEX);
-LD1A I_7__inst (.q(I_7),.qL(IB_7),.d(WD_7),.en(INDEX));                         //[PIX.NET:00186] I_7_(I_7,IB_7) = LD1A(WD_7,INDEX);
+LD1A I_0__inst (.MasterClock(MasterClock),.q(I_0),.qL(IB_0),.d(WD_0),.en(INDEX));//[PIX.NET:00179] I_0_(I_0,IB_0) = LD1A(WD_0,INDEX);
+LD1A I_1__inst (.MasterClock(MasterClock),.q(I_1),.qL(IB_1),.d(WD_1),.en(INDEX));//[PIX.NET:00180] I_1_(I_1,IB_1) = LD1A(WD_1,INDEX);
+LD1A I_2__inst (.MasterClock(MasterClock),.q(I_2),.qL(IB_2),.d(WD_2),.en(INDEX));//[PIX.NET:00181] I_2_(I_2,IB_2) = LD1A(WD_2,INDEX);
+LD1A I_3__inst (.MasterClock(MasterClock),.q(I_3),.qL(IB_3),.d(WD_3),.en(INDEX));//[PIX.NET:00182] I_3_(I_3,IB_3) = LD1A(WD_3,INDEX);
+LD1A I_4__inst (.MasterClock(MasterClock),.q(I_4),.qL(IB_4),.d(WD_4),.en(INDEX));//[PIX.NET:00183] I_4_(I_4,IB_4) = LD1A(WD_4,INDEX);
+LD1A I_5__inst (.MasterClock(MasterClock),.q(I_5),.qL(IB_5),.d(WD_5),.en(INDEX));//[PIX.NET:00184] I_5_(I_5,IB_5) = LD1A(WD_5,INDEX);
+LD1A I_6__inst (.MasterClock(MasterClock),.q(I_6),.qL(IB_6),.d(WD_6),.en(INDEX));//[PIX.NET:00185] I_6_(I_6,IB_6) = LD1A(WD_6,INDEX);
+LD1A I_7__inst (.MasterClock(MasterClock),.q(I_7),.qL(IB_7),.d(WD_7),.en(INDEX));//[PIX.NET:00186] I_7_(I_7,IB_7) = LD1A(WD_7,INDEX);
 
 /* select either the index or the pixel */
 
@@ -701,14 +701,14 @@ assign P6_7 = ~((M_7 & IB_7)|(MB_7 & P5L_7));                                   
 /* look up the physical colour in the palette */
 /* latch even palette data..so it can be written during odd writes */
 
-LD1A PED_0__inst (.q(PED_0),.qL(PEDL_0),.d(inD_0),.en(EVEN));                   //[PIX.NET:00202] PED_0_(PED_0,PEDL_0) = LD1A(D_0,EVEN);
-LD1A PED_1__inst (.q(PED_1),.qL(PEDL_1),.d(inD_1),.en(EVEN));                   //[PIX.NET:00203] PED_1_(PED_1,PEDL_1) = LD1A(D_1,EVEN);
-LD1A PED_2__inst (.q(PED_2),.qL(PEDL_2),.d(inD_2),.en(EVEN));                   //[PIX.NET:00204] PED_2_(PED_2,PEDL_2) = LD1A(D_2,EVEN);
-LD1A PED_3__inst (.q(PED_3),.qL(PEDL_3),.d(inD_3),.en(EVEN));                   //[PIX.NET:00205] PED_3_(PED_3,PEDL_3) = LD1A(D_3,EVEN);
-LD1A PED_4__inst (.q(PED_4),.qL(PEDL_4),.d(inD_4),.en(EVEN));                   //[PIX.NET:00206] PED_4_(PED_4,PEDL_4) = LD1A(D_4,EVEN);
-LD1A PED_5__inst (.q(PED_5),.qL(PEDL_5),.d(inD_5),.en(EVEN));                   //[PIX.NET:00207] PED_5_(PED_5,PEDL_5) = LD1A(D_5,EVEN);
-LD1A PED_6__inst (.q(PED_6),.qL(PEDL_6),.d(inD_6),.en(EVEN));                   //[PIX.NET:00208] PED_6_(PED_6,PEDL_6) = LD1A(D_6,EVEN);
-LD1A PED_7__inst (.q(PED_7),.qL(PEDL_7),.d(inD_7),.en(EVEN));                   //[PIX.NET:00209] PED_7_(PED_7,PEDL_7) = LD1A(D_7,EVEN);
+LD1A PED_0__inst (.MasterClock(MasterClock),.q(PED_0),.qL(PEDL_0),.d(inD_0),.en(EVEN));//[PIX.NET:00202] PED_0_(PED_0,PEDL_0) = LD1A(D_0,EVEN);
+LD1A PED_1__inst (.MasterClock(MasterClock),.q(PED_1),.qL(PEDL_1),.d(inD_1),.en(EVEN));//[PIX.NET:00203] PED_1_(PED_1,PEDL_1) = LD1A(D_1,EVEN);
+LD1A PED_2__inst (.MasterClock(MasterClock),.q(PED_2),.qL(PEDL_2),.d(inD_2),.en(EVEN));//[PIX.NET:00204] PED_2_(PED_2,PEDL_2) = LD1A(D_2,EVEN);
+LD1A PED_3__inst (.MasterClock(MasterClock),.q(PED_3),.qL(PEDL_3),.d(inD_3),.en(EVEN));//[PIX.NET:00205] PED_3_(PED_3,PEDL_3) = LD1A(D_3,EVEN);
+LD1A PED_4__inst (.MasterClock(MasterClock),.q(PED_4),.qL(PEDL_4),.d(inD_4),.en(EVEN));//[PIX.NET:00206] PED_4_(PED_4,PEDL_4) = LD1A(D_4,EVEN);
+LD1A PED_5__inst (.MasterClock(MasterClock),.q(PED_5),.qL(PEDL_5),.d(inD_5),.en(EVEN));//[PIX.NET:00207] PED_5_(PED_5,PEDL_5) = LD1A(D_5,EVEN);
+LD1A PED_6__inst (.MasterClock(MasterClock),.q(PED_6),.qL(PEDL_6),.d(inD_6),.en(EVEN));//[PIX.NET:00208] PED_6_(PED_6,PEDL_6) = LD1A(D_6,EVEN);
+LD1A PED_7__inst (.MasterClock(MasterClock),.q(PED_7),.qL(PEDL_7),.d(inD_7),.en(EVEN));//[PIX.NET:00209] PED_7_(PED_7,PEDL_7) = LD1A(D_7,EVEN);
 assign EVEN = PALCS & WE & AL_0;                                                //[PIX.NET:00210] EVEN_(EVEN) = AND3A(PALCS,WE,AL_0);
 
 assign PALCSL = ~PALCS;                                                         //[PIX.NET:00212] PALCSL_(PALCSL) = N1C(PALCS);
@@ -802,7 +802,7 @@ assign P8L_15 = ~((DATA & P7_15)|(ADDR & P6_7));                                
 /* select pixels or border */
 /* the border signal is delayed first */
 
-FD2A BORDERD__inst (.q(BORDERD),.qL(BORDERDL),.d(BORDER),.clk(CLK),.rL(RESL));  //[PIX.NET:00303] BORDERD_(BORDERD,BORDERDL) = FD2A(BORDER,CLK,RESL);
+FD2A BORDERD__inst (.MasterClock(MasterClock),.q(BORDERD),.qL(BORDERDL),.d(BORDER),.clk(CLK),.rL(RESL));//[PIX.NET:00303] BORDERD_(BORDERD,BORDERDL) = FD2A(BORDER,CLK,RESL);
 assign BLANKINGL = ~BLANKING;                                                   //[PIX.NET:00304] BLANKINGL_(BLANKINGL) = N1A(BLANKING);
 assign PIXEL = ~(BORDERD & BLANKINGL);                                          //[PIX.NET:00305] PIXEL_(PIXEL) = ND2C(BORDERD,BLANKINGL);
 assign PIXELL = ~PIXEL;                                                         //[PIX.NET:00306] PIXELL_(PIXELL) = N1C(PIXEL);
@@ -825,29 +825,29 @@ assign P9_15 = ~((PIXELL & BCB_15)|(PIXEL & P8L_15));                           
 
 /* output latch */
 
-FD2A RL_0__inst (.q(R_0),.qL(RL_0),.d(P9_8),.clk(CLK),.rL(RESL));               //[PIX.NET:00326] RL_0_(R_0,RL_0) = FD2A(P9_8,CLK,RESL);
-FD2A RL_1__inst (.q(R_1),.qL(RL_1),.d(P9_9),.clk(CLK),.rL(RESL));               //[PIX.NET:00327] RL_1_(R_1,RL_1) = FD2A(P9_9,CLK,RESL);
-FD2A RL_2__inst (.q(R_2),.qL(RL_2),.d(P9_10),.clk(CLK),.rL(RESL));              //[PIX.NET:00328] RL_2_(R_2,RL_2) = FD2A(P9_10,CLK,RESL);
-FD2A RL_3__inst (.q(R_3),.qL(RL_3),.d(P9_11),.clk(CLK),.rL(RESL));              //[PIX.NET:00329] RL_3_(R_3,RL_3) = FD2A(P9_11,CLK,RESL);
-FD2A GL_0__inst (.q(G_0),.qL(GL_0),.d(P9_4),.clk(CLK),.rL(RESL));               //[PIX.NET:00330] GL_0_(G_0,GL_0) = FD2A(P9_4,CLK,RESL);
-FD2A GL_1__inst (.q(G_1),.qL(GL_1),.d(P9_5),.clk(CLK),.rL(RESL));               //[PIX.NET:00331] GL_1_(G_1,GL_1) = FD2A(P9_5,CLK,RESL);
-FD2A GL_2__inst (.q(G_2),.qL(GL_2),.d(P9_6),.clk(CLK),.rL(RESL));               //[PIX.NET:00332] GL_2_(G_2,GL_2) = FD2A(P9_6,CLK,RESL);
-FD2A GL_3__inst (.q(G_3),.qL(GL_3),.d(P9_7),.clk(CLK),.rL(RESL));               //[PIX.NET:00333] GL_3_(G_3,GL_3) = FD2A(P9_7,CLK,RESL);
-FD2A BL_0__inst (.q(B_0),.qL(BL_0),.d(P9_0),.clk(CLK),.rL(RESL));               //[PIX.NET:00334] BL_0_(B_0,BL_0) = FD2A(P9_0,CLK,RESL);
-FD2A BL_1__inst (.q(B_1),.qL(BL_1),.d(P9_1),.clk(CLK),.rL(RESL));               //[PIX.NET:00335] BL_1_(B_1,BL_1) = FD2A(P9_1,CLK,RESL);
-FD2A BL_2__inst (.q(B_2),.qL(BL_2),.d(P9_2),.clk(CLK),.rL(RESL));               //[PIX.NET:00336] BL_2_(B_2,BL_2) = FD2A(P9_2,CLK,RESL);
-FD2A BL_3__inst (.q(B_3),.qL(BL_3),.d(P9_3),.clk(CLK),.rL(RESL));               //[PIX.NET:00337] BL_3_(B_3,BL_3) = FD2A(P9_3,CLK,RESL);
+FD2A RL_0__inst (.MasterClock(MasterClock),.q(R_0),.qL(RL_0),.d(P9_8),.clk(CLK),.rL(RESL));//[PIX.NET:00326] RL_0_(R_0,RL_0) = FD2A(P9_8,CLK,RESL);
+FD2A RL_1__inst (.MasterClock(MasterClock),.q(R_1),.qL(RL_1),.d(P9_9),.clk(CLK),.rL(RESL));//[PIX.NET:00327] RL_1_(R_1,RL_1) = FD2A(P9_9,CLK,RESL);
+FD2A RL_2__inst (.MasterClock(MasterClock),.q(R_2),.qL(RL_2),.d(P9_10),.clk(CLK),.rL(RESL));//[PIX.NET:00328] RL_2_(R_2,RL_2) = FD2A(P9_10,CLK,RESL);
+FD2A RL_3__inst (.MasterClock(MasterClock),.q(R_3),.qL(RL_3),.d(P9_11),.clk(CLK),.rL(RESL));//[PIX.NET:00329] RL_3_(R_3,RL_3) = FD2A(P9_11,CLK,RESL);
+FD2A GL_0__inst (.MasterClock(MasterClock),.q(G_0),.qL(GL_0),.d(P9_4),.clk(CLK),.rL(RESL));//[PIX.NET:00330] GL_0_(G_0,GL_0) = FD2A(P9_4,CLK,RESL);
+FD2A GL_1__inst (.MasterClock(MasterClock),.q(G_1),.qL(GL_1),.d(P9_5),.clk(CLK),.rL(RESL));//[PIX.NET:00331] GL_1_(G_1,GL_1) = FD2A(P9_5,CLK,RESL);
+FD2A GL_2__inst (.MasterClock(MasterClock),.q(G_2),.qL(GL_2),.d(P9_6),.clk(CLK),.rL(RESL));//[PIX.NET:00332] GL_2_(G_2,GL_2) = FD2A(P9_6,CLK,RESL);
+FD2A GL_3__inst (.MasterClock(MasterClock),.q(G_3),.qL(GL_3),.d(P9_7),.clk(CLK),.rL(RESL));//[PIX.NET:00333] GL_3_(G_3,GL_3) = FD2A(P9_7,CLK,RESL);
+FD2A BL_0__inst (.MasterClock(MasterClock),.q(B_0),.qL(BL_0),.d(P9_0),.clk(CLK),.rL(RESL));//[PIX.NET:00334] BL_0_(B_0,BL_0) = FD2A(P9_0,CLK,RESL);
+FD2A BL_1__inst (.MasterClock(MasterClock),.q(B_1),.qL(BL_1),.d(P9_1),.clk(CLK),.rL(RESL));//[PIX.NET:00335] BL_1_(B_1,BL_1) = FD2A(P9_1,CLK,RESL);
+FD2A BL_2__inst (.MasterClock(MasterClock),.q(B_2),.qL(BL_2),.d(P9_2),.clk(CLK),.rL(RESL));//[PIX.NET:00336] BL_2_(B_2,BL_2) = FD2A(P9_2,CLK,RESL);
+FD2A BL_3__inst (.MasterClock(MasterClock),.q(B_3),.qL(BL_3),.d(P9_3),.clk(CLK),.rL(RESL));//[PIX.NET:00337] BL_3_(B_3,BL_3) = FD2A(P9_3,CLK,RESL);
 
 /* latch the mode */
 
-LD1A MODE_0__inst (.q(MODE_0),.qL(MODEL_0),.d(WD_0),.en(MODE));                 //[PIX.NET:00341] MODE_0_(MODE_0,MODEL_0) = LD1A(WD_0,MODE);
-LD1A MODE_1__inst (.q(MODE_1),.qL(MODEL_1),.d(WD_1),.en(MODE));                 //[PIX.NET:00342] MODE_1_(MODE_1,MODEL_1) = LD1A(WD_1,MODE);
-LD1A GENLOCK__inst (.q(GENLOCK),.qL(GENLOCKL),.d(WD_2),.en(MODE));              //[PIX.NET:00343] GENLOCK_(GENLOCK,GENLOCKL) = LD1A(WD_2,MODE);
-LD1A INCEN__inst (.q(INCEN),.qL(INCENL),.d(WD_3),.en(MODE));                    //[PIX.NET:00344] INCEN_(INCEN,INCENL) = LD1A(WD_3,MODE);
-LD1A BINC__inst (.q(BINC),.qL(BINCL),.d(WD_4),.en(MODE));                       //[PIX.NET:00345] BINC_(BINC,BINCL) = LD1A(WD_4,MODE);
-LD1A HOLD8__inst (.q(HOLD8),.qL(HOLD8L),.d(WD_5),.en(MODE));                    //[PIX.NET:00346] HOLD8_(HOLD8,HOLD8L) = LD1A(WD_5,MODE);
-LD1A VARRES__inst (.q(VARRES),.qL(VARRESL),.d(WD_6),.en(MODE));                 //[PIX.NET:00347] VARRES_(VARRES,VARRESL) = LD1A(WD_6,MODE);
-LD1A WRAP__inst (.q(NOWRAP),.qL(WRAP),.d(WD_7),.en(MODE));                      //[PIX.NET:00348] WRAP_(NOWRAP,WRAP) = LD1A(WD_7,MODE);
+LD1A MODE_0__inst (.MasterClock(MasterClock),.q(MODE_0),.qL(MODEL_0),.d(WD_0),.en(MODE));//[PIX.NET:00341] MODE_0_(MODE_0,MODEL_0) = LD1A(WD_0,MODE);
+LD1A MODE_1__inst (.MasterClock(MasterClock),.q(MODE_1),.qL(MODEL_1),.d(WD_1),.en(MODE));//[PIX.NET:00342] MODE_1_(MODE_1,MODEL_1) = LD1A(WD_1,MODE);
+LD1A GENLOCK__inst (.MasterClock(MasterClock),.q(GENLOCK),.qL(GENLOCKL),.d(WD_2),.en(MODE));//[PIX.NET:00343] GENLOCK_(GENLOCK,GENLOCKL) = LD1A(WD_2,MODE);
+LD1A INCEN__inst (.MasterClock(MasterClock),.q(INCEN),.qL(INCENL),.d(WD_3),.en(MODE));//[PIX.NET:00344] INCEN_(INCEN,INCENL) = LD1A(WD_3,MODE);
+LD1A BINC__inst (.MasterClock(MasterClock),.q(BINC),.qL(BINCL),.d(WD_4),.en(MODE));//[PIX.NET:00345] BINC_(BINC,BINCL) = LD1A(WD_4,MODE);
+LD1A HOLD8__inst (.MasterClock(MasterClock),.q(HOLD8),.qL(HOLD8L),.d(WD_5),.en(MODE));//[PIX.NET:00346] HOLD8_(HOLD8,HOLD8L) = LD1A(WD_5,MODE);
+LD1A VARRES__inst (.MasterClock(MasterClock),.q(VARRES),.qL(VARRESL),.d(WD_6),.en(MODE));//[PIX.NET:00347] VARRES_(VARRES,VARRESL) = LD1A(WD_6,MODE);
+LD1A WRAP__inst (.MasterClock(MasterClock),.q(NOWRAP),.qL(WRAP),.d(WD_7),.en(MODE));//[PIX.NET:00348] WRAP_(NOWRAP,WRAP) = LD1A(WD_7,MODE);
 
 assign LORES = ~(MODE_0 | MODE_1);                                              //[PIX.NET:00350] LORES_(LORES) = NR2A(MODE_0,MODE_1);
 assign MEDRES = ~(MODEL_0 | MODE_1);                                            //[PIX.NET:00351] MEDRES_(MEDRES) = NR2A(MODEL_0,MODE_1);
@@ -863,8 +863,8 @@ assign INC_0 = INCD | INCENL;                                                   
 
 /* delay by two clock ticks to match the pixel */
 
-FD2A INC_1__inst (.q(INC_1),.qL(INCL_1),.d(INC_0),.clk(CLK),.rL(RESL));         //[PIX.NET:00364] INC_1_(INC_1,INCL_1) = FD2A(INC_0,CLK,RESL);
-FD2A INC_2__inst (.q(INC_2),.qL(INCL_2),.d(INC_1),.clk(CLK),.rL(RESL));         //[PIX.NET:00365] INC_2_(INC_2,INCL_2) = FD2A(INC_1,CLK,RESL);
+FD2A INC_1__inst (.MasterClock(MasterClock),.q(INC_1),.qL(INCL_1),.d(INC_0),.clk(CLK),.rL(RESL));//[PIX.NET:00364] INC_1_(INC_1,INCL_1) = FD2A(INC_0,CLK,RESL);
+FD2A INC_2__inst (.MasterClock(MasterClock),.q(INC_2),.qL(INCL_2),.d(INC_1),.clk(CLK),.rL(RESL));//[PIX.NET:00365] INC_2_(INC_2,INCL_2) = FD2A(INC_1,CLK,RESL);
 
 
 assign outD_0 = (drv0_outD_0 & drv0_enD_0) | (drv1_outD_0 & drv1_enD_0);

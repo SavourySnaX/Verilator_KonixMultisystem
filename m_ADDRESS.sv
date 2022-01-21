@@ -170,15 +170,15 @@ wire drv1_enDD_8;                                                               
 
 
 assign LOADIX = ~(IXWRL | DQCLK);                                               //[ADDRESS.NET:00017] LOADIX_(LOADIX) = NR2C(IXWRL,DQCLK);
-LD1A IXREG_0__inst (.q(IX_0),.qL(IXL_0),.d(DDB_0),.en(LOADIX));                 //[ADDRESS.NET:00018] IXREG_0_(IX_0,IXL_0) = LD1A(DDB_0,LOADIX);
-LD1A IXREG_1__inst (.q(IX_1),.qL(IXL_1),.d(DDB_1),.en(LOADIX));                 //[ADDRESS.NET:00019] IXREG_1_(IX_1,IXL_1) = LD1A(DDB_1,LOADIX);
-LD1A IXREG_2__inst (.q(IX_2),.qL(IXL_2),.d(DDB_2),.en(LOADIX));                 //[ADDRESS.NET:00020] IXREG_2_(IX_2,IXL_2) = LD1A(DDB_2,LOADIX);
-LD1A IXREG_3__inst (.q(IX_3),.qL(IXL_3),.d(DDB_3),.en(LOADIX));                 //[ADDRESS.NET:00021] IXREG_3_(IX_3,IXL_3) = LD1A(DDB_3,LOADIX);
-LD1A IXREG_4__inst (.q(IX_4),.qL(IXL_4),.d(DDB_4),.en(LOADIX));                 //[ADDRESS.NET:00022] IXREG_4_(IX_4,IXL_4) = LD1A(DDB_4,LOADIX);
-LD1A IXREG_5__inst (.q(IX_5),.qL(IXL_5),.d(DDB_5),.en(LOADIX));                 //[ADDRESS.NET:00023] IXREG_5_(IX_5,IXL_5) = LD1A(DDB_5,LOADIX);
-LD1A IXREG_6__inst (.q(IX_6),.qL(IXL_6),.d(DDB_6),.en(LOADIX));                 //[ADDRESS.NET:00024] IXREG_6_(IX_6,IXL_6) = LD1A(DDB_6,LOADIX);
-LD1A IXREG_7__inst (.q(IX_7),.qL(IXL_7),.d(DDB_7),.en(LOADIX));                 //[ADDRESS.NET:00025] IXREG_7_(IX_7,IXL_7) = LD1A(DDB_7,LOADIX);
-LD1A IXREG_8__inst (.q(IX_8),.qL(IXL_8),.d(DDB_8),.en(LOADIX));                 //[ADDRESS.NET:00026] IXREG_8_(IX_8,IXL_8) = LD1A(DDB_8,LOADIX);
+LD1A IXREG_0__inst (.MasterClock(MasterClock),.q(IX_0),.qL(IXL_0),.d(DDB_0),.en(LOADIX));//[ADDRESS.NET:00018] IXREG_0_(IX_0,IXL_0) = LD1A(DDB_0,LOADIX);
+LD1A IXREG_1__inst (.MasterClock(MasterClock),.q(IX_1),.qL(IXL_1),.d(DDB_1),.en(LOADIX));//[ADDRESS.NET:00019] IXREG_1_(IX_1,IXL_1) = LD1A(DDB_1,LOADIX);
+LD1A IXREG_2__inst (.MasterClock(MasterClock),.q(IX_2),.qL(IXL_2),.d(DDB_2),.en(LOADIX));//[ADDRESS.NET:00020] IXREG_2_(IX_2,IXL_2) = LD1A(DDB_2,LOADIX);
+LD1A IXREG_3__inst (.MasterClock(MasterClock),.q(IX_3),.qL(IXL_3),.d(DDB_3),.en(LOADIX));//[ADDRESS.NET:00021] IXREG_3_(IX_3,IXL_3) = LD1A(DDB_3,LOADIX);
+LD1A IXREG_4__inst (.MasterClock(MasterClock),.q(IX_4),.qL(IXL_4),.d(DDB_4),.en(LOADIX));//[ADDRESS.NET:00022] IXREG_4_(IX_4,IXL_4) = LD1A(DDB_4,LOADIX);
+LD1A IXREG_5__inst (.MasterClock(MasterClock),.q(IX_5),.qL(IXL_5),.d(DDB_5),.en(LOADIX));//[ADDRESS.NET:00023] IXREG_5_(IX_5,IXL_5) = LD1A(DDB_5,LOADIX);
+LD1A IXREG_6__inst (.MasterClock(MasterClock),.q(IX_6),.qL(IXL_6),.d(DDB_6),.en(LOADIX));//[ADDRESS.NET:00024] IXREG_6_(IX_6,IXL_6) = LD1A(DDB_6,LOADIX);
+LD1A IXREG_7__inst (.MasterClock(MasterClock),.q(IX_7),.qL(IXL_7),.d(DDB_7),.en(LOADIX));//[ADDRESS.NET:00025] IXREG_7_(IX_7,IXL_7) = LD1A(DDB_7,LOADIX);
+LD1A IXREG_8__inst (.MasterClock(MasterClock),.q(IX_8),.qL(IXL_8),.d(DDB_8),.en(LOADIX));//[ADDRESS.NET:00026] IXREG_8_(IX_8,IXL_8) = LD1A(DDB_8,LOADIX);
 assign drv0_outDD_0 = ~IXL_0; assign drv0_enDD_0 = IXRD;                        //[ADDRESS.NET:00027] READIX_0_(DD_0) = BTS5B(IXL_0,IXRD);
 assign drv0_outDD_1 = ~IXL_1; assign drv0_enDD_1 = IXRD;                        //[ADDRESS.NET:00028] READIX_1_(DD_1) = BTS5B(IXL_1,IXRD);
 assign drv0_outDD_2 = ~IXL_2; assign drv0_enDD_2 = IXRD;                        //[ADDRESS.NET:00029] READIX_2_(DD_2) = BTS5B(IXL_2,IXRD);
@@ -191,15 +191,15 @@ assign drv0_outDD_8 = ~IXL_8; assign drv0_enDD_8 = IXRD;                        
 assign IXRD = ~IXRDL;                                                           //[ADDRESS.NET:00036] IXRD_(IXRD) = N1C(IXRDL);
 /* The Intrude address register */
 
-LD2A INTRA_0__inst (.q(INTRA_0),.qL(INTRAL_0),.d(A_1),.en(INTRALDL));           //[ADDRESS.NET:00039] INTRA_0_(INTRA_0,INTRAL_0) = LD2A(A_1,INTRALDL);
-LD2A INTRA_1__inst (.q(INTRA_1),.qL(INTRAL_1),.d(A_2),.en(INTRALDL));           //[ADDRESS.NET:00040] INTRA_1_(INTRA_1,INTRAL_1) = LD2A(A_2,INTRALDL);
-LD2A INTRA_2__inst (.q(INTRA_2),.qL(INTRAL_2),.d(A_3),.en(INTRALDL));           //[ADDRESS.NET:00041] INTRA_2_(INTRA_2,INTRAL_2) = LD2A(A_3,INTRALDL);
-LD2A INTRA_3__inst (.q(INTRA_3),.qL(INTRAL_3),.d(A_4),.en(INTRALDL));           //[ADDRESS.NET:00042] INTRA_3_(INTRA_3,INTRAL_3) = LD2A(A_4,INTRALDL);
-LD2A INTRA_4__inst (.q(INTRA_4),.qL(INTRAL_4),.d(A_5),.en(INTRALDL));           //[ADDRESS.NET:00043] INTRA_4_(INTRA_4,INTRAL_4) = LD2A(A_5,INTRALDL);
-LD2A INTRA_5__inst (.q(INTRA_5),.qL(INTRAL_5),.d(A_6),.en(INTRALDL));           //[ADDRESS.NET:00044] INTRA_5_(INTRA_5,INTRAL_5) = LD2A(A_6,INTRALDL);
-LD2A INTRA_6__inst (.q(INTRA_6),.qL(INTRAL_6),.d(A_7),.en(INTRALDL));           //[ADDRESS.NET:00045] INTRA_6_(INTRA_6,INTRAL_6) = LD2A(A_7,INTRALDL);
-LD2A INTRA_7__inst (.q(INTRA_7),.qL(INTRAL_7),.d(A_8),.en(INTRALDL));           //[ADDRESS.NET:00046] INTRA_7_(INTRA_7,INTRAL_7) = LD2A(A_8,INTRALDL);
-LD2A INTRA_8__inst (.q(INTRA_8),.qL(INTRAL_8),.d(A_9),.en(INTRALDL));           //[ADDRESS.NET:00047] INTRA_8_(INTRA_8,INTRAL_8) = LD2A(A_9,INTRALDL);
+LD2A INTRA_0__inst (.MasterClock(MasterClock),.q(INTRA_0),.qL(INTRAL_0),.d(A_1),.en(INTRALDL));//[ADDRESS.NET:00039] INTRA_0_(INTRA_0,INTRAL_0) = LD2A(A_1,INTRALDL);
+LD2A INTRA_1__inst (.MasterClock(MasterClock),.q(INTRA_1),.qL(INTRAL_1),.d(A_2),.en(INTRALDL));//[ADDRESS.NET:00040] INTRA_1_(INTRA_1,INTRAL_1) = LD2A(A_2,INTRALDL);
+LD2A INTRA_2__inst (.MasterClock(MasterClock),.q(INTRA_2),.qL(INTRAL_2),.d(A_3),.en(INTRALDL));//[ADDRESS.NET:00041] INTRA_2_(INTRA_2,INTRAL_2) = LD2A(A_3,INTRALDL);
+LD2A INTRA_3__inst (.MasterClock(MasterClock),.q(INTRA_3),.qL(INTRAL_3),.d(A_4),.en(INTRALDL));//[ADDRESS.NET:00042] INTRA_3_(INTRA_3,INTRAL_3) = LD2A(A_4,INTRALDL);
+LD2A INTRA_4__inst (.MasterClock(MasterClock),.q(INTRA_4),.qL(INTRAL_4),.d(A_5),.en(INTRALDL));//[ADDRESS.NET:00043] INTRA_4_(INTRA_4,INTRAL_4) = LD2A(A_5,INTRALDL);
+LD2A INTRA_5__inst (.MasterClock(MasterClock),.q(INTRA_5),.qL(INTRAL_5),.d(A_6),.en(INTRALDL));//[ADDRESS.NET:00044] INTRA_5_(INTRA_5,INTRAL_5) = LD2A(A_6,INTRALDL);
+LD2A INTRA_6__inst (.MasterClock(MasterClock),.q(INTRA_6),.qL(INTRAL_6),.d(A_7),.en(INTRALDL));//[ADDRESS.NET:00045] INTRA_6_(INTRA_6,INTRAL_6) = LD2A(A_7,INTRALDL);
+LD2A INTRA_7__inst (.MasterClock(MasterClock),.q(INTRA_7),.qL(INTRAL_7),.d(A_8),.en(INTRALDL));//[ADDRESS.NET:00046] INTRA_7_(INTRA_7,INTRAL_7) = LD2A(A_8,INTRALDL);
+LD2A INTRA_8__inst (.MasterClock(MasterClock),.q(INTRA_8),.qL(INTRAL_8),.d(A_9),.en(INTRALDL));//[ADDRESS.NET:00047] INTRA_8_(INTRA_8,INTRAL_8) = LD2A(A_9,INTRALDL);
 assign drv1_outDD_0 = ~INTRAL_0; assign drv1_enDD_0 = TRARD;                    //[ADDRESS.NET:00048] READINTRA_0_(DD_0) = BTS5B(INTRAL_0,TRARD);
 assign drv1_outDD_1 = ~INTRAL_1; assign drv1_enDD_1 = TRARD;                    //[ADDRESS.NET:00049] READINTRA_1_(DD_1) = BTS5B(INTRAL_1,TRARD);
 assign drv1_outDD_2 = ~INTRAL_2; assign drv1_enDD_2 = TRARD;                    //[ADDRESS.NET:00050] READINTRA_2_(DD_2) = BTS5B(INTRAL_2,TRARD);
@@ -231,15 +231,15 @@ m_MUX3 DAUN_8_ (.MasterClock(MasterClock),.A(PD_8),.B(IXA_8),.C(INTRA_8),.SEL_0(
 
 /* The pipeline latch */ 
 
-FD2A DA_0__inst (.q(DA_0),.qL(DAL_0),.d(DAUN_0),.clk(CLK),.rL(RESETL));         //[ADDRESS.NET:00079] DA_0_(DA_0,DAL_0) = FD2A(DAUN_0,CLK,RESETL);
-FD2A DA_1__inst (.q(DA_1),.qL(DAL_1),.d(DAUN_1),.clk(CLK),.rL(RESETL));         //[ADDRESS.NET:00080] DA_1_(DA_1,DAL_1) = FD2A(DAUN_1,CLK,RESETL);
-FD2A DA_2__inst (.q(DA_2),.qL(DAL_2),.d(DAUN_2),.clk(CLK),.rL(RESETL));         //[ADDRESS.NET:00081] DA_2_(DA_2,DAL_2) = FD2A(DAUN_2,CLK,RESETL);
-FD2A DA_3__inst (.q(DA_3),.qL(DAL_3),.d(DAUN_3),.clk(CLK),.rL(RESETL));         //[ADDRESS.NET:00082] DA_3_(DA_3,DAL_3) = FD2A(DAUN_3,CLK,RESETL);
-FD2A DA_4__inst (.q(DA_4),.qL(DAL_4),.d(DAUN_4),.clk(CLK),.rL(RESETL));         //[ADDRESS.NET:00083] DA_4_(DA_4,DAL_4) = FD2A(DAUN_4,CLK,RESETL);
-FD2A DA_5__inst (.q(DA_5),.qL(DAL_5),.d(DAUN_5),.clk(CLK),.rL(RESETL));         //[ADDRESS.NET:00084] DA_5_(DA_5,DAL_5) = FD2A(DAUN_5,CLK,RESETL);
-FD2A DA_6__inst (.q(DA_6),.qL(DAL_6),.d(DAUN_6),.clk(CLK),.rL(RESETL));         //[ADDRESS.NET:00085] DA_6_(DA_6,DAL_6) = FD2A(DAUN_6,CLK,RESETL);
-FD2A DA_7__inst (.q(DA_7),.qL(DAL_7),.d(DAUN_7),.clk(CLK),.rL(RESETL));         //[ADDRESS.NET:00086] DA_7_(DA_7,DAL_7) = FD2A(DAUN_7,CLK,RESETL);
-FD2A DA_8__inst (.q(DA_8),.qL(DAL_8),.d(DAUN_8),.clk(CLK),.rL(RESETL));         //[ADDRESS.NET:00087] DA_8_(DA_8,DAL_8) = FD2A(DAUN_8,CLK,RESETL);
+FD2A DA_0__inst (.MasterClock(MasterClock),.q(DA_0),.qL(DAL_0),.d(DAUN_0),.clk(CLK),.rL(RESETL));//[ADDRESS.NET:00079] DA_0_(DA_0,DAL_0) = FD2A(DAUN_0,CLK,RESETL);
+FD2A DA_1__inst (.MasterClock(MasterClock),.q(DA_1),.qL(DAL_1),.d(DAUN_1),.clk(CLK),.rL(RESETL));//[ADDRESS.NET:00080] DA_1_(DA_1,DAL_1) = FD2A(DAUN_1,CLK,RESETL);
+FD2A DA_2__inst (.MasterClock(MasterClock),.q(DA_2),.qL(DAL_2),.d(DAUN_2),.clk(CLK),.rL(RESETL));//[ADDRESS.NET:00081] DA_2_(DA_2,DAL_2) = FD2A(DAUN_2,CLK,RESETL);
+FD2A DA_3__inst (.MasterClock(MasterClock),.q(DA_3),.qL(DAL_3),.d(DAUN_3),.clk(CLK),.rL(RESETL));//[ADDRESS.NET:00082] DA_3_(DA_3,DAL_3) = FD2A(DAUN_3,CLK,RESETL);
+FD2A DA_4__inst (.MasterClock(MasterClock),.q(DA_4),.qL(DAL_4),.d(DAUN_4),.clk(CLK),.rL(RESETL));//[ADDRESS.NET:00083] DA_4_(DA_4,DAL_4) = FD2A(DAUN_4,CLK,RESETL);
+FD2A DA_5__inst (.MasterClock(MasterClock),.q(DA_5),.qL(DAL_5),.d(DAUN_5),.clk(CLK),.rL(RESETL));//[ADDRESS.NET:00084] DA_5_(DA_5,DAL_5) = FD2A(DAUN_5,CLK,RESETL);
+FD2A DA_6__inst (.MasterClock(MasterClock),.q(DA_6),.qL(DAL_6),.d(DAUN_6),.clk(CLK),.rL(RESETL));//[ADDRESS.NET:00085] DA_6_(DA_6,DAL_6) = FD2A(DAUN_6,CLK,RESETL);
+FD2A DA_7__inst (.MasterClock(MasterClock),.q(DA_7),.qL(DAL_7),.d(DAUN_7),.clk(CLK),.rL(RESETL));//[ADDRESS.NET:00086] DA_7_(DA_7,DAL_7) = FD2A(DAUN_7,CLK,RESETL);
+FD2A DA_8__inst (.MasterClock(MasterClock),.q(DA_8),.qL(DAL_8),.d(DAUN_8),.clk(CLK),.rL(RESETL));//[ADDRESS.NET:00087] DA_8_(DA_8,DAL_8) = FD2A(DAUN_8,CLK,RESETL);
 
 assign outDD_0 = (drv0_outDD_0 & drv0_enDD_0) | (drv1_outDD_0 & drv1_enDD_0);
 assign enDD_0 = drv0_enDD_0 | drv1_enDD_0;

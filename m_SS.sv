@@ -155,6 +155,7 @@ module m_SS
     output  XGPIOL_0,
     output  XGPIOL_1
 
+	 ,output CCLK
 
     ,output DQCLK
     ,output [13:0] LEFTDAC
@@ -247,7 +248,7 @@ wire [1:0] SCE;
 
 // Internal individual
 
-wire CCLK, ICCLK;
+wire /*CCLK, */ICCLK;
 
 wire TESTPIN,TESTPINL,TESTWR,TESTWRL;
 wire SCANEN,SCANENL,TRIDIS,TRIDISL,RAMDIS,RAMDISL,ALUTST,ALUTSTL,DATDIS,DATDISL;
@@ -414,7 +415,7 @@ m_DSP DSP_(
 
 /* Clock buffer */
 
-assign CCLK = ICCLK;    //CCLK_ (CCLK) = B1I (ICCLK);
+assign CCLK = ~ICCLK;    //CCLK_ (CCLK) = B1I (ICCLK);
 
 /* Test and Control Logic
    ----------------------
@@ -439,11 +440,11 @@ much.
 assign TESTPIN = ~TESTPINL;                         //TPININV_ (TESTPIN) = N1A (TESTPINL);
 assign TESTWR = ~(TESTWRL | TESTPIN);               //TESTWR_ (TESTWR) = NR2A (TESTWRL, TESTPIN);
 
-LD1A SCANEN_ (.q(SCANEN),.qL(SCANENL),.d(D[0]),.en(TESTWR));    //SCANEN_(SCANEN, SCANENL) = LD1A (D_0, TESTWR);
-LD1A TRIDIS_ (.q(TRIDIS),.qL(TRIDISL),.d(D[1]),.en(TESTWR));    //TRIDIS_(TRIDIS, TRIDISL) = LD1A (D_1, TESTWR);
-LD1A RAMDIS_ (.q(RAMDIS),.qL(RAMDISL),.d(D[2]),.en(TESTWR));    //RAMDIS_(RAMDIS, RAMDISL) = LD1A (D_2, TESTWR);
-LD1A ALUTST_ (.q(ALUTST),.qL(ALUTSTL),.d(D[3]),.en(TESTWR));    //ALUTST_(ALUTST, ALUTSTL) = LD1A (D_3, TESTWR);
-LD1A DATDIS_ (.q(DATDIS),.qL(DATDISL),.d(D[4]),.en(TESTWR));    //DATDIS_(DATDIS, DATDISL) = LD1A (D_4, TESTWR);
+LD1A SCANEN_ (.MasterClock(MasterClock), .q(SCANEN),.qL(SCANENL),.d(D[0]),.en(TESTWR));    //SCANEN_(SCANEN, SCANENL) = LD1A (D_0, TESTWR);
+LD1A TRIDIS_ (.MasterClock(MasterClock), .q(TRIDIS),.qL(TRIDISL),.d(D[1]),.en(TESTWR));    //TRIDIS_(TRIDIS, TRIDISL) = LD1A (D_1, TESTWR);
+LD1A RAMDIS_ (.MasterClock(MasterClock), .q(RAMDIS),.qL(RAMDISL),.d(D[2]),.en(TESTWR));    //RAMDIS_(RAMDIS, RAMDISL) = LD1A (D_2, TESTWR);
+LD1A ALUTST_ (.MasterClock(MasterClock), .q(ALUTST),.qL(ALUTSTL),.d(D[3]),.en(TESTWR));    //ALUTST_(ALUTST, ALUTSTL) = LD1A (D_3, TESTWR);
+LD1A DATDIS_ (.MasterClock(MasterClock), .q(DATDIS),.qL(DATDISL),.d(D[4]),.en(TESTWR));    //DATDIS_(DATDIS, DATDISL) = LD1A (D_4, TESTWR);
 
 /* Generate a special disable signal for the data bus which is active
 on the condition TRIDIS + (DATDIS . AIL_2) */
@@ -815,13 +816,5 @@ assign D = (DVIDo & DVIDe) | (DBLITo & DBLITe) | (DDSPo & DDSPe);
 assign PALD = (PALDVIDo & PALDVIDe) | (PALDRAMo & PALDRAMe);
 assign DD = (DDDSPo & DDDSPe) | (DDRAMo & DDRAMe) | (DDROMo & DDROMe);
 assign PD = (PDDSPo & PDDSPe) | (PDRAMo & PDRAMe);
-always @(posedge FCLK)
-begin
- //A <= (AVIDo & AVIDe) | (ABLITo & ABLITe) | (ADSPo & ADSPe);
- //D <= (DVIDo & DVIDe) | (DBLITo & DBLITe) | (DDSPo & DDSPe);
- //PALD <= (PALDVIDo & PALDVIDe) | (PALDRAMo & PALDRAMe);
- //DD <= (DDDSPo & DDDSPe) | (DDRAMo & DDRAMe) | (DDROMo & DDROMe);
- //PD <= (PDDSPo & PDDSPe) | (PDRAMo & PDRAMe);
-// XOEL <= OEL;
-end
+
 endmodule

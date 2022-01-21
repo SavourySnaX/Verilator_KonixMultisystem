@@ -153,7 +153,7 @@ assign COLSTOP = ~COLSTOPL;                                                     
 assign QT_0 = ~(QUIET & INLPL);                                                 //[STINNER.NET:00040] QT0_(QT_0) = ND2A(QUIET,INLPL);
 assign QT_1 = ~(DSTWR & CYCEND & INNER0);                                       //[STINNER.NET:00041] QT1_(QT_1) = ND3A(DSTWR,CYCEND,INNER0);
 assign IQUIET = ~(QT_0 & QT_1);                                                 //[STINNER.NET:00042] QT2_(IQUIET) = ND2A(QT_0,QT_1);
-FD4A QUIET__inst (.q(QUIET),.qL(QUIETL),.d(IQUIET),.clk(CCLK),.sL(SRESETL));    //[STINNER.NET:00043] QUIET_(QUIET,QUIETL) = FD4A(IQUIET,CCLK,SRESETL);
+FD4A QUIET__inst (.MasterClock(MasterClock),.q(QUIET),.qL(QUIETL),.d(IQUIET),.clk(CCLK),.sL(SRESETL));//[STINNER.NET:00043] QUIET_(QUIET,QUIETL) = FD4A(IQUIET,CCLK,SRESETL);
 
 /* Source read cycle */
 
@@ -162,7 +162,7 @@ assign SRT_1 = ~(QUIET & INLP & SRCEN);                                         
 assign SRT_2 = ~(SRCRD & CYCENDL);                                              //[STINNER.NET:00049] SRT2_(SRT_2) = ND2A(SRCRD,CYCENDL);
 assign SRT_3 = ~(DSTWR & CYCEND & INNER0L & SRCEN);                             //[STINNER.NET:00050] SRT3_(SRT_3) = ND4A(DSTWR,CYCEND,INNER0L,SRCEN);
 assign ISRCRD = ~(SRT_0 & SRT_1 & SRT_2 & SRT_3);                               //[STINNER.NET:00051] SRT4_(ISRCRD) = ND4A(SRT_0,SRT_1,SRT_2,SRT_3);
-FD2A SRCRD__inst (.q(SRCRD),.qL(SRCRDL),.d(ISRCRD),.clk(CCLK),.rL(SRESETL));    //[STINNER.NET:00052] SRCRD_(SRCRD,SRCRDL) = FD2A(ISRCRD,CCLK,SRESETL);
+FD2A SRCRD__inst (.MasterClock(MasterClock),.q(SRCRD),.qL(SRCRDL),.d(ISRCRD),.clk(CCLK),.rL(SRESETL));//[STINNER.NET:00052] SRCRD_(SRCRD,SRCRDL) = FD2A(ISRCRD,CCLK,SRESETL);
 
 /* Destination read cycle */
 
@@ -171,7 +171,7 @@ assign DRT_1 = ~(SRCRD & CYCEND & DSTEN);                                       
 assign DRT_2 = ~(DSTRD & CYCENDL);                                              //[STINNER.NET:00058] DRT2_(DRT_2) = ND2A(DSTRD,CYCENDL);
 assign DRT_3 = ~(DSTWR & CYCEND & INNER0L & SRCENL & DSTEN);                    //[STINNER.NET:00059] DRT3_(DRT_3) = ND5A(DSTWR,CYCEND,INNER0L,SRCENL,DSTEN);
 assign IDSTRD = ~(DRT_0 & DRT_1 & DRT_2 & DRT_3);                               //[STINNER.NET:00060] DRT4_(IDSTRD) = ND4A(DRT_0,DRT_1,DRT_2,DRT_3);
-FD2A DSTRD__inst (.q(DSTRD),.qL(DSTRDL),.d(IDSTRD),.clk(CCLK),.rL(SRESETL));    //[STINNER.NET:00061] DSTRD_(DSTRD,DSTRDL) = FD2A(IDSTRD,CCLK,SRESETL);
+FD2A DSTRD__inst (.MasterClock(MasterClock),.q(DSTRD),.qL(DSTRDL),.d(IDSTRD),.clk(CCLK),.rL(SRESETL));//[STINNER.NET:00061] DSTRD_(DSTRD,DSTRDL) = FD2A(IDSTRD,CCLK,SRESETL);
 
 /* Destination write cycle */
 
@@ -182,7 +182,7 @@ assign DWT_3 = ~(DSTWR & CYCENDL);                                              
 assign DWT_4 = ~(DSTWR & CYCEND & INNER0L & DSTENL & SRCENL);                   //[STINNER.NET:00069] DWT4_(DWT_4) = ND5A(DSTWR,CYCEND,INNER0L,DSTENL,SRCENL);
 assign DWT_5 = ~(STOP & RESUME);                                                //[STINNER.NET:00070] DWT5_(DWT_5) = ND2A(STOP,RESUME);
 assign IDSTWR = ~(DWT_0 & DWT_1 & DWT_2 & DWT_3 & DWT_4 & DWT_5);               //[STINNER.NET:00071] DWT6_(IDSTWR) = ND6B(DWT_0,DWT_1,DWT_2,DWT_3,DWT_4,DWT_5);
-FD2A DSTWR__inst (.q(DSTWR),.qL(DSTWRL),.d(IDSTWR),.clk(CCLK),.rL(SRESETL));    //[STINNER.NET:00072] DSTWR_(DSTWR,DSTWRL) = FD2A(IDSTWR,CCLK,SRESETL);
+FD2A DSTWR__inst (.MasterClock(MasterClock),.q(DSTWR),.qL(DSTWRL),.d(IDSTWR),.clk(CCLK),.rL(SRESETL));//[STINNER.NET:00072] DSTWR_(DSTWR,DSTWRL) = FD2A(IDSTWR,CCLK,SRESETL);
 
 /* Collision stop state */
 
@@ -190,7 +190,7 @@ assign STT_0 = ~(DSTRD & CYCEND & COLSTOP);                                     
 assign STT_1 = ~(SRCRD & CYCEND & COLSTOP & DSTENL);                            //[STINNER.NET:00077] STT1_(STT_1) = ND4A(SRCRD,CYCEND,COLSTOP,DSTENL);
 assign STT_2 = ~(STOP & RESUMEL);                                               //[STINNER.NET:00078] STT2_(STT_2) = ND2A(STOP,RESUMEL);
 assign ISTOP = ~(STT_0 & STT_1 & STT_2);                                        //[STINNER.NET:00079] STT3_(ISTOP) = ND3A(STT_0,STT_1,STT_2);
-FD2A STOP__inst (.q(STOP),.qL(STOPL),.d(ISTOP),.clk(CCLK),.rL(SRESETL));        //[STINNER.NET:00080] STOP_(STOP,STOPL) = FD2A(ISTOP,CCLK,SRESETL);
+FD2A STOP__inst (.MasterClock(MasterClock),.q(STOP),.qL(STOPL),.d(ISTOP),.clk(CCLK),.rL(SRESETL));//[STINNER.NET:00080] STOP_(STOP,STOPL) = FD2A(ISTOP,CCLK,SRESETL);
 
 /* Decodes from state */
 
@@ -202,7 +202,7 @@ assign INCRQ = IDSTRD | ISRCRD | IDSTWR;                                        
    write cycle.  */
 
 assign IINCLKL = ~(ICYCST & IDSTWR);                                            //[STINNER.NET:00091] INCKGEN_(IINCLKL) = ND2A(ICYCST,IDSTWR);
-FD1A INCKLAT__inst (.q(INCLKL),.qL(INCLK),.d(IINCLKL),.clk(CCLK));              //[STINNER.NET:00092] INCKLAT_(INCLKL,INCLK) = FD1A(IINCLKL,CCLK);
+FD1A INCKLAT__inst (.MasterClock(MasterClock),.q(INCLKL),.qL(INCLK),.d(IINCLKL),.clk(CCLK));//[STINNER.NET:00092] INCKLAT_(INCLKL,INCLK) = FD1A(IINCLKL,CCLK);
 
 /* The source address register is updated in the last cycle of a source
 address read.  It is also updated in the first cycle of a destination
@@ -212,14 +212,14 @@ outer loop, given by iupdsrcL */
 assign SUT_0 = ~(SRCRD & ICYCEND);                                              //[STINNER.NET:00099] SUT_0_(SUT_0) = ND2A(SRCRD,ICYCEND);
 assign SUT_1 = ~(IDSTWR & ICYCST & LINDR);                                      //[STINNER.NET:00100] SUT_1_(SUT_1) = ND3A(IDSTWR,ICYCST,LINDR);
 assign SUT_2 = ~(IUPDSRCL & SUT_0 & SUT_1);                                     //[STINNER.NET:00101] SUT_2_(SUT_2) = ND3B(IUPDSRCL,SUT_0,SUT_1);
-FD1A UPDSRC__inst (.q(UPDSRC),.qL(UPDSRCL),.d(SUT_2),.clk(CCLK));               //[STINNER.NET:00102] UPDSRC_(UPDSRC,UPDSRCL) = FD1A(SUT_2,CCLK);
+FD1A UPDSRC__inst (.MasterClock(MasterClock),.q(UPDSRC),.qL(UPDSRCL),.d(SUT_2),.clk(CCLK));//[STINNER.NET:00102] UPDSRC_(UPDSRC,UPDSRCL) = FD1A(SUT_2,CCLK);
 
 /* A load strobe is produced from this active only for the second
 half of the clock cycle.  This is because it can immediately follow
 the previous source update (the add back) as with addbldL */
 
-FD1A SUT3__inst (.q(SUTL_3),.qL(SUT_3),.d(UPDSRCL),.clk(CCLKL));                //[STINNER.NET:00108] SUT3_(SUTL_3,SUT_3) = FD1A(UPDSRCL,CCLKL);
-FD1A SUT4__inst (.q(SUT_4),.qL(SUTL_4),.d(SUT_3),.clk(CCLK));                   //[STINNER.NET:00109] SUT4_(SUT_4,SUTL_4) = FD1A(SUT_3,CCLK);
+FD1A SUT3__inst (.MasterClock(MasterClock),.q(SUTL_3),.qL(SUT_3),.d(UPDSRCL),.clk(CCLKL));//[STINNER.NET:00108] SUT3_(SUTL_3,SUT_3) = FD1A(UPDSRCL,CCLKL);
+FD1A SUT4__inst (.MasterClock(MasterClock),.q(SUT_4),.qL(SUTL_4),.d(SUT_3),.clk(CCLK));//[STINNER.NET:00109] SUT4_(SUT_4,SUTL_4) = FD1A(SUT_3,CCLK);
 assign UPSLDL = ~(SUT_3 & SUTL_4);                                              //[STINNER.NET:00110] UPSLDL_(UPSLDL) = ND2A(SUT_3,SUTL_4);
 
 /* The source address can also perfrom the local addback in line
@@ -234,8 +234,8 @@ assign ADDBACKL = ~(LINDR & DSTWR & BORROW & CYCEND);                           
 half of the clock cycle.  This is because it can immediately follow
 the previous source update (the subtraction) */
 
-FD1A ABD_0__inst (.q(ABTL_0),.qL(ABT_0),.d(ADDBACKL),.clk(CCLKL));              //[STINNER.NET:00124] ABD_0_(ABTL_0,ABT_0) = FD1A(ADDBACKL,CCLKL);
-FD1A ABT_1__inst (.q(ABT_1),.qL(ABTL_1),.d(ABT_0),.clk(CCLK));                  //[STINNER.NET:00125] ABT_1_(ABT_1,ABTL_1) = FD1A(ABT_0,CCLK);
+FD1A ABD_0__inst (.MasterClock(MasterClock),.q(ABTL_0),.qL(ABT_0),.d(ADDBACKL),.clk(CCLKL));//[STINNER.NET:00124] ABD_0_(ABTL_0,ABT_0) = FD1A(ADDBACKL,CCLKL);
+FD1A ABT_1__inst (.MasterClock(MasterClock),.q(ABT_1),.qL(ABTL_1),.d(ABT_0),.clk(CCLK));//[STINNER.NET:00125] ABT_1_(ABT_1,ABTL_1) = FD1A(ABT_0,CCLK);
 assign ADDBLDL = ~(ABT_0 & ABTL_1);                                             //[STINNER.NET:00126] ADDBLDL_(ADDBLDL) = ND2A(ABT_0,ABTL_1);
 
 /* The destination address register update will always occur on
@@ -244,30 +244,30 @@ in the outer loop, given by iupddstL */
 
 assign DUT_0 = ~(DSTWR & ICYCEND);                                              //[STINNER.NET:00132] DUT_0_(DUT_0) = ND2A(DSTWR,ICYCEND);
 assign DUT_1 = ~(IUPDDSTL & DUT_0);                                             //[STINNER.NET:00133] DUT_1_(DUT_1) = ND2A(IUPDDSTL,DUT_0);
-FD1A UPDDST__inst (.q(UPDDST),.qL(UPDDSTL),.d(DUT_1),.clk(CCLK));               //[STINNER.NET:00134] UPDDST_(UPDDST,UPDDSTL) = FD1A(DUT_1,CCLK);
+FD1A UPDDST__inst (.MasterClock(MasterClock),.q(UPDDST),.qL(UPDDSTL),.d(DUT_1),.clk(CCLK));//[STINNER.NET:00134] UPDDST_(UPDDST,UPDDSTL) = FD1A(DUT_1,CCLK);
 
 /* The source data register is loaded in the last cycle of the source
 read cycle, when the pattern data is loaded and also at reset */
 
 assign LSTL = ~(ICYCEND & SRCRD & LINDRL);                                      //[STINNER.NET:00139] LDSTRM_(LSTL) = ND3A(ICYCEND,SRCRD,LINDRL);
 assign ILDSRC = ~(ILDPATL & LSTL);                                              //[STINNER.NET:00140] LDSGEN_(ILDSRC) = ND2A(ILDPATL,LSTL);
-FD1A LDSLATCH__inst (.q(LDSRCT),.qL(LDSRCTL),.d(ILDSRC),.clk(CCLK));            //[STINNER.NET:00141] LDSLATCH_(LDSRCT,LDSRCTL) = FD1A(ILDSRC,CCLK);
+FD1A LDSLATCH__inst (.MasterClock(MasterClock),.q(LDSRCT),.qL(LDSRCTL),.d(ILDSRC),.clk(CCLK));//[STINNER.NET:00141] LDSLATCH_(LDSRCT,LDSRCTL) = FD1A(ILDSRC,CCLK);
 assign LDSRCL = ~(LDSRCT | RESET);                                              //[STINNER.NET:00142] LDSRCL_(LDSRCL) = NR2C(LDSRCT,RESET);
 
 /* When the source data register is loading pattern data, it must load
 data from the low byte of the data bus into the high byte of the
 register */
 
-FD1A LHT_0__inst (.q(LHT_0),.qL(LHT_1),.d(ILDPATL),.clk(CCLK));                 //[STINNER.NET:00148] LHT_0_(LHT_0,LHT_1) = FD1A(ILDPATL,CCLK);
+FD1A LHT_0__inst (.MasterClock(MasterClock),.q(LHT_0),.qL(LHT_1),.d(ILDPATL),.clk(CCLK));//[STINNER.NET:00148] LHT_0_(LHT_0,LHT_1) = FD1A(ILDPATL,CCLK);
 assign LHT_2 = ~(ILDPATL & LHT_0);                                              //[STINNER.NET:00149] LHT_2_(LHT_2) = ND2A(ILDPATL,LHT_0);
-FD1A SRCLTOH__inst (.q(SRCLTOH),.qL(SRCLTOHL),.d(LHT_2),.clk(CCLK));            //[STINNER.NET:00150] SRCLTOH_(SRCLTOH,SRCLTOHL) = FD1A(LHT_2,CCLK);
+FD1A SRCLTOH__inst (.MasterClock(MasterClock),.q(SRCLTOH),.qL(SRCLTOHL),.d(LHT_2),.clk(CCLK));//[STINNER.NET:00150] SRCLTOH_(SRCLTOH,SRCLTOHL) = FD1A(LHT_2,CCLK);
 
 /* The destination data register is loaded in the last cycle of the
 destination read cycle, and again also when pattern data is loaded */
 
 assign LDTL = ~(ICYCEND & DSTRD);                                               //[STINNER.NET:00155] LDDDEC0_(LDTL) = ND2A(ICYCEND,DSTRD);
 assign ILDDST = ~(ILDPATL & LDTL);                                              //[STINNER.NET:00156] LDTGEN_(ILDDST) = ND2A(ILDPATL,LDTL);
-FD1A LDDLATCH__inst (.q(LDDST),.qL(LDDSTL),.d(ILDDST),.clk(CCLK));              //[STINNER.NET:00157] LDDLATCH_(LDDST,LDDSTL) = FD1A(ILDDST,CCLK);
+FD1A LDDLATCH__inst (.MasterClock(MasterClock),.q(LDDST),.qL(LDDSTL),.d(ILDDST),.clk(CCLK));//[STINNER.NET:00157] LDDLATCH_(LDDST,LDDSTL) = FD1A(ILDDST,CCLK);
 
 /* The two halves of the source data byte nust be swapped in hires or lores
 if the -1 bits of the two addresses are different (given by nibdif, below).
@@ -285,7 +285,7 @@ state machine is inactive (in case there are no source reads) */
 
 assign STLDT = SRCRD & CYCST;                                                   //[STINNER.NET:00173] STLDT_(STLDT) = AND2A(SRCRD,CYCST);
 assign STLDL = ~(STLDT | QUIET);                                                //[STINNER.NET:00174] STLDL_(STLDL) = NR2A(STLDT,QUIET);
-LD2A SALATCH__inst (.q(SAM1DL),.qL(SAM1D),.d(SAM1L),.en(STLDL));                //[STINNER.NET:00175] SALATCH_(SAM1DL,SAM1D) = LD2A(SAM1L,STLDL);
+LD2A SALATCH__inst (.MasterClock(MasterClock),.q(SAM1DL),.qL(SAM1D),.d(SAM1L),.en(STLDL));//[STINNER.NET:00175] SALATCH_(SAM1DL,SAM1D) = LD2A(SAM1L,STLDL);
 assign DAM1 = ~DAM1L;                                                           //[STINNER.NET:00176] AINV_(DAM1) = N1A(DAM1L);
 assign NIBDIFL = ~((DAM1L & SAM1D)|(DAM1 & SAM1DL));                            //[STINNER.NET:00177] NDGEN_(NIBDIFL) = AO2B(DAM1L,SAM1D,DAM1,SAM1DL);
 

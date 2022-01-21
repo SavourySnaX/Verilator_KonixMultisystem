@@ -1,22 +1,38 @@
-module m_top
+
+module m_konix
 (
-    input FCLK,             // Ultimately will need to be all clocks rather than deriving the clocks internally from slipstream
-    input RESET,
+	input         clk_sys,
+	input			  XTAL,
+	input         reset,
+	
+	output CLK_VIDEO,
+	output reg CE_PIXEL,
+	output [7:0] VGA_G,
+	output [7:0] VGA_R,
+   output [7:0] VGA_B,
 
-    output reg [19:0] ABus,         // For hooking up ram
-    output reg Write,
-    output reg Word,
-    output reg Read,
-    input [15:0] inRamData,
-    output reg [15:0] outRamData,
-
-    output reg Chroma,              // Video
-    output reg VSyncL,
-    output reg HSyncL,
-    output reg [3:0] Red,
-    output reg [3:0] Green,
-    output reg [3:0] Blue
+	output VGA_DE,
+	output VGA_HS,
+	output VGA_VS
+	
 );
+
+wire [19:0] ABus	/*synthesis keep*/;
+wire Write,Word,Read 	/*synthesis keep*/;
+wire [15:0] inRamData,outRamData 	/*synthesis keep*/;
+wire [15:0] sR 	/*synthesis keep*/;
+wire [7:0] dR,rR 	/*synthesis keep*/;
+
+wire SRam;
+wire DRam;
+wire Rom;
+
+wire HSync;
+wire VSync;
+wire ce_pix;
+wire [7:0] video;
+
+wire blanking;
 
 wire [7:0] XAD, SS_outXAD, SS_enXAD;
 wire [19:8] XA, SS_outXA, SS_enXA;
@@ -28,14 +44,13 @@ wire [17:16] latchedUpperXA;
 wire [2:0] joy, enjoy;
 wire io,enio;
 
-wire blanking;
-
+wire HSyncL,VSyncL;
 wire enVSyncL,enHSyncL;
 
-wire IOM,ALE,INTA,HLDA,XTAL,RDL,WRL,PCLK,HOLD,INTR;
-wire INTAL;
+wire IOM,ALE,INTA,HLDA,/*XTAL,*/RDL,WRL,PCLK,HOLD,INTR 	/*synthesis keep*/;
+wire INTAL 	/*synthesis keep*/;
 wire [1:0] ScreenChipEnableL, ChipSelectLow;
-wire SlipStreamWriteL;
+wire SlipStreamWriteL 	/*synthesis keep*/;
 wire leftL,leftH,rightL,rightH;
 
 wire inc,aiSel,oeL,casL,xtalo;
@@ -46,14 +61,52 @@ wire [13:0] leftDAC,rightDAC;
 
 wire dtr,den;
 
-assign INTA=~INTAL;
-
-wire [19:0] cpuA;
+wire [19:0] cpuA	/*synthesis keep*/;
 wire [7:0] cpuDOut;
 wire [7:0] cpuDIn;
 
-wire [19:0] slipAddress;
-wire [19:0] slipAddressVideo;
+wire [19:0] slipAddress /*synthesis keep*/;
+wire [19:0] slipAddressVideo /*synthesis keep*/;
+
+//reg HLDA;
+/// Ram Chips
+
+ram #(.addr_width(16),.data_width(16),.file("sram.mem")) SRAM (
+  .clk(clk_sys),
+  .din(outRamData),
+  .addr(ABus[16:1]),
+  .cs(SRam),
+  .oe(SRam),
+  .wr(Write),
+  .Q(sR)
+);
+
+ram #(.addr_width(18),.data_width(8),.file("dram.mem")) DRAM (
+  .clk(clk_sys),
+  .din(outRamData[7:0]),
+  .addr(ABus[17:0]),
+  .cs(DRam),
+  .oe(DRam),
+  .wr(Write),
+  .Q(dR)
+);
+
+ram #(.addr_width(3),.data_width(8),.file("rom.mem")) ROM (
+  .clk(clk_sys),
+  .din(outRamData[7:0]),
+  .addr(ABus[2:0]),
+  .cs(Rom),
+  .oe(Rom),
+  .wr(Write),
+  .Q(rR)
+);
+
+assign Rom = ABus[19] & ABus[18];
+assign SRam = ~ABus[19] & ~ABus[18];
+assign DRam = ABus[19] & ~ABus[18];
+assign inRamData = {sR[15:8], (dR[7:0] & {8{DRam}})|(sR[7:0] & {8{SRam}})|(rR[7:0] & {8{Rom}})};
+
+assign INTA=~INTAL;
 
 assign slipAddressVideo = {2'b00,latchedUpperXA,SS_outXA[15:8],latchedLowXA};
 
@@ -62,40 +115,53 @@ assign XA = cpuA[19:8];
 assign XD = inRamData[15:8];
 assign ABus = (cpuA & {20{~HLDA}}) | ({20{HLDA}} & (slipAddress & {20{~Word}}) | (slipAddressVideo & {20{Word}}));
 assign Word = ScreenChipEnableL==2'b00;
-assign Write = (~SlipStreamWriteL) | (~WRL & ~IOM);
-assign Read = (~oeL) | (~RDL & ~IOM);
+assign Write = (~SlipStreamWriteL) | ((~WRL) & (~IOM) & (~HLDA));
+assign Read = (~oeL) | ((~RDL) & (~IOM) & (~HLDA));
 
 assign cpuDIn = (inRamData[7:0] & (~SS_enXAD)) | (SS_outXAD & SS_enXAD);
 
 assign outRamData = ({SS_outXD,SS_outXAD} & {16{HLDA}}) | (cpuDOut & ({16{~HLDA}}));
 
-//reg [3:0] cnt;
-reg [1:0] cnt;
-reg DCLK;
+reg [1:0] cnt=2'b0;
+reg DCLK=1'b0;
 
-always @(posedge FCLK)
+wire CCLK;
+
+reg [1:0] chromaEdge=2'b00;
+
+always @(posedge clk_sys)
 begin
-    cnt <= cnt + 1;
-//    if (cnt==4'b111)
+    cnt <= cnt + 2'b01;
     if (cnt==2'b11)
     begin
-        cnt<=0;
         DCLK<=~DCLK;
     end
+	 
+	 chromaEdge <= chromaEdge << 1;
+	 chromaEdge[0] <= CCLK;
+	 
+	 if (chromaEdge[1]==1'b1 && chromaEdge[0]==1'b0)
+		CE_PIXEL <= 1'b1;
+	 else
+		CE_PIXEL <= 1'b0;
+
 end
 
-assign XTAL = DCLK; // TODO pick a divisor
+//assign XTAL = DCLK; // TODO pick a divisor
+
+wire [3:0] Red,Green,Blue;
+wire Chroma;
 
 /* verilator lint_off UNOPTFLAT */
 
 m_SS SlipStream(
-    .MasterClock(FCLK),
+	 .MasterClock(clk_sys),
     .inXAD_0(XAD[0]),.inXAD_1(XAD[1]),.inXAD_2(XAD[2]),.inXAD_3(XAD[3]),.inXAD_4(XAD[4]),.inXAD_5(XAD[5]),.inXAD_6(XAD[6]),.inXAD_7(XAD[7]),
     .inXA_8(XA[8]),.inXA_9(XA[9]),.inXA_10(XA[10]),.inXA_11(XA[11]),.inXA_12(XA[12]),.inXA_13(XA[13]),.inXA_14(XA[14]),.inXA_15(XA[15]),
     .inXD_8(XD[8]),.inXD_9(XD[9]),.inXD_10(XD[10]),.inXD_11(XD[11]),.inXD_12(XD[12]),.inXD_13(XD[13]),.inXD_14(XD[14]),.inXD_15(XD[15]),
     .inXVSYNCL(1),.inXHSYNCL(1),.inXJOYL_0(1),.inXJOYL_1(1),.inXJOYL_2(0),.inXDSP_IO(0),.XAI_0(1),.XAI_1(1),.XAI_2(1),
     .XAS_16(XA[16]),.XAS_17(XA[17]),.XAS_18(XA[18]),.XAS_19(XA[19]),
-    .XRESET(RESET),
+    .XRESET(reset),
     .XIOM(IOM),.XALE(ALE),.XINTA(INTA),.XHLDA(HLDA),.XXTAL(XTAL),.XLPL(1),.XTESTPIN(0),.XRDL(RDL),.XWRL(WRL),.XINTR(INTR),
 
     .outXAD_0(SS_outXAD[0]),.outXAD_1(SS_outXAD[1]),.outXAD_2(SS_outXAD[2]),.outXAD_3(SS_outXAD[3]),.outXAD_4(SS_outXAD[4]),.outXAD_5(SS_outXAD[5]),.outXAD_6(SS_outXAD[6]),.outXAD_7(SS_outXAD[7]),
@@ -120,21 +186,34 @@ m_SS SlipStream(
     .XB_0(Blue[0]),.XB_1(Blue[1]),.XB_2(Blue[2]),.XB_3(Blue[3]),
     .XCHROMA(Chroma),.XLEFTL(leftL),.XLEFTH(leftH),.XRIGHTL(rightL),.XRIGHTH(rightH),
     .XINC(inc),.XAISEL(aiSel),.XOEL(oeL),.XCASL(casL),.XXTALO(xtalo),.XGPIOL_0(gpioL[0]),.XGPIOL_1(gpioL[1]),
+	 .CCLK(CCLK),
     .DQCLK(qclk),.LEFTDAC(leftDAC),.RIGHTDAC(rightDAC),
-    .FCLK(FCLK),
-    .SLIPADDRESS(slipAddress),
-    .BLANKING(blanking)
+    .FCLK(clk_sys),
+    .SLIPADDRESS(slipAddress)
+	 ,.BLANKING(blanking)
     );
 
+/* verilator lint_on UNOPTFLAT */
+/*
+wire processorHeldClock;
 
+assign processorHeldClock = (~HLDA) & PCLK;
+
+always @(negedge PCLK)
+begin
+  HLDA<=(HOLD & RDL & WRL) | (HOLD & HLDA);
+end
+
+wire HLDAnever;
+*/
 m8088 Processor(
-    .CORE_CLK(FCLK),
+    .CORE_CLK(clk_sys),
     .CLK(PCLK),
-    .RESET(RESET),
+    .RESET(reset),
 
-    .READY(1),
+    .READY(1'b1),
     .INTR(INTR),
-    .NMI(0),
+    .NMI(1'b0),
     .HOLD(HOLD),
 
     .addr(cpuA),
@@ -151,4 +230,28 @@ m8088 Processor(
     .HOLDA(HLDA)
 );
 
+assign CLK_VIDEO = clk_sys;
+
+assign VGA_DE = ~blanking;
+assign VGA_HS = ~HSyncL;
+assign VGA_VS = ~VSyncL;
+
+assign VGA_G  = Green<<4;//(!col || col == 2) ? video : 8'd0;
+assign VGA_R  = Red<<4;//(!col || col == 1) ? video : 8'd0;
+assign VGA_B  = Blue<<4;//(!col || col == 3) ? video : 8'd0;
+/*
+always @(posedge clk_sys)
+begin
+	CE_PIXEL = Chroma;
+
+	VGA_DE = ~blanking;
+	VGA_HS = ~HSyncL;
+	VGA_VS = ~VSyncL;
+
+	VGA_G  = Green<<4;//(!col || col == 2) ? video : 8'd0;
+	VGA_R  = Red<<4;//(!col || col == 1) ? video : 8'd0;
+	VGA_B  = Blue<<4;//(!col || col == 3) ? video : 8'd0;
+	
+end
+*/
 endmodule
