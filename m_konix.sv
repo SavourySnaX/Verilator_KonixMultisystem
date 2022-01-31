@@ -71,16 +71,35 @@ wire [19:0] slipAddressVideo /*synthesis keep*/;
 //reg HLDA;
 /// Ram Chips
 
-ram #(.addr_width(16),.data_width(16),.file("sram.mem")) SRAM (
+wire [7:0] sramInEven, sramInOdd, sramOutEven, sramOutOdd;
+
+// On RAM BOARD - 32k 8bit * 4 (so in principal the board could direct 8 bit accesses for cpu)
+ram #(.addr_width(16),.data_width(8),.file("sramE.mem")) SRAME (
   .clk(clk_sys),
-  .din(outRamData),
+  .din(sramInEven),
   .addr(ABus[16:1]),
-  .cs(SRam),
-  .oe(SRam),
+  .cs(SRam & (HLDA | (~ABus[0]))),
+  .oe(SRam & (HLDA | (~ABus[0]))),
   .wr(Write),
-  .Q(sR)
+  .Q(sramOutEven)
 );
 
+ram #(.addr_width(16),.data_width(8),.file("sramO.mem")) SRAMO (
+  .clk(clk_sys),
+  .din(sramInOdd),
+  .addr(ABus[16:1]),
+  .cs(SRam & (HLDA | (ABus[0]))),
+  .oe(SRam & (HLDA | (ABus[0]))),
+  .wr(Write),
+  .Q(sramOutOdd)
+);
+
+assign sramInEven = outRamData[7:0];
+assign sramInOdd = (outRamData[15:8] & {8{HLDA}}) | (outRamData[7:0] & {8{~HLDA}});
+
+assign sR = {sramOutOdd,(sramOutEven & {8{HLDA}}) | (sramOutOdd & {8{~HLDA}})};
+
+// On RAM BOARD - 256k 4bit * 2
 ram #(.addr_width(18),.data_width(8),.file("dram.mem")) DRAM (
   .clk(clk_sys),
   .din(outRamData[7:0]),
@@ -91,6 +110,7 @@ ram #(.addr_width(18),.data_width(8),.file("dram.mem")) DRAM (
   .Q(dR)
 );
 
+// 16K 8bit * 1 (NOT MAPPED YET)
 ram #(.addr_width(3),.data_width(8),.file("rom.mem")) ROM (
   .clk(clk_sys),
   .din(outRamData[7:0]),

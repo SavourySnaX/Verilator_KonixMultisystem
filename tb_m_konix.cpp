@@ -6,8 +6,10 @@
 #define VIDEO_OUT   1
 #define TRACE_ON    1
 
-#define FRAME_START 0
-#define FRAME_STOP  2
+#define FRAME_START 20
+#define FRAME_STOP  21
+
+int gTrace=0;
 
 int xtalCnt=0;
 int xtal=0;
@@ -16,20 +18,29 @@ void tick(Vm_konix *tb, VerilatedVcdC* trace, int ticks)
 {
     tb->clk_sys=1;
 #if TRACE_ON
-    trace->dump(ticks*10-2);
+    if (gTrace)
+    {
+        trace->dump(ticks*10-2);
+    }
 #endif
     tb->eval();
 #if TRACE_ON
-    trace->dump(ticks*10);
+    if (gTrace)
+    {
+        trace->dump(ticks*10);
+    }
 #endif
     tb->clk_sys=0;
     tb->eval();
 #if TRACE_ON
-    trace->dump(ticks*10+5);
-    trace->flush();
+    if (gTrace)
+    {
+        trace->dump(ticks*10+5);
+        trace->flush();
+    }
 #endif
     xtalCnt++;
-    if (xtalCnt>5)
+    if (xtalCnt>2)
     {
         tb->XTAL = (~tb->XTAL)&1;
         xtalCnt=0;
@@ -105,6 +116,8 @@ int ProcessVideo(Vm_konix *tb)
                 waitingForFrameStart=0;
                 virtFrameNum++;
                 printf("Found Frame Start %d\n", virtFrameNum);
+                if (virtFrameNum==FRAME_START)
+                    gTrace=1;
                 if (virtFrameNum==FRAME_STOP)
                     return 1;
                 sprintf(filename, "pics/PIXELS%03d.data", virtFrameNum);
