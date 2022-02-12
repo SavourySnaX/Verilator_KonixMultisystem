@@ -4,15 +4,27 @@ module BD4TNOD
     input   EN,
     input   TN,
     input   PI,
-    output  O,
-    output  E,
-    output  ZI,
-    output  PO
+    output  reg O,
+    output  reg E,
+    output  reg ZI,
+    output  reg PO,
+
+    input   MasterClock
 );
 
-assign PO = ~((~I) & PI);
-assign ZI = ~I;
-assign E = ~(~((~EN) & TN));
-assign O = E ? 1'b0 : I;
+always @(posedge MasterClock)
+begin
+
+PO <= ~((~I) & PI);
+ZI <= ~I;
+E <= ~(~((~EN) & TN));
+O <= E ? 1'b0 : I;
+
+end
+
+//assign PO = ~((~I) & PI);
+//assign ZI = ~I;
+//assign E = ~(~((~EN) & TN));
+//assign O = E ? 1'b0 : I;
 
 endmodule

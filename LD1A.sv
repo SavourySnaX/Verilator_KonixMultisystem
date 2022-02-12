@@ -8,16 +8,8 @@ module LD1A
     output reg q,
     output reg qL
 );
-/*
-always @(en or d)
-begin
-    if (en)
-    begin
-        q=d;
-        qL=~d;
-    end
-end
-*/
+
+`ifdef USE_MCLOCK_TIME_LATCH
 
 always @(posedge MasterClock)
 begin
@@ -27,5 +19,18 @@ begin
         qL<=~d;
     end
 end
+
+`else
+
+always @(en or d)
+begin
+    if (en)
+    begin
+        q=d;
+        qL=~d;
+    end
+end
+
+`endif
 
 endmodule

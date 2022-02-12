@@ -14,23 +14,26 @@ reg latchedData = 1'b0;
 assign q = latchedData;
 assign qL = ~latchedData;
 
+`ifdef USE_MCLOCK_TIME
+
+reg old_clock;
+
+always @(posedge MasterClock)
+begin
+	old_clock<=clk;
+	if (old_clock==0 && clk==1)
+    	latchedData <= d;
+end
+
+`else
+
 always @(posedge clk)
 begin	
 	latchedData <= d;
 end
 
-/*
-reg [1:0] transition= 1'b00;
 
-//always @(posedge clk)
-always @(posedge MasterClock)
-begin
-	transition <= transition<<1;
-	transition[0]<=clk;
-	if (transition[1]==1 && transition[0]==0)
-    	latchedData <= d;
-end
-*/
+`endif
 endmodule
 
 

@@ -12,7 +12,6 @@ This module provides the video timing in the SLIPSTREAM chip on the ACW
 
 
 
-/* verilator lint_off UNOPTFLAT */
 module m_VTIM                                                                   //[VTIM.NET:00015] MODULE VTIM;
 (                                                                               //[VTIM.NET:00015] MODULE VTIM;
 

@@ -12,7 +12,6 @@ arithmetic logic.
 **************************************************************************/
 
 
-/* verilator lint_off UNOPTFLAT */
 module m_ADDR                                                                   //[ADDR.NET:00015] MODULE ADDR;
 (                                                                               //[ADDR.NET:00015] MODULE ADDR;
 

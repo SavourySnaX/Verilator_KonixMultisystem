@@ -111,7 +111,8 @@ $(MODULE).vcd: ./$(MODULE).obj_dir/V$(MODULE)
 ./$(MODULE).obj_dir/.$(MODULE).stamp.verilate: $(MODULE).sv tb_$(MODULE).cpp
 	@echo
 	@echo "### VERILATING ###"
-	verilator -y my8088 --Mdir ./$(MODULE).obj_dir -Wall -Wno-WIDTH -Wno-unused -Wno-UNOPTFLAT --trace $(VL_DEBUG) -cc $(MODULE).sv --exe tb_$(MODULE).cpp
+	verilator -y my8088 --Mdir ./$(MODULE).obj_dir -Wall -Wno-UNUSED -Wno-WIDTH -Wno-UNOPTFLAT -Wno-BLKSEQ --trace $(VL_DEBUG) -cc $(MODULE).sv --exe tb_$(MODULE).cpp
+	#verilator -y my8088 --Mdir ./$(MODULE).obj_dir -Wall -Wno-UNUSED -Wno-WIDTH -Wno-BLKSEQ --trace $(VL_DEBUG) -cc $(MODULE).sv --exe tb_$(MODULE).cpp
 	@touch ./$(MODULE).obj_dir/.$(MODULE).stamp.verilate
 
 .PHONY:lint

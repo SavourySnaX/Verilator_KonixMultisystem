@@ -1,3 +1,6 @@
+//`define USE_MCLOCK_TIME
+`define USE_MCLOCK_TIME_LATCH
+
 
 module m_konix
 (
@@ -13,9 +16,24 @@ module m_konix
 
 	output VGA_DE,
 	output VGA_HS,
-	output VGA_VS
+	output VGA_VS,
+	
+	input 			ioctl_wr,
+	input [26:0]	ioctl_addr,
+	input	[7:0]		ioctl_dout,
+	input				ioctl_download,
+	input	[15:0]	ioctl_index,
+	output 			ioctl_wait
 	
 );
+
+wire internalReset;
+reg P88LoadReset = 1'b0;
+
+assign internalReset = reset | P88LoadReset;
+
+//reg XTAL;
+//reg [7:0] XTALcnt;
 
 wire [19:0] ABus	/*synthesis keep*/;
 wire Write,Word,Read 	/*synthesis keep*/;
@@ -73,40 +91,56 @@ wire [19:0] slipAddressVideo /*synthesis keep*/;
 
 wire [7:0] sramInEven, sramInOdd, sramOutEven, sramOutOdd;
 
+
+// MOVE TO NEW FILE (we should really verify this thing)
+
+reg internalWrite;
+
+reg oldDownload;
+
+reg [19:0] address;	// used for writing to rams
+reg [15:0] length;	// used for writing to rams
+reg [4:0]  state;
+reg [15:0] seg;		// used for setting up rom reboot address (for now, perhaps ultimately we just poke the cpu
+reg [15:0] off;
+reg [15:0] tcalc;
+
+reg [7:0] byteToWrite;
+
 // On RAM BOARD - 32k 8bit * 4 (so in principal the board could direct 8 bit accesses for cpu)
-ram #(.addr_width(16),.data_width(8),.file("sramE.mem")) SRAME (
+ram #(.addr_width(16),.data_width(8),.file("sramE.mem")) SRAME /*synthesis keep*/(
   .clk(clk_sys),
   .din(sramInEven),
-  .addr(ABus[16:1]),
-  .cs(SRam & (HLDA | (~ABus[0]))),
-  .oe(SRam & (HLDA | (~ABus[0]))),
-  .wr(Write),
+  .addr(slipAddressVideo[16:1]),
+  .cs(~ScreenChipEnableL[0]),
+  .oe(~(oeL | ScreenChipEnableL[0])),
+  .wr(~(SlipStreamWriteL | ScreenChipEnableL[0])),
   .Q(sramOutEven)
 );
 
-ram #(.addr_width(16),.data_width(8),.file("sramO.mem")) SRAMO (
+ram #(.addr_width(16),.data_width(8),.file("sramO.mem")) SRAMO /*synthesis keep*/(
   .clk(clk_sys),
   .din(sramInOdd),
-  .addr(ABus[16:1]),
-  .cs(SRam & (HLDA | (ABus[0]))),
-  .oe(SRam & (HLDA | (ABus[0]))),
-  .wr(Write),
+  .addr(slipAddressVideo[16:1]),
+  .cs(~ScreenChipEnableL[1]),
+  .oe(~(oeL | ScreenChipEnableL[1])),
+  .wr(~(SlipStreamWriteL | ScreenChipEnableL[1])),
   .Q(sramOutOdd)
 );
 
 assign sramInEven = outRamData[7:0];
-assign sramInOdd = (outRamData[15:8] & {8{HLDA}}) | (outRamData[7:0] & {8{~HLDA}});
+assign sramInOdd = outRamData[15:8];//(outRamData[15:8] & {8{HLDA}}) | (outRamData[7:0] & {8{~HLDA}});
 
-assign sR = {sramOutOdd,(sramOutEven & {8{HLDA}}) | (sramOutOdd & {8{~HLDA}})};
+assign sR = {sramOutOdd,sramOutEven};//(sramOutEven & {8{HLDA}}) | (sramOutOdd & {8{~HLDA}})};
 
 // On RAM BOARD - 256k 4bit * 2
 ram #(.addr_width(18),.data_width(8),.file("dram.mem")) DRAM (
   .clk(clk_sys),
   .din(outRamData[7:0]),
-  .addr(ABus[17:0]),
-  .cs(DRam),
-  .oe(DRam),
-  .wr(Write),
+  .addr(slipAddressVideo[17:0]),
+  .cs((~ChipSelectLow[0]) | internalReset ),
+  .oe(~(oeL | ChipSelectLow[0])),
+  .wr((~(SlipStreamWriteL | ChipSelectLow[0])) | (internalWrite)),
   .Q(dR)
 );
 
@@ -114,10 +148,10 @@ ram #(.addr_width(18),.data_width(8),.file("dram.mem")) DRAM (
 ram #(.addr_width(3),.data_width(8),.file("rom.mem")) ROM (
   .clk(clk_sys),
   .din(outRamData[7:0]),
-  .addr(ABus[2:0]),
-  .cs(Rom),
-  .oe(Rom),
-  .wr(Write),
+  .addr(slipAddressVideo[2:0]),
+  .cs(~ChipSelectLow[1]),
+  .oe(~(oeL | ChipSelectLow[1])),
+  .wr(0),
   .Q(rR)
 );
 
@@ -128,7 +162,8 @@ assign inRamData = {sR[15:8], (dR[7:0] & {8{DRam}})|(sR[7:0] & {8{SRam}})|(rR[7:
 
 assign INTA=~INTAL;
 
-assign slipAddressVideo = {2'b00,latchedUpperXA,SS_outXA[15:8],latchedLowXA};
+assign slipAddressVideo = ({18{~internalReset}} & {2'b00,latchedUpperXA,SS_outXA[15:8],latchedLowXA}) |
+								  ({18{internalReset}} & address[17:0]);
 
 assign XAD = (inRamData[7:0] & {8{HLDA}}) | (((cpuA[7:0] & {8{ALE}} & ({8{~HLDA}})) | (cpuDOut & {8{~ALE}})) & ({8{~HLDA}}));
 assign XA = cpuA[19:8];
@@ -140,27 +175,20 @@ assign Read = (~oeL) | ((~RDL) & (~IOM) & (~HLDA));
 
 assign cpuDIn = (inRamData[7:0] & (~SS_enXAD)) | (SS_outXAD & SS_enXAD);
 
-assign outRamData = ({SS_outXD,SS_outXAD} & {16{HLDA}}) | (cpuDOut & ({16{~HLDA}}));
+assign outRamData = ({16{~internalReset}} & ({SS_outXD,SS_outXAD} & {16{HLDA}}) | ({16{~internalReset}} & cpuDOut & ({16{~HLDA}}))) | 
+					({16{internalReset}} & byteToWrite);
 
 reg [1:0] cnt=2'b0;
-reg DCLK=1'b0;
 
 wire CCLK;
 
-reg [1:0] chromaEdge=2'b00;
+reg lastEdge=1'b0;
 
 always @(posedge clk_sys)
 begin
-    cnt <= cnt + 2'b01;
-    if (cnt==2'b11)
-    begin
-        DCLK<=~DCLK;
-    end
+	 lastEdge <= CCLK;
 	 
-	 chromaEdge <= chromaEdge << 1;
-	 chromaEdge[0] <= CCLK;
-	 
-	 if (chromaEdge[1]==1'b1 && chromaEdge[0]==1'b0)
+	 if (lastEdge==1'b1 && CCLK==1'b0)
 		CE_PIXEL <= 1'b1;
 	 else
 		CE_PIXEL <= 1'b0;
@@ -172,7 +200,8 @@ end
 wire [3:0] Red,Green,Blue;
 wire Chroma;
 
-/* verilator lint_off UNOPTFLAT */
+
+// IOM/WRL/RDL gated with HLDA to simulate floating bus (with pull up/down) that would have occured with real cpu
 
 m_SS SlipStream(
 	 .MasterClock(clk_sys),
@@ -181,8 +210,8 @@ m_SS SlipStream(
     .inXD_8(XD[8]),.inXD_9(XD[9]),.inXD_10(XD[10]),.inXD_11(XD[11]),.inXD_12(XD[12]),.inXD_13(XD[13]),.inXD_14(XD[14]),.inXD_15(XD[15]),
     .inXVSYNCL(1),.inXHSYNCL(1),.inXJOYL_0(1),.inXJOYL_1(1),.inXJOYL_2(0),.inXDSP_IO(0),.XAI_0(1),.XAI_1(1),.XAI_2(1),
     .XAS_16(XA[16]),.XAS_17(XA[17]),.XAS_18(XA[18]),.XAS_19(XA[19]),
-    .XRESET(reset),
-    .XIOM(IOM),.XALE(ALE),.XINTA(INTA),.XHLDA(HLDA),.XXTAL(XTAL),.XLPL(1),.XTESTPIN(0),.XRDL(RDL),.XWRL(WRL),.XINTR(INTR),
+    .XRESET(internalReset),
+    .XIOM(IOM & (~HLDA)),.XALE(ALE),.XINTA(INTA),.XHLDA(HLDA),.XXTAL(XTAL),.XLPL(1),.XTESTPIN(0),.XRDL(RDL | HLDA),.XWRL(WRL | HLDA),.XINTR(INTR),
 
     .outXAD_0(SS_outXAD[0]),.outXAD_1(SS_outXAD[1]),.outXAD_2(SS_outXAD[2]),.outXAD_3(SS_outXAD[3]),.outXAD_4(SS_outXAD[4]),.outXAD_5(SS_outXAD[5]),.outXAD_6(SS_outXAD[6]),.outXAD_7(SS_outXAD[7]),
     .outXA_8(SS_outXA[8]),.outXA_9(SS_outXA[9]),.outXA_10(SS_outXA[10]),.outXA_11(SS_outXA[11]),.outXA_12(SS_outXA[12]),.outXA_13(SS_outXA[13]),.outXA_14(SS_outXA[14]),.outXA_15(SS_outXA[15]),
@@ -213,7 +242,6 @@ m_SS SlipStream(
 	 ,.BLANKING(blanking)
     );
 
-/* verilator lint_on UNOPTFLAT */
 /*
 wire processorHeldClock;
 
@@ -229,7 +257,7 @@ wire HLDAnever;
 m8088 Processor(
     .CORE_CLK(clk_sys),
     .CLK(PCLK),
-    .RESET(reset),
+    .RESET(internalReset),
 
     .READY(1'b1),
     .INTR(INTR),
@@ -274,4 +302,138 @@ begin
 	
 end
 */
+
+
+// MOVE TO NEW FILE (we should really verify this thing)
+
+
+always @(posedge clk_sys)
+begin
+
+	oldDownload<=ioctl_download;
+	
+	if (oldDownload==1'b0 && ioctl_download==1'b1)
+	begin
+		P88LoadReset<=1'b1;
+		state <= 5'b000;
+	end
+	
+	if (oldDownload==1'b1 && ioctl_download==1'b0)
+	begin
+		P88LoadReset<=1'b0;
+		state <= 5'b1111;
+	end
+
+	if (ioctl_wr | ioctl_wait) 
+	begin
+	
+		case (state)
+			5'b00000:		// Read command
+				begin
+					if (ioctl_dout == 8'hC8)
+						state <= 5'b00001;
+					else if (ioctl_dout == 8'hCA)
+						state <= 5'b01010;
+				end
+			5'b00001:		// Load Section Segment L  START C8
+				begin
+					state <= 5'b00010;
+					tcalc[7:0] <= ioctl_dout;
+				end
+			5'b00010:		// Load Section Segment H
+				begin
+					state <= 5'b00011;
+					tcalc[15:8] <= ioctl_dout;
+				end
+			5'b00011:		// Load Section Offset L
+				begin
+					state <= 5'b00100;
+					address<={4'b0000,tcalc}*16;
+					tcalc[7:0] <= ioctl_dout;
+				end
+			5'b00100:		// Load Section Offset H
+				begin
+					state <= 5'b00101;
+					tcalc[15:8] <= ioctl_dout;
+				end
+			5'b00101:		// skip byte
+				begin
+					state <= 5'b00110;
+					address<=address + {4'b0000,tcalc};
+					tcalc[7:0] <= ioctl_dout;
+				end
+			5'b00110:		// skip byte
+				begin
+					state <= 5'b00111;
+					tcalc[7:0] <= ioctl_dout;
+				end
+			5'b00111:		// Load Length L
+				begin
+					state <= 5'b01000;
+					length[7:0] <= ioctl_dout;
+				end
+			5'b01000:		// Load Length H
+				begin
+					state <= 5'b10000;	// Goto download bytes loop
+					length[15:8] <= ioctl_dout;
+				end
+				
+			5'b01010:		// Load Section Segment L  START CA
+				begin
+					state <= 5'b01011;
+					seg[7:0] <= ioctl_dout;
+				end
+			5'b01011:		// Load Section Segment H
+				begin
+					state <= 5'b01100;
+					seg[15:8] <= ioctl_dout;
+				end
+			5'b01100:		// Load Section Offset L
+				begin
+					state <= 5'b01101;
+					off[7:0] <= ioctl_dout;
+				end
+			5'b01101:		// Load Section Offset H
+				begin
+					state <= 5'b0000;		// for now will always boot 80000
+					//state <= 5'b11000;	// Goto Write ROM
+					off[15:8] <= ioctl_dout;
+				end
+				
+			5'b10000:						// RAM write loop
+				begin
+					state <= 5'b10001;
+					byteToWrite <= ioctl_dout;
+					ioctl_wait <= 1;
+					internalWrite <= 1;
+				end
+			5'b10001:	
+				begin
+					state <= 5'b10010;	// delay for write signal
+					internalWrite <= 0;
+				end
+			5'b10010:	
+				begin
+					state <= 5'b10011;
+					address <= address + 1;
+					length <= length - 1;
+				end
+			5'b10011:
+				begin
+					ioctl_wait <= 0;
+					if (length==0)
+						state<=5'b00000;
+					else
+						state<=5'b10000;
+				end
+				
+			default:
+				begin
+				end
+		endcase
+	end
+		
+end
+
+
 endmodule

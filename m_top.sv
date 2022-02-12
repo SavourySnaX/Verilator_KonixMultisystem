@@ -86,8 +86,6 @@ end
 
 assign XTAL = DCLK; // TODO pick a divisor
 
-/* verilator lint_off UNOPTFLAT */
-
 m_SS SlipStream(
     .MasterClock(FCLK),
     .inXAD_0(XAD[0]),.inXAD_1(XAD[1]),.inXAD_2(XAD[2]),.inXAD_3(XAD[3]),.inXAD_4(XAD[4]),.inXAD_5(XAD[5]),.inXAD_6(XAD[6]),.inXAD_7(XAD[7]),

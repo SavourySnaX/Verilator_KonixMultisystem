@@ -333,8 +333,8 @@ assign RDWRL_1 = ~(A_18 & A_19 & MEML_2 & PSCE);                                
 
 /* generate refresh RAS if dram installed */
 
-assign VRASL_0 = ~(VRAS & MEM_0 & MEML_1);                                      //[MEM.NET:00205] VRASL_0_(VRASL_0) = ND3A(VRAS,MEM_0,MEML_1);
-assign VRASL_1 = ~(VRAS & MEM_2 & MEML_3);                                      //[MEM.NET:00206] VRASL_1_(VRASL_1) = ND3A(VRAS,MEM_2,MEML_3);
+assign VRASL_0 = 1;//~(VRAS & MEM_0 & MEML_1);                                      //[MEM.NET:00205] VRASL_0_(VRASL_0) = ND3A(VRAS,MEM_0,MEML_1);
+assign VRASL_1 = 1;//~(VRAS & MEM_2 & MEML_3);                                      //[MEM.NET:00206] VRASL_1_(VRASL_1) = ND3A(VRAS,MEM_2,MEML_3);
 
 /* combine refresh RAS and chip select */
 

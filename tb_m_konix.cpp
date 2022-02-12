@@ -6,8 +6,8 @@
 #define VIDEO_OUT   1
 #define TRACE_ON    1
 
-#define FRAME_START 20
-#define FRAME_STOP  21
+#define FRAME_START 3
+#define FRAME_STOP  2
 
 int gTrace=0;
 
@@ -105,7 +105,7 @@ char filename[128];
 int ProcessVideo(Vm_konix *tb)
 {
 #if VIDEO_OUT
-    if ( ((lastChroma==1) && (tb->CE_PIXEL==0)) || ((lastChroma==0) && (tb->CE_PIXEL==1)) )
+    if ( /*((lastChroma==1) && (tb->CE_PIXEL==0)) ||*/ ((lastChroma==0) && (tb->CE_PIXEL==1)) )
     {
         // can now look at other signals
 
@@ -142,7 +142,7 @@ int ProcessVideo(Vm_konix *tb)
                     lineNum++;
                 }
 
-                if (lineNum>0 && HCnt<562)
+                if (lineNum>0 && HCnt<640)
                 {
                     // output pixel
                     int red = tb->VGA_R;
@@ -178,7 +178,6 @@ int ProcessVideo(Vm_konix *tb)
 }
 #endif
 
-
 int main(int argc, char** argv)
 {
 	Verilated::commandArgs(argc,argv);
@@ -194,6 +193,14 @@ int main(int argc, char** argv)
 	trace->open(TRACE_FILE);
 #endif
 
+    if (virtFrameNum==FRAME_START)
+        gTrace=1;
+
+    tb->ioctl_wr=0;
+    tb->ioctl_addr=0;
+    tb->ioctl_download=0;
+    tb->ioctl_index=0;
+    tb->ioctl_dout=0;
     tb->XTAL=0;
     tb->reset=1;
 
@@ -202,6 +209,37 @@ int main(int argc, char** argv)
     ticks = doNTicks(tb,trace,ticks,1000);
 
     tb->reset=0;
+
+// Load P88 (so we don't need to bother with initialising memory files anymore)
+    if (0)
+    {
+        FILE *p88 = fopen("/home/snax/Work/AOTMC89/LINE.P88", "rb");
+        fseek(p88,0,SEEK_END);
+        long size = ftell(p88);
+        fseek(p88,0,SEEK_SET);
+
+        tb->ioctl_download=1;   // Start of download
+        ticks = doNTicks(tb, trace, ticks, 1);
+
+        while (size!=0)
+        {
+            // Check for Wait Condition
+            if (tb->ioctl_wait==0)
+            {
+                // Read a byte
+                size -= fread(&tb->ioctl_dout,1,1,p88);
+                tb->ioctl_wr=1;
+        
+                ticks = doNTicks(tb, trace, ticks, 1);
+                tb->ioctl_wr=0;
+            }
+            else
+            {
+                ticks = doNTicks(tb, trace, ticks, 1);
+            }
+        }
+        tb->ioctl_download=0;
+    }
 
     while (true)
     {
@@ -212,6 +250,15 @@ int main(int argc, char** argv)
 #if TRACE_ON
 	trace->close();
 #endif
+
+    // Dump VRAM contents
+    for (int y=0;y<11;y++)
+    {
+        for (int x=0;x<256;x++)
+        {
+//            printf("%02X", x&1?tb->SRAM)
+        }
+    }
 
 	exit(EXIT_SUCCESS);
 }

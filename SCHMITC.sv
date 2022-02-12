@@ -2,12 +2,22 @@ module SCHMITC
 (
     input A,
     input PI,
-    output Z,
-    output PO
+    output reg Z,
+    output reg PO,
+
+    input MasterClock
 );
 
-assign Z = A;
-assign PO = ~(PI & A); 
+always @(posedge MasterClock)
+begin
+
+    Z <= A;
+    PO <= ~(PI & A); 
+
+end
+
+//assign Z = A;
+//assign PO = ~(PI & A); 
 
 endmodule
 

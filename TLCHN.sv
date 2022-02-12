@@ -4,11 +4,21 @@ module TLCHN
 (
     input I,
     input PI,
-    output O,
-    output PO
+    output reg O,
+    output reg PO,
+
+    input MasterClock
 );
 
-assign PO = ~(PI & O);
-assign O = ~I;
+always @(posedge MasterClock)
+begin
+
+    PO <= ~(PI & O);
+    O <= ~I;
+
+end
+
+//assign PO = ~(PI & O);
+//assign O = ~I;
 
 endmodule

@@ -162,17 +162,17 @@ module m_SS
     ,output [13:0] RIGHTDAC
 
     ,input FCLK
-    ,output [19:0] SLIPADDRESS
+    ,output reg [19:0] SLIPADDRESS
 	 
 	 ,output BLANKING
 );
 
 // COMBINED FROM OUTS
-wire [19:0] A;
-wire [15:0] D;
-wire [15:0] PALD;
-wire [15:0] DD;
-wire [15:0] PD;
+reg [19:0] A;
+reg [15:0] D;
+reg [15:0] PALD;
+reg [15:0] DD;
+reg [15:0] PD;
 
 // For Joining bidirectional buses
 wire [19:0] AVIDo;
@@ -648,66 +648,66 @@ MBRA14AA PALRAM_(.WR(PWE),.CS1(PALCS),.CS2(POE),.DI(PALD),.A(PA[7:0]),.SO(VRAMSO
 
 /* Processor multiplexed address and data bus */
 
-BD4TNR AD_0(.O(outXAD_0),.E(enXAD_0),.ZI(VADL[0]),.PO(TESTI[26]),.I(inXAD_0),.A(VAD[0]),.EN(DDIS),.TN(ADEN),.PI(TESTI[25]));     //AD_0_(XAD_0, VADL_0, TESTI_26) = &BD4TNR (XAD_0, VAD_0, DDIS, ADEN, TESTI_25);
-BD4TNR AD_1(.O(outXAD_1),.E(enXAD_1),.ZI(VADL[1]),.PO(TESTI[24]),.I(inXAD_1),.A(VAD[1]),.EN(DDIS),.TN(ADEN),.PI(TESTI[23]));     //AD_1_(XAD_1, VADL_1, TESTI_24) = &BD4TNR (XAD_1, VAD_1, DDIS, ADEN, TESTI_23);
-BD4TNR AD_2(.O(outXAD_2),.E(enXAD_2),.ZI(VADL[2]),.PO(TESTI[23]),.I(inXAD_2),.A(VAD[2]),.EN(DDIS),.TN(ADEN),.PI(TESTI[22]));     //AD_2_(XAD_2, VADL_2, TESTI_23) = &BD4TNR (XAD_2, VAD_2, DDIS, ADEN, TESTI_22);
-BD4TNR AD_3(.O(outXAD_3),.E(enXAD_3),.ZI(VADL[3]),.PO(TESTI[22]),.I(inXAD_3),.A(VAD[3]),.EN(DDIS),.TN(ADEN),.PI(TESTI[21]));     //AD_3_(XAD_3, VADL_3, TESTI_22) = &BD4TNR (XAD_3, VAD_3, DDIS, ADEN, TESTI_21);
-BD4TNR AD_4(.O(outXAD_4),.E(enXAD_4),.ZI(VADL[4]),.PO(TESTI[20]),.I(inXAD_4),.A(VAD[4]),.EN(DDIS),.TN(ADEN),.PI(TESTI[19]));     //AD_4_(XAD_4, VADL_4, TESTI_20) = &BD4TNR (XAD_4, VAD_4, DDIS, ADEN, TESTI_19);
-BD4TNR AD_5(.O(outXAD_5),.E(enXAD_5),.ZI(VADL[5]),.PO(TESTI[18]),.I(inXAD_5),.A(VAD[5]),.EN(DDIS),.TN(ADEN),.PI(TESTI[17]));     //AD_5_(XAD_5, VADL_5, TESTI_18) = &BD4TNR (XAD_5, VAD_5, DDIS, ADEN, TESTI_17);
-BD4TNR AD_6(.O(outXAD_6),.E(enXAD_6),.ZI(VADL[6]),.PO(TESTI[16]),.I(inXAD_6),.A(VAD[6]),.EN(DDIS),.TN(ADEN),.PI(TESTI[15]));     //AD_6_(XAD_6, VADL_6, TESTI_16) = &BD4TNR (XAD_6, VAD_6, DDIS, ADEN, TESTI_15);
-BD4TNR AD_7(.O(outXAD_7),.E(enXAD_7),.ZI(VADL[7]),.PO(TESTI[15]),.I(inXAD_7),.A(VAD[7]),.EN(DDIS),.TN(ADEN),.PI(TESTI[14]));     //AD_7_(XAD_7, VADL_7, TESTI_15) = &BD4TNR (XAD_7, VAD_7, DDIS, ADEN, TESTI_14);
+BD4TNR AD_0(.MasterClock(MasterClock), .O(outXAD_0),.E(enXAD_0),.ZI(VADL[0]),.PO(TESTI[26]),.I(inXAD_0),.A(VAD[0]),.EN(DDIS),.TN(ADEN),.PI(TESTI[25]));     //AD_0_(XAD_0, VADL_0, TESTI_26) = &BD4TNR (XAD_0, VAD_0, DDIS, ADEN, TESTI_25);
+BD4TNR AD_1(.MasterClock(MasterClock), .O(outXAD_1),.E(enXAD_1),.ZI(VADL[1]),.PO(TESTI[24]),.I(inXAD_1),.A(VAD[1]),.EN(DDIS),.TN(ADEN),.PI(TESTI[23]));     //AD_1_(XAD_1, VADL_1, TESTI_24) = &BD4TNR (XAD_1, VAD_1, DDIS, ADEN, TESTI_23);
+BD4TNR AD_2(.MasterClock(MasterClock), .O(outXAD_2),.E(enXAD_2),.ZI(VADL[2]),.PO(TESTI[23]),.I(inXAD_2),.A(VAD[2]),.EN(DDIS),.TN(ADEN),.PI(TESTI[22]));     //AD_2_(XAD_2, VADL_2, TESTI_23) = &BD4TNR (XAD_2, VAD_2, DDIS, ADEN, TESTI_22);
+BD4TNR AD_3(.MasterClock(MasterClock), .O(outXAD_3),.E(enXAD_3),.ZI(VADL[3]),.PO(TESTI[22]),.I(inXAD_3),.A(VAD[3]),.EN(DDIS),.TN(ADEN),.PI(TESTI[21]));     //AD_3_(XAD_3, VADL_3, TESTI_22) = &BD4TNR (XAD_3, VAD_3, DDIS, ADEN, TESTI_21);
+BD4TNR AD_4(.MasterClock(MasterClock), .O(outXAD_4),.E(enXAD_4),.ZI(VADL[4]),.PO(TESTI[20]),.I(inXAD_4),.A(VAD[4]),.EN(DDIS),.TN(ADEN),.PI(TESTI[19]));     //AD_4_(XAD_4, VADL_4, TESTI_20) = &BD4TNR (XAD_4, VAD_4, DDIS, ADEN, TESTI_19);
+BD4TNR AD_5(.MasterClock(MasterClock), .O(outXAD_5),.E(enXAD_5),.ZI(VADL[5]),.PO(TESTI[18]),.I(inXAD_5),.A(VAD[5]),.EN(DDIS),.TN(ADEN),.PI(TESTI[17]));     //AD_5_(XAD_5, VADL_5, TESTI_18) = &BD4TNR (XAD_5, VAD_5, DDIS, ADEN, TESTI_17);
+BD4TNR AD_6(.MasterClock(MasterClock), .O(outXAD_6),.E(enXAD_6),.ZI(VADL[6]),.PO(TESTI[16]),.I(inXAD_6),.A(VAD[6]),.EN(DDIS),.TN(ADEN),.PI(TESTI[15]));     //AD_6_(XAD_6, VADL_6, TESTI_16) = &BD4TNR (XAD_6, VAD_6, DDIS, ADEN, TESTI_15);
+BD4TNR AD_7(.MasterClock(MasterClock), .O(outXAD_7),.E(enXAD_7),.ZI(VADL[7]),.PO(TESTI[15]),.I(inXAD_7),.A(VAD[7]),.EN(DDIS),.TN(ADEN),.PI(TESTI[14]));     //AD_7_(XAD_7, VADL_7, TESTI_15) = &BD4TNR (XAD_7, VAD_7, DDIS, ADEN, TESTI_14);
 
 /* Processor address bus */
 
-BD4TNR A_8 (.O(outXA_8 ),.E(enXA_8 ),.ZI(VAL[8 ]),.PO(TESTI[13]),.I(inXA_8 ),.A(VA[8 ]),.EN(TRIDIS),.TN(AEN),.PI(TESTI[12]));     //A_8_(XA_8, VAL_8, TESTI_13) = &BD4TNR (XA_8, VA_8, TRIDIS, AEN, TESTI_12);
-BD4TNR A_9 (.O(outXA_9 ),.E(enXA_9 ),.ZI(VAL[9 ]),.PO(TESTI[12]),.I(inXA_9 ),.A(VA[9 ]),.EN(TRIDIS),.TN(AEN),.PI(TESTI[11]));     //A_9_(XA_9, VAL_9, TESTI_12) = &BD4TNR (XA_9, VA_9, TRIDIS, AEN, TESTI_11);
-BD4TNR A_10(.O(outXA_10),.E(enXA_10),.ZI(VAL[10]),.PO(TESTI[11]),.I(inXA_10),.A(VA[10]),.EN(TRIDIS),.TN(AEN),.PI(TESTI[10]));     //A_10_(XA_10, VAL_10, TESTI_11) = &BD4TNR (XA_10, VA_10, TRIDIS, AEN, TESTI_10);
-BD4TNR A_11(.O(outXA_11),.E(enXA_11),.ZI(VAL[11]),.PO(TESTI[9] ),.I(inXA_11),.A(VA[11]),.EN(TRIDIS),.TN(AEN),.PI(TESTI[8] ));     //A_11_(XA_11, VAL_11, TESTI_9) = &BD4TNR (XA_11, VA_11, TRIDIS, AEN, TESTI_8);
-BD4TNR A_12(.O(outXA_12),.E(enXA_12),.ZI(VAL[12]),.PO(TESTI[7] ),.I(inXA_12),.A(VA[12]),.EN(TRIDIS),.TN(AEN),.PI(TESTI[6] ));     //A_12_(XA_12, VAL_12, TESTI_7) = &BD4TNR (XA_12, VA_12, TRIDIS, AEN, TESTI_6);
-BD4TNR A_13(.O(outXA_13),.E(enXA_13),.ZI(VAL[13]),.PO(TESTI[5] ),.I(inXA_13),.A(VA[13]),.EN(TRIDIS),.TN(AEN),.PI(TESTI[4] ));     //A_13_(XA_13, VAL_13, TESTI_5) = &BD4TNR (XA_13, VA_13, TRIDIS, AEN, TESTI_4);
-BD4TNR A_14(.O(outXA_14),.E(enXA_14),.ZI(VAL[14]),.PO(TESTI[3] ),.I(inXA_14),.A(VA[14]),.EN(TRIDIS),.TN(AEN),.PI(TESTI[2] ));     //A_14_(XA_14, VAL_14, TESTI_3) = &BD4TNR (XA_14, VA_14, TRIDIS, AEN, TESTI_2);
-BD4TNR A_15(.O(outXA_15),.E(enXA_15),.ZI(VAL[15]),.PO(TESTI[2] ),.I(inXA_15),.A(VA[15]),.EN(TRIDIS),.TN(AEN),.PI(TESTI[1] ));     //A_15_(XA_15, VAL_15, TESTI_2) = &BD4TNR (XA_15, VA_15, TRIDIS, AEN, TESTI_1);
+BD4TNR A_8 (.MasterClock(MasterClock), .O(outXA_8 ),.E(enXA_8 ),.ZI(VAL[8 ]),.PO(TESTI[13]),.I(inXA_8 ),.A(VA[8 ]),.EN(TRIDIS),.TN(AEN),.PI(TESTI[12]));     //A_8_(XA_8, VAL_8, TESTI_13) = &BD4TNR (XA_8, VA_8, TRIDIS, AEN, TESTI_12);
+BD4TNR A_9 (.MasterClock(MasterClock), .O(outXA_9 ),.E(enXA_9 ),.ZI(VAL[9 ]),.PO(TESTI[12]),.I(inXA_9 ),.A(VA[9 ]),.EN(TRIDIS),.TN(AEN),.PI(TESTI[11]));     //A_9_(XA_9, VAL_9, TESTI_12) = &BD4TNR (XA_9, VA_9, TRIDIS, AEN, TESTI_11);
+BD4TNR A_10(.MasterClock(MasterClock), .O(outXA_10),.E(enXA_10),.ZI(VAL[10]),.PO(TESTI[11]),.I(inXA_10),.A(VA[10]),.EN(TRIDIS),.TN(AEN),.PI(TESTI[10]));     //A_10_(XA_10, VAL_10, TESTI_11) = &BD4TNR (XA_10, VA_10, TRIDIS, AEN, TESTI_10);
+BD4TNR A_11(.MasterClock(MasterClock), .O(outXA_11),.E(enXA_11),.ZI(VAL[11]),.PO(TESTI[9] ),.I(inXA_11),.A(VA[11]),.EN(TRIDIS),.TN(AEN),.PI(TESTI[8] ));     //A_11_(XA_11, VAL_11, TESTI_9) = &BD4TNR (XA_11, VA_11, TRIDIS, AEN, TESTI_8);
+BD4TNR A_12(.MasterClock(MasterClock), .O(outXA_12),.E(enXA_12),.ZI(VAL[12]),.PO(TESTI[7] ),.I(inXA_12),.A(VA[12]),.EN(TRIDIS),.TN(AEN),.PI(TESTI[6] ));     //A_12_(XA_12, VAL_12, TESTI_7) = &BD4TNR (XA_12, VA_12, TRIDIS, AEN, TESTI_6);
+BD4TNR A_13(.MasterClock(MasterClock), .O(outXA_13),.E(enXA_13),.ZI(VAL[13]),.PO(TESTI[5] ),.I(inXA_13),.A(VA[13]),.EN(TRIDIS),.TN(AEN),.PI(TESTI[4] ));     //A_13_(XA_13, VAL_13, TESTI_5) = &BD4TNR (XA_13, VA_13, TRIDIS, AEN, TESTI_4);
+BD4TNR A_14(.MasterClock(MasterClock), .O(outXA_14),.E(enXA_14),.ZI(VAL[14]),.PO(TESTI[3] ),.I(inXA_14),.A(VA[14]),.EN(TRIDIS),.TN(AEN),.PI(TESTI[2] ));     //A_14_(XA_14, VAL_14, TESTI_3) = &BD4TNR (XA_14, VA_14, TRIDIS, AEN, TESTI_2);
+BD4TNR A_15(.MasterClock(MasterClock), .O(outXA_15),.E(enXA_15),.ZI(VAL[15]),.PO(TESTI[2] ),.I(inXA_15),.A(VA[15]),.EN(TRIDIS),.TN(AEN),.PI(TESTI[1] ));     //A_15_(XA_15, VAL_15, TESTI_2) = &BD4TNR (XA_15, VA_15, TRIDIS, AEN, TESTI_1);
 
 /* High byte of the data bus */                   
 
-BD4TNR D_8 (.O(outXD_8 ),.E(enXD_8 ),.ZI(VDL[8 ]),.PO(TESTI[36]),.I(inXD_8 ),.A(VD[8 ]),.EN(DDIS),.TN(DEN),.PI(TESTI[35]));     //D_8_(XD_8, VDL_8, TESTI_36) = &BD4TNR (XD_8, VD_8, DDIS, DEN, TESTI_35);
-BD4TNR D_9 (.O(outXD_9 ),.E(enXD_9 ),.ZI(VDL[9 ]),.PO(TESTI[35]),.I(inXD_9 ),.A(VD[9 ]),.EN(DDIS),.TN(DEN),.PI(TESTI[34]));     //D_9_(XD_9, VDL_9, TESTI_35) = &BD4TNR (XD_9, VD_9, DDIS, DEN, TESTI_34);
-BD4TNR D_10(.O(outXD_10),.E(enXD_10),.ZI(VDL[10]),.PO(TESTI[34]),.I(inXD_10),.A(VD[10]),.EN(DDIS),.TN(DEN),.PI(TESTI[33]));     //D_10_(XD_10, VDL_10, TESTI_34) = &BD4TNR (XD_10, VD_10, DDIS, DEN, TESTI_33);
-BD4TNR D_11(.O(outXD_11),.E(enXD_11),.ZI(VDL[11]),.PO(TESTI[33]),.I(inXD_11),.A(VD[11]),.EN(DDIS),.TN(DEN),.PI(TESTI[32]));     //D_11_(XD_11, VDL_11, TESTI_33) = &BD4TNR (XD_11, VD_11, DDIS, DEN, TESTI_32);
-BD4TNR D_12(.O(outXD_12),.E(enXD_12),.ZI(VDL[12]),.PO(TESTI[32]),.I(inXD_12),.A(VD[12]),.EN(DDIS),.TN(DEN),.PI(TESTI[31]));     //D_12_(XD_12, VDL_12, TESTI_32) = &BD4TNR (XD_12, VD_12, DDIS, DEN, TESTI_31);
-BD4TNR D_13(.O(outXD_13),.E(enXD_13),.ZI(VDL[13]),.PO(TESTI[31]),.I(inXD_13),.A(VD[13]),.EN(DDIS),.TN(DEN),.PI(TESTI[30]));     //D_13_(XD_13, VDL_13, TESTI_31) = &BD4TNR (XD_13, VD_13, DDIS, DEN, TESTI_30);
-BD4TNR D_14(.O(outXD_14),.E(enXD_14),.ZI(VDL[14]),.PO(TESTI[30]),.I(inXD_14),.A(VD[14]),.EN(DDIS),.TN(DEN),.PI(TESTI[29]));     //D_14_(XD_14, VDL_14, TESTI_30) = &BD4TNR (XD_14, VD_14, DDIS, DEN, TESTI_29);
-BD4TNR D_15(.O(outXD_15),.E(enXD_15),.ZI(VDL[15]),.PO(TESTI[29]),.I(inXD_15),.A(VD[15]),.EN(DDIS),.TN(DEN),.PI(TESTI[28]));     //D_15_(XD_15, VDL_15, TESTI_29) = &BD4TNR (XD_15, VD_15, DDIS, DEN, TESTI_28);
+BD4TNR D_8 (.MasterClock(MasterClock), .O(outXD_8 ),.E(enXD_8 ),.ZI(VDL[8 ]),.PO(TESTI[36]),.I(inXD_8 ),.A(VD[8 ]),.EN(DDIS),.TN(DEN),.PI(TESTI[35]));     //D_8_(XD_8, VDL_8, TESTI_36) = &BD4TNR (XD_8, VD_8, DDIS, DEN, TESTI_35);
+BD4TNR D_9 (.MasterClock(MasterClock), .O(outXD_9 ),.E(enXD_9 ),.ZI(VDL[9 ]),.PO(TESTI[35]),.I(inXD_9 ),.A(VD[9 ]),.EN(DDIS),.TN(DEN),.PI(TESTI[34]));     //D_9_(XD_9, VDL_9, TESTI_35) = &BD4TNR (XD_9, VD_9, DDIS, DEN, TESTI_34);
+BD4TNR D_10(.MasterClock(MasterClock), .O(outXD_10),.E(enXD_10),.ZI(VDL[10]),.PO(TESTI[34]),.I(inXD_10),.A(VD[10]),.EN(DDIS),.TN(DEN),.PI(TESTI[33]));     //D_10_(XD_10, VDL_10, TESTI_34) = &BD4TNR (XD_10, VD_10, DDIS, DEN, TESTI_33);
+BD4TNR D_11(.MasterClock(MasterClock), .O(outXD_11),.E(enXD_11),.ZI(VDL[11]),.PO(TESTI[33]),.I(inXD_11),.A(VD[11]),.EN(DDIS),.TN(DEN),.PI(TESTI[32]));     //D_11_(XD_11, VDL_11, TESTI_33) = &BD4TNR (XD_11, VD_11, DDIS, DEN, TESTI_32);
+BD4TNR D_12(.MasterClock(MasterClock), .O(outXD_12),.E(enXD_12),.ZI(VDL[12]),.PO(TESTI[32]),.I(inXD_12),.A(VD[12]),.EN(DDIS),.TN(DEN),.PI(TESTI[31]));     //D_12_(XD_12, VDL_12, TESTI_32) = &BD4TNR (XD_12, VD_12, DDIS, DEN, TESTI_31);
+BD4TNR D_13(.MasterClock(MasterClock), .O(outXD_13),.E(enXD_13),.ZI(VDL[13]),.PO(TESTI[31]),.I(inXD_13),.A(VD[13]),.EN(DDIS),.TN(DEN),.PI(TESTI[30]));     //D_13_(XD_13, VDL_13, TESTI_31) = &BD4TNR (XD_13, VD_13, DDIS, DEN, TESTI_30);
+BD4TNR D_14(.MasterClock(MasterClock), .O(outXD_14),.E(enXD_14),.ZI(VDL[14]),.PO(TESTI[30]),.I(inXD_14),.A(VD[14]),.EN(DDIS),.TN(DEN),.PI(TESTI[29]));     //D_14_(XD_14, VDL_14, TESTI_30) = &BD4TNR (XD_14, VD_14, DDIS, DEN, TESTI_29);
+BD4TNR D_15(.MasterClock(MasterClock), .O(outXD_15),.E(enXD_15),.ZI(VDL[15]),.PO(TESTI[29]),.I(inXD_15),.A(VD[15]),.EN(DDIS),.TN(DEN),.PI(TESTI[28]));     //D_15_(XD_15, VDL_15, TESTI_29) = &BD4TNR (XD_15, VD_15, DDIS, DEN, TESTI_28);
 
 /* Processor control signals */
  
-TLCHN RDL_(.O(VRD),.PO(TESTI[14]),.I(XRDL),.PI(TESTI[13]));                 //RDL_(VRD, TESTI_14) = &TLCHN (XRDL, TESTI_13);
-TLCHN WRL_(.O(VWR),.PO(TESTI[19]),.I(XWRL),.PI(TESTI[18]));                 //WRL_(VWR, TESTI_19) = &TLCHN (XWRL, TESTI_18);
+TLCHN RDL_(.MasterClock(MasterClock), .O(VRD),.PO(TESTI[14]),.I(XRDL),.PI(TESTI[13]));                 //RDL_(VRD, TESTI_14) = &TLCHN (XRDL, TESTI_13);
+TLCHN WRL_(.MasterClock(MasterClock), .O(VWR),.PO(TESTI[19]),.I(XWRL),.PI(TESTI[18]));                 //WRL_(VWR, TESTI_19) = &TLCHN (XWRL, TESTI_18);
  
 assign INT = ~INTL;                                                         //INT_(INT) = N1A (INTL);
 BT4OS INTR_ (.Z(XINTR),.EN(INT),.TN(TRIDISL));                              //INTR_(XINTR) = &BT4OS (INT, TRIDISL);
-TLCHN IOM_ (.O(IOML) ,.PO(TESTI[21]),.I(XIOM) ,.PI(TESTI[20]));             //IOM_(IOML, TESTI_21) = &TLCHN (XIOM, TESTI_20);
-TLCHN ALE_ (.O(ALEL) ,.PO(TESTI[25]),.I(XALE) ,.PI(TESTI[24]));             //ALE_(ALEL, TESTI_25) = &TLCHN (XALE, TESTI_24);
-TLCHN INTA_(.O(INTAL),.PO(TESTI[27]),.I(XINTA),.PI(TESTI[26]));             //INTA_(INTAL, TESTI_27) = &TLCHN (XINTA, TESTI_26);
-TLCHN HLDA_(.O(HLDAL),.PO(TESTI[17]),.I(XHLDA),.PI(TESTI[16]));             //HLDA_(HLDAL, TESTI_17) = &TLCHN (XHLDA, TESTI_16);
+TLCHN IOM_ (.MasterClock(MasterClock), .O(IOML) ,.PO(TESTI[21]),.I(XIOM) ,.PI(TESTI[20]));             //IOM_(IOML, TESTI_21) = &TLCHN (XIOM, TESTI_20);
+TLCHN ALE_ (.MasterClock(MasterClock), .O(ALEL) ,.PO(TESTI[25]),.I(XALE) ,.PI(TESTI[24]));             //ALE_(ALEL, TESTI_25) = &TLCHN (XALE, TESTI_24);
+TLCHN INTA_(.MasterClock(MasterClock), .O(INTAL),.PO(TESTI[27]),.I(XINTA),.PI(TESTI[26]));             //INTA_(INTAL, TESTI_27) = &TLCHN (XINTA, TESTI_26);
+TLCHN HLDA_(.MasterClock(MasterClock), .O(HLDAL),.PO(TESTI[17]),.I(XHLDA),.PI(TESTI[16]));             //HLDA_(HLDAL, TESTI_17) = &TLCHN (XHLDA, TESTI_16);
  
 /* Processor multiplexed address and status bus */
 
-TLCHN AS_16_ (.O(ASL[16]) ,.PO(TESTI[4] ),.I(XAS_16) ,.PI(TESTI[3]));       //AS_16_(ASL_16, TESTI_4) = &TLCHN (XAS_16, TESTI_3);
-TLCHN AS_17_ (.O(ASL[17]) ,.PO(TESTI[6] ),.I(XAS_17) ,.PI(TESTI[5]));       //AS_17_(ASL_17, TESTI_6) = &TLCHN (XAS_17, TESTI_5);
-TLCHN AS_18_ (.O(ASL[18]) ,.PO(TESTI[8] ),.I(XAS_18) ,.PI(TESTI[7]));       //AS_18_(ASL_18, TESTI_8) = &TLCHN (XAS_18, TESTI_7);
-TLCHN AS_19_ (.O(ASL[19]) ,.PO(TESTI[10]),.I(XAS_19) ,.PI(TESTI[9]));       //AS_19_(ASL_19, TESTI_10) = &TLCHN (XAS_19, TESTI_9);
+TLCHN AS_16_ (.MasterClock(MasterClock), .O(ASL[16]) ,.PO(TESTI[4] ),.I(XAS_16) ,.PI(TESTI[3]));       //AS_16_(ASL_16, TESTI_4) = &TLCHN (XAS_16, TESTI_3);
+TLCHN AS_17_ (.MasterClock(MasterClock), .O(ASL[17]) ,.PO(TESTI[6] ),.I(XAS_17) ,.PI(TESTI[5]));       //AS_17_(ASL_17, TESTI_6) = &TLCHN (XAS_17, TESTI_5);
+TLCHN AS_18_ (.MasterClock(MasterClock), .O(ASL[18]) ,.PO(TESTI[8] ),.I(XAS_18) ,.PI(TESTI[7]));       //AS_18_(ASL_18, TESTI_8) = &TLCHN (XAS_18, TESTI_7);
+TLCHN AS_19_ (.MasterClock(MasterClock), .O(ASL[19]) ,.PO(TESTI[10]),.I(XAS_19) ,.PI(TESTI[9]));       //AS_19_(ASL_19, TESTI_10) = &TLCHN (XAS_19, TESTI_9);
 
 /* Video synchronisation signals */
 
-BD4TNOD XVSYNC_(.O(outXVSYNCL),.E(enXVSYNCL),.ZI(VLOCK),.PO(TESTI[45]),.I(inXVSYNCL),.EN(TRIDIS),.TN(VSYNC),.PI(TESTI[44]));     //XVSYNC_(XVSYNCL, VLOCK, TESTI_45) = &BD4TNOD (XVSYNCL, TRIDIS, VSYNC, TESTI_44);
-BD4TNOD XHSYNC_(.O(outXHSYNCL),.E(enXHSYNCL),.ZI(HLOCK),.PO(TESTI[46]),.I(inXHSYNCL),.EN(TRIDIS),.TN(HSYNC),.PI(TESTI[45]));     //XHSYNC_(XHSYNCL, HLOCK, TESTI_46) = &BD4TNOD (XHSYNCL, TRIDIS, HSYNC, TESTI_45);
+BD4TNOD XVSYNC_(.MasterClock(MasterClock), .O(outXVSYNCL),.E(enXVSYNCL),.ZI(VLOCK),.PO(TESTI[45]),.I(inXVSYNCL),.EN(TRIDIS),.TN(VSYNC),.PI(TESTI[44]));     //XVSYNC_(XVSYNCL, VLOCK, TESTI_45) = &BD4TNOD (XVSYNCL, TRIDIS, VSYNC, TESTI_44);
+BD4TNOD XHSYNC_(.MasterClock(MasterClock), .O(outXHSYNCL),.E(enXHSYNCL),.ZI(HLOCK),.PO(TESTI[46]),.I(inXHSYNCL),.EN(TRIDIS),.TN(HSYNC),.PI(TESTI[45]));     //XHSYNC_(XHSYNCL, HLOCK, TESTI_46) = &BD4TNOD (XHSYNCL, TRIDIS, HSYNC, TESTI_45);
 
 /* System IO */
 
-BD4TNR JOYL_0_(.O(outXJOYL_0 ),.E(enXJOYL_0 ),.ZI(PALL  ),.PO(TESTI[37]),.I(inXJOYL_0 ),.A(JOYL[0]),.EN(TRIDIS),.TN(TESTENL),.PI(TESTI[36]));     //JOYL_0_(XJOYL_0, PALL, TESTI_37) = &BD4TNR (XJOYL_0, JOYL_0, TRIDIS, TESTENL, TESTI_36);
-BD4TNR JOYL_1_(.O(outXJOYL_1 ),.E(enXJOYL_1 ),.ZI(PSRAML),.PO(TESTI[38]),.I(inXJOYL_1 ),.A(JOYL[1]),.EN(TRIDIS),.TN(TESTENL),.PI(TESTI[37]));     //JOYL_1_(XJOYL_1, PSRAML, TESTI_38) = &BD4TNR (XJOYL_1, JOYL_1, TRIDIS, TESTENL, TESTI_37);
-BD4TNR JOYL_2_(.O(outXJOYL_2 ),.E(enXJOYL_2 ),.ZI(FASTL ),.PO(TESTI[39]),.I(inXJOYL_2 ),.A(JOYL[2]),.EN(TRIDIS),.TN(TESTENL),.PI(TESTI[38]));     //JOYL_2_(XJOYL_2, FASTL, TESTI_39) = &BD4TNR (XJOYL_2, JOYL_2, TRIDIS, TESTENL, TESTI_38);
+BD4TNR JOYL_0_(.MasterClock(MasterClock), .O(outXJOYL_0 ),.E(enXJOYL_0 ),.ZI(PALL  ),.PO(TESTI[37]),.I(inXJOYL_0 ),.A(JOYL[0]),.EN(TRIDIS),.TN(TESTENL),.PI(TESTI[36]));     //JOYL_0_(XJOYL_0, PALL, TESTI_37) = &BD4TNR (XJOYL_0, JOYL_0, TRIDIS, TESTENL, TESTI_36);
+BD4TNR JOYL_1_(.MasterClock(MasterClock), .O(outXJOYL_1 ),.E(enXJOYL_1 ),.ZI(PSRAML),.PO(TESTI[38]),.I(inXJOYL_1 ),.A(JOYL[1]),.EN(TRIDIS),.TN(TESTENL),.PI(TESTI[37]));     //JOYL_1_(XJOYL_1, PSRAML, TESTI_38) = &BD4TNR (XJOYL_1, JOYL_1, TRIDIS, TESTENL, TESTI_37);
+BD4TNR JOYL_2_(.MasterClock(MasterClock), .O(outXJOYL_2 ),.E(enXJOYL_2 ),.ZI(FASTL ),.PO(TESTI[39]),.I(inXJOYL_2 ),.A(JOYL[2]),.EN(TRIDIS),.TN(TESTENL),.PI(TESTI[38]));     //JOYL_2_(XJOYL_2, FASTL, TESTI_39) = &BD4TNR (XJOYL_2, JOYL_2, TRIDIS, TESTENL, TESTI_38);
 
 /* Test input for parametric input pin test */
 
@@ -715,7 +715,7 @@ IBUFND TESTPIN_(.Z(TESTPINL),.PO(TESTPINPO),.A(XTESTPIN),.PI(1));               
 
 /* System reset */
 
-SCHMITC RESETPIN_(.Z(RESETI),.PO(TESTI[28]),.A(XRESET),.PI(TESTI[27]));          //RESETPIN_(RESETI, TESTI_28) = &SCHMITC (XRESET, TESTI_27);
+SCHMITC RESETPIN_(.MasterClock(MasterClock), .Z(RESETI),.PO(TESTI[28]),.A(XRESET),.PI(TESTI[27]));          //RESETPIN_(RESETI, TESTI_28) = &SCHMITC (XRESET, TESTI_27);
 
 /* Crystal oscillator and buffer */
 
@@ -726,9 +726,9 @@ assign XTALL = XTALLI;              // XTALBUF_(XTALL) = B1I (XTALLI);
 
 /* Analogue ramp inputs */
 
-SCHMITCN AI_0_(.Z(AIL[0]),.PO(TESTI[41]),.A(XAI_0),.PI(TESTI[40]));          //AI_0_(AIL_0, TESTI_41) = &SCHMITCN (XAI_0, TESTI_40);
-SCHMITCN AI_1_(.Z(AIL[1]),.PO(TESTI[42]),.A(XAI_1),.PI(TESTI[41]));          //AI_1_(AIL_1, TESTI_42) = &SCHMITCN (XAI_1, TESTI_41);
-SCHMITCN AI_2_(.Z(AIL[2]),.PO(TESTI[43]),.A(XAI_2),.PI(TESTI[42]));          //AI_2_(AIL_2, TESTI_43) = &SCHMITCN (XAI_2, TESTI_42);
+SCHMITCN AI_0_(.MasterClock(MasterClock), .Z(AIL[0]),.PO(TESTI[41]),.A(XAI_0),.PI(TESTI[40]));          //AI_0_(AIL_0, TESTI_41) = &SCHMITCN (XAI_0, TESTI_40);
+SCHMITCN AI_1_(.MasterClock(MasterClock), .Z(AIL[1]),.PO(TESTI[42]),.A(XAI_1),.PI(TESTI[41]));          //AI_1_(AIL_1, TESTI_42) = &SCHMITCN (XAI_1, TESTI_41);
+SCHMITCN AI_2_(.MasterClock(MasterClock), .Z(AIL[2]),.PO(TESTI[43]),.A(XAI_2),.PI(TESTI[42]));          //AI_2_(AIL_2, TESTI_43) = &SCHMITCN (XAI_2, TESTI_42);
 
 /* Analogue input multiplexer select */
 
@@ -799,7 +799,7 @@ assign XRIGHTH = RIGHTH;                // RIGHTH_(XRIGHTH) = &B8R (RIGHTH);
 
 /* DSP Input / Output */
 
-BD4TR DSP_IO_(.O(outXDSP_IO),.E(enXDSP_IO),.ZI(DSP_IN),.PO(TESTI[40]),.I(inXDSP_IO),.A(DSP_OUT),.EN(TRIDIS),.TN(DSP_EN),.PI(TESTI[39]));     //DSP_IO_(XDSP_IO, DSP_IN, TESTI_40) = &BD4TR (XDSP_IO, DSP_OUT, TRIDIS, DSP_EN, TESTI_39);
+BD4TR DSP_IO_(.MasterClock(MasterClock), .O(outXDSP_IO),.E(enXDSP_IO),.ZI(DSP_IN),.PO(TESTI[40]),.I(inXDSP_IO),.A(DSP_OUT),.EN(TRIDIS),.TN(DSP_EN),.PI(TESTI[39]));     //DSP_IO_(XDSP_IO, DSP_IN, TESTI_40) = &BD4TR (XDSP_IO, DSP_OUT, TRIDIS, DSP_EN, TESTI_39);
 
 /* General purpose input/output enables */
 
@@ -808,13 +808,15 @@ assign XGPIOL_1 = GPIOL[1];             // GPIOL_1_(XGPIOL_1) = &B4R(GPIOL_1);
 
 
 // COMBINING SIGNALS
+always @(posedge MasterClock)
+begin
+    A <= (AVIDo & AVIDe) | (ABLITo & ABLITe) | (ADSPo & ADSPe);
+    SLIPADDRESS <= A;
 
-assign A = (AVIDo & AVIDe) | (ABLITo & ABLITe) | (ADSPo & ADSPe);
-assign SLIPADDRESS = A;
-
-assign D = (DVIDo & DVIDe) | (DBLITo & DBLITe) | (DDSPo & DDSPe);
-assign PALD = (PALDVIDo & PALDVIDe) | (PALDRAMo & PALDRAMe);
-assign DD = (DDDSPo & DDDSPe) | (DDRAMo & DDRAMe) | (DDROMo & DDROMe);
-assign PD = (PDDSPo & PDDSPe) | (PDRAMo & PDRAMe);
+    D <= (DVIDo & DVIDe) | (DBLITo & DBLITe) | (DDSPo & DDSPe);
+    PALD <= (PALDVIDo & PALDVIDe) | (PALDRAMo & PALDRAMe);
+    DD <= (DDDSPo & DDDSPe) | (DDRAMo & DDRAMe) | (DDROMo & DDROMe);
+    PD <= (PDDSPo & PDDSPe) | (PDRAMo & PDRAMe);
+end
 
 endmodule

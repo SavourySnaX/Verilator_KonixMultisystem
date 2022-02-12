@@ -70,9 +70,7 @@ wire indSegES,indSegCS,indSegSS,indSegDS,indSegZero;
 
 reg [7:0]  data;
 
-reg [2:0] clkEdgeSample;
-
-wire fallingEdgeClk;
+//wire fallingEdgeClk;
 
 reg [7:0] prefetchQueue [3:0];
 
@@ -80,16 +78,17 @@ reg [2:0] prefetchReadAddr, prefetchWriteAddr;
 
 reg waitForPosTransition;
 
-reg [1:0] readTopStrobe;
-reg [1:0] flushStrobe;
-reg [1:0] suspendStrobe;
-reg [1:0] correctStrobe;
-reg [1:0] indirectStrobe;
-reg [1:0] latchPCStrobe;
-reg [1:0] latchCSStrobe;
-reg [1:0] latchDSStrobe;
-reg [1:0] latchSSStrobe;
-reg [1:0] latchESStrobe;
+reg clkEdgeSample;
+reg readTopStrobe;
+reg flushStrobe;
+reg suspendStrobe;
+reg correctStrobe;
+reg indirectStrobe;
+reg latchPCStrobe;
+reg latchCSStrobe;
+reg latchDSStrobe;
+reg latchSSStrobe;
+reg latchESStrobe;
 
 reg tick;
 reg holdPrefetch,requestFlush,requestPrefetchHold;
@@ -102,7 +101,7 @@ reg indirectBusCycle /* verilator public */;
 assign prefetchEmpty = (prefetchReadAddr==prefetchWriteAddr) | HOLDA;
 assign prefetchFull = (prefetchReadAddr[1:0]==prefetchWriteAddr[1:0]) && (prefetchReadAddr[2]!=prefetchWriteAddr[2]);
 
-assign prefetchTop = prefetchQueue[prefetchReadAddr];
+assign prefetchTop = prefetchQueue[prefetchReadAddr[1:0]];
 
 assign indSegES=(~indirectSeg[2]) & (~indirectSeg[1]) & (~indirectSeg[0]);
 assign indSegCS=(~indirectSeg[2]) & (~indirectSeg[1]) & ( indirectSeg[0]);
@@ -121,71 +120,59 @@ assign addressSeg= (({4'b0000,REGISTER_CS}<<4) & {20{~indirectBusCycle}}) |
                    ;
 
 assign address=
-                ((addressSeg+REGISTER_IP) & {20{~indirectBusCycle}}) |
-                ((addressSeg+(IND)) & {20{indirectBytes[1] & indirectBusCycle }}) |
-                ((addressSeg+(IND+1)) & {20{indirectBytes[0] & (~indirectBytes[1]) & indirectBusCycle}})
+                ((addressSeg+{4'h0,REGISTER_IP}) & {20{~indirectBusCycle}}) |
+                ((addressSeg+({4'h0,IND})) & {20{indirectBytes[1] & indirectBusCycle }}) |
+                ((addressSeg+({4'h0,IND+16'h0001})) & {20{indirectBytes[0] & (~indirectBytes[1]) & indirectBusCycle}})
                 ;
 assign indirectBusOpInProgress=indirect | (indirectBytes!=0) | indirectBusCycle;
 
 assign suspending = suspend | requestPrefetchHold | requestFlush;
 
-wire [2:0] qSize /* verilator public */;
+wire [3:0] qSize /* verilator public */;
 assign qSize = prefetchWriteAddr>prefetchReadAddr ? (prefetchWriteAddr - prefetchReadAddr) : ({1'b1,prefetchWriteAddr} - prefetchReadAddr);
 
-/* verilator lint_off BLKSEQ */
 always @(posedge CLKx4)
 begin
-    clkEdgeSample = clkEdgeSample << 1;
-    clkEdgeSample[0]=CLK;
-    readTopStrobe = readTopStrobe << 1;
-    readTopStrobe = advanceTop;
-    flushStrobe = flushStrobe << 1;
-    flushStrobe = flush;
-    suspendStrobe = suspendStrobe << 1;
-    suspendStrobe = suspend;
-    correctStrobe = correctStrobe << 1;
-    correctStrobe = correct;
-    indirectStrobe = indirectStrobe << 1;
-    indirectStrobe = indirect;
-    latchPCStrobe = latchPCStrobe << 1;
-    latchPCStrobe = latchPC;
-    latchCSStrobe = latchCSStrobe << 1;
-    latchCSStrobe = latchCS;
-    latchDSStrobe = latchDSStrobe << 1;
-    latchDSStrobe = latchDS;
-    latchSSStrobe = latchSSStrobe << 1;
-    latchSSStrobe = latchSS;
-    latchESStrobe = latchESStrobe << 1;
-    latchESStrobe = latchES;
+    clkEdgeSample <=CLK;
+    readTopStrobe <= advanceTop;
+    flushStrobe <= flush;
+    suspendStrobe <= suspend;
+    correctStrobe <= correct;
+    indirectStrobe <= indirect;
+    latchPCStrobe <= latchPC;
+    latchCSStrobe <= latchCS;
+    latchDSStrobe <= latchDS;
+    latchSSStrobe <= latchSS;
+    latchESStrobe <= latchES;
 
-    if (indirectStrobe[1]==0 && indirectStrobe[0]==1)
+    if (indirectStrobe==0 && indirect==1)
         indirectBytes<=(ind_byteWord==0) ? 2'b10 : 2'b11;
 
-    if (readTopStrobe[1]==0 && readTopStrobe[0]==1)
+    if (readTopStrobe==0 && advanceTop==1)
         prefetchReadAddr=prefetchReadAddr+1;
 
-    if (latchPCStrobe[1]==0 && latchPCStrobe[0]==1)
+    if (latchPCStrobe==0 && latchPC==1)
         REGISTER_IP<=OPRw;
-    if (latchESStrobe[1]==0 && latchESStrobe[0]==1)
+    if (latchESStrobe==0 && latchES==1)
         REGISTER_ES<=OPRw;
-    if (latchCSStrobe[1]==0 && latchCSStrobe[0]==1)
+    if (latchCSStrobe==0 && latchCS==1)
         REGISTER_CS<=OPRw;
-    if (latchSSStrobe[1]==0 && latchSSStrobe[0]==1)
+    if (latchSSStrobe==0 && latchSS==1)
         REGISTER_SS<=OPRw;
-    if (latchDSStrobe[1]==0 && latchDSStrobe[0]==1)
+    if (latchDSStrobe==0 && latchDS==1)
         REGISTER_DS<=OPRw;
 
-    if (suspendStrobe[1]==0 && suspendStrobe[0]==1)
+    if (suspendStrobe==0 && suspend==1)
         requestPrefetchHold<=1;
     
-    if (correctStrobe[1]==0 && correctStrobe[0]==1)
+    if (correctStrobe==0 && correct==1)
     begin
         // Q should be stopped, so adjust PC back by number of bytes in Q
-        REGISTER_IP<=REGISTER_IP - qSize;
+        REGISTER_IP<=REGISTER_IP - {12'h000,qSize};
     end
 
     // Sync with execstate?
-    if (flushStrobe[1]==0 && flushStrobe[0]==1)
+    if (flushStrobe==0 && flush==1)
         requestFlush<=1;
 
     if (RESET == 1)
@@ -208,15 +195,15 @@ begin
         INTA_n<=1;
         DTR<=0;
         DEN_n<=1;
-        OPRr<=8'hFF;
+        OPRr<=16'hFFFF;
     end
-    else if ((waitForPosTransition==1) && (clkEdgeSample[2]==1'b0 && clkEdgeSample[1]==1'b1))
+    else if ((waitForPosTransition==1) && (clkEdgeSample==1'b0 && CLK==1'b1))
         waitForPosTransition<=0;
     else
     begin
-        if (clkEdgeSample[2]==1'b1 && clkEdgeSample[1]==1'b0)
+        if (clkEdgeSample==1'b1 && CLK==1'b0)
             tick=1;
-        else if (clkEdgeSample[2]==1'b0 && clkEdgeSample[1]==1'b1)
+        else if (clkEdgeSample==1'b0 && CLK==1'b1)
             tick=1;
         else
             tick=0;
@@ -233,10 +220,13 @@ begin
                     3'b000 : 
                         begin
                             // T1
-                            ALE<=1;
-                            enAD<=8'b11111111;
-                            outAD<=address[7:0];
-                            A<=address[19:8];
+                            if (indirectBusCycle | (~prefetchFull))
+                            begin
+                                ALE<=1;
+                                enAD<=8'b11111111;
+                                outAD<=address[7:0];
+                                A<=address[19:8];
+                            end
                         end
                     3'b001:  
                         begin
@@ -254,13 +244,13 @@ begin
                         end
                     3'b011:  
                         begin
-                            if (~indirectBusCycle)
+                            if ((~indirectBusCycle) & (~prefetchFull) )
                             begin
                                 IOM<=1;     // Memory request
                                 RD_n<=0;    // Read
                                 WR_n<=1;
                             end
-                            else
+                            if (indirectBusCycle)
                             begin
                                 IOM<=ind_ioMreq;
                                 RD_n<=ind_readWrite;
@@ -329,7 +319,9 @@ begin
                             end
                         end
                 endcase
-                clockstate = clockstate+1;
+
+                if ((clockstate!=3'b111) | (~prefetchFull) | (indirectBytes!=0))    // Hold Internal Clock State at last state when no work to do
+                    clockstate = clockstate+1;
             end
         end
     end

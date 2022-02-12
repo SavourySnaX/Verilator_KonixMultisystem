@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
-[*] Mon Jan 31 08:14:59 2022
+[*] Wed Feb  9 09:29:03 2022
 [*]
 [dumpfile] "/home/snax/BackedUp/fpga/verilator/slipstream1/m_konix.vcd"
-[dumpfile_mtime] "Mon Jan 31 08:00:34 2022"
-[dumpfile_size] 794018360
+[dumpfile_mtime] "Wed Feb  9 09:08:52 2022"
+[dumpfile_size] 578193230
 [savefile] "/home/snax/BackedUp/fpga/verilator/slipstream1/konix_my8088.gtkw"
-[timestart] 84329395
+[timestart] 25977671
 [size] 5052 2752
-[pos] -141 -141
-*-10.000000 83460000 62167330 16913290 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] 4961 -91
+*-6.000000 25978150 62167330 16913290 8735320 8735500 8735590 8735770 8738560 8738830 8739010 8739190 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
 [treeopen] TOP.m_konix.
 [treeopen] TOP.m_konix.Processor.
@@ -22,15 +22,31 @@
 [treeopen] TOP.m_konix.SlipStream.VID_.
 [treeopen] TOP.m_konix.SlipStream.VID_.PIX_.
 [sst_width] 388
-[signals_width] 478
+[signals_width] 528
 [sst_expanded] 1
-[sst_vpaned_height] 1286
+[sst_vpaned_height] 1697
 @200
 -Konix Module
 @28
 TOP.CE_PIXEL
 TOP.CLK_VIDEO
 TOP.VGA_DE
+@c00022
+#{TOP.m_konix.SlipStream.VID_.VCNT_.VC_[8:0]} TOP.m_konix.SlipStream.VID_.VCNT_.VC_8 TOP.m_konix.SlipStream.VID_.VCNT_.VC_7 TOP.m_konix.SlipStream.VID_.VCNT_.VC_6 TOP.m_konix.SlipStream.VID_.VCNT_.VC_5 TOP.m_konix.SlipStream.VID_.VCNT_.VC_4 TOP.m_konix.SlipStream.VID_.VCNT_.VC_3 TOP.m_konix.SlipStream.VID_.VCNT_.VC_2 TOP.m_konix.SlipStream.VID_.VCNT_.VC_1 TOP.m_konix.SlipStream.VID_.VCNT_.VC_0
+@28
+TOP.m_konix.SlipStream.VID_.VCNT_.VC_0
+TOP.m_konix.SlipStream.VID_.VCNT_.VC_1
+TOP.m_konix.SlipStream.VID_.VCNT_.VC_2
+TOP.m_konix.SlipStream.VID_.VCNT_.VC_3
+TOP.m_konix.SlipStream.VID_.VCNT_.VC_4
+TOP.m_konix.SlipStream.VID_.VCNT_.VC_5
+TOP.m_konix.SlipStream.VID_.VCNT_.VC_6
+TOP.m_konix.SlipStream.VID_.VCNT_.VC_7
+TOP.m_konix.SlipStream.VID_.VCNT_.VC_8
+@1401200
+-group_end
+@28
+TOP.VGA_VS
 @c00022
 #{TOP.m_konix.SlipStream.VID_.HCNT_.HC_[9:0]} TOP.m_konix.SlipStream.VID_.HCNT_.HC_9 TOP.m_konix.SlipStream.VID_.HCNT_.HC_8 TOP.m_konix.SlipStream.VID_.HCNT_.HC_7 TOP.m_konix.SlipStream.VID_.HCNT_.HC_6 TOP.m_konix.SlipStream.VID_.HCNT_.HC_5 TOP.m_konix.SlipStream.VID_.HCNT_.HC_4 TOP.m_konix.SlipStream.VID_.HCNT_.HC_3 TOP.m_konix.SlipStream.VID_.HCNT_.HC_2 TOP.m_konix.SlipStream.VID_.HCNT_.HC_1 TOP.m_konix.SlipStream.VID_.HCNT_.HC_0
 @28
@@ -52,22 +68,6 @@ TOP.VGA_HS
 TOP.VGA_R[7:0]
 TOP.VGA_G[7:0]
 TOP.VGA_B[7:0]
-@28
-TOP.VGA_VS
-@c00022
-#{TOP.m_konix.SlipStream.VID_.VCNT_.VC_[8:0]} TOP.m_konix.SlipStream.VID_.VCNT_.VC_8 TOP.m_konix.SlipStream.VID_.VCNT_.VC_7 TOP.m_konix.SlipStream.VID_.VCNT_.VC_6 TOP.m_konix.SlipStream.VID_.VCNT_.VC_5 TOP.m_konix.SlipStream.VID_.VCNT_.VC_4 TOP.m_konix.SlipStream.VID_.VCNT_.VC_3 TOP.m_konix.SlipStream.VID_.VCNT_.VC_2 TOP.m_konix.SlipStream.VID_.VCNT_.VC_1 TOP.m_konix.SlipStream.VID_.VCNT_.VC_0
-@28
-TOP.m_konix.SlipStream.VID_.VCNT_.VC_0
-TOP.m_konix.SlipStream.VID_.VCNT_.VC_1
-TOP.m_konix.SlipStream.VID_.VCNT_.VC_2
-TOP.m_konix.SlipStream.VID_.VCNT_.VC_3
-TOP.m_konix.SlipStream.VID_.VCNT_.VC_4
-TOP.m_konix.SlipStream.VID_.VCNT_.VC_5
-TOP.m_konix.SlipStream.VID_.VCNT_.VC_6
-TOP.m_konix.SlipStream.VID_.VCNT_.VC_7
-TOP.m_konix.SlipStream.VID_.VCNT_.VC_8
-@1401200
--group_end
 @c00022
 #{TOP.m_konix.SlipStream.VID_.VCNT_.START_[8:0]} TOP.m_konix.SlipStream.VID_.VCNT_.START_8 TOP.m_konix.SlipStream.VID_.VCNT_.START_7 TOP.m_konix.SlipStream.VID_.VCNT_.START_6 TOP.m_konix.SlipStream.VID_.VCNT_.START_5 TOP.m_konix.SlipStream.VID_.VCNT_.START_4 TOP.m_konix.SlipStream.VID_.VCNT_.START_3 TOP.m_konix.SlipStream.VID_.VCNT_.START_2 TOP.m_konix.SlipStream.VID_.VCNT_.START_1 TOP.m_konix.SlipStream.VID_.VCNT_.START_0
 @28
@@ -254,25 +254,86 @@ TOP.m_konix.SlipStream.VID_.CLOCK_.CCLK
 TOP.m_konix.SlipStream.VID_.CLOCK_.DQCLK
 TOP.m_konix.SlipStream.VID_.CLOCK_.PCLKL
 TOP.m_konix.SlipStream.VID_.CLOCK_.TSTCLK
+@800022
+:{ChipAddress} TOP.m_konix.SlipStream.XCSL_0 0 69 TOP.m_konix.SlipStream.XCSL_1 0 69 TOP.m_konix.SlipStream.XA_17 0 29 TOP.m_konix.SlipStream.XA_16 0 29 TOP.m_konix.SlipStream.outXA_15 0 29 TOP.m_konix.SlipStream.outXA_14 0 29 TOP.m_konix.SlipStream.outXA_13 0 29 TOP.m_konix.SlipStream.outXA_12 0 29 TOP.m_konix.SlipStream.outXA_11 0 29 TOP.m_konix.SlipStream.outXA_10 0 29 TOP.m_konix.SlipStream.outXA_9 0 29 TOP.m_konix.SlipStream.outXA_8 0 29 TOP.m_konix.SlipStream.XA_7 0 29 TOP.m_konix.SlipStream.XA_6 0 29 TOP.m_konix.SlipStream.XA_5 0 29 TOP.m_konix.SlipStream.XA_4 0 29 TOP.m_konix.SlipStream.XA_3 0 29 TOP.m_konix.SlipStream.XA_2 0 29 TOP.m_konix.SlipStream.XA_1 0 29 TOP.m_konix.SlipStream.XA_0 0 29
+@28
+TOP.m_konix.SlipStream.XA_0
+TOP.m_konix.SlipStream.XA_1
+TOP.m_konix.SlipStream.XA_2
+TOP.m_konix.SlipStream.XA_3
+TOP.m_konix.SlipStream.XA_4
+TOP.m_konix.SlipStream.XA_5
+TOP.m_konix.SlipStream.XA_6
+TOP.m_konix.SlipStream.XA_7
+TOP.m_konix.SlipStream.outXA_8
+TOP.m_konix.SlipStream.outXA_9
+TOP.m_konix.SlipStream.outXA_10
+TOP.m_konix.SlipStream.outXA_11
+@29
+TOP.m_konix.SlipStream.outXA_12
+@28
+TOP.m_konix.SlipStream.outXA_13
+TOP.m_konix.SlipStream.outXA_14
+TOP.m_konix.SlipStream.outXA_15
+TOP.m_konix.SlipStream.XA_16
+TOP.m_konix.SlipStream.XA_17
+TOP.m_konix.SlipStream.XCSL_1
+TOP.m_konix.SlipStream.XCSL_0
+TOP.m_konix.SlipStream.XSCEL_0
+TOP.m_konix.SlipStream.XSCEL_1
+TOP.m_konix.SlipStream.ADEN
+TOP.m_konix.SlipStream.XLPL
+@c00022
+#{<Vector>} TOP.m_konix.SlipStream.outXD_15 TOP.m_konix.SlipStream.outXD_14 TOP.m_konix.SlipStream.outXD_13 TOP.m_konix.SlipStream.outXD_12 TOP.m_konix.SlipStream.outXD_11 TOP.m_konix.SlipStream.outXD_10 TOP.m_konix.SlipStream.outXD_9 TOP.m_konix.SlipStream.outXD_8 TOP.m_konix.SlipStream.outXAD_7 TOP.m_konix.SlipStream.outXAD_6 TOP.m_konix.SlipStream.outXAD_5 TOP.m_konix.SlipStream.outXAD_4 TOP.m_konix.SlipStream.outXAD_3 TOP.m_konix.SlipStream.outXAD_2 TOP.m_konix.SlipStream.outXAD_1 TOP.m_konix.SlipStream.outXAD_0
+@28
+TOP.m_konix.SlipStream.outXAD_0
+TOP.m_konix.SlipStream.outXAD_1
+TOP.m_konix.SlipStream.outXAD_2
+TOP.m_konix.SlipStream.outXAD_3
+TOP.m_konix.SlipStream.outXAD_4
+TOP.m_konix.SlipStream.outXAD_5
+TOP.m_konix.SlipStream.outXAD_6
+TOP.m_konix.SlipStream.outXAD_7
+TOP.m_konix.SlipStream.outXD_8
+TOP.m_konix.SlipStream.outXD_9
+TOP.m_konix.SlipStream.outXD_10
+TOP.m_konix.SlipStream.outXD_11
+TOP.m_konix.SlipStream.outXD_12
+TOP.m_konix.SlipStream.outXD_13
+TOP.m_konix.SlipStream.outXD_14
+TOP.m_konix.SlipStream.outXD_15
+@1401200
+-group_end
+@1001200
+-group_end
 @200
 -SRAM
 @22
-TOP.m_konix.SRAM.addr[15:0]
-TOP.m_konix.SRAM.din[15:0]
-TOP.m_konix.SRAM.dout[15:0]
-@28
-TOP.m_konix.SRAM.wr
-TOP.m_konix.SRAM.oe
-TOP.m_konix.SRAM.cs
-@22
+TOP.m_konix.slipAddress[19:0]
 TOP.m_konix.slipAddressVideo[19:0]
-@28
-TOP.m_konix.oeL
-@22
 TOP.m_konix.sR[15:0]
+TOP.m_konix.inRamData[15:0]
+TOP.m_konix.outRamData[15:0]
+@200
+-even
+@22
+TOP.m_konix.SRAME.addr[15:0]
+TOP.m_konix.SRAME.din[7:0]
+TOP.m_konix.SRAME.dout[7:0]
 @28
-TOP.m_konix.SlipStream.VID_.VTIM_.PIXLD_0
-TOP.m_konix.SlipStream.VID_.VTIM_.PIXLD_1
+TOP.m_konix.SRAME.wr
+TOP.m_konix.SRAME.oe
+TOP.m_konix.SRAME.cs
+@200
+-odd
+@22
+TOP.m_konix.SRAMO.addr[15:0]
+TOP.m_konix.SRAMO.din[7:0]
+TOP.m_konix.SRAMO.dout[7:0]
+@28
+TOP.m_konix.SRAMO.wr
+TOP.m_konix.SRAMO.oe
+TOP.m_konix.SRAMO.cs
 @200
 -DRAM
 @22
@@ -283,6 +344,17 @@ TOP.m_konix.DRAM.dout[7:0]
 TOP.m_konix.DRAM.wr
 TOP.m_konix.DRAM.oe
 TOP.m_konix.DRAM.cs
+@200
+-ROM
+@28
+TOP.m_konix.ROM.addr[2:0]
+@22
+TOP.m_konix.ROM.din[7:0]
+TOP.m_konix.ROM.dout[7:0]
+@28
+TOP.m_konix.ROM.wr
+TOP.m_konix.ROM.oe
+TOP.m_konix.ROM.cs
 @200
 -Cpu
 @28
@@ -309,9 +381,7 @@ TOP.m_konix.Processor.eu.AX[15:0]
 TOP.m_konix.Processor.eu.BX[15:0]
 TOP.m_konix.Processor.eu.CX[15:0]
 TOP.m_konix.Processor.eu.DX[15:0]
-@23
 TOP.m_konix.Processor.eu.SP[15:0]
-@22
 TOP.m_konix.Processor.eu.BP[15:0]
 TOP.m_konix.Processor.eu.SI[15:0]
 TOP.m_konix.Processor.eu.DI[15:0]
@@ -549,9 +619,6 @@ TOP.m_konix.SlipStream.BLIT_.ADDR_.PCAREG_.PCWRL_1
 TOP.m_konix.SlipStream.BLIT_.ADDR_.PCAREG_.PCWRL_2
 @200
 -------
-@22
-TOP.m_konix.slipAddress[19:0]
-@200
 -VIDEO
 @28
 TOP.m_konix.ALE
@@ -790,7 +857,6 @@ TOP.m_konix.CE_PIXEL
 TOP.m_konix.CLK_VIDEO
 TOP.m_konix.ChipSelectLow[1:0]
 TOP.m_konix.Chroma
-TOP.m_konix.DCLK
 TOP.m_konix.DRam
 @22
 TOP.m_konix.Green[3:0]
@@ -897,5 +963,49 @@ TOP.m_konix.SlipStream.VID_.PIX_.GENLOCK
 TOP.m_konix.SlipStream.VID_.PIX_.MODE
 TOP.m_konix.SlipStream.VID_.PIX_.BORDH
 TOP.m_konix.SlipStream.VID_.PIX_.BORDL
+@200
+-MEM
+-in
+@28
+TOP.m_konix.SlipStream.VID_.MEM_.MasterClock
+TOP.m_konix.SlipStream.VID_.MEM_.RESETL_0
+TOP.m_konix.SlipStream.VID_.MEM_.CLK
+TOP.m_konix.SlipStream.VID_.MEM_.DQCLK
+TOP.m_konix.SlipStream.VID_.MEM_.BMREQ
+TOP.m_konix.SlipStream.VID_.MEM_.DMREQ
+TOP.m_konix.SlipStream.VID_.MEM_.HLDAL
+TOP.m_konix.SlipStream.VID_.MEM_.RDL
+TOP.m_konix.SlipStream.VID_.MEM_.WRL
+TOP.m_konix.SlipStream.VID_.MEM_.IOML
+TOP.m_konix.SlipStream.VID_.MEM_.A_0
+TOP.m_konix.SlipStream.VID_.MEM_.A_18
+TOP.m_konix.SlipStream.VID_.MEM_.A_19
+TOP.m_konix.SlipStream.VID_.MEM_.VBUSYL_0
+TOP.m_konix.SlipStream.VID_.MEM_.VBUSYL_1
+TOP.m_konix.SlipStream.VID_.MEM_.VCS
+TOP.m_konix.SlipStream.VID_.MEM_.VOE
+TOP.m_konix.SlipStream.VID_.MEM_.VCAS
+TOP.m_konix.SlipStream.VID_.MEM_.VRAS
+TOP.m_konix.SlipStream.VID_.MEM_.WD_0
+TOP.m_konix.SlipStream.VID_.MEM_.WD_1
+TOP.m_konix.SlipStream.VID_.MEM_.WD_2
+TOP.m_konix.SlipStream.VID_.MEM_.WD_3
+TOP.m_konix.SlipStream.VID_.MEM_.MEMLD
+TOP.m_konix.SlipStream.VID_.MEM_.PSUEDO
+TOP.m_konix.SlipStream.VID_.MEM_.BWORD
+TOP.m_konix.SlipStream.VID_.MEM_.DWORD
+@200
+-out
+@28
+TOP.m_konix.SlipStream.VID_.MEM_.CAS
+TOP.m_konix.SlipStream.VID_.MEM_.MUXL
+TOP.m_konix.SlipStream.VID_.MEM_.WAITL
+TOP.m_konix.SlipStream.VID_.MEM_.SCE_0
+TOP.m_konix.SlipStream.VID_.MEM_.SCE_1
+TOP.m_konix.SlipStream.VID_.MEM_.WE
+TOP.m_konix.SlipStream.VID_.MEM_.DWE
+TOP.m_konix.SlipStream.VID_.MEM_.CS_0
+TOP.m_konix.SlipStream.VID_.MEM_.CS_1
+TOP.m_konix.SlipStream.VID_.MEM_.OE
 [pattern_trace] 1
 [pattern_trace] 0
