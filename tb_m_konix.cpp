@@ -6,7 +6,7 @@
 #define VIDEO_OUT   1
 #define TRACE_ON    1
 
-#define FRAME_START 3
+#define FRAME_START 0
 #define FRAME_STOP  2
 
 int gTrace=0;
@@ -211,9 +211,10 @@ int main(int argc, char** argv)
     tb->reset=0;
 
 // Load P88 (so we don't need to bother with initialising memory files anymore)
-    if (0)
+    if (argc>1)
     {
-        FILE *p88 = fopen("/home/snax/Work/AOTMC89/LINE.P88", "rb");
+        printf("LOADING P88 : %s\n",argv[1]);
+        FILE *p88 = fopen(argv[1], "rb");
         fseek(p88,0,SEEK_END);
         long size = ftell(p88);
         fseek(p88,0,SEEK_SET);

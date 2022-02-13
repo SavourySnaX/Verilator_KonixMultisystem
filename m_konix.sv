@@ -4,42 +4,39 @@
 
 module m_konix
 (
-	input         clk_sys,
-	input			  XTAL,
-	input         reset,
-	
-	output CLK_VIDEO,
-	output reg CE_PIXEL,
-	output [7:0] VGA_G,
-	output [7:0] VGA_R,
-   output [7:0] VGA_B,
+  input               clk_sys,
+  input               XTAL,
+  input               reset,
+  
+  output reg          CE_PIXEL,
+  output      [7:0]   VGA_G,
+  output      [7:0]   VGA_R,
+  output      [7:0]   VGA_B,
 
-	output VGA_DE,
-	output VGA_HS,
-	output VGA_VS,
-	
-	input 			ioctl_wr,
-	input [26:0]	ioctl_addr,
-	input	[7:0]		ioctl_dout,
-	input				ioctl_download,
-	input	[15:0]	ioctl_index,
-	output 			ioctl_wait
-	
+  output              VGA_DE,
+  output              VGA_HS,
+  output              VGA_VS,
+  
+  input               ioctl_wr,
+  input       [26:0]  ioctl_addr,
+  input       [7:0]   ioctl_dout,
+  input               ioctl_download,
+  input       [15:0]  ioctl_index,
+  output              ioctl_wait
+  
 );
 
 wire internalReset;
 reg P88LoadReset = 1'b0;
 
-assign internalReset = reset | P88LoadReset;
-
 //reg XTAL;
 //reg [7:0] XTALcnt;
 
-wire [19:0] ABus	/*synthesis keep*/;
-wire Write,Word,Read 	/*synthesis keep*/;
-wire [15:0] inRamData,outRamData 	/*synthesis keep*/;
-wire [15:0] sR 	/*synthesis keep*/;
-wire [7:0] dR,rR 	/*synthesis keep*/;
+wire [19:0] ABus  /*synthesis keep*/;
+wire Word   /*synthesis keep*/;
+wire [15:0] inRamData,outRamData   /*synthesis keep*/;
+wire [15:0] sR   /*synthesis keep*/;
+wire [7:0] dR,rR   /*synthesis keep*/;
 
 wire SRam;
 wire DRam;
@@ -65,10 +62,10 @@ wire io,enio;
 wire HSyncL,VSyncL;
 wire enVSyncL,enHSyncL;
 
-wire IOM,ALE,INTA,HLDA,/*XTAL,*/RDL,WRL,PCLK,HOLD,INTR 	/*synthesis keep*/;
-wire INTAL 	/*synthesis keep*/;
+wire IOM,ALE,INTA,HLDA,/*XTAL,*/RDL,WRL,PCLK,HOLD,INTR   /*synthesis keep*/;
+wire INTAL   /*synthesis keep*/;
 wire [1:0] ScreenChipEnableL, ChipSelectLow;
-wire SlipStreamWriteL 	/*synthesis keep*/;
+wire SlipStreamWriteL   /*synthesis keep*/;
 wire leftL,leftH,rightL,rightH;
 
 wire inc,aiSel,oeL,casL,xtalo;
@@ -79,7 +76,7 @@ wire [13:0] leftDAC,rightDAC;
 
 wire dtr,den;
 
-wire [19:0] cpuA	/*synthesis keep*/;
+wire [19:0] cpuA  /*synthesis keep*/;
 wire [7:0] cpuDOut;
 wire [7:0] cpuDIn;
 
@@ -94,14 +91,14 @@ wire [7:0] sramInEven, sramInOdd, sramOutEven, sramOutOdd;
 
 // MOVE TO NEW FILE (we should really verify this thing)
 
-reg internalWrite;
+reg internalWrite,internalWriteRom;
 
 reg oldDownload;
 
-reg [19:0] address;	// used for writing to rams
-reg [15:0] length;	// used for writing to rams
+reg [19:0] address;  // used for writing to rams
+reg [15:0] length;  // used for writing to rams
 reg [4:0]  state;
-reg [15:0] seg;		// used for setting up rom reboot address (for now, perhaps ultimately we just poke the cpu
+reg [15:0] seg;    // used for setting up rom reboot address (for now, perhaps ultimately we just poke the cpu
 reg [15:0] off;
 reg [15:0] tcalc;
 
@@ -128,11 +125,6 @@ ram #(.addr_width(16),.data_width(8),.file("sramO.mem")) SRAMO /*synthesis keep*
   .Q(sramOutOdd)
 );
 
-assign sramInEven = outRamData[7:0];
-assign sramInOdd = outRamData[15:8];//(outRamData[15:8] & {8{HLDA}}) | (outRamData[7:0] & {8{~HLDA}});
-
-assign sR = {sramOutOdd,sramOutEven};//(sramOutEven & {8{HLDA}}) | (sramOutOdd & {8{~HLDA}})};
-
 // On RAM BOARD - 256k 4bit * 2
 ram #(.addr_width(18),.data_width(8),.file("dram.mem")) DRAM (
   .clk(clk_sys),
@@ -149,11 +141,18 @@ ram #(.addr_width(3),.data_width(8),.file("rom.mem")) ROM (
   .clk(clk_sys),
   .din(outRamData[7:0]),
   .addr(slipAddressVideo[2:0]),
-  .cs(~ChipSelectLow[1]),
+  .cs((~ChipSelectLow[1]) | internalReset),
   .oe(~(oeL | ChipSelectLow[1])),
-  .wr(0),
+  .wr(internalWriteRom),
   .Q(rR)
 );
+
+assign internalReset = reset | P88LoadReset;
+
+assign sramInEven = outRamData[7:0];
+assign sramInOdd = outRamData[15:8];//(outRamData[15:8] & {8{HLDA}}) | (outRamData[7:0] & {8{~HLDA}});
+
+assign sR = {sramOutOdd,(sramOutEven & {8{HLDA}}) | (sramOutOdd & {8{~HLDA}})};
 
 assign Rom = ABus[19] & ABus[18];
 assign SRam = ~ABus[19] & ~ABus[18];
@@ -163,20 +162,27 @@ assign inRamData = {sR[15:8], (dR[7:0] & {8{DRam}})|(sR[7:0] & {8{SRam}})|(rR[7:
 assign INTA=~INTAL;
 
 assign slipAddressVideo = ({18{~internalReset}} & {2'b00,latchedUpperXA,SS_outXA[15:8],latchedLowXA}) |
-								  ({18{internalReset}} & address[17:0]);
+                  ({18{internalReset}} & address[17:0]);
 
 assign XAD = (inRamData[7:0] & {8{HLDA}}) | (((cpuA[7:0] & {8{ALE}} & ({8{~HLDA}})) | (cpuDOut & {8{~ALE}})) & ({8{~HLDA}}));
 assign XA = cpuA[19:8];
 assign XD = inRamData[15:8];
 assign ABus = (cpuA & {20{~HLDA}}) | ({20{HLDA}} & (slipAddress & {20{~Word}}) | (slipAddressVideo & {20{Word}}));
 assign Word = ScreenChipEnableL==2'b00;
-assign Write = (~SlipStreamWriteL) | ((~WRL) & (~IOM) & (~HLDA));
-assign Read = (~oeL) | ((~RDL) & (~IOM) & (~HLDA));
 
 assign cpuDIn = (inRamData[7:0] & (~SS_enXAD)) | (SS_outXAD & SS_enXAD);
 
-assign outRamData = ({16{~internalReset}} & ({SS_outXD,SS_outXAD} & {16{HLDA}}) | ({16{~internalReset}} & cpuDOut & ({16{~HLDA}}))) | 
-					({16{internalReset}} & byteToWrite);
+assign outRamData = ({16{~internalReset}} & ({SS_outXD,SS_outXAD} & {16{HLDA}}) | ({16{~internalReset}} & {cpuDOut,cpuDOut} & ({16{~HLDA}}))) | 
+          ({16{internalReset}} & byteToWrite);
+
+assign VGA_DE = ~blanking;
+assign VGA_HS = ~HSyncL;
+assign VGA_VS = ~VSyncL;
+
+assign VGA_G  = Green<<4;
+assign VGA_R  = Red<<4;
+assign VGA_B  = Blue<<4;
+
 
 reg [1:0] cnt=2'b0;
 
@@ -186,12 +192,12 @@ reg lastEdge=1'b0;
 
 always @(posedge clk_sys)
 begin
-	 lastEdge <= CCLK;
-	 
-	 if (lastEdge==1'b1 && CCLK==1'b0)
-		CE_PIXEL <= 1'b1;
-	 else
-		CE_PIXEL <= 1'b0;
+   lastEdge <= CCLK;
+   
+   if (lastEdge==1'b1 && CCLK==1'b0)
+    CE_PIXEL <= 1'b1;
+   else
+    CE_PIXEL <= 1'b0;
 
 end
 
@@ -204,7 +210,7 @@ wire Chroma;
 // IOM/WRL/RDL gated with HLDA to simulate floating bus (with pull up/down) that would have occured with real cpu
 
 m_SS SlipStream(
-	 .MasterClock(clk_sys),
+   .MasterClock(clk_sys),
     .inXAD_0(XAD[0]),.inXAD_1(XAD[1]),.inXAD_2(XAD[2]),.inXAD_3(XAD[3]),.inXAD_4(XAD[4]),.inXAD_5(XAD[5]),.inXAD_6(XAD[6]),.inXAD_7(XAD[7]),
     .inXA_8(XA[8]),.inXA_9(XA[9]),.inXA_10(XA[10]),.inXA_11(XA[11]),.inXA_12(XA[12]),.inXA_13(XA[13]),.inXA_14(XA[14]),.inXA_15(XA[15]),
     .inXD_8(XD[8]),.inXD_9(XD[9]),.inXD_10(XD[10]),.inXD_11(XD[11]),.inXD_12(XD[12]),.inXD_13(XD[13]),.inXD_14(XD[14]),.inXD_15(XD[15]),
@@ -235,11 +241,11 @@ m_SS SlipStream(
     .XB_0(Blue[0]),.XB_1(Blue[1]),.XB_2(Blue[2]),.XB_3(Blue[3]),
     .XCHROMA(Chroma),.XLEFTL(leftL),.XLEFTH(leftH),.XRIGHTL(rightL),.XRIGHTH(rightH),
     .XINC(inc),.XAISEL(aiSel),.XOEL(oeL),.XCASL(casL),.XXTALO(xtalo),.XGPIOL_0(gpioL[0]),.XGPIOL_1(gpioL[1]),
-	 .CCLK(CCLK),
+   .CCLK(CCLK),
     .DQCLK(qclk),.LEFTDAC(leftDAC),.RIGHTDAC(rightDAC),
     .FCLK(clk_sys),
     .SLIPADDRESS(slipAddress)
-	 ,.BLANKING(blanking)
+   ,.BLANKING(blanking)
     );
 
 /*
@@ -277,29 +283,19 @@ m8088 Processor(
     .DEN(den),
     .HOLDA(HLDA)
 );
-
-assign CLK_VIDEO = clk_sys;
-
-assign VGA_DE = ~blanking;
-assign VGA_HS = ~HSyncL;
-assign VGA_VS = ~VSyncL;
-
-assign VGA_G  = Green<<4;//(!col || col == 2) ? video : 8'd0;
-assign VGA_R  = Red<<4;//(!col || col == 1) ? video : 8'd0;
-assign VGA_B  = Blue<<4;//(!col || col == 3) ? video : 8'd0;
 /*
 always @(posedge clk_sys)
 begin
-	CE_PIXEL = Chroma;
+  CE_PIXEL = Chroma;
 
-	VGA_DE = ~blanking;
-	VGA_HS = ~HSyncL;
-	VGA_VS = ~VSyncL;
+  VGA_DE = ~blanking;
+  VGA_HS = ~HSyncL;
+  VGA_VS = ~VSyncL;
 
-	VGA_G  = Green<<4;//(!col || col == 2) ? video : 8'd0;
-	VGA_R  = Red<<4;//(!col || col == 1) ? video : 8'd0;
-	VGA_B  = Blue<<4;//(!col || col == 3) ? video : 8'd0;
-	
+  VGA_G  = Green<<4;//(!col || col == 2) ? video : 8'd0;
+  VGA_R  = Red<<4;//(!col || col == 1) ? video : 8'd0;
+  VGA_B  = Blue<<4;//(!col || col == 3) ? video : 8'd0;
+  
 end
 */
 
@@ -310,129 +306,192 @@ end
 always @(posedge clk_sys)
 begin
 
-	oldDownload<=ioctl_download;
-	
-	if (oldDownload==1'b0 && ioctl_download==1'b1)
-	begin
-		P88LoadReset<=1'b1;
-		state <= 5'b000;
-	end
-	
-	if (oldDownload==1'b1 && ioctl_download==1'b0)
-	begin
-		P88LoadReset<=1'b0;
-		state <= 5'b1111;
-	end
+  oldDownload<=ioctl_download;
+  
+  if (oldDownload==1'b0 && ioctl_download==1'b1)
+  begin
+    P88LoadReset<=1'b1;
+    state <= 5'b000;
+  end
+  
+  if (oldDownload==1'b1 && ioctl_download==1'b0)
+  begin
+    P88LoadReset<=1'b0;
+    state <= 5'b1111;
+  end
 
-	if (ioctl_wr | ioctl_wait) 
-	begin
-	
-		case (state)
-			5'b00000:		// Read command
-				begin
-					if (ioctl_dout == 8'hC8)
-						state <= 5'b00001;
-					else if (ioctl_dout == 8'hCA)
-						state <= 5'b01010;
-				end
-			5'b00001:		// Load Section Segment L  START C8
-				begin
-					state <= 5'b00010;
-					tcalc[7:0] <= ioctl_dout;
-				end
-			5'b00010:		// Load Section Segment H
-				begin
-					state <= 5'b00011;
-					tcalc[15:8] <= ioctl_dout;
-				end
-			5'b00011:		// Load Section Offset L
-				begin
-					state <= 5'b00100;
-					address<={4'b0000,tcalc}*16;
-					tcalc[7:0] <= ioctl_dout;
-				end
-			5'b00100:		// Load Section Offset H
-				begin
-					state <= 5'b00101;
-					tcalc[15:8] <= ioctl_dout;
-				end
-			5'b00101:		// skip byte
-				begin
-					state <= 5'b00110;
-					address<=address + {4'b0000,tcalc};
-					tcalc[7:0] <= ioctl_dout;
-				end
-			5'b00110:		// skip byte
-				begin
-					state <= 5'b00111;
-					tcalc[7:0] <= ioctl_dout;
-				end
-			5'b00111:		// Load Length L
-				begin
-					state <= 5'b01000;
-					length[7:0] <= ioctl_dout;
-				end
-			5'b01000:		// Load Length H
-				begin
-					state <= 5'b10000;	// Goto download bytes loop
-					length[15:8] <= ioctl_dout;
-				end
-				
-			5'b01010:		// Load Section Segment L  START CA
-				begin
-					state <= 5'b01011;
-					seg[7:0] <= ioctl_dout;
-				end
-			5'b01011:		// Load Section Segment H
-				begin
-					state <= 5'b01100;
-					seg[15:8] <= ioctl_dout;
-				end
-			5'b01100:		// Load Section Offset L
-				begin
-					state <= 5'b01101;
-					off[7:0] <= ioctl_dout;
-				end
-			5'b01101:		// Load Section Offset H
-				begin
-					state <= 5'b0000;		// for now will always boot 80000
-					//state <= 5'b11000;	// Goto Write ROM
-					off[15:8] <= ioctl_dout;
-				end
-				
-			5'b10000:						// RAM write loop
-				begin
-					state <= 5'b10001;
-					byteToWrite <= ioctl_dout;
-					ioctl_wait <= 1;
-					internalWrite <= 1;
-				end
-			5'b10001:	
-				begin
-					state <= 5'b10010;	// delay for write signal
-					internalWrite <= 0;
-				end
-			5'b10010:	
-				begin
-					state <= 5'b10011;
-					address <= address + 1;
-					length <= length - 1;
-				end
-			5'b10011:
-				begin
-					ioctl_wait <= 0;
-					if (length==0)
-						state<=5'b00000;
-					else
-						state<=5'b10000;
-				end
-				
-			default:
-				begin
-				end
-		endcase
-	end
-		
+  if (ioctl_wr | ioctl_wait) 
+  begin
+  
+    case (state)
+      5'b00000:    // Read command
+        begin
+          if (ioctl_dout == 8'hC8)
+            state <= 5'b00001;
+          else if (ioctl_dout == 8'hCA)
+            state <= 5'b01101;
+        end
+      5'b00001:    // Load Section Segment L  START C8
+        begin
+          state <= 5'b00010;
+          tcalc[7:0] <= ioctl_dout;
+        end
+      5'b00010:    // Load Section Segment H
+        begin
+          state <= 5'b00011;
+          tcalc[15:8] <= ioctl_dout;
+        end
+      5'b00011:    // Load Section Offset L
+        begin
+          state <= 5'b00100;
+          address<={4'b0000,tcalc}*16;
+          tcalc[7:0] <= ioctl_dout;
+        end
+      5'b00100:    // Load Section Offset H
+        begin
+          state <= 5'b00101;
+          tcalc[15:8] <= ioctl_dout;
+        end
+      5'b00101:    // skip byte
+        begin
+          state <= 5'b00110;
+          address<=address + {4'b0000,tcalc};
+          tcalc[7:0] <= ioctl_dout;
+        end
+      5'b00110:    // skip byte
+        begin
+          state <= 5'b00111;
+          tcalc[7:0] <= ioctl_dout;
+        end
+      5'b00111:    // Load Length L
+        begin
+          state <= 5'b01000;
+          length[7:0] <= ioctl_dout;
+        end
+      5'b01000:    // Load Length H
+        begin
+          state <= 5'b01001;  // download bytes loop
+          length[15:8] <= ioctl_dout;
+        end
+        
+      5'b01001:            // RAM write loop
+        begin
+          state <= 5'b01010;
+          byteToWrite <= ioctl_dout;
+          ioctl_wait <= 1;
+          internalWrite <= 1;
+        end
+      5'b01010:  
+        begin
+          state <= 5'b01011;  // delay for write signal
+          internalWrite <= 0;
+        end
+      5'b01011:  
+        begin
+          state <= 5'b01100;
+          address <= address + 1;
+          length <= length - 1;
+        end
+      5'b01100:
+        begin
+          ioctl_wait <= 0;
+          if (length==0)
+            state<=5'b00000;
+          else
+            state<=5'b01001;
+        end
+
+      5'b01101:    // Load Section Segment L  START CA
+        begin
+          state <= 5'b01110;
+          seg[7:0] <= ioctl_dout;
+        end
+      5'b01110:    // Load Section Segment H
+        begin
+          state <= 5'b01111;
+          seg[15:8] <= ioctl_dout;
+        end
+      5'b01111:    // Load Section Offset L
+        begin
+          state <= 5'b10000;
+          off[7:0] <= ioctl_dout;
+        end
+      5'b10000:    // Load Section Offset H
+        begin
+          state <= 5'b10001;  // Write ROM
+          off[15:8] <= ioctl_dout;
+          ioctl_wait <= 1;    // already have data we need to perform the ROM writes
+          address <= 0;
+        end
+        
+      5'b10001:         // ROM write   (writes a FAR JMP to FFF0-FFFn)
+        begin
+          state <= 5'b10010;
+          byteToWrite <= 8'hEA;
+          internalWriteRom <= 1;
+        end
+      5'b10010:
+        begin
+          state <= 5'b10011;
+          internalWriteRom <= 0;
+          address <= 1;
+        end
+      5'b10011:
+        begin
+          state <= 5'b10100;
+          byteToWrite <= off[7:0];
+          internalWriteRom <= 1;
+        end
+      5'b10100:
+        begin
+          state <= 5'b10101;
+          internalWriteRom <= 0;
+          address <= 2;
+        end
+      5'b10101:
+        begin
+          state <= 5'b10110;
+          byteToWrite <= off[15:8];
+          internalWriteRom <= 1;
+        end
+      5'b10110:
+        begin
+          state <= 5'b10111;
+          internalWriteRom <= 0;
+          address <= 3;
+        end
+      5'b10111:
+        begin
+          state <= 5'b11000;
+          byteToWrite <= seg[7:0];
+          internalWriteRom <= 1;
+        end
+      5'b11000:
+        begin
+          state <= 5'b11001;
+          internalWriteRom <= 0;
+          address <= 4;
+        end
+      5'b11001:
+        begin
+          state <= 5'b11010;
+          byteToWrite <= seg[15:8];
+          internalWriteRom <= 1;
+        end
+      5'b11010:
+        begin
+          state <= 5'b00000;
+          internalWriteRom <= 0;
+          ioctl_wait<=0;
+        end
+
+        
+      default:
+        begin
+        end
+    endcase
+  end
+    
 end
 
 

@@ -101,7 +101,7 @@ waves: $(MODULE).vcd
 $(MODULE).vcd: ./$(MODULE).obj_dir/V$(MODULE)
 	@echo
 	@echo "### SIMULATING ###"
-	@./$(MODULE).obj_dir/V$(MODULE)
+	@./$(MODULE).obj_dir/V$(MODULE) $(P88)
 
 ./$(MODULE).obj_dir/V$(MODULE): ./$(MODULE).obj_dir/.$(MODULE).stamp.verilate
 	@echo
