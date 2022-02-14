@@ -37,6 +37,7 @@ module bus_interface
     output reg  [15:0]   REGISTER_DS /* verilator public */,
     output reg  [15:0]   REGISTER_SS /* verilator public */,
     output reg  [15:0]   REGISTER_ES /* verilator public */,
+    input       [15:0]   UpdateReg,
 
 
     input advanceTop,   // strobes
@@ -44,6 +45,7 @@ module bus_interface
     input suspend,
     input correct,
     input indirect,
+    input irq,
     input latchPC,
     input latchCS,
     input latchDS,
@@ -58,6 +60,7 @@ module bus_interface
     output prefetchEmpty, 
     output prefetchFull /*verilator public */,
     output indirectBusOpInProgress /* verilator public */,
+    output reg irqPending /* verilator public */,
     output suspending   /* verilator public */
   );
 
@@ -152,15 +155,15 @@ begin
         prefetchReadAddr=prefetchReadAddr+1;
 
     if (latchPCStrobe==0 && latchPC==1)
-        REGISTER_IP<=OPRw;
+        REGISTER_IP<=UpdateReg;
     if (latchESStrobe==0 && latchES==1)
-        REGISTER_ES<=OPRw;
+        REGISTER_ES<=UpdateReg;
     if (latchCSStrobe==0 && latchCS==1)
-        REGISTER_CS<=OPRw;
+        REGISTER_CS<=UpdateReg;
     if (latchSSStrobe==0 && latchSS==1)
-        REGISTER_SS<=OPRw;
+        REGISTER_SS<=UpdateReg;
     if (latchDSStrobe==0 && latchDS==1)
-        REGISTER_DS<=OPRw;
+        REGISTER_DS<=UpdateReg;
 
     if (suspendStrobe==0 && suspend==1)
         requestPrefetchHold<=1;
@@ -191,6 +194,7 @@ begin
         requestFlush<=0;
         indirectBytes<=0;
         indirectBusCycle<=0;
+        irqPending<=0;
         /// TODOs
         INTA_n<=1;
         DTR<=0;
@@ -204,7 +208,10 @@ begin
         if (clkEdgeSample==1'b1 && CLK==1'b0)
             tick=1;
         else if (clkEdgeSample==1'b0 && CLK==1'b1)
+        begin
             tick=1;
+            irqPending<=INTR;
+        end
         else
             tick=0;
 
@@ -240,6 +247,9 @@ begin
                                     data<=OPRw[7:0];
                                 else
                                     data<=OPRw[15:8];
+
+                                if (irq)
+                                    INTA_n<=0;
                             end
                         end
                     3'b011:  
@@ -288,6 +298,8 @@ begin
                                     OPRr[15:8]<=inAD;
                                     indirectBytes[0]<=0;
                                 end
+                                if (irq)
+                                    INTA_n<=1;
                             end
                             RD_n<=1;
                             WR_n<=1;

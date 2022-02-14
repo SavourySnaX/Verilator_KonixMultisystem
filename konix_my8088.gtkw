@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
-[*] Wed Feb  9 09:29:03 2022
+[*] Mon Feb 14 14:36:21 2022
 [*]
 [dumpfile] "/home/snax/BackedUp/fpga/verilator/slipstream1/m_konix.vcd"
-[dumpfile_mtime] "Wed Feb  9 09:08:52 2022"
-[dumpfile_size] 578193230
+[dumpfile_mtime] "Mon Feb 14 14:27:07 2022"
+[dumpfile_size] 607123632
 [savefile] "/home/snax/BackedUp/fpga/verilator/slipstream1/konix_my8088.gtkw"
-[timestart] 25977671
+[timestart] 21283868
 [size] 5052 2752
-[pos] 4961 -91
-*-6.000000 25978150 62167330 16913290 8735320 8735500 8735590 8735770 8738560 8738830 8739010 8739190 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] 5051 -1
+*-10.000000 21292644 62167330 16913290 8735320 8735500 8735590 8735770 8738560 8738830 8739010 8739190 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
 [treeopen] TOP.m_konix.
 [treeopen] TOP.m_konix.Processor.
@@ -29,7 +29,6 @@
 -Konix Module
 @28
 TOP.CE_PIXEL
-TOP.CLK_VIDEO
 TOP.VGA_DE
 @c00022
 #{TOP.m_konix.SlipStream.VID_.VCNT_.VC_[8:0]} TOP.m_konix.SlipStream.VID_.VCNT_.VC_8 TOP.m_konix.SlipStream.VID_.VCNT_.VC_7 TOP.m_konix.SlipStream.VID_.VCNT_.VC_6 TOP.m_konix.SlipStream.VID_.VCNT_.VC_5 TOP.m_konix.SlipStream.VID_.VCNT_.VC_4 TOP.m_konix.SlipStream.VID_.VCNT_.VC_3 TOP.m_konix.SlipStream.VID_.VCNT_.VC_2 TOP.m_konix.SlipStream.VID_.VCNT_.VC_1 TOP.m_konix.SlipStream.VID_.VCNT_.VC_0
@@ -269,9 +268,7 @@ TOP.m_konix.SlipStream.outXA_8
 TOP.m_konix.SlipStream.outXA_9
 TOP.m_konix.SlipStream.outXA_10
 TOP.m_konix.SlipStream.outXA_11
-@29
 TOP.m_konix.SlipStream.outXA_12
-@28
 TOP.m_konix.SlipStream.outXA_13
 TOP.m_konix.SlipStream.outXA_14
 TOP.m_konix.SlipStream.outXA_15
@@ -369,6 +366,8 @@ TOP.m_konix.Processor.biu.WR_n
 TOP.m_konix.IOM
 TOP.m_konix.HOLD
 TOP.m_konix.HLDA
+TOP.m_konix.Processor.INTR
+TOP.m_konix.Processor.INTA_n
 @22
 TOP.m_konix.Processor.addr[19:0]
 TOP.m_konix.Processor.din[7:0]
@@ -377,6 +376,7 @@ TOP.m_konix.cpuA[19:0]
 TOP.m_konix.cpuDIn[7:0]
 TOP.m_konix.cpuDOut[7:0]
 TOP.m_konix.Processor.eu.instruction[7:0]
+TOP.m_konix.Processor.eu.executionState[8:0]
 TOP.m_konix.Processor.eu.AX[15:0]
 TOP.m_konix.Processor.eu.BX[15:0]
 TOP.m_konix.Processor.eu.CX[15:0]
@@ -386,6 +386,25 @@ TOP.m_konix.Processor.eu.BP[15:0]
 TOP.m_konix.Processor.eu.SI[15:0]
 TOP.m_konix.Processor.eu.DI[15:0]
 TOP.m_konix.Processor.eu.FLAGS[15:0]
+TOP.m_konix.Processor.eu.REGISTER_CS[15:0]
+@23
+TOP.m_konix.Processor.eu.REGISTER_IP[15:0]
+@22
+TOP.m_konix.Processor.eu.REGISTER_DS[15:0]
+TOP.m_konix.Processor.eu.REGISTER_ES[15:0]
+TOP.m_konix.Processor.eu.REGISTER_SS[15:0]
+@200
+-internals
+@22
+TOP.m_konix.Processor.eu.IND[15:0]
+TOP.m_konix.Processor.eu.OPRr[15:0]
+TOP.m_konix.Processor.eu.OPRw[15:0]
+TOP.m_konix.Processor.eu.tmpa[15:0]
+TOP.m_konix.Processor.eu.tmpb[15:0]
+TOP.m_konix.Processor.eu.tmpc[15:0]
+TOP.m_konix.Processor.eu.aluA[15:0]
+TOP.m_konix.Processor.eu.aluB[15:0]
+TOP.m_konix.Processor.eu.SIGMA[15:0]
 @200
 -Blitter
 @28
@@ -854,7 +873,6 @@ TOP.m_konix.ALE
 TOP.m_konix.Blue[3:0]
 @28
 TOP.m_konix.CE_PIXEL
-TOP.m_konix.CLK_VIDEO
 TOP.m_konix.ChipSelectLow[1:0]
 TOP.m_konix.Chroma
 TOP.m_konix.DRam
@@ -868,8 +886,6 @@ TOP.m_konix.INTAL
 TOP.m_konix.INTR
 TOP.m_konix.PCLK
 TOP.m_konix.RDL
-TOP.m_konix.Read
-TOP.m_konix.Write
 @22
 TOP.m_konix.Red[3:0]
 @28

@@ -150,9 +150,9 @@ ram #(.addr_width(3),.data_width(8),.file("rom.mem")) ROM (
 assign internalReset = reset | P88LoadReset;
 
 assign sramInEven = outRamData[7:0];
-assign sramInOdd = outRamData[15:8];//(outRamData[15:8] & {8{HLDA}}) | (outRamData[7:0] & {8{~HLDA}});
+assign sramInOdd = outRamData[15:8];
 
-assign sR = {sramOutOdd,(sramOutEven & {8{HLDA}}) | (sramOutOdd & {8{~HLDA}})};
+assign sR = {sramOutOdd,(sramOutEven & {8{~ScreenChipEnableL[0]}}) | (sramOutOdd & {8{(~ScreenChipEnableL[1]) & ScreenChipEnableL[0]}})};
 
 assign Rom = ABus[19] & ABus[18];
 assign SRam = ~ABus[19] & ~ABus[18];
@@ -174,6 +174,8 @@ assign cpuDIn = (inRamData[7:0] & (~SS_enXAD)) | (SS_outXAD & SS_enXAD);
 
 assign outRamData = ({16{~internalReset}} & ({SS_outXD,SS_outXAD} & {16{HLDA}}) | ({16{~internalReset}} & {cpuDOut,cpuDOut} & ({16{~HLDA}}))) | 
           ({16{internalReset}} & byteToWrite);
+
+
 
 assign VGA_DE = ~blanking;
 assign VGA_HS = ~HSyncL;
