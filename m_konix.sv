@@ -7,7 +7,10 @@ module m_konix
   input               clk_sys,
   input               XTAL,
   input               reset,
-  
+
+  input       [7:0]   joy1L,      // DURLBAud     // Down Up Right Left B A u(left pedal up) d(left pedal down)  u+d = light sensor trigger
+  input       [7:0]   joy2L,      // DURLBAud     // Down Up Right Left B A u(right pedal up) d(right pedal down)
+
   output reg          CE_PIXEL,
   output      [7:0]   VGA_G,
   output      [7:0]   VGA_R,
@@ -170,7 +173,8 @@ assign XD = inRamData[15:8];
 assign ABus = (cpuA & {20{~HLDA}}) | ({20{HLDA}} & (slipAddress & {20{~Word}}) | (slipAddressVideo & {20{Word}}));
 assign Word = ScreenChipEnableL==2'b00;
 
-assign cpuDIn = (inRamData[7:0] & (~SS_enXAD)) | (SS_outXAD & SS_enXAD);
+assign cpuDIn = (inRamData[7:0] & (~SS_enXAD)) | (SS_outXAD & (SS_enXAD & {8{joy[0]}} & {8{joy[1]}})) | ({8{~joy[0]}} & joy1L) | ({8{~joy[1]}} & joy2L);
+
 
 assign outRamData = ({16{~internalReset}} & ({SS_outXD,SS_outXAD} & {16{HLDA}}) | ({16{~internalReset}} & {cpuDOut,cpuDOut} & ({16{~HLDA}}))) | 
           ({16{internalReset}} & byteToWrite);

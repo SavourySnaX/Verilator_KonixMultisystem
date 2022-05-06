@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
-[*] Mon Feb 14 14:36:21 2022
+[*] Tue Feb 15 07:33:14 2022
 [*]
 [dumpfile] "/home/snax/BackedUp/fpga/verilator/slipstream1/m_konix.vcd"
-[dumpfile_mtime] "Mon Feb 14 14:27:07 2022"
-[dumpfile_size] 607123632
+[dumpfile_mtime] "Mon Feb 14 21:20:32 2022"
+[dumpfile_size] 527926502
 [savefile] "/home/snax/BackedUp/fpga/verilator/slipstream1/konix_my8088.gtkw"
-[timestart] 21283868
+[timestart] 37191647
 [size] 5052 2752
-[pos] 5051 -1
-*-10.000000 21292644 62167330 16913290 8735320 8735500 8735590 8735770 8738560 8738830 8739010 8739190 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] 4961 -91
+*-8.000000 37194940 62167330 16913290 8735320 8735500 8735590 8735770 8738560 8738830 8739010 8739190 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
 [treeopen] TOP.m_konix.
 [treeopen] TOP.m_konix.Processor.
@@ -280,27 +280,9 @@ TOP.m_konix.SlipStream.XSCEL_0
 TOP.m_konix.SlipStream.XSCEL_1
 TOP.m_konix.SlipStream.ADEN
 TOP.m_konix.SlipStream.XLPL
-@c00022
-#{<Vector>} TOP.m_konix.SlipStream.outXD_15 TOP.m_konix.SlipStream.outXD_14 TOP.m_konix.SlipStream.outXD_13 TOP.m_konix.SlipStream.outXD_12 TOP.m_konix.SlipStream.outXD_11 TOP.m_konix.SlipStream.outXD_10 TOP.m_konix.SlipStream.outXD_9 TOP.m_konix.SlipStream.outXD_8 TOP.m_konix.SlipStream.outXAD_7 TOP.m_konix.SlipStream.outXAD_6 TOP.m_konix.SlipStream.outXAD_5 TOP.m_konix.SlipStream.outXAD_4 TOP.m_konix.SlipStream.outXAD_3 TOP.m_konix.SlipStream.outXAD_2 TOP.m_konix.SlipStream.outXAD_1 TOP.m_konix.SlipStream.outXAD_0
-@28
-TOP.m_konix.SlipStream.outXAD_0
-TOP.m_konix.SlipStream.outXAD_1
-TOP.m_konix.SlipStream.outXAD_2
-TOP.m_konix.SlipStream.outXAD_3
-TOP.m_konix.SlipStream.outXAD_4
-TOP.m_konix.SlipStream.outXAD_5
-TOP.m_konix.SlipStream.outXAD_6
-TOP.m_konix.SlipStream.outXAD_7
-TOP.m_konix.SlipStream.outXD_8
-TOP.m_konix.SlipStream.outXD_9
-TOP.m_konix.SlipStream.outXD_10
-TOP.m_konix.SlipStream.outXD_11
-TOP.m_konix.SlipStream.outXD_12
-TOP.m_konix.SlipStream.outXD_13
-TOP.m_konix.SlipStream.outXD_14
-TOP.m_konix.SlipStream.outXD_15
-@1401200
--group_end
+TOP.m_konix.SlipStream.outXJOYL_0
+TOP.m_konix.SlipStream.outXJOYL_1
+TOP.m_konix.SlipStream.outXJOYL_2
 @1001200
 -group_end
 @200
@@ -387,9 +369,7 @@ TOP.m_konix.Processor.eu.SI[15:0]
 TOP.m_konix.Processor.eu.DI[15:0]
 TOP.m_konix.Processor.eu.FLAGS[15:0]
 TOP.m_konix.Processor.eu.REGISTER_CS[15:0]
-@23
 TOP.m_konix.Processor.eu.REGISTER_IP[15:0]
-@22
 TOP.m_konix.Processor.eu.REGISTER_DS[15:0]
 TOP.m_konix.Processor.eu.REGISTER_ES[15:0]
 TOP.m_konix.Processor.eu.REGISTER_SS[15:0]

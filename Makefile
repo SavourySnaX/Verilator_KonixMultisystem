@@ -1,3 +1,9 @@
+GUI=_gui
+#GUI=
+
+GUI_CPP=imgui/imgui_tables.cpp imgui/imgui_draw.cpp imgui/imgui_widgets.cpp imgui/imgui_demo.cpp imgui/imgui.cpp imgui/backends/imgui_impl_sdl.cpp imgui/backends/imgui_impl_opengl2.cpp
+#GUI_CPP=-trace 
+
 #------ VIDEO ELEMENTS -----#
 
 #MODULE=m_CLOCK
@@ -106,13 +112,14 @@ $(MODULE).vcd: ./$(MODULE).obj_dir/V$(MODULE)
 ./$(MODULE).obj_dir/V$(MODULE): ./$(MODULE).obj_dir/.$(MODULE).stamp.verilate
 	@echo
 	@echo "### BUILDING SIM ###"
-	make CXXFLAGS='-g -DTRACE_FILE=\"$(MODULE).vcd\"' -C $(MODULE).obj_dir -f V$(MODULE).mk V$(MODULE)
+	make CXXFLAGS='-g -DTRACE_FILE=\"$(MODULE).vcd\"' -C $(MODULE).obj_dir -f V$(MODULE).mk V$(MODULE) -j 32
 
-./$(MODULE).obj_dir/.$(MODULE).stamp.verilate: $(MODULE).sv tb_$(MODULE).cpp
+./$(MODULE).obj_dir/.$(MODULE).stamp.verilate: $(MODULE).sv tb_$(MODULE)$(GUI).cpp
 	@echo
 	@echo "### VERILATING ###"
-	verilator -y my8088 --Mdir ./$(MODULE).obj_dir -Wall -Wno-UNUSED -Wno-WIDTH -Wno-UNOPTFLAT -Wno-BLKSEQ --trace $(VL_DEBUG) -cc $(MODULE).sv --exe tb_$(MODULE).cpp
-	#verilator -y my8088 --Mdir ./$(MODULE).obj_dir -Wall -Wno-UNUSED -Wno-WIDTH -Wno-BLKSEQ --trace $(VL_DEBUG) -cc $(MODULE).sv --exe tb_$(MODULE).cpp
+	verilator -y my8088 --Mdir ./$(MODULE).obj_dir -Wall -Wno-UNUSED -Wno-WIDTH -Wno-UNOPTFLAT -Wno-BLKSEQ -cc $(MODULE).sv --exe tb_$(MODULE)$(GUI).cpp $(GUI_CPP) -LDFLAGS "-lSDL2 -lGL" -CFLAGS "-I ../imgui -I ../imgui/backends"
+	#verilator -y my8088 --Mdir ./$(MODULE).obj_dir -Wall -Wno-UNUSED -Wno-WIDTH -Wno-UNOPTFLAT -Wno-BLKSEQ --trace $(VL_DEBUG) -cc $(MODULE).sv --exe tb_$(MODULE)$(GUI).cpp $(GUI_CPP)
+	#verilator -y my8088 --Mdir ./$(MODULE).obj_dir -Wall -Wno-UNUSED -Wno-WIDTH -Wno-BLKSEQ --trace $(VL_DEBUG) -cc $(MODULE).sv --exe tb_$(MODULE)$(GUI).cpp
 	@touch ./$(MODULE).obj_dir/.$(MODULE).stamp.verilate
 
 .PHONY:lint

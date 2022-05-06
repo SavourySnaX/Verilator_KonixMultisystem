@@ -15,14 +15,14 @@ module ram
   output [data_width-1:0] Q
 );
 
-reg [data_width-1:0] memory[(1<<addr_width)-1:0];
+reg [data_width-1:0] memory[(1<<addr_width)-1:0] /* verilator public */;
 reg [data_width-1:0] dout = {data_width{1'b0}};
 
 assign Q = dout;//{data_width{oe & cs}} & dout;// ? dout : {data_width{1'b0}};
 
 reg lastWr;
 reg lastRd;
-always @(posedge clk) begin
+always @(negedge clk) begin
   lastWr<=wr;
   lastRd<=oe;
   if (cs) 

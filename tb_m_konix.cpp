@@ -7,7 +7,7 @@
 #define TRACE_ON    1
 
 #define FRAME_START 0
-#define FRAME_STOP  2
+#define FRAME_STOP  4
 
 int gTrace=0;
 
@@ -201,6 +201,8 @@ int main(int argc, char** argv)
     tb->ioctl_download=0;
     tb->ioctl_index=0;
     tb->ioctl_dout=0;
+    tb->joy1L=0xFF;
+    tb->joy2L=0xFF;
     tb->XTAL=0;
     tb->reset=1;
 

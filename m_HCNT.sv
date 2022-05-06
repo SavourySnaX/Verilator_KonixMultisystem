@@ -55,10 +55,10 @@ module m_HCNT                                                                   
     output    outD_7, enD_7,                                                    //[HCNT.NET:00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,HVACTIVE,HSYNC,HC_0,HC_1,HC_2,HC_3,
     output    HVACTIVE,                                                         //[HCNT.NET:00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,HVACTIVE,HSYNC,HC_0,HC_1,HC_2,HC_3,
     output    HSYNC,                                                            //[HCNT.NET:00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,HVACTIVE,HSYNC,HC_0,HC_1,HC_2,HC_3,
-    output    HC_0,                                                             //[HCNT.NET:00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,HVACTIVE,HSYNC,HC_0,HC_1,HC_2,HC_3,
-    output    HC_1,                                                             //[HCNT.NET:00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,HVACTIVE,HSYNC,HC_0,HC_1,HC_2,HC_3,
-    output    HC_2,                                                             //[HCNT.NET:00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,HVACTIVE,HSYNC,HC_0,HC_1,HC_2,HC_3,
-    output    HC_3,                                                             //[HCNT.NET:00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,HVACTIVE,HSYNC,HC_0,HC_1,HC_2,HC_3,
+    output    HC_0 /* verilator public */,                                                             //[HCNT.NET:00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,HVACTIVE,HSYNC,HC_0,HC_1,HC_2,HC_3,
+    output    HC_1 /* verilator public */,                                                             //[HCNT.NET:00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,HVACTIVE,HSYNC,HC_0,HC_1,HC_2,HC_3,
+    output    HC_2 /* verilator public */,                                                             //[HCNT.NET:00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,HVACTIVE,HSYNC,HC_0,HC_1,HC_2,HC_3,
+    output    HC_3 /* verilator public */,                                                             //[HCNT.NET:00019] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,HVACTIVE,HSYNC,HC_0,HC_1,HC_2,HC_3,
     output    HBORDER,                                                          //[HCNT.NET:00020]    HBORDER,HBLANKING,HVSYNC,LPSET,LPCLK,HD1,HVHOLD,HINT;
     output    HBLANKING,                                                        //[HCNT.NET:00020]    HBORDER,HBLANKING,HVSYNC,LPSET,LPCLK,HD1,HVHOLD,HINT;
     output    HVSYNC,                                                           //[HCNT.NET:00020]    HBORDER,HBLANKING,HVSYNC,LPSET,LPCLK,HD1,HVHOLD,HINT;
@@ -106,12 +106,12 @@ wire CO_8;                                                                      
 wire HCI_9;                                                                     //[HCNT.NET:00046] Q_9_(HCI_9,HCIB_9,CO_9) = SYNCNT(HCNT_9,CLK,NEXTH,HCNTLBL,CO_8);
 wire HCIB_9;                                                                    //[HCNT.NET:00046] Q_9_(HCI_9,HCIB_9,CO_9) = SYNCNT(HCNT_9,CLK,NEXTH,HCNTLBL,CO_8);
 wire CO_9;                                                                      //[HCNT.NET:00046] Q_9_(HCI_9,HCIB_9,CO_9) = SYNCNT(HCNT_9,CLK,NEXTH,HCNTLBL,CO_8);
-wire HC_4;                                                                      //[HCNT.NET:00051] HC_4_(HC_4) = N1C(HCIB_4);
-wire HC_5;                                                                      //[HCNT.NET:00052] HC_5_(HC_5) = N1C(HCIB_5);
-wire HC_6;                                                                      //[HCNT.NET:00053] HC_6_(HC_6) = N1C(HCIB_6);
-wire HC_7;                                                                      //[HCNT.NET:00054] HC_7_(HC_7) = N1C(HCIB_7);
-wire HC_8;                                                                      //[HCNT.NET:00055] HC_8_(HC_8) = N1C(HCIB_8);
-wire HC_9;                                                                      //[HCNT.NET:00056] HC_9_(HC_9) = N1C(HCIB_9);
+wire HC_4 /* verilator public */;                                                                      //[HCNT.NET:00051] HC_4_(HC_4) = N1C(HCIB_4);
+wire HC_5 /* verilator public */;                                                                      //[HCNT.NET:00052] HC_5_(HC_5) = N1C(HCIB_5);
+wire HC_6 /* verilator public */;                                                                      //[HCNT.NET:00053] HC_6_(HC_6) = N1C(HCIB_6);
+wire HC_7 /* verilator public */;                                                                      //[HCNT.NET:00054] HC_7_(HC_7) = N1C(HCIB_7);
+wire HC_8 /* verilator public */;                                                                      //[HCNT.NET:00055] HC_8_(HC_8) = N1C(HCIB_8);
+wire HC_9 /* verilator public */;                                                                      //[HCNT.NET:00056] HC_9_(HC_9) = N1C(HCIB_9);
 wire HCB_0;                                                                     //[HCNT.NET:00057] HCB_0_(HCB_0) = N1C(HCI_0);
 wire HCB_1;                                                                     //[HCNT.NET:00058] HCB_1_(HCB_1) = N1C(HCI_1);
 wire HCB_2;                                                                     //[HCNT.NET:00059] HCB_2_(HCB_2) = N1C(HCI_2);

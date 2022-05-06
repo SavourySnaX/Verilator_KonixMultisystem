@@ -9,7 +9,7 @@ module m8088
     input               READY,
     input               INTR,
     input               NMI,
-    input               HOLD,
+    input               HOLD /* verilator public */,
 
     output reg [19:0]   addr,
     output reg [7:0]    dout,
@@ -22,7 +22,7 @@ module m8088
     output              IOM,
     output              DTR,
     output              DEN,
-    output              HOLDA
+    output              HOLDA /* verilator public */
     // output              SSO_n
 
 
@@ -42,6 +42,7 @@ always @(posedge CORE_CLK) begin
 end
 
 wire [7:0] prefetchTop;
+wire [19:0] prefetchTopLinearAddress;
 wire prefetchEmpty, prefetchFull, indirectBusOpInProgress,suspending,pendingIRQ;
 
 wire readTop,flush,suspend,correct,indirect,irq;
@@ -57,7 +58,8 @@ assign IOM=~IOMinv;
 bus_interface biu(.CLKx4(CORE_CLK),.CLK(CLK),.RESET(RESET),.READY(READY),.INTR(INTR),
     .NMI(NMI),.HOLD(HOLD),.inAD(din),.outAD(outAD),.enAD(enAD),.A(A),
     .ALE(ALE),.INTA_n(INTA_n),.RD_n(RD_n),.WR_n(WR_n),.IOM(IOMinv),.DTR(DTR),.DEN_n(DEN),.HOLDA(HOLDA),
-    .prefetchTop(prefetchTop),.prefetchEmpty(prefetchEmpty),.prefetchFull(prefetchFull),.indirectBusOpInProgress(indirectBusOpInProgress),.suspending(suspending),.irqPending(pendingIRQ),
+    .prefetchTop(prefetchTop),.prefetchTopLinearAddress(prefetchTopLinearAddress),
+    .prefetchEmpty(prefetchEmpty),.prefetchFull(prefetchFull),.indirectBusOpInProgress(indirectBusOpInProgress),.suspending(suspending),.irqPending(pendingIRQ),
     .advanceTop(readTop),.flush(flush),.suspend(suspend),.correct(correct),.indirect(indirect),.irq(irq),
     .ind_ioMreq(ind_ioMreq),.ind_readWrite(ind_readWrite),.ind_byteWord(ind_byteWord),
     .latchPC(latchPC),.latchCS(latchCS),.latchDS(latchDS),.latchSS(latchSS),.latchES(latchES),
@@ -65,7 +67,7 @@ bus_interface biu(.CLKx4(CORE_CLK),.CLK(CLK),.RESET(RESET),.READY(READY),.INTR(I
     .REGISTER_IP(IP),.REGISTER_CS(CS),.REGISTER_DS(DS),.REGISTER_ES(ES),.REGISTER_SS(SS),.UpdateReg(latchValue));
 
 
-execution eu(.CLKx4(CORE_CLK),.CLK(CLK),.RESET(RESET),.prefetchTop(prefetchTop),
+execution eu(.CLKx4(CORE_CLK),.CLK(CLK),.RESET(RESET),.prefetchTop(prefetchTop),.prefetchTopLinearAddress(prefetchTopLinearAddress),
     .prefetchEmpty(prefetchEmpty),.prefetchFull(prefetchFull),.indirectBusOpInProgress(indirectBusOpInProgress),.suspending(suspending),.irqPending(pendingIRQ),
     .readTop(readTop),.flush(flush),.suspend(suspend),.correct(correct),.indirect(indirect),.irq(irq),
     .ind_ioMreq(ind_ioMreq),.ind_readWrite(ind_readWrite),.ind_byteWord(ind_byteWord),
