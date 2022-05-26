@@ -117,7 +117,8 @@ $(MODULE).vcd: ./$(MODULE).obj_dir/V$(MODULE)
 ./$(MODULE).obj_dir/.$(MODULE).stamp.verilate: $(MODULE).sv tb_$(MODULE)$(GUI).cpp
 	@echo
 	@echo "### VERILATING ###"
-	verilator -y my8088 --Mdir ./$(MODULE).obj_dir -Wall -Wno-UNUSED -Wno-WIDTH -Wno-UNOPTFLAT -Wno-BLKSEQ -cc $(MODULE).sv --exe tb_$(MODULE)$(GUI).cpp $(GUI_CPP) -LDFLAGS "-lSDL2 -lGL" -CFLAGS "-I ../imgui -I ../imgui/backends"
+	verilator -y my8088 -y Slipstream --Mdir ./$(MODULE).obj_dir -Wall -Wno-UNUSED -Wno-WIDTH -Wno-UNOPTFLAT -cc $(MODULE).sv --exe tb_$(MODULE)$(GUI).cpp $(GUI_CPP) -LDFLAGS "-lSDL2 -lGL" -CFLAGS "-I ../imgui -I ../imgui/backends"
+	#verilator -y my8088 --Mdir ./$(MODULE).obj_dir -Wall -Wno-UNUSED -Wno-WIDTH -Wno-UNOPTFLAT -Wno-BLKSEQ -cc $(MODULE).sv --exe tb_$(MODULE)$(GUI).cpp $(GUI_CPP) -LDFLAGS "-lSDL2 -lGL" -CFLAGS "-I ../imgui -I ../imgui/backends"
 	#verilator -y my8088 --Mdir ./$(MODULE).obj_dir -Wall -Wno-UNUSED -Wno-WIDTH -Wno-UNOPTFLAT -Wno-BLKSEQ --trace $(VL_DEBUG) -cc $(MODULE).sv --exe tb_$(MODULE)$(GUI).cpp $(GUI_CPP)
 	#verilator -y my8088 --Mdir ./$(MODULE).obj_dir -Wall -Wno-UNUSED -Wno-WIDTH -Wno-BLKSEQ --trace $(VL_DEBUG) -cc $(MODULE).sv --exe tb_$(MODULE)$(GUI).cpp
 	@touch ./$(MODULE).obj_dir/.$(MODULE).stamp.verilate

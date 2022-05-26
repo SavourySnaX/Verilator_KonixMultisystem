@@ -157,7 +157,7 @@ module m_SS
 
 	 ,output CCLK
 
-    ,output DQCLK
+    ,output DQCLK /* verilator public */
     ,output [13:0] LEFTDAC
     ,output [13:0] RIGHTDAC
 
@@ -171,7 +171,7 @@ module m_SS
 reg [19:0] A;
 reg [15:0] D;
 reg [15:0] PALD;
-reg [15:0] DD;
+reg [15:0] DD /* verilator public */;
 reg [15:0] PD;
 
 // For Joining bidirectional buses
@@ -206,10 +206,10 @@ wire [15:0] DDROMo;
 wire [15:0] DDROMe;
 
 // Internal signals
-wire [15:0] X;
+wire [15:0] X /* verilator public */;
 wire [15:0] AZ;
-wire [35:0] MZR;
-wire [36:0] MZ;
+wire [35:0] MZR /* verilator public */;
+wire [36:0] MZ /* verilator public */;
 wire [7:0] PC;
 wire [7:0] DA;
 wire [7:0] PA;
@@ -236,10 +236,10 @@ wire [2:0] JOYL;
 
 wire [46:0] TESTI;
 
-wire [15:0] ALUA;
-wire [15:0] ALUB;
-wire [3:0] ALUS;
-wire [3:0] S;
+wire [15:0] ALUA /* verilator public */;
+wire [15:0] ALUB /* verilator public */;
+wire [3:0] ALUS /* verilator public */;
+wire [3:0] S /* verilator public */;
 
 wire [1:0] SCEL;
 wire [1:0] CSL;
@@ -258,10 +258,10 @@ wire PRAMSO,DRAMSO,DROMSO,VRAMSO;
 wire PALCS, PCS;
 wire RESETL,RESETI;
 wire HOLD,HOLDL;
-wire ALUM,ALUCINL;
-wire ALUX,ALUY;
-wire M,CINL;
-wire COUTL,ALUAEB;
+wire ALUM /* verilator public */,ALUCINL /* verilator public */;
+wire ALUX /* verilator public */,ALUY /* verilator public */;
+wire M /* verilator public */,CINL /* verilator public */;
+wire COUTL /* verilator public */,ALUAEB /* verilator public */;
 
 wire VRD,VWR,VLOCK,HLOCK,PALL,PSRAML,IOML,ALEL;
 wire INTAL,BMREQ,DMREQ,HLDAL,XTALL,LP;
@@ -273,7 +273,7 @@ wire POE,PWE,AISEL,INCL,DSP_EN,/*DQCLK,*/DSPBRQL;
 wire DSPBAKL,LEFTL,LEFTH,RIGHTL,RIGHTH,DSP_IN,DSP_OUT;
 wire PRAMEN,PRAMWR,DRAMEN,DRAMWR,ROMEN;
 
-wire TCX,TCY,INT,TESTPINPO,XTALLI,WEL,CASL;
+wire TCX /* verilator public */,TCY /* verilator public */,INT,TESTPINPO,XTALLI,WEL,CASL;
 wire OEL,CHROMA,INC;
 
 // Video
@@ -605,7 +605,7 @@ TBR006AA DATAROM_(.OE(ROMEN),.A(DA[7:0]),.SO(DROMSO),.DO(DDROMo[15:0]),.DE(DDROM
 
 /* DSP Multiplier-accumulator, 16x16 with 36-bit addend */
 
-DMB2212A MULTIPLIER_(.X(X),.Y(DD),.R(MZR),.TCX(TCX),.TCY(TCY),.Z(MZ));
+DMB2212A MULTIPLIER_(.clk(MasterClock),.X(X),.Y(DD),.R(MZR),.TCX(TCX),.TCYL(TCY),.Z(MZ));
                     //MULTIPLIER_(MZ_36, MZ_35, MZ_34, MZ_33, MZ_32, MZ_31, MZ_30, MZ_29, MZ_28, 
                     //        MZ_27, MZ_26, MZ_25, MZ_24, MZ_23, MZ_22, MZ_21, MZ_20, MZ_19, MZ_18, 
                     //        MZ_17, MZ_16, MZ_15, MZ_14, MZ_13, MZ_12, MZ_11, MZ_10, MZ_9, MZ_8, 
@@ -621,7 +621,7 @@ DMB2212A MULTIPLIER_(.X(X),.Y(DD),.R(MZR),.TCX(TCX),.TCY(TCY),.Z(MZ));
 
 /* DSP ALU, 16 bit, 74181 type */
 
-DFT1811A ALU_(.S(ALUS),.A(ALUA),.B(ALUB),.CI(ALUCINL),.M(ALUM),.X(ALUX),.Y(ALUY),.CO(COUTL),.Z(AZ),.AEB(ALUAEB));
+DFT1811A ALU_(.clk(MasterClock),.S(ALUS),.A(ALUA),.B(ALUB),.CIL(ALUCINL),.M(ALUM),.X(ALUX),.Y(ALUY),.CO(COUTL),.Z(AZ),.AEB(ALUAEB));
                     //ALU_(ALUX, ALUY, COUTL, AZ_15, AZ_14, AZ_13, AZ_12, AZ_11, AZ_10, AZ_9, AZ_8,
                     //        AZ_7, AZ_6, AZ_5, AZ_4, AZ_3, AZ_2, AZ_1, AZ_0, ALUAEB)
                     // = DFT1811A (ALUS3, ALUS2, ALUS1, ALUS0, ALUA15, ALUA14, ALUA13, 

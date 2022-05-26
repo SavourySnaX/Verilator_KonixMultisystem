@@ -30,13 +30,9 @@ always @(negedge clk) begin
     if (wr)
     begin
       memory[addr] <= din;
-      if (lastWr==1 && wr==0) 
-        if ((file=="sramE.mem" || file=="sramO.mem") && (addr<16'h28a8 || addr>16'h28f8))
-          $display("RAM Write : %s %0h <- %0h",file,addr,din);
       end
     else
       dout <= memory[addr];
-      //if (lastRd==0 && oe==1)
   end
 end
 

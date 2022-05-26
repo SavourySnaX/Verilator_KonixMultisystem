@@ -8,7 +8,7 @@ module TBR006AA
     output [15:0] DE
 );
 
-reg [23:0] mem [255:0];
+reg [23:0] mem [255:0] /* verilator public */;
 
 assign SO = 1'b0;
 assign DE = OE ? 16'b1111111111111111 : 16'b0000000000000000;

@@ -11,7 +11,7 @@ module MBRA14AA
     output [15:0] DE
 );
 
-reg [15:0] mem [255:0];
+reg [15:0] mem [255:0] /* verilator public */;
 
 assign SO = 1'b0;
 assign DE = CS1 & CS2 ? 16'b1111111111111111 : 16'b0000000000000000;

@@ -128,7 +128,7 @@ module m_ALU                                                                    
     output    outD_13, enD_13,                                                  //[ALU.NET:00015] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
     output    outD_14, enD_14,                                                  //[ALU.NET:00015] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
     output    outD_15, enD_15,                                                  //[ALU.NET:00015] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,D_8,D_9,D_10,D_11,D_12,D_13,D_14,D_15,
-    output    CARRY,                                                            //[ALU.NET:00016]    CARRY,X_0,X_1,X_2,X_3,X_4,X_5,X_6,X_7,X_8,X_9,X_10,X_11,X_12,X_13,X_14,X_15,
+    output    CARRY /* verilator public */,                                                            //[ALU.NET:00016]    CARRY,X_0,X_1,X_2,X_3,X_4,X_5,X_6,X_7,X_8,X_9,X_10,X_11,X_12,X_13,X_14,X_15,
     output    X_0,                                                              //[ALU.NET:00016]    CARRY,X_0,X_1,X_2,X_3,X_4,X_5,X_6,X_7,X_8,X_9,X_10,X_11,X_12,X_13,X_14,X_15,
     output    X_1,                                                              //[ALU.NET:00016]    CARRY,X_0,X_1,X_2,X_3,X_4,X_5,X_6,X_7,X_8,X_9,X_10,X_11,X_12,X_13,X_14,X_15,
     output    X_2,                                                              //[ALU.NET:00016]    CARRY,X_0,X_1,X_2,X_3,X_4,X_5,X_6,X_7,X_8,X_9,X_10,X_11,X_12,X_13,X_14,X_15,
@@ -276,7 +276,7 @@ wire AZRL_15;                                                                   
 wire AZR_15;                                                                    //[ALU.NET:00092] AZREG_15_(AZRL_15,AZR_15) = LD1A(AZD_15,RESWR);
 wire ZRD;                                                                       //[ALU.NET:00093] ZREGRD_0_(D_0) = BTS5B(AZRL_0,ZRD);
 wire LOADZ;                                                                     //[ALU.NET:00128] ZREG_0_(ZREG_0) = AO2A(DDB_0,LOADZ,MZ_0,ARITHZ);
-wire ARITHZ;                                                                    //[ALU.NET:00128] ZREG_0_(ZREG_0) = AO2A(DDB_0,LOADZ,MZ_0,ARITHZ);
+wire ARITHZ /* verilator public */;                                                                    //[ALU.NET:00128] ZREG_0_(ZREG_0) = AO2A(DDB_0,LOADZ,MZ_0,ARITHZ);
 wire ZREG_0;                                                                    //[ALU.NET:00128] ZREG_0_(ZREG_0) = AO2A(DDB_0,LOADZ,MZ_0,ARITHZ);
 wire ZREG_1;                                                                    //[ALU.NET:00129] ZREG_1_(ZREG_1) = AO2A(DDB_1,LOADZ,MZ_1,ARITHZ);
 wire ZREG_2;                                                                    //[ALU.NET:00130] ZREG_2_(ZREG_2) = AO2A(DDB_2,LOADZ,MZ_2,ARITHZ);
@@ -584,6 +584,10 @@ wire drv3_enD_15;                                                               
 
 /* X register */
 
+wire [15:0] verilogDSP_X /* verilator public */;
+assign verilogDSP_X = {XU_15,XU_14,XU_13,XU_12,XU_11,XU_10,XU_9,XU_8,XU_7,XU_6,XU_5,XU_4,XU_3,XU_2,XU_1,XU_0};
+
+
 LD1A XREG_0__inst (.MasterClock(MasterClock),.q(XU_0),.qL(XL_0),.d(DDB_0),.en(XWR));//[ALU.NET:00026] XREG_0_(XU_0,XL_0) = LD1A(DDB_0,XWR);
 LD1A XREG_1__inst (.MasterClock(MasterClock),.q(XU_1),.qL(XL_1),.d(DDB_1),.en(XWR));//[ALU.NET:00027] XREG_1_(XU_1,XL_1) = LD1A(DDB_1,XWR);
 LD1A XREG_2__inst (.MasterClock(MasterClock),.q(XU_2),.qL(XL_2),.d(DDB_2),.en(XWR));//[ALU.NET:00028] XREG_2_(XU_2,XL_2) = LD1A(DDB_2,XWR);
@@ -634,6 +638,9 @@ assign drv0_outD_14 = X_14; assign drv0_enD_14 = XRD;                           
 assign drv0_outD_15 = X_15; assign drv0_enD_15 = XRD;                           //[ALU.NET:00073] XREGRD_15_(D_15) = BTS4B(X_15,XRD);
 
 /* AZ register */
+
+wire [15:0] verilogDSP_AZ /* verilator public */;
+assign verilogDSP_AZ = {AZR_15,AZR_14,AZR_13,AZR_12,AZR_11,AZR_10,AZR_9,AZR_8,AZR_7,AZR_6,AZR_5,AZR_4,AZR_3,AZR_2,AZR_1,AZR_0};
 
 LD1A AZREG_0__inst (.MasterClock(MasterClock),.q(AZRL_0),.qL(AZR_0),.d(AZD_0),.en(RESWR));//[ALU.NET:00077] AZREG_0_(AZRL_0,AZR_0) = LD1A(AZD_0,RESWR);
 LD1A AZREG_1__inst (.MasterClock(MasterClock),.q(AZRL_1),.qL(AZR_1),.d(AZD_1),.en(RESWR));//[ALU.NET:00078] AZREG_1_(AZRL_1,AZR_1) = LD1A(AZD_1,RESWR);
@@ -725,6 +732,10 @@ assign ZREG_35 = ~((DDB_3 & LOADZ)|(MZ_35 & ARITHZ));                           
 
 assign ARITHZ = ~(MULTL & MACL);                                                //[ALU.NET:00165] ARITHZ_(ARITHZ) = ND2C(MULTL,MACL);
 assign LOADZ = ~ARITHZ;                                                         //[ALU.NET:00166] LOADZ_(LOADZ) = B1A(ARITHZ);
+
+wire [35:0] verilogDSP_MZ /* verilator public */;
+assign verilogDSP_MZ = {MZR_35,MZR_34,MZR_33,MZR_32,MZR_31,MZR_30,MZR_29,MZR_28,MZR_27,MZR_26,MZR_25,MZR_24,MZR_23,MZR_22,MZR_21,MZR_20,MZR_19,MZR_18,MZR_17,MZR_16,MZR_15,MZR_14,MZR_13,MZR_12,MZR_11,MZR_10,MZR_9,MZR_8,MZR_7,MZR_6,MZR_5,MZR_4,MZR_3,MZR_2,MZR_1,MZR_0};
+
 
 FD1A MZR_0__inst (.MasterClock(MasterClock),.q(MZRL_0),.qL(MZR_0),.d(ZREG_0),.clk(MZLOWR));//[ALU.NET:00168] MZR_0_(MZRL_0,MZR_0) = FD1A(ZREG_0,MZLOWR);
 FD1A MZR_1__inst (.MasterClock(MasterClock),.q(MZRL_1),.qL(MZR_1),.d(ZREG_1),.clk(MZLOWR));//[ALU.NET:00169] MZR_1_(MZRL_1,MZR_1) = FD1A(ZREG_1,MZLOWR);
@@ -916,6 +927,10 @@ assign CYLDL = CARRYWRL | DQCLK;                                                
 assign MODRD = ~MODRDL;                                                         //[ALU.NET:00354] MODRD_(MODRD) = N1B(MODRDL);
 assign MODWR = ~(MODWRL | DQCLK);                                               //[ALU.NET:00355] MODWR_(MODWR) = NR2B(MODWRL,DQCLK);
 /* Mode register */
+
+wire [6:0] verilogDSP_MODE /* verilator public */;
+assign verilogDSP_MODE = {MOD_6,MOD_5,MOD_4,MOD_3,MOD_2,MOD_1,MOD_0};
+
 
 LD1A MODE_0__inst (.MasterClock(MasterClock),.q(MOD_0),.qL(MODL_0),.d(DDB_0),.en(MODWR));//[ALU.NET:00358] MODE_0_(MOD_0,MODL_0) = LD1A(DDB_0,MODWR);
 LD1A MODE_1__inst (.MasterClock(MasterClock),.q(MOD_1),.qL(MODL_1),.d(DDB_1),.en(MODWR));//[ALU.NET:00359] MODE_1_(MOD_1,MODL_1) = LD1A(DDB_1,MODWR);

@@ -20,8 +20,12 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
 
+#define REMOTE_TO_SLIPSTREAM 0
+
 std::unordered_map<unsigned int, std::string> symbolTable;
+std::unordered_map<unsigned int, std::string> dspSymbolTable;
 std::unordered_set<unsigned int> breakpoints;
+std::unordered_set<unsigned int> dspBreakpoints;
 int xtalCnt=0;
 int xtal=0;
 Vm_konix *tb;
@@ -135,9 +139,12 @@ volatile bool threadDone=false;
 volatile int tickPause=1;
 volatile int stopNextTick=0;
 volatile int stopCpu=0;
+volatile int stopDsp=0;
 volatile uint64_t ticks=0;
 volatile int atLeastOneInstruction=0;
-unsigned int bpReached=0;
+unsigned int bpReached=0,dspBpReached=0;
+
+int lastDSPPC=-1;
 
 void verilatorOnThread()
 {
@@ -156,8 +163,16 @@ void verilatorOnThread()
             tickPause=1;
             continue;
         }
+        if ((dspBreakpoints.find(tb->m_konix->SlipStream->DSP_->PC_->verilogDSP_PC) != dspBreakpoints.end()) && (dspBpReached==0))
+        {
+            dspBpReached=tb->m_konix->SlipStream->DSP_->PC_->verilogDSP_PC;
+            tickPause=1;
+            continue;
+        }
         if (tb->m_konix->Processor->eu->instructionAddress != bpReached)
             bpReached=0;
+        if (tb->m_konix->SlipStream->DSP_->PC_->verilogDSP_PC != dspBpReached)
+            dspBpReached=0;
 
         if (stopNextTick)
         {
@@ -179,11 +194,21 @@ void verilatorOnThread()
                         stopCpu=0;
                     }
         }
+        if (stopDsp)
+        {
+            if (lastDSPPC!=tb->m_konix->SlipStream->DSP_->PC_->verilogDSP_PC)
+            {
+                stopDsp=0;
+                tickPause=1;
+            }
+        }
         if (!atLeastOneInstruction)
         {
             if (tb->m_konix->Processor->eu->executionState != 0x1FD)
                 atLeastOneInstruction=1;
         }
+
+        lastDSPPC = tb->m_konix->SlipStream->DSP_->PC_->verilogDSP_PC;
     }
 }
 
@@ -212,6 +237,33 @@ void LoadSymbols(const char* filename)
     fclose(p88);
 }
 
+void LoadDSPSymbols(const char* filename)
+{
+    char line[1024];
+    char symbol[256];
+    std::string debugFile = filename;
+    debugFile+=".DSY";
+    FILE *p88 = fopen(debugFile.c_str(), "r");
+    if (p88 == nullptr)
+        return;
+
+    while (fgets(line, sizeof(line),p88))
+    {
+        unsigned int address;
+        char type;
+        int cnt=sscanf(line,"%c%X%s",&type,&address,symbol);
+        if (3==cnt)
+        {
+            dspSymbolTable[address]=symbol;
+        }
+
+    }
+
+    fclose(p88);
+}
+
+
+
 int main(int argc, char** argv)
 {
 	Verilated::commandArgs(argc,argv);
@@ -233,6 +285,7 @@ int main(int argc, char** argv)
     tb->reset=1;
 
     //breakpoints.insert(529000);
+    //dspBreakpoints.insert(4);
 
     // Lets check the various signals according to spec, start of reset for a few ticks
 	int ticks=1;
@@ -245,6 +298,7 @@ int main(int argc, char** argv)
     {
         printf("LOADING P88 : %s\n",argv[1]);
         LoadSymbols(argv[1]);
+        LoadDSPSymbols(argv[1]);
         FILE *p88 = fopen(argv[1], "rb");
         fseek(p88,0,SEEK_END);
         long size = ftell(p88);
@@ -309,6 +363,10 @@ int main(int argc, char** argv)
 SDL_Window* window=nullptr;
 SDL_GLContext gl_context=nullptr;
 
+#if REMOTE_TO_SLIPSTREAM
+void InitSharedAccess();
+#endif
+
 void initGUI()
 {
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER)!=0)
@@ -324,7 +382,7 @@ void initGUI()
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 2);
     SDL_WindowFlags window_flags = (SDL_WindowFlags)(SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
-    window = SDL_CreateWindow("KONIX MULTISYSTEM VERILATOR", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1480, 720, window_flags);
+    window = SDL_CreateWindow("KONIX MULTISYSTEM VERILATOR", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 2400, 1024, window_flags);
     gl_context = SDL_GL_CreateContext(window);
     SDL_GL_MakeCurrent(window, gl_context);
     SDL_GL_SetSwapInterval(1); // Enable vsync
@@ -355,6 +413,10 @@ void initGUI()
     // Setup Platform/Renderer backends
     ImGui_ImplSDL2_InitForOpenGL(window, gl_context);
     ImGui_ImplOpenGL2_Init();
+
+#if REMOTE_TO_SLIPSTREAM
+    InitSharedAccess();
+#endif
 }
 
 void endGUI()
@@ -370,10 +432,104 @@ void endGUI()
 }
 
 bool showDemo=true;
+void ControllersView();
 void RegistersView();
 void DisassmView();
+void BlitterView();
+void DSPWatchView(const char* viewname,int start,int end);
+void DSPDataView();
+void DSPProgramView();
+void DSPRegistersView();
 void ButtonBar();
 void StatusBar();
+
+#if REMOTE_TO_SLIPSTREAM
+
+#include <fcntl.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/mman.h>
+ 
+volatile unsigned char* GetSharedMemory(const char* name, int bufferSize)
+{
+        int fd = shm_open(name, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
+ 
+        return (volatile unsigned char*)mmap(NULL, bufferSize, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+}
+
+volatile unsigned char* r_buttons;
+volatile unsigned char* r_registers;
+volatile unsigned char* r_disassembly;
+volatile unsigned char* r_asic;
+volatile unsigned char* r_dsp;
+volatile unsigned char* r_dspRegisters;
+
+void InitSharedAccess()
+{
+    r_buttons = GetSharedMemory("Slip_Control",4096);
+    r_buttons[0]=0xFF;
+    r_buttons[1]=0xFF;
+    r_registers=GetSharedMemory("Slip_Registers",32768);
+    r_disassembly=GetSharedMemory("Slip_Disassm",32768);
+    r_asic=GetSharedMemory("Slip_ASIC",32768);
+    r_dsp=GetSharedMemory("Slip_DSP",32768);
+    r_dspRegisters=GetSharedMemory("Slip_DSPReg",32768);
+}
+
+void RemoteButtons()
+{
+    ImGui::Begin("Remote Button Bar");
+
+    if (ImGui::Button("Pause"))
+    {
+        r_buttons[0]=0;
+        r_buttons[1]=0xFF;
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("Play"))
+    {
+        r_buttons[0]=1;
+        r_buttons[1]=0xFF;
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("Step"))
+    {
+        r_buttons[0]=2;
+        r_buttons[1]=0xFF;
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("Step Over"))
+    {
+        r_buttons[0]=3;
+        r_buttons[1]=0xFF;
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("Frame Step"))
+    {
+        r_buttons[0]=4;
+        r_buttons[1]=0xFF;
+    }
+    ImGui::SameLine();
+    if (ImGui::Button("HCycle Step"))
+    {
+        r_buttons[0]=5;
+        r_buttons[1]=0xFF;
+    }
+
+    ImGui::End();
+}
+
+void RemoteView(volatile unsigned char* ptr,const char* name)
+{
+    ImGui::Begin(name);
+
+    ImGui::Text("%s",ptr);
+
+    ImGui::End();
+}
+
+#endif
 
 int tickGUI()
 {
@@ -408,6 +564,21 @@ int tickGUI()
 
     RegistersView();
     DisassmView();
+    DSPWatchView("DSP Watch View##1",0x180,0x1a5);
+    DSPWatchView("DSP Watch View##2",0x1A6,0x1CB);
+    BlitterView();
+    DSPDataView();
+    DSPProgramView();
+    DSPRegistersView();
+    ControllersView();
+#if REMOTE_TO_SLIPSTREAM
+    RemoteButtons();
+    RemoteView(r_registers,"Remote Registers");
+    RemoteView(r_disassembly,"Remote Disassembly");
+    RemoteView(r_asic,"Remote ASIC");
+    RemoteView(r_dsp,"Remote DSP");
+    RemoteView(r_dspRegisters,"Remote DSP Registers");
+#endif
     ButtonBar();
     StatusBar();
 
@@ -470,6 +641,7 @@ void RegistersView()
 
 #define NUM_ROWS 10
 bool selected[NUM_ROWS] = {0};
+bool dspSelected[256] = {0};
 
 void DisassmView()
 {
@@ -546,6 +718,475 @@ void DisassmView()
     ImGui::End();
 }
 
+void DSPRegistersView()
+{
+    ImGui::Begin("DSP Registers");
+    TextWithColors("{666666}AZ   : {}%04X      | {666666}    X : {}%04X",tb->m_konix->SlipStream->DSP_->ALU_->verilogDSP_AZ,tb->m_konix->SlipStream->DSP_->ALU_->verilogDSP_X);
+    TextWithColors("{666666}MZ   : {}%09X | {666666} MODE : {}%02X",tb->m_konix->SlipStream->DSP_->ALU_->verilogDSP_MZ, tb->m_konix->SlipStream->DSP_->ALU_->verilogDSP_MODE);
+    TextWithColors("{666666}IX   : {}%03X       | {666666}INTRA : {}%03X",tb->m_konix->SlipStream->DSP_->ADDRESS_->verilogDSP_IX, tb->m_konix->SlipStream->DSP_->ADDRESS_->verilogDSP_INTRA);
+    TextWithColors("{666666}PC   : {}%02X        | {666666}    C : {}%01X",tb->m_konix->SlipStream->DSP_->PC_->verilogDSP_PC, tb->m_konix->SlipStream->DSP_->ALU_->CARRY);
+    int dmaF = tb->m_konix->SlipStream->DSP_->DMA_->verilogDSP_DMA1>>8;
+    int dmaA = ((tb->m_konix->SlipStream->DSP_->DMA_->verilogDSP_DMA1&0xF)<<16)|tb->m_konix->SlipStream->DSP_->DMA_->verilogDSP_DMA0;
+    TextWithColors("{666666}DMA  : {}%01X %05X   | {666666}  DMD : {}%04X",dmaF,dmaA,tb->m_konix->SlipStream->DSP_->DMA_->verilogDSP_DMD);
+    TextWithColors("");
+    TextWithColors("{666666}ALUA : {}%04X | {666666}ALUB : {}%04X",tb->m_konix->SlipStream->ALUA,tb->m_konix->SlipStream->ALUB);
+    TextWithColors("{666666}ALUS : {}%01X    | {666666} AEB : {}%01X",tb->m_konix->SlipStream->ALUS,tb->m_konix->SlipStream->ALUAEB);
+    TextWithColors("{666666}ALUM : {}%01X    | {666666}COUT : {}%01X",tb->m_konix->SlipStream->ALUM,tb->m_konix->SlipStream->COUTL);
+    TextWithColors("{666666}ALUCI: {}%01X    | {666666}   t : {}%05X",tb->m_konix->SlipStream->ALUCINL,tb->m_konix->SlipStream->ALU_->t);
+    TextWithColors("{666666}   Ax: {}%05X | {666666}    Bx: {}%05X",tb->m_konix->SlipStream->ALU_->Ax,tb->m_konix->SlipStream->ALU_->Bx);
+    TextWithColors("{666666}   CI: {}%05X",tb->m_konix->SlipStream->ALU_->CI);
+    TextWithColors("");
+    TextWithColors("{666666}   X : {}%04X | {666666}   DD : {}%04X",tb->m_konix->SlipStream->X,tb->m_konix->SlipStream->DD);
+    TextWithColors("{666666} ACC : {}%09X",tb->m_konix->SlipStream->MZR);
+    TextWithColors("{666666} TCX : {}%01X | {666666} TCY : {}%01X",tb->m_konix->SlipStream->TCX,tb->m_konix->SlipStream->TCY);
+    TextWithColors("{666666} ARZ : {}%01X",tb->m_konix->SlipStream->DSP_->ALU_->ARITHZ);
+    TextWithColors("{666666} Z : {}%09X",tb->m_konix->SlipStream->MZ);
+    ImGui::End();
+}
+
+void RenderDSPProgramRow(int row)
+{
+    int rowSelected=0;
+    if (row <0 || (tb->m_konix->SlipStream->DSP_->PC_->verilogDSP_PC-1)==row)
+    {
+        rowSelected=1;
+    }
+
+    if (rowSelected)
+    {
+        if (row<0)
+        {
+            ImVec4 textColor(1.0f,1.0f,0.0f,1.0f);
+            ImGui::PushStyleColor( ImGuiCol_Text, textColor );
+        }
+        else
+        {
+            ImVec4 textColor(.5f,.5f,0.0f,1.0f);
+            ImGui::PushStyleColor( ImGuiCol_Text, textColor );
+        }
+    }
+    ImGui::TableNextColumn();
+    if (row>=0)
+    {
+        char rowS[64];
+        snprintf(rowS,sizeof(rowS),"%02X",row);
+        auto iter = dspBreakpoints.find(row);
+        if (iter!=dspBreakpoints.end())
+        {
+            dspSelected[row]=true;
+        }
+        else
+        {
+            dspSelected[row]=false;
+        }
+
+        if (ImGui::Selectable(rowS, &dspSelected[row], ImGuiSelectableFlags_SpanAllColumns))
+        {
+            if (iter!=dspBreakpoints.end())
+            {
+                dspBreakpoints.erase(iter);
+            }
+            else
+            {
+                dspBreakpoints.insert(row);
+            }
+        }
+    }
+    ImGui::TableNextColumn();
+
+    uint16_t instruction, condIndex, address;
+    
+    if (row>=0)
+    {
+        uint16_t programLine = tb->m_konix->SlipStream->PROGRAM_->mem[row];
+        instruction = programLine>>11;
+        condIndex = (programLine>>9)&3;
+        address = programLine&0x1FF;
+        ImGui::Text("%02X %1X %03X",instruction,condIndex,address);
+    }
+    else
+    {
+        instruction=tb->m_konix->SlipStream->DSP_->INSTRUCT_->verilogDSP_PDKU>>1;
+        condIndex = (tb->m_konix->SlipStream->DSP_->INSTRUCT_->verilogDSP_PDKU&1)<<1;
+        address = tb->m_konix->SlipStream->DSP_->ADDRESS_->verilogDSP_DA;
+    }
+    ImGui::TableNextColumn();
+    if (row>=0)
+    {
+            if (dspSymbolTable.find(row)!=dspSymbolTable.end())
+            {
+                TextWithColors("{66ff66}%s{}",dspSymbolTable[row].c_str());
+            }
+    }
+    ImGui::TableNextColumn();
+    char condIndexString[64];
+    char sineConstString[64];
+    char addressString[256];
+    switch (condIndex)
+    {
+        default:
+            strcpy(condIndexString,"   ");
+            break;
+        case 1:
+            strcpy(condIndexString,".x ");
+            break;
+        case 2:
+            strcpy(condIndexString,".c ");
+            break;
+        case 3:
+            strcpy(condIndexString,".cx");
+            break;
+    }
+    const char* mnemonic = addressString;
+    if (condIndex==0 || condIndex==2)
+    {
+        if (address>=0x10D && address<=0x13F)
+        {
+            mnemonic=sineConstString;
+            snprintf(sineConstString, sizeof(sineConstString), "%04X",address-0x100);
+        }
+        else if (address>=0x150 && address<=0x17F)
+        {
+            mnemonic="0000";
+        }
+        else if (address>=0x000 && address<=0x0FF)
+        {
+            mnemonic=sineConstString;
+            snprintf(sineConstString, sizeof(sineConstString), "%04X", tb->m_konix->SlipStream->DATAROM_->mem[address]);
+        }
+        switch (address)
+        {
+            case 0x100:
+                mnemonic="0000";
+                break;
+            case 0x101:
+                mnemonic="0001";
+                break;
+            case 0x102:
+                mnemonic="0002";
+                break;
+            case 0x103:
+                mnemonic="0004";
+                break;
+            case 0x104:
+                mnemonic="0008";
+                break;
+            case 0x105:
+                mnemonic="0010";
+                break;
+            case 0x106:
+                mnemonic="0020";
+                break;
+            case 0x107:
+                mnemonic="0040";
+                break;
+            case 0x108:
+                mnemonic="0080";
+                break;
+            case 0x109:
+                mnemonic="FFFF";
+                break;
+            case 0x10A:
+                mnemonic="FFFE";
+                break;
+            case 0x10B:
+                mnemonic="FFFC";
+                break;
+            case 0x10C:
+                mnemonic="8000";
+                break;
+            case 0x140:
+                mnemonic="INTRD";
+                break;
+            case 0x141:
+                mnemonic="IX";
+                break;
+            case 0x142:
+                mnemonic="DMA0";
+                break;
+            case 0x143:
+                mnemonic="DMA1";
+                break;
+            case 0x144:
+                mnemonic="DMD";
+                break;
+            case 0x145:
+                mnemonic="MZ0";
+                break;
+            case 0x146:
+                mnemonic="MZ1";
+                break;
+            case 0x147:
+                mnemonic="MZ2";
+                break;
+            case 0x148:
+                mnemonic="DACL";
+                break;
+            case 0x149:
+                mnemonic="DACR";
+                break;
+            case 0x14A:
+                mnemonic="PC";
+                break;
+            case 0x14B:
+                mnemonic="MODE";
+                break;
+            case 0x14C:
+                mnemonic="X";
+                break;
+            case 0x14D:
+                mnemonic="AZ";
+                break;
+            case 0x14E:
+                mnemonic="INTRA";
+                break;
+            case 0x14F:
+                mnemonic="IO";
+                break;
+        }
+    }
+    else
+    {
+        mnemonic=sineConstString;
+        snprintf(sineConstString, sizeof(sineConstString), "(IX + %03X)",address);
+    }
+
+    if (dspSymbolTable.find(address)!=dspSymbolTable.end())
+    {
+        snprintf(addressString,sizeof(addressString),"{66ff66}%s{}(%03X)",dspSymbolTable[address].c_str(),address);
+    }
+    else
+    {
+        snprintf(addressString,sizeof(addressString),"(%03X)",address);
+    }
+
+    switch (instruction)
+    {
+        case 0:
+            TextWithColors("mov%s %s,MZ0",condIndexString,mnemonic);
+            break;
+        case 1:
+            TextWithColors("mov%s %s,MZ1",condIndexString,mnemonic);
+            break;
+        case 2:
+            TextWithColors("mov%s MZ0,%s",condIndexString,mnemonic);
+            break;
+        case 3:
+            TextWithColors("mov%s MZ1,%s",condIndexString,mnemonic);
+            break;
+        case 4:
+            TextWithColors("ccf%s",condIndexString);
+            break;
+        case 5:
+            TextWithColors("mov%s DMA0,%s",condIndexString,mnemonic);
+            break;
+        case 6:
+            TextWithColors("mov%s DMA1,%s",condIndexString,mnemonic);
+            break;
+        case 7:
+            TextWithColors("mov%s DMD,%s",condIndexString,mnemonic);
+            break;
+        case 8:
+            TextWithColors("mov%s %s,DMD",condIndexString,mnemonic);
+            break;
+        case 9:
+            TextWithColors("mac%s %s",condIndexString,mnemonic);
+            break;
+        case 10:
+            TextWithColors("mov%s MODE,%s",condIndexString,mnemonic);
+            break;
+        case 11:
+            TextWithColors("mov%s IX,%s",condIndexString,mnemonic);
+            break;
+        case 12:
+            TextWithColors("mov%s %s,PC",condIndexString,mnemonic);
+            break;
+        case 13:
+            TextWithColors("mov%s X,%s",condIndexString,mnemonic);
+            break;
+        case 14:
+            TextWithColors("mov%s %s,X",condIndexString,mnemonic);
+            break;
+        case 15:
+            TextWithColors("mult%s %s",condIndexString,mnemonic);
+            break;
+        case 16:
+            TextWithColors("add%s %s",condIndexString,mnemonic);
+            break;
+        case 17:
+            TextWithColors("sub%s %s",condIndexString,mnemonic);
+            break;
+        case 18:
+            TextWithColors("and%s %s",condIndexString,mnemonic);
+            break;
+        case 19:
+            TextWithColors("or%s %s",condIndexString,mnemonic);
+            break;
+        case 20:
+            TextWithColors("adc%s %s",condIndexString,mnemonic);
+            break;
+        case 21:
+            TextWithColors("sbc%s %s",condIndexString,mnemonic);
+            break;
+        case 22:
+            TextWithColors("mov%s %s,AZ",condIndexString,mnemonic);
+            break;
+        case 23:
+            TextWithColors("mov%s AZ,%s",condIndexString,mnemonic);
+            break;
+        case 24:
+            TextWithColors("mov%s %s,MZ2",condIndexString,mnemonic);
+            break;
+        case 25:
+            TextWithColors("mov%s DAC1,%s",condIndexString,mnemonic);
+            break;
+        case 26:
+            TextWithColors("mov%s DAC2,%s",condIndexString,mnemonic);
+            break;
+        case 27:
+            TextWithColors("mov%s DAC12,%s",condIndexString,mnemonic);
+            break;
+        case 28:
+            TextWithColors("gai%s %s",condIndexString,mnemonic);
+            break;
+        case 29:
+            TextWithColors("mov%s PC,%s",condIndexString,mnemonic);
+            break;
+        case 30:
+            TextWithColors("nop%s",condIndexString);
+            break;
+        case 31:
+            TextWithColors("intrude%s",condIndexString);
+            break;
+    }
+    if (rowSelected)
+    {
+        ImGui::PopStyleColor();
+        ImGui::SetScrollHereY(.0f); // 0.0f:left, 0.5f:center, 1.0f:right
+    }
+}
+
+void DSPProgramView()
+{
+    const float TEXT_BASE_HEIGHT = ImGui::GetTextLineHeightWithSpacing();
+    ImGui::Begin("DSP Program Memory");
+    
+    if (ImGui::BeginTable("DSPNextInstruction", 4, ImGuiTableFlags_Resizable))
+    {
+        ImGui::TableNextRow();
+        RenderDSPProgramRow(-1);    // The next instruction to execute (due to pipelining)
+        ImGui::EndTable();
+    }
+
+    TextWithColors("");
+
+    ImVec2 outer_size = ImVec2(0.0f, TEXT_BASE_HEIGHT * 16);
+    if (ImGui::BeginTable("DSPDisassembly", 4, ImGuiTableFlags_Resizable | ImGuiTableFlags_ScrollY, outer_size))
+    {
+        for (int a=0;a<256;a++)
+        {
+            ImGui::TableNextRow();
+            RenderDSPProgramRow(a);
+        }
+
+        ImGui::EndTable();
+    }
+
+    ImGui::End();
+}
+
+void DSPWatchView(const char* viewname,int start,int end)
+{
+    ImGui::Begin(viewname);
+
+    for (int a=start;a<=end;a++)
+    {
+        int highlight = (tb->m_konix->SlipStream->DSP_->ADDRESS_->verilogDSP_DA == (a));
+        if (highlight)
+        {
+            ImVec4 textColor(1.0f,1.0f,0.0f,1.0f);
+            ImGui::PushStyleColor( ImGuiCol_Text, textColor );
+        }
+        if (dspSymbolTable.find(a)!=dspSymbolTable.end())
+        {
+            char symbol[30];
+            snprintf(symbol,sizeof(symbol),"%s",dspSymbolTable[a].c_str());
+            for (int c=dspSymbolTable[a].size();c<20;c++)
+            {
+                strcat(symbol," ");
+            }
+            TextWithColors("{66FF66}%s{666666}%04X{}",symbol,a);
+        }
+        else
+        {
+            TextWithColors("{666666}                    %04X{}", a);
+        }
+        ImGui::SameLine();
+        TextWithColors("| %04X | %d",tb->m_konix->SlipStream->DATARAM_->mem[a-0x180],(short)tb->m_konix->SlipStream->DATARAM_->mem[a-0x180]);
+        if (highlight)
+        {
+            ImGui::PopStyleColor();
+        }
+    }
+    ImGui::End();    
+}
+
+void DSPDataView()
+{
+    ImGui::Begin("DSP Data Memory");
+
+    ImGui::Text("       ");
+    for (int b=0;b<16;b++)
+    {
+        ImGui::SameLine();
+        ImGui::Text("  %02X  ",b);
+    }
+    for (int a=0;a<128;a+=16)
+    {
+        ImGui::Text("%04X : ",a+0x180);
+        for (int b=0;b<16;b++)
+        {
+            ImGui::SameLine();
+            int highlight = (tb->m_konix->SlipStream->DSP_->ADDRESS_->verilogDSP_DA == (a+b+0x180));
+            if (highlight)
+            {
+                ImVec4 textColor(1.0f,1.0f,0.0f,1.0f);
+                ImGui::PushStyleColor( ImGuiCol_Text, textColor );
+            }
+            ImGui::Text("%04X  ", tb->m_konix->SlipStream->DATARAM_->mem[a + b]);
+            if (highlight)
+            {
+                ImGui::PopStyleColor();
+            }
+        }
+    }
+    ImGui::End();
+}
+
+// Hard Coded to watch A0000
+void BlitterView()
+{
+    ImGui::Begin("Blitter View");
+
+    ImGui::Text("       ");
+    for (int b=0;b<16;b++)
+    {
+        ImGui::SameLine();
+        ImGui::Text("%02X ",b);
+    }
+    for (int a=0;a<128;a+=16)
+    {
+        ImGui::Text("%05X: ",a+0xA0000);
+        for (int b=0;b<16;b++)
+        {
+            ImGui::SameLine();
+            ImGui::Text("%02X ", tb->m_konix->DRAM->memory[a+b+0xA0000-0x80000]);
+        }
+    }
+    ImGui::End();
+}
+
+
 const char* FetchSymbolValue(unsigned int value,int width)
 {
     static char tBuffer[1024];
@@ -614,12 +1255,55 @@ void StatusBar()
     ImGui::End();
 }
 
+int joy1=0,joy2=0;
+void ControllersView()
+{
+    ImGui::Begin("Inputs");
+    ImGui::Text("Controller 1");
+    ImGui::CheckboxFlags("D##1", &joy1, 0x80);
+    ImGui::SameLine();
+    ImGui::CheckboxFlags("U##1", &joy1, 0x40);
+    ImGui::SameLine();
+    ImGui::CheckboxFlags("R##1", &joy1, 0x20);
+    ImGui::SameLine();
+    ImGui::CheckboxFlags("L##1", &joy1, 0x10);
+    ImGui::SameLine();
+    ImGui::CheckboxFlags("B##1", &joy1, 0x08);
+    ImGui::SameLine();
+    ImGui::CheckboxFlags("A##1", &joy1, 0x04);
+    ImGui::SameLine();
+    ImGui::CheckboxFlags("u##1", &joy1, 0x02);
+    ImGui::SameLine();
+    ImGui::CheckboxFlags("d##1", &joy1, 0x01);
+    ImGui::Text("Controller 2");
+    ImGui::CheckboxFlags("D##2", &joy2, 0x80);
+    ImGui::SameLine();
+    ImGui::CheckboxFlags("U##2", &joy2, 0x40);
+    ImGui::SameLine();
+    ImGui::CheckboxFlags("R##2", &joy2, 0x20);
+    ImGui::SameLine();
+    ImGui::CheckboxFlags("L##2", &joy2, 0x10);
+    ImGui::SameLine();
+    ImGui::CheckboxFlags("B##2", &joy2, 0x08);
+    ImGui::SameLine();
+    ImGui::CheckboxFlags("A##2", &joy2, 0x04);
+    ImGui::SameLine();
+    ImGui::CheckboxFlags("u##2", &joy2, 0x02);
+    ImGui::SameLine();
+    ImGui::CheckboxFlags("d##2", &joy2, 0x01);
+    ImGui::End();
+    tb->joy1L=0xFF^joy1;
+    tb->joy2L=0xFF^joy2;
+}
+
 void ButtonBar()
 {
     ImGui::Begin("Button Bar");
     bool hwStep = ImGui::Button("Tick");
     ImGui::SameLine();
     bool cpuStep = ImGui::Button("Step");
+    ImGui::SameLine();
+    bool dspStep = ImGui::Button("DSP Step");
     ImGui::SameLine();
     bool cpuPause = ImGui::Button("Pause");
     ImGui::SameLine();
@@ -635,6 +1319,11 @@ void ButtonBar()
     {
         stopCpu=1;
         atLeastOneInstruction=0;
+        tickPause=0;
+    }
+    if (dspStep)
+    {
+        stopDsp=1;
         tickPause=0;
     }
     if (cpuPause)

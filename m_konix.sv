@@ -1,5 +1,5 @@
 //`define USE_MCLOCK_TIME
-`define USE_MCLOCK_TIME_LATCH
+//`define USE_MCLOCK_TIME_LATCH
 
 
 module m_konix
@@ -164,8 +164,8 @@ assign inRamData = {sR[15:8], (dR[7:0] & {8{DRam}})|(sR[7:0] & {8{SRam}})|(rR[7:
 
 assign INTA=~INTAL;
 
-assign slipAddressVideo = ({18{~internalReset}} & {2'b00,latchedUpperXA,SS_outXA[15:8],latchedLowXA}) |
-                  ({18{internalReset}} & address[17:0]);
+assign slipAddressVideo = ({20{~internalReset}} & {2'b00,latchedUpperXA,SS_outXA[15:8],latchedLowXA}) |
+                  ({20{internalReset}} & {2'b00,address[17:0]});
 
 assign XAD = (inRamData[7:0] & {8{HLDA}}) | (((cpuA[7:0] & {8{ALE}} & ({8{~HLDA}})) | (cpuDOut & {8{~ALE}})) & ({8{~HLDA}}));
 assign XA = cpuA[19:8];
@@ -177,7 +177,7 @@ assign cpuDIn = (inRamData[7:0] & (~SS_enXAD)) | (SS_outXAD & (SS_enXAD & {8{joy
 
 
 assign outRamData = ({16{~internalReset}} & ({SS_outXD,SS_outXAD} & {16{HLDA}}) | ({16{~internalReset}} & {cpuDOut,cpuDOut} & ({16{~HLDA}}))) | 
-          ({16{internalReset}} & byteToWrite);
+          ({16{internalReset}} & {8'h00,byteToWrite});
 
 
 
@@ -185,9 +185,9 @@ assign VGA_DE = ~blanking;
 assign VGA_HS = ~HSyncL;
 assign VGA_VS = ~VSyncL;
 
-assign VGA_G  = Green<<4;
-assign VGA_R  = Red<<4;
-assign VGA_B  = Blue<<4;
+assign VGA_G  = {Green,4'h0};
+assign VGA_R  = {Red,4'h0};
+assign VGA_B  = {Blue,4'h0};
 
 
 reg [1:0] cnt=2'b0;
