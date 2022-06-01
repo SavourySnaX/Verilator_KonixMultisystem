@@ -163,15 +163,15 @@ void verilatorOnThread()
             tickPause=1;
             continue;
         }
-        if ((dspBreakpoints.find(tb->m_konix->SlipStream->DSP_->PC_->verilogDSP_PC) != dspBreakpoints.end()) && (dspBpReached==0))
+        if ((dspBreakpoints.find(tb->m_konix->SlipStream->DSP_->PC_->verilatorDSP_PC) != dspBreakpoints.end()) && (dspBpReached==0))
         {
-            dspBpReached=tb->m_konix->SlipStream->DSP_->PC_->verilogDSP_PC;
+            dspBpReached=tb->m_konix->SlipStream->DSP_->PC_->verilatorDSP_PC;
             tickPause=1;
             continue;
         }
         if (tb->m_konix->Processor->eu->instructionAddress != bpReached)
             bpReached=0;
-        if (tb->m_konix->SlipStream->DSP_->PC_->verilogDSP_PC != dspBpReached)
+        if (tb->m_konix->SlipStream->DSP_->PC_->verilatorDSP_PC != dspBpReached)
             dspBpReached=0;
 
         if (stopNextTick)
@@ -196,7 +196,7 @@ void verilatorOnThread()
         }
         if (stopDsp)
         {
-            if (lastDSPPC!=tb->m_konix->SlipStream->DSP_->PC_->verilogDSP_PC)
+            if (lastDSPPC!=tb->m_konix->SlipStream->DSP_->PC_->verilatorDSP_PC)
             {
                 stopDsp=0;
                 tickPause=1;
@@ -208,7 +208,7 @@ void verilatorOnThread()
                 atLeastOneInstruction=1;
         }
 
-        lastDSPPC = tb->m_konix->SlipStream->DSP_->PC_->verilogDSP_PC;
+        lastDSPPC = tb->m_konix->SlipStream->DSP_->PC_->verilatorDSP_PC;
     }
 }
 
@@ -284,8 +284,15 @@ int main(int argc, char** argv)
     tb->XTAL=0;
     tb->reset=1;
 
-    //breakpoints.insert(529000);
+    //breakpoints.insert(0x800B0);
+    //breakpoints.insert(0x801C1);
+    //breakpoints.insert(0x8034A);
+
+    //breakpoints.insert(0x801B7);
     //dspBreakpoints.insert(4);
+
+    breakpoints.insert(0x80b48); // camels missing instruction
+    breakpoints.insert(0x80ba6); // camels missing instruction
 
     // Lets check the various signals according to spec, start of reset for a few ticks
 	int ticks=1;
@@ -721,13 +728,13 @@ void DisassmView()
 void DSPRegistersView()
 {
     ImGui::Begin("DSP Registers");
-    TextWithColors("{666666}AZ   : {}%04X      | {666666}    X : {}%04X",tb->m_konix->SlipStream->DSP_->ALU_->verilogDSP_AZ,tb->m_konix->SlipStream->DSP_->ALU_->verilogDSP_X);
-    TextWithColors("{666666}MZ   : {}%09X | {666666} MODE : {}%02X",tb->m_konix->SlipStream->DSP_->ALU_->verilogDSP_MZ, tb->m_konix->SlipStream->DSP_->ALU_->verilogDSP_MODE);
-    TextWithColors("{666666}IX   : {}%03X       | {666666}INTRA : {}%03X",tb->m_konix->SlipStream->DSP_->ADDRESS_->verilogDSP_IX, tb->m_konix->SlipStream->DSP_->ADDRESS_->verilogDSP_INTRA);
-    TextWithColors("{666666}PC   : {}%02X        | {666666}    C : {}%01X",tb->m_konix->SlipStream->DSP_->PC_->verilogDSP_PC, tb->m_konix->SlipStream->DSP_->ALU_->CARRY);
-    int dmaF = tb->m_konix->SlipStream->DSP_->DMA_->verilogDSP_DMA1>>8;
-    int dmaA = ((tb->m_konix->SlipStream->DSP_->DMA_->verilogDSP_DMA1&0xF)<<16)|tb->m_konix->SlipStream->DSP_->DMA_->verilogDSP_DMA0;
-    TextWithColors("{666666}DMA  : {}%01X %05X   | {666666}  DMD : {}%04X",dmaF,dmaA,tb->m_konix->SlipStream->DSP_->DMA_->verilogDSP_DMD);
+    TextWithColors("{666666}AZ   : {}%04X      | {666666}    X : {}%04X",tb->m_konix->SlipStream->DSP_->ALU_->verilatorDSP_AZ,tb->m_konix->SlipStream->DSP_->ALU_->verilatorDSP_X);
+    TextWithColors("{666666}MZ   : {}%09X | {666666} MODE : {}%02X",tb->m_konix->SlipStream->DSP_->ALU_->verilatorDSP_MZ, tb->m_konix->SlipStream->DSP_->ALU_->verilatorDSP_MODE);
+    TextWithColors("{666666}IX   : {}%03X       | {666666}INTRA : {}%03X",tb->m_konix->SlipStream->DSP_->ADDRESS_->verilatorDSP_IX, tb->m_konix->SlipStream->DSP_->ADDRESS_->verilatorDSP_INTRA);
+    TextWithColors("{666666}PC   : {}%02X        | {666666}    C : {}%01X",tb->m_konix->SlipStream->DSP_->PC_->verilatorDSP_PC, tb->m_konix->SlipStream->DSP_->ALU_->verilatorDSP_CARRY);
+    int dmaF = tb->m_konix->SlipStream->DSP_->DMA_->verilatorDSP_DMA1>>8;
+    int dmaA = ((tb->m_konix->SlipStream->DSP_->DMA_->verilatorDSP_DMA1&0xF)<<16)|tb->m_konix->SlipStream->DSP_->DMA_->verilatorDSP_DMA0;
+    TextWithColors("{666666}DMA  : {}%01X %05X   | {666666}  DMD : {}%04X",dmaF,dmaA,tb->m_konix->SlipStream->DSP_->DMA_->verilatorDSP_DMD);
     TextWithColors("");
     TextWithColors("{666666}ALUA : {}%04X | {666666}ALUB : {}%04X",tb->m_konix->SlipStream->ALUA,tb->m_konix->SlipStream->ALUB);
     TextWithColors("{666666}ALUS : {}%01X    | {666666} AEB : {}%01X",tb->m_konix->SlipStream->ALUS,tb->m_konix->SlipStream->ALUAEB);
@@ -739,7 +746,6 @@ void DSPRegistersView()
     TextWithColors("{666666}   X : {}%04X | {666666}   DD : {}%04X",tb->m_konix->SlipStream->X,tb->m_konix->SlipStream->DD);
     TextWithColors("{666666} ACC : {}%09X",tb->m_konix->SlipStream->MZR);
     TextWithColors("{666666} TCX : {}%01X | {666666} TCY : {}%01X",tb->m_konix->SlipStream->TCX,tb->m_konix->SlipStream->TCY);
-    TextWithColors("{666666} ARZ : {}%01X",tb->m_konix->SlipStream->DSP_->ALU_->ARITHZ);
     TextWithColors("{666666} Z : {}%09X",tb->m_konix->SlipStream->MZ);
     ImGui::End();
 }
@@ -747,7 +753,7 @@ void DSPRegistersView()
 void RenderDSPProgramRow(int row)
 {
     int rowSelected=0;
-    if (row <0 || (tb->m_konix->SlipStream->DSP_->PC_->verilogDSP_PC-1)==row)
+    if (row <0 || (tb->m_konix->SlipStream->DSP_->PC_->verilatorDSP_PC-1)==row)
     {
         rowSelected=1;
     }
@@ -806,9 +812,9 @@ void RenderDSPProgramRow(int row)
     }
     else
     {
-        instruction=tb->m_konix->SlipStream->DSP_->INSTRUCT_->verilogDSP_PDKU>>1;
-        condIndex = (tb->m_konix->SlipStream->DSP_->INSTRUCT_->verilogDSP_PDKU&1)<<1;
-        address = tb->m_konix->SlipStream->DSP_->ADDRESS_->verilogDSP_DA;
+        instruction=tb->m_konix->SlipStream->DSP_->INSTRUCT_->verilatorDSP_PDKU>>1;
+        condIndex = (tb->m_konix->SlipStream->DSP_->INSTRUCT_->verilatorDSP_PDKU&1)<<1;
+        address = tb->m_konix->SlipStream->DSP_->ADDRESS_->verilatorDSP_DA;
     }
     ImGui::TableNextColumn();
     if (row>=0)
@@ -1101,7 +1107,7 @@ void DSPWatchView(const char* viewname,int start,int end)
 
     for (int a=start;a<=end;a++)
     {
-        int highlight = (tb->m_konix->SlipStream->DSP_->ADDRESS_->verilogDSP_DA == (a));
+        int highlight = (tb->m_konix->SlipStream->DSP_->ADDRESS_->verilatorDSP_DA == (a));
         if (highlight)
         {
             ImVec4 textColor(1.0f,1.0f,0.0f,1.0f);
@@ -1147,7 +1153,7 @@ void DSPDataView()
         for (int b=0;b<16;b++)
         {
             ImGui::SameLine();
-            int highlight = (tb->m_konix->SlipStream->DSP_->ADDRESS_->verilogDSP_DA == (a+b+0x180));
+            int highlight = (tb->m_konix->SlipStream->DSP_->ADDRESS_->verilatorDSP_DA == (a+b+0x180));
             if (highlight)
             {
                 ImVec4 textColor(1.0f,1.0f,0.0f,1.0f);
@@ -1227,28 +1233,8 @@ unsigned char PeekByte(unsigned int address)
 
 void StatusBar()
 {
-    unsigned int HCounter=0, VCounter=0;
-    HCounter<<=1; HCounter|=tb->m_konix->SlipStream->VID_->HCNT_->HC_9;
-    HCounter<<=1; HCounter|=tb->m_konix->SlipStream->VID_->HCNT_->HC_8;
-    HCounter<<=1; HCounter|=tb->m_konix->SlipStream->VID_->HCNT_->HC_7;
-    HCounter<<=1; HCounter|=tb->m_konix->SlipStream->VID_->HCNT_->HC_6;
-    HCounter<<=1; HCounter|=tb->m_konix->SlipStream->VID_->HCNT_->HC_5;
-    HCounter<<=1; HCounter|=tb->m_konix->SlipStream->VID_->HCNT_->HC_4;
-    HCounter<<=1; HCounter|=tb->m_konix->SlipStream->VID_->HCNT_->HC_3;
-    HCounter<<=1; HCounter|=tb->m_konix->SlipStream->VID_->HCNT_->HC_2;
-    HCounter<<=1; HCounter|=tb->m_konix->SlipStream->VID_->HCNT_->HC_1;
-    HCounter<<=1; HCounter|=tb->m_konix->SlipStream->VID_->HCNT_->HC_0;
-
-    VCounter<<=1; VCounter|=tb->m_konix->SlipStream->VID_->VCNT_->VC_8;
-    VCounter<<=1; VCounter|=tb->m_konix->SlipStream->VID_->VCNT_->VC_7;
-    VCounter<<=1; VCounter|=tb->m_konix->SlipStream->VID_->VCNT_->VC_6;
-    VCounter<<=1; VCounter|=tb->m_konix->SlipStream->VID_->VCNT_->VC_5;
-    VCounter<<=1; VCounter|=tb->m_konix->SlipStream->VID_->VCNT_->VC_4;
-    VCounter<<=1; VCounter|=tb->m_konix->SlipStream->VID_->VCNT_->VC_3;
-    VCounter<<=1; VCounter|=tb->m_konix->SlipStream->VID_->VCNT_->VC_2;
-    VCounter<<=1; VCounter|=tb->m_konix->SlipStream->VID_->VCNT_->VC_1;
-    VCounter<<=1; VCounter|=tb->m_konix->SlipStream->VID_->VCNT_->VC_0;
-
+    unsigned int VCounter = tb->m_konix->SlipStream->VID_->VCNT_->verilatorVID_VC;
+    unsigned int HCounter = tb->m_konix->SlipStream->VID_->HCNT_->verilatorVID_HC;
 
     ImGui::Begin("Status");
     ImGui::Text("Ticks %20ld | HOLD %d | HLDA %d | E %03X | VCNT %03X | HCNT %03X", ticks, tb->m_konix->Processor->HOLD, tb->m_konix->Processor->HOLDA, tb->m_konix->Processor->eu->executionState, VCounter, HCounter);

@@ -166,10 +166,20 @@ wire drv0_enDD_8;                                                               
 wire drv1_outDD_8;                                                              //[ADDRESS.NET:00009] OUTPUTS	DD_0,DD_1,DD_2,DD_3,DD_4,DD_5,DD_6,DD_7,DD_8,DA_0,DA_1,DA_2,DA_3,DA_4,
 wire drv1_enDD_8;                                                               //[ADDRESS.NET:00009] OUTPUTS	DD_0,DD_1,DD_2,DD_3,DD_4,DD_5,DD_6,DD_7,DD_8,DA_0,DA_1,DA_2,DA_3,DA_4,
 
+/* Capture DSP Index Register For Verilator Debugger */
+wire [8:0] verilatorDSP_IX /* verilator public */;
+assign verilatorDSP_IX = {IX_8,IX_7,IX_6,IX_5,IX_4,IX_3,IX_2,IX_1,IX_0};
+
+/* Capture DSP Intrude Address Register For Verilator Debugger */
+wire [8:0] verilatorDSP_INTRA /* verilator public */;
+assign verilatorDSP_INTRA = {INTRA_8,INTRA_7,INTRA_6,INTRA_5,INTRA_4,INTRA_3,INTRA_2,INTRA_1,INTRA_0};
+
+/* Capture DSP DataAddress Register For Verilator Debugger */
+wire [8:0] verilatorDSP_DA /* verilator public */;
+assign verilatorDSP_DA = {DA_8,DA_7,DA_6,DA_5,DA_4,DA_3,DA_2,DA_1,DA_0};
+
 /* The IX register */
 
-wire [8:0] verilogDSP_IX /* verilator public */;
-assign verilogDSP_IX = {IX_8,IX_7,IX_6,IX_5,IX_4,IX_3,IX_2,IX_1,IX_0};
 
 assign LOADIX = ~(IXWRL | DQCLK);                                               //[ADDRESS.NET:00017] LOADIX_(LOADIX) = NR2C(IXWRL,DQCLK);
 LD1A IXREG_0__inst (.MasterClock(MasterClock),.q(IX_0),.qL(IXL_0),.d(DDB_0),.en(LOADIX));//[ADDRESS.NET:00018] IXREG_0_(IX_0,IXL_0) = LD1A(DDB_0,LOADIX);
@@ -192,10 +202,6 @@ assign drv0_outDD_7 = ~IXL_7; assign drv0_enDD_7 = IXRD;                        
 assign drv0_outDD_8 = ~IXL_8; assign drv0_enDD_8 = IXRD;                        //[ADDRESS.NET:00035] READIX_8_(DD_8) = BTS5B(IXL_8,IXRD);
 assign IXRD = ~IXRDL;                                                           //[ADDRESS.NET:00036] IXRD_(IXRD) = N1C(IXRDL);
 /* The Intrude address register */
-
-wire [8:0] verilogDSP_INTRA /* verilator public */;
-assign verilogDSP_INTRA = {INTRA_8,INTRA_7,INTRA_6,INTRA_5,INTRA_4,INTRA_3,INTRA_2,INTRA_1,INTRA_0};
-
 
 LD2A INTRA_0__inst (.MasterClock(MasterClock),.q(INTRA_0),.qL(INTRAL_0),.d(A_1),.en(INTRALDL));//[ADDRESS.NET:00039] INTRA_0_(INTRA_0,INTRAL_0) = LD2A(A_1,INTRALDL);
 LD2A INTRA_1__inst (.MasterClock(MasterClock),.q(INTRA_1),.qL(INTRAL_1),.d(A_2),.en(INTRALDL));//[ADDRESS.NET:00040] INTRA_1_(INTRA_1,INTRAL_1) = LD2A(A_2,INTRALDL);
@@ -236,9 +242,6 @@ m_MUX3 DAUN_7_ (.MasterClock(MasterClock),.A(PD_7),.B(IXA_7),.C(INTRA_7),.SEL_0(
 m_MUX3 DAUN_8_ (.MasterClock(MasterClock),.A(PD_8),.B(IXA_8),.C(INTRA_8),.SEL_0(ASEL_0),.SEL_1(ASEL_1),.Z_3(DAUN_8));//[ADDRESS.NET:00075] DAUN_8_(DAUN_8) = MUX3(PD_8,IXA_8,INTRA_8,ASEL_0,ASEL_1);
 
 /* The pipeline latch */ 
-
-wire [8:0] verilogDSP_DA /* verilator public */;
-assign verilogDSP_DA = {DA_8,DA_7,DA_6,DA_5,DA_4,DA_3,DA_2,DA_1,DA_0};
 
 FD2A DA_0__inst (.MasterClock(MasterClock),.q(DA_0),.qL(DAL_0),.d(DAUN_0),.clk(CLK),.rL(RESETL));//[ADDRESS.NET:00079] DA_0_(DA_0,DAL_0) = FD2A(DAUN_0,CLK,RESETL);
 FD2A DA_1__inst (.MasterClock(MasterClock),.q(DA_1),.qL(DAL_1),.d(DAUN_1),.clk(CLK),.rL(RESETL));//[ADDRESS.NET:00080] DA_1_(DA_1,DAL_1) = FD2A(DAUN_1,CLK,RESETL);

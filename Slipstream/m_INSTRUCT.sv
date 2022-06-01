@@ -177,6 +177,10 @@ wire TRAD;                                                                      
 wire GP;                                                                        //[INSTRUCT.NET:00258] GPRDL_(GPRDL) = OR2A(GP,READL);
 wire TRUD;                                                                      //[INSTRUCT.NET:00266] TRUD_(TRUD) = ND5A(REGS,DAL_0,DAL_1,DAL_2,DAL_3);	/* 140 */
 
+/* Capture DSP Pipelined Instruction For Verilator Debugger */
+wire [5:0] verilatorDSP_PDKU /* verilator public */;
+assign verilatorDSP_PDKU = {PDKU_15,PDKU_14,PDKU_13,PDKU_12,PDKU_11,PDKU_10};
+
 
 /* Address selection must be made before the pipeline latch,
    so the decode is from the unlatched data */
@@ -210,9 +214,6 @@ FD2A PDKU_12__inst (.MasterClock(MasterClock),.q(PDKUL_12),.qL(PDKU_12),.d(PDD_1
 FD2A PDKU_13__inst (.MasterClock(MasterClock),.q(PDKUL_13),.qL(PDKU_13),.d(PDD_13),.clk(XCK),.rL(RESETL));//[INSTRUCT.NET:00046] PDKU_13_(PDKUL_13,PDKU_13) = FD2A(PDD_13,XCK,RESETL);
 FD2A PDKU_14__inst (.MasterClock(MasterClock),.q(PDKUL_14),.qL(PDKU_14),.d(PDD_14),.clk(XCK),.rL(RESETL));//[INSTRUCT.NET:00047] PDKU_14_(PDKUL_14,PDKU_14) = FD2A(PDD_14,XCK,RESETL);
 FD2A PDKU_15__inst (.MasterClock(MasterClock),.q(PDKUL_15),.qL(PDKU_15),.d(PDD_15),.clk(XCK),.rL(RESETL));//[INSTRUCT.NET:00048] PDKU_15_(PDKUL_15,PDKU_15) = FD2A(PDD_15,XCK,RESETL);
-
-wire [5:0] verilogDSP_PDKU /* verilator public */;
-assign verilogDSP_PDKU = {PDKU_15,PDKU_14,PDKU_13,PDKU_12,PDKU_11,PDKU_10};
 
 assign PDK_10 = ~PDKUL_10;                                                      //[INSTRUCT.NET:00050] PDK_10_(PDK_10) = B1A(PDKUL_10);
 assign PDK_11 = ~PDKUL_11;                                                      //[INSTRUCT.NET:00051] PDK_11_(PDK_11) = B1A(PDKUL_11);

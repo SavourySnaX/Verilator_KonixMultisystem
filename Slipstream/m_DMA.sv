@@ -426,9 +426,19 @@ wire drv0_enDD_15;                                                              
 wire drv1_outDD_15;                                                             //[DMA.NET:00014]    DD_12,DD_13,DD_14,DD_15,DSPBRQL,MREQ,RD,WR,WORD;
 wire drv1_enDD_15;                                                              //[DMA.NET:00014]    DD_12,DD_13,DD_14,DD_15,DSPBRQL,MREQ,RD,WR,WORD;
 
+/* Capture DSP DMA Data Register For Verilator Debugger */
+wire [15:0] verilatorDSP_DMD /* verilator public */;
+assign verilatorDSP_DMD = {DMD_15,DMD_14,DMD_13,DMD_12,DMD_11,DMD_10,DMD_9,DMD_8,DMD_7,DMD_6,DMD_5,DMD_4,DMD_3,DMD_2,DMD_1,DMD_0};
+
+/* Capture DSP DMA0 Register For Verilator Debugger */
+wire [15:0] verilatorDSP_DMA0 /* verilator public */;
+assign verilatorDSP_DMA0 = {DMA_15,DMA_14,DMA_13,DMA_12,DMA_11,DMA_10,DMA_9,DMA_8,DMA_7,DMA_6,DMA_5,DMA_4,DMA_3,DMA_2,DMA_1,DMA_0};
+
+/* Capture DSP DMA1 Register For Verilator Debugger */
+wire [15:0] verilatorDSP_DMA1 /* verilator public */;
+assign verilatorDSP_DMA1 = {1'b0,1'b0,1'b0,1'b0,HOLD,RDWR,BYTE,LOHI,1'b0,1'b0,1'b0,1'b0,DMA_19,DMA_18,DMA_17,DMA_16};
+
  /* The data register */
-wire [15:0] verilogDSP_DMD /* verilator public */;
-assign verilogDSP_DMD = {DMD_15,DMD_14,DMD_13,DMD_12,DMD_11,DMD_10,DMD_9,DMD_8,DMD_7,DMD_6,DMD_5,DMD_4,DMD_3,DMD_2,DMD_1,DMD_0};
 
 LD1A DMD_0__inst (.MasterClock(MasterClock),.q(DMD_0),.qL(DMDL_0),.d(DIN_0),.en(DMLD_0));//[DMA.NET:00020] DMD_0_(DMD_0,DMDL_0) = LD1A(DIN_0,DMLD_0);
 LD1A DMD_1__inst (.MasterClock(MasterClock),.q(DMD_1),.qL(DMDL_1),.d(DIN_1),.en(DMLD_0));//[DMA.NET:00021] DMD_1_(DMD_1,DMDL_1) = LD1A(DIN_1,DMLD_0);
@@ -568,11 +578,6 @@ assign DH_2 = DSPBAK & WR & LOHI & BYTE;                                        
 
 
 /* The address registers */
-
-wire [15:0] verilogDSP_DMA0 /* verilator public */;
-assign verilogDSP_DMA0 = {DMA_15,DMA_14,DMA_13,DMA_12,DMA_11,DMA_10,DMA_9,DMA_8,DMA_7,DMA_6,DMA_5,DMA_4,DMA_3,DMA_2,DMA_1,DMA_0};
-wire [15:0] verilogDSP_DMA1 /* verilator public */;
-assign verilogDSP_DMA1 = {1'b0,1'b0,1'b0,1'b0,HOLD,RDWR,BYTE,LOHI,1'b0,1'b0,1'b0,1'b0,DMA_19,DMA_18,DMA_17,DMA_16};
 
 
 LD1A DMA0_0__inst (.MasterClock(MasterClock),.q(DMA_0),.qL(DMAL_0),.d(DDB_0),.en(DMA0WR));//[DMA.NET:00160] DMA0_0_(DMA_0,DMAL_0) = LD1A(DDB_0,DMA0WR);

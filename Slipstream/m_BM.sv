@@ -551,14 +551,14 @@ assign MUX = ~MUXL;                                                             
 assign MUXB = ~MUXL;                                                            //[BM.NET:00132] MUXB_(MUXB) = B1A(MUXL);
 assign MUXBL = ~MUX;                                                            //[BM.NET:00133] MUXBL_(MUXBL) = B1A(MUX);
 
-assign VA_0 = ~OAL_0;//((OAL_0 & MUXBL)|(OAL_8 & MUXB));                                //[BM.NET:00135] VA_0_(VA_0) = AO2A(OAL_0,MUXBL,OAL_8,MUXB);
-assign VA_1 = ~OAL_1;//((OAL_1 & MUXBL)|(OAL_9 & MUXB));                                //[BM.NET:00136] VA_1_(VA_1) = AO2A(OAL_1,MUXBL,OAL_9,MUXB);
-assign VA_2 = ~OAL_2;//((OAL_2 & MUXBL)|(OAL_10 & MUXB));                               //[BM.NET:00137] VA_2_(VA_2) = AO2A(OAL_2,MUXBL,OAL_10,MUXB);
-assign VA_3 = ~OAL_3;//((OAL_3 & MUXBL)|(OAL_11 & MUXB));                               //[BM.NET:00138] VA_3_(VA_3) = AO2A(OAL_3,MUXBL,OAL_11,MUXB);
-assign VA_4 = ~OAL_4;//((OAL_4 & MUXBL)|(OAL_12 & MUXB));                               //[BM.NET:00139] VA_4_(VA_4) = AO2A(OAL_4,MUXBL,OAL_12,MUXB);
-assign VA_5 = ~OAL_5;//((OAL_5 & MUXBL)|(OAL_13 & MUXB));                               //[BM.NET:00140] VA_5_(VA_5) = AO2A(OAL_5,MUXBL,OAL_13,MUXB);
-assign VA_6 = ~OAL_6;//((OAL_6 & MUXBL)|(OAL_14 & MUXB));                               //[BM.NET:00141] VA_6_(VA_6) = AO2A(OAL_6,MUXBL,OAL_14,MUXB);
-assign VA_7 = ~OAL_7;//((OAL_7 & MUXBL)|(OAL_15 & MUXB));                               //[BM.NET:00142] VA_7_(VA_7) = AO2A(OAL_7,MUXBL,OAL_15,MUXB);
+assign VA_0 = ~((OAL_0 & 1)|(OAL_8 & 0));                                       //[BM.NET:00135] VA_0_(VA_0) = AO2A(OAL_0,MUXBL,OAL_8,MUXB);
+assign VA_1 = ~((OAL_1 & 1)|(OAL_9 & 0));                                       //[BM.NET:00136] VA_1_(VA_1) = AO2A(OAL_1,MUXBL,OAL_9,MUXB);
+assign VA_2 = ~((OAL_2 & 1)|(OAL_10 & 0));                                      //[BM.NET:00137] VA_2_(VA_2) = AO2A(OAL_2,MUXBL,OAL_10,MUXB);
+assign VA_3 = ~((OAL_3 & 1)|(OAL_11 & 0));                                      //[BM.NET:00138] VA_3_(VA_3) = AO2A(OAL_3,MUXBL,OAL_11,MUXB);
+assign VA_4 = ~((OAL_4 & 1)|(OAL_12 & 0));                                      //[BM.NET:00139] VA_4_(VA_4) = AO2A(OAL_4,MUXBL,OAL_12,MUXB);
+assign VA_5 = ~((OAL_5 & 1)|(OAL_13 & 0));                                      //[BM.NET:00140] VA_5_(VA_5) = AO2A(OAL_5,MUXBL,OAL_13,MUXB);
+assign VA_6 = ~((OAL_6 & 1)|(OAL_14 & 0));                                      //[BM.NET:00141] VA_6_(VA_6) = AO2A(OAL_6,MUXBL,OAL_14,MUXB);
+assign VA_7 = ~((OAL_7 & 1)|(OAL_15 & 0));                                      //[BM.NET:00142] VA_7_(VA_7) = AO2A(OAL_7,MUXBL,OAL_15,MUXB);
 assign VAL_0 = ~VA_0;                                                           //[BM.NET:00143] VAL_0_(VAL_0) = N1A(VA_0); 
 
 assign VAL_1 = ~VA_1;                                                           //[BM.NET:00145] VAL_1_(VAL_1) = N1A(VA_1); 
@@ -587,7 +587,7 @@ assign VA_15 = ~OAL_15;                                                         
 
 /* A16 may also be multiplexed for DRAMs */
 
-assign VA_16 = ~OAL_16; //~((OAL_16 & MUXBL)|(VAL_17 & MUXB));                             //[BM.NET:00171] VA_16_(VA_16) = AO2A(OAL_16,MUXBL,VAL_17,MUXB);
+assign VA_16 = ~((OAL_16 & 1)|(VAL_17 & 0));                                    //[BM.NET:00171] VA_16_(VA_16) = AO2A(OAL_16,MUXBL,VAL_17,MUXB);
 assign VAL_16 = ~VA_16;                                                         //[BM.NET:00172] VAL_16_(VAL_16) = N1A(VA_16);
 
 /* A8-A15, RDL and WRL are enabled when hlda is asserted */

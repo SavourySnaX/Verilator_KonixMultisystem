@@ -82,8 +82,9 @@ wire drv0_enD_6;                                                                
 wire drv0_outD_7;                                                               //[PC.NET:00008] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,PC_0,PC_1,PC_2,PC_3,PC_4,PC_5,PC_6,
 wire drv0_enD_7;                                                                //[PC.NET:00008] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,PC_0,PC_1,PC_2,PC_3,PC_4,PC_5,PC_6,
 
-wire [7:0] verilogDSP_PC /* verilator public */;
-assign verilogDSP_PC = {PC_7,PC_6,PC_5,PC_4,PC_3,PC_2,PC_1,PC_0};
+/* Capture DSP Program Counter For Verilator Debugger */
+wire [7:0] verilatorDSP_PC /* verilator public */;
+assign verilatorDSP_PC = {PC_7,PC_6,PC_5,PC_4,PC_3,PC_2,PC_1,PC_0};
 
 m_MUX MUX_0_ (.MasterClock(MasterClock),.A(HA_1),.B(RUNL),.C(DDB_0),.D(RUN),.Z(MUX_0));//[PC.NET:00013] MUX_0_(MUX_0) = MUX(HA_1,RUNL,DDB_0,RUN);
 m_MUX MUX_1_ (.MasterClock(MasterClock),.A(HA_2),.B(RUNL),.C(DDB_1),.D(RUN),.Z(MUX_1));//[PC.NET:00014] MUX_1_(MUX_1) = MUX(HA_2,RUNL,DDB_1,RUN);

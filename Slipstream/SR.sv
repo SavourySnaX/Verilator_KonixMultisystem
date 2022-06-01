@@ -1,24 +1,16 @@
-/* SR LATCH */
-
 module SR
 (
-    input   S,
-    input   R,
-    output  Q,
-    output  QL
+
+    input    MasterClock,
+    input    S,
+    input    R,
+    output    reg Q,
+    output    reg QL
 );
 
-reg latchedData;
-
-assign Q = latchedData;
-assign QL = ~latchedData;
-
-always @(negedge S, negedge R)
+always @(posedge MasterClock)
 begin
-    if (~S)
-        latchedData<=1'b1;
-    else if (~R)
-        latchedData<=1'b0;
+	Q <= ~(S & QL);
+	QL <= ~(R & Q);
 end
-
 endmodule

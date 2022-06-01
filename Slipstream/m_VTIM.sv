@@ -233,7 +233,7 @@ assign VSTARTL = ~VSTART;                                                       
 at the begining of the line after scrl2 is written */
 
 assign SCRLL_2 = ~SCRL_2;                                                       //[VTIM.NET:00059] SCRLL_2_(SCRLL_2) = N1A(SCRL_2);
-m_SR NEWSCROLL_ (.MasterClock(MasterClock),.S(SCRLL_2),.R(LOADL),.Q(NEWSCROLL),.QL(NEWSCROLLL));//[VTIM.NET:00060] NEWSCROLL_(NEWSCROLL,NEWSCROLLL) = SR(SCRLL_2,LOADL);
+SR NEWSCROLL__inst (.MasterClock(MasterClock),.Q(NEWSCROLL),.QL(NEWSCROLLL),.S(SCRLL_2),.R(LOADL));//[VTIM.NET:00060] NEWSCROLL_(NEWSCROLL,NEWSCROLLL) = SR(SCRLL_2,LOADL);
 assign UPDATEL = ~(HD1 & NEWSCROLL);                                            //[VTIM.NET:00061] UPDATEL_(UPDATEL) = ND2A(HD1,NEWSCROLL);
 assign LOAD = ~(UPDATEL & VSTARTL);                                             //[VTIM.NET:00062] LOAD_(LOAD) = ND2A(UPDATEL,VSTARTL);
 assign LOADL = ~LOAD;                                                           //[VTIM.NET:00063] LOADL_(LOADL) = N1B(LOAD);

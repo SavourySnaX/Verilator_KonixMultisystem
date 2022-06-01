@@ -83,31 +83,31 @@ wire VCNTL_8;                                                                   
 wire HDD;                                                                       //[VCNT.NET:00041] HDD_(HDD) = NR2A(HD1,DIAG);
 wire HD1D;                                                                      //[VCNT.NET:00042] HD1D_(HD1D) = NR2C(HDD,RES);
 wire VCNTLBL;                                                                   //[VCNT.NET:00046] VCNTLBL_(VCNTLBL) = N1C(VCNTL);
-wire VC_0 /* verilator public */;                                                                      //[VCNT.NET:00047] Q_0_(VC_0,VCB_0,CO_0) = SYNCNT(WD_0,CLK,NEXTV,VCNTLBL,HD1D);
+wire VC_0;                                                                      //[VCNT.NET:00047] Q_0_(VC_0,VCB_0,CO_0) = SYNCNT(WD_0,CLK,NEXTV,VCNTLBL,HD1D);
 wire VCB_0;                                                                     //[VCNT.NET:00047] Q_0_(VC_0,VCB_0,CO_0) = SYNCNT(WD_0,CLK,NEXTV,VCNTLBL,HD1D);
 wire CO_0;                                                                      //[VCNT.NET:00047] Q_0_(VC_0,VCB_0,CO_0) = SYNCNT(WD_0,CLK,NEXTV,VCNTLBL,HD1D);
-wire VC_1 /* verilator public */;                                                                      //[VCNT.NET:00048] Q_1_(VC_1,VCB_1,CO_1) = SYNCNT(WD_1,CLK,NEXTV,VCNTLBL,CO_0);
+wire VC_1;                                                                      //[VCNT.NET:00048] Q_1_(VC_1,VCB_1,CO_1) = SYNCNT(WD_1,CLK,NEXTV,VCNTLBL,CO_0);
 wire VCB_1;                                                                     //[VCNT.NET:00048] Q_1_(VC_1,VCB_1,CO_1) = SYNCNT(WD_1,CLK,NEXTV,VCNTLBL,CO_0);
 wire CO_1;                                                                      //[VCNT.NET:00048] Q_1_(VC_1,VCB_1,CO_1) = SYNCNT(WD_1,CLK,NEXTV,VCNTLBL,CO_0);
-wire VC_2 /* verilator public */;                                                                      //[VCNT.NET:00049] Q_2_(VC_2,VCB_2,CO_2) = SYNCNT(WD_2,CLK,NEXTV,VCNTLBL,CO_1);
+wire VC_2;                                                                      //[VCNT.NET:00049] Q_2_(VC_2,VCB_2,CO_2) = SYNCNT(WD_2,CLK,NEXTV,VCNTLBL,CO_1);
 wire VCB_2;                                                                     //[VCNT.NET:00049] Q_2_(VC_2,VCB_2,CO_2) = SYNCNT(WD_2,CLK,NEXTV,VCNTLBL,CO_1);
 wire CO_2;                                                                      //[VCNT.NET:00049] Q_2_(VC_2,VCB_2,CO_2) = SYNCNT(WD_2,CLK,NEXTV,VCNTLBL,CO_1);
-wire VC_3 /* verilator public */;                                                                      //[VCNT.NET:00050] Q_3_(VC_3,VCB_3,CO_3) = SYNCNT(WD_3,CLK,NEXTV,VCNTLBL,CO_2);
+wire VC_3;                                                                      //[VCNT.NET:00050] Q_3_(VC_3,VCB_3,CO_3) = SYNCNT(WD_3,CLK,NEXTV,VCNTLBL,CO_2);
 wire VCB_3;                                                                     //[VCNT.NET:00050] Q_3_(VC_3,VCB_3,CO_3) = SYNCNT(WD_3,CLK,NEXTV,VCNTLBL,CO_2);
 wire CO_3;                                                                      //[VCNT.NET:00050] Q_3_(VC_3,VCB_3,CO_3) = SYNCNT(WD_3,CLK,NEXTV,VCNTLBL,CO_2);
-wire VC_4 /* verilator public */;                                                                      //[VCNT.NET:00051] Q_4_(VC_4,VCB_4,CO_4) = SYNCNT(WD_4,CLK,NEXTV,VCNTLBL,CO_3);
+wire VC_4;                                                                      //[VCNT.NET:00051] Q_4_(VC_4,VCB_4,CO_4) = SYNCNT(WD_4,CLK,NEXTV,VCNTLBL,CO_3);
 wire VCB_4;                                                                     //[VCNT.NET:00051] Q_4_(VC_4,VCB_4,CO_4) = SYNCNT(WD_4,CLK,NEXTV,VCNTLBL,CO_3);
 wire CO_4;                                                                      //[VCNT.NET:00051] Q_4_(VC_4,VCB_4,CO_4) = SYNCNT(WD_4,CLK,NEXTV,VCNTLBL,CO_3);
-wire VC_5 /* verilator public */;                                                                      //[VCNT.NET:00052] Q_5_(VC_5,VCB_5,CO_5) = SYNCNT(WD_5,CLK,NEXTV,VCNTLBL,CO_4);
+wire VC_5;                                                                      //[VCNT.NET:00052] Q_5_(VC_5,VCB_5,CO_5) = SYNCNT(WD_5,CLK,NEXTV,VCNTLBL,CO_4);
 wire VCB_5;                                                                     //[VCNT.NET:00052] Q_5_(VC_5,VCB_5,CO_5) = SYNCNT(WD_5,CLK,NEXTV,VCNTLBL,CO_4);
 wire CO_5;                                                                      //[VCNT.NET:00052] Q_5_(VC_5,VCB_5,CO_5) = SYNCNT(WD_5,CLK,NEXTV,VCNTLBL,CO_4);
-wire VC_6 /* verilator public */;                                                                      //[VCNT.NET:00053] Q_6_(VC_6,VCB_6,CO_6) = SYNCNT(WD_6,CLK,NEXTV,VCNTLBL,CO_5);
+wire VC_6;                                                                      //[VCNT.NET:00053] Q_6_(VC_6,VCB_6,CO_6) = SYNCNT(WD_6,CLK,NEXTV,VCNTLBL,CO_5);
 wire VCB_6;                                                                     //[VCNT.NET:00053] Q_6_(VC_6,VCB_6,CO_6) = SYNCNT(WD_6,CLK,NEXTV,VCNTLBL,CO_5);
 wire CO_6;                                                                      //[VCNT.NET:00053] Q_6_(VC_6,VCB_6,CO_6) = SYNCNT(WD_6,CLK,NEXTV,VCNTLBL,CO_5);
-wire VC_7 /* verilator public */;                                                                      //[VCNT.NET:00054] Q_7_(VC_7,VCB_7,CO_7) = SYNCNT(WD_7,CLK,NEXTV,VCNTLBL,CO_6);
+wire VC_7;                                                                      //[VCNT.NET:00054] Q_7_(VC_7,VCB_7,CO_7) = SYNCNT(WD_7,CLK,NEXTV,VCNTLBL,CO_6);
 wire VCB_7;                                                                     //[VCNT.NET:00054] Q_7_(VC_7,VCB_7,CO_7) = SYNCNT(WD_7,CLK,NEXTV,VCNTLBL,CO_6);
 wire CO_7;                                                                      //[VCNT.NET:00054] Q_7_(VC_7,VCB_7,CO_7) = SYNCNT(WD_7,CLK,NEXTV,VCNTLBL,CO_6);
-wire VC_8 /* verilator public */;                                                                      //[VCNT.NET:00055] Q_8_(VC_8,VCB_8,CO_8) = SYNCNT(VCNT_8,CLK,NEXTV,VCNTLBL,CO_7);
+wire VC_8;                                                                      //[VCNT.NET:00055] Q_8_(VC_8,VCB_8,CO_8) = SYNCNT(VCNT_8,CLK,NEXTV,VCNTLBL,CO_7);
 wire VCB_8;                                                                     //[VCNT.NET:00055] Q_8_(VC_8,VCB_8,CO_8) = SYNCNT(VCNT_8,CLK,NEXTV,VCNTLBL,CO_7);
 wire CO_8;                                                                      //[VCNT.NET:00055] Q_8_(VC_8,VCB_8,CO_8) = SYNCNT(VCNT_8,CLK,NEXTV,VCNTLBL,CO_7);
 wire INT_0;                                                                     //[VCNT.NET:00078] INT_0_(INT_0,INTB_0) = LD1A(WD_0,INTL);
@@ -228,6 +228,10 @@ wire drv0_enD_7;                                                                
 wire drv1_outD_7;                                                               //[VCNT.NET:00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
 wire drv1_enD_7;                                                                //[VCNT.NET:00022] OUTPUTS	D_0,D_1,D_2,D_3,D_4,D_5,D_6,D_7,VVACTIVE,VSYNC,VINT,BORDER,BLANKING,
 
+/* Capture Vertical Counter For Verilator Debugger */
+wire [8:0] verilatorVID_VC /* verilator public */;
+assign verilatorVID_VC = {VC_8,VC_7,VC_6,VC_5,VC_4,VC_3,VC_2,VC_1,VC_0};
+
 /* buffer the clock and reset */
 
 assign RESETL = RESETL_0;                                                       //[VCNT.NET:00029] RESETL_(RESETL) = B3A(RESETL_0);
@@ -335,7 +339,7 @@ assign NEXTV = ~(VLOCKL & VSENDL);                                              
 /* generate vertical sync but disable when genlocking */
 
 m_JK VVSYNC_ (.MasterClock(MasterClock),.J(VSST),.K(NEXTV),.R(RES),.CLK(CLK),.Q(VVSYNC),.QB(VVSYNCL));//[VCNT.NET:00133] VVSYNC_(VVSYNC,VVSYNCL) = JK(VSST,NEXTV,RES,CLK);
-assign VSYNCDL = ~(/*HVSYNC & */VVSYNC);                                        //[VCNT.NET:00134] VSYNCDL_(VSYNCDL) = ND2A(HVSYNC,VVSYNC);
+assign VSYNCDL = ~(1 & VVSYNC);                                                 //[VCNT.NET:00134] VSYNCDL_(VSYNCDL) = ND2A(HVSYNC,VVSYNC);
 assign VSYNC = ~(VSYNCDL | GENLOCK);                                            //[VCNT.NET:00135] VSYNC_(VSYNC) = NR2A(VSYNCDL,GENLOCK);
 
 /* generate blanking */
