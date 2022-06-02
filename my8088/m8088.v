@@ -10,6 +10,7 @@ module m8088
     input               INTR,
     input               NMI,
     input               HOLD /* verilator public */,
+    input               TEST_n,
 
     output reg [19:0]   addr,
     output reg [7:0]    dout,
@@ -51,16 +52,16 @@ wire latchPC,latchCS,latchDS,latchSS,latchES;
 wire [15:0] IND,OPRw,OPRr,IP,CS,DS,ES,SS,latchValue;
 wire [2:0] indSeg;
 
-wire IOMinv;
+wire IOMinv,wait_n;
 
 assign IOM=~IOMinv;
 
 bus_interface biu(.CLKx4(CORE_CLK),.CLK(CLK),.RESET(RESET),.READY(READY),.INTR(INTR),
     .NMI(NMI),.HOLD(HOLD),.inAD(din),.outAD(outAD),.enAD(enAD),.A(A),
-    .ALE(ALE),.INTA_n(INTA_n),.RD_n(RD_n),.WR_n(WR_n),.IOM(IOMinv),.DTR(DTR),.DEN_n(DEN),.HOLDA(HOLDA),
+    .ALE(ALE),.INTA_n(INTA_n),.RD_n(RD_n),.WR_n(WR_n),.IOM(IOMinv),.DTR(DTR),.DEN_n(DEN),.HOLDA(HOLDA),.TEST_n(TEST_n),
     .prefetchTop(prefetchTop),.prefetchTopLinearAddress(prefetchTopLinearAddress),
     .prefetchEmpty(prefetchEmpty),.prefetchFull(prefetchFull),.indirectBusOpInProgress(indirectBusOpInProgress),.suspending(suspending),.irqPending(pendingIRQ),
-    .advanceTop(readTop),.flush(flush),.suspend(suspend),.correct(correct),.indirect(indirect),.irq(irq),
+    .advanceTop(readTop),.flush(flush),.suspend(suspend),.correct(correct),.indirect(indirect),.irq(irq),.wait_n(wait_n),
     .ind_ioMreq(ind_ioMreq),.ind_readWrite(ind_readWrite),.ind_byteWord(ind_byteWord),
     .latchPC(latchPC),.latchCS(latchCS),.latchDS(latchDS),.latchSS(latchSS),.latchES(latchES),
     .IND(IND),.indirectSeg(indSeg),.OPRw(OPRw),.OPRr(OPRr),
@@ -69,7 +70,7 @@ bus_interface biu(.CLKx4(CORE_CLK),.CLK(CLK),.RESET(RESET),.READY(READY),.INTR(I
 
 execution eu(.CLKx4(CORE_CLK),.CLK(CLK),.RESET(RESET),.prefetchTop(prefetchTop),.prefetchTopLinearAddress(prefetchTopLinearAddress),
     .prefetchEmpty(prefetchEmpty),.prefetchFull(prefetchFull),.indirectBusOpInProgress(indirectBusOpInProgress),.suspending(suspending),.irqPending(pendingIRQ),
-    .readTop(readTop),.flush(flush),.suspend(suspend),.correct(correct),.indirect(indirect),.irq(irq),
+    .readTop(readTop),.flush(flush),.suspend(suspend),.correct(correct),.indirect(indirect),.irq(irq),.wait_n(wait_n),
     .ind_ioMreq(ind_ioMreq),.ind_readWrite(ind_readWrite),.ind_byteWord(ind_byteWord),
     .latchPC(latchPC),.latchCS(latchCS),.latchDS(latchDS),.latchSS(latchSS),.latchES(latchES),
     .IND(IND),.indirectSeg(indSeg),.OPRw(OPRw),.OPRr(OPRr),

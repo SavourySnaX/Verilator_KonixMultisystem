@@ -134,6 +134,7 @@ m8088 Processor(
     .INTR(INTR),
     .NMI(0),
     .HOLD(HOLD),
+    .TEST_n(0),
 
     .addr(cpuA),
     .dout(cpuDOut),
