@@ -249,7 +249,6 @@ m_SS SlipStream(
     .XINC(inc),.XAISEL(aiSel),.XOEL(oeL),.XCASL(casL),.XXTALO(xtalo),.XGPIOL_0(gpioL[0]),.XGPIOL_1(gpioL[1]),
    .CCLK(CCLK),
     .DQCLK(qclk),.LEFTDAC(leftDAC),.RIGHTDAC(rightDAC),
-    .FCLK(clk_sys),
     .SLIPADDRESS(slipAddress)
    ,.BLANKING(blanking)
     );

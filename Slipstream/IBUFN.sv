@@ -1,12 +1,16 @@
 module IBUFN
 (
     input A,
-    input PI,
-    output Z,
+    output Z
+`ifndef NO_TEST_SIGNALS
+    ,input PI,
     output PO
+`endif
 );
 
 assign Z = ~A;
-assign PO = ~(PI & ~A); 
+`ifndef NO_TEST_SIGNALS
+assign PO = ~(PI & ~A);
+`endif 
 
 endmodule

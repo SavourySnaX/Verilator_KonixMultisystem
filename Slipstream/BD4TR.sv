@@ -2,13 +2,15 @@ module BD4TR
 (
     input   I,
     input   A,
+`ifndef NO_TEST_SIGNALS
     input   EN,
-    input   TN,
     input   PI,
+    output  reg PO,
+`endif
+    input   TN,
     output  reg O,
     output  reg E,
     output  reg ZI,
-    output  reg PO,
 
     input MasterClock
 );
@@ -16,16 +18,17 @@ module BD4TR
 always @(posedge MasterClock)
 begin
 
+`ifdef NO_TEST_SIGNALS
+    O<=TN ? A : I;
+    ZI<=I;
+    E<=TN;
+`else
     PO <= ~(I & PI);
     ZI <= I;
     E <= ~(~((~EN) & TN));
     O <= E ? A : I;
+`endif
 
 end
-
-//assign PO = ~(I & PI);
-//assign ZI = I;
-//assign E = ~(~((~EN) & TN));
-//assign O = E ? A : I;
 
 endmodule
